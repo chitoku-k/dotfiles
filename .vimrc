@@ -42,6 +42,7 @@ colorscheme desert                  " カラースキーム
 syntax on
 set encoding=utf-8
 set fileencoding=utf-8
+set noundofile                      " Undo ファイル無効化
 set noswapfile                      " 一時ファイル無効化
 set nobackup                        " バックアップ無効化
 set nowritebackup                   " 上書き時のバックアップ無効化
