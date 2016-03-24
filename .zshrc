@@ -31,7 +31,7 @@ unsetopt PROMPT_SP              # 末尾文字非表示
 #-------------------
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
-compinit
+compinit -u
 zstyle ':completion:*:default' menu select=1
 
 
