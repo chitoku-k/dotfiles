@@ -30,11 +30,10 @@ NeoBundleCheck
 "-------------------
 " 表示
 "-------------------
-syntax on
-set t_Co=256
-set background=dark
-let base16colorspace=256
-colorscheme base16-ocean
+syntax on                           " シンタックスハイライト
+set t_Co=256                        " 表示色
+set background=dark                 " 背景色
+colorscheme desert                  " カラースキーム
 
 
 "-------------------
