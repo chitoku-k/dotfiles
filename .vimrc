@@ -1,8 +1,46 @@
 "-------------------
+" NeoBundle
+"-------------------
+if &compatible
+  set nocompatible
+endif
+
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+"-------------------
+" プラグイン
+"-------------------
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'mattn/emmet-vim'
+
+
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
+
+
+"-------------------
+" 表示
+"-------------------
+syntax on
+set t_Co=256
+set background=dark
+let base16colorspace=256
+colorscheme base16-ocean
+
+
+"-------------------
 " 一般
 "-------------------
 syntax on
-colorscheme desert
 set encoding=utf-8
 set fileencoding=utf-8
 set noswapfile                      " 一時ファイル無効化
@@ -28,3 +66,12 @@ set listchars=tab:▸\ ,eol:↲         " 不可視文字の指定
 "-------------------
 set ignorecase                      " 大文字小文字無視
 set smartcase                       " 大文字指定時のみ大文字小文字を区別
+
+
+"-------------------
+" キーバインド
+"-------------------
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+autocmd FileType html,php,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
