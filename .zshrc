@@ -53,3 +53,9 @@ unset color
 bindkey "^[OH" beginning-of-line    # [HOME]
 bindkey "^[OF" end-of-line          # [END]
 bindkey "^[[3~" delete-char         # [DELETE]
+
+
+#-------------------
+# ローカル設定
+#-------------------
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
