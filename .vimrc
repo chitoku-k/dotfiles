@@ -20,6 +20,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'leafgarland/typescript-vim'
 
 
 call neobundle#end()
