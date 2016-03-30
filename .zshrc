@@ -56,6 +56,14 @@ bindkey "^[[3~" delete-char         # [DELETE]
 
 
 #-------------------
+# エイリアス
+#-------------------
+alias mv='mv -v'
+alias cp='cp -v'
+alias rm='rm -v'
+
+
+#-------------------
 # ローカル設定
 #-------------------
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
