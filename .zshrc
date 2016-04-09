@@ -44,6 +44,7 @@ case "$HOST" in
     *               ) color="magenta";;
 esac
 export PS1="[%F{$color}%n@%m%f %F{blue}%1~%f%1(v| %F{red}%1v%f|)]%(!.#.$) "
+export RPROMPT=""
 unset color
 
 
