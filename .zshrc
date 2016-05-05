@@ -66,6 +66,12 @@ alias chmod-auto='chmod -R a=rX,u+w'
 
 
 #-------------------
+# 環境変数
+#-------------------
+export VISUAL='vim'
+
+
+#-------------------
 # ローカル設定
 #-------------------
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
