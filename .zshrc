@@ -63,6 +63,7 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias chmod-auto='chmod -R a=rX,u+w'
+alias oppai='git pull --prune'
 
 
 #-------------------
