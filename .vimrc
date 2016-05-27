@@ -32,9 +32,10 @@ NeoBundleCheck
 " 表示
 "-------------------
 syntax on                           " シンタックスハイライト
+set background=dark                 " 背景色
 let base16colorspace=256            " 表示色
 colorscheme base16-ocean            " カラースキーム
-highlight Normal ctermbg=none       " 背景色無効化
+highlight Normal ctermbg=none       " 標準背景色無効化
 
 
 "-------------------
