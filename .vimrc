@@ -78,3 +78,9 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 autocmd FileType html,php,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+
+"-------------------
+" マウス
+"-------------------
+set mouse=a
