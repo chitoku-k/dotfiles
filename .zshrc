@@ -14,16 +14,17 @@ precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    RPROMPT="%F{yellow}INSERT"
 }
 
 
 #-------------------
 # 一般
 #-------------------
-setopt autopushd                # cd -> pushd 実行
-setopt autocd                   # ディレクトリ名 -> cd
-setopt extendedglob             # 拡張マッチ
-unsetopt PROMPT_SP              # 末尾文字非表示
+setopt autopushd                    # cd -> pushd 実行
+setopt autocd                       # ディレクトリ名 -> cd
+setopt extendedglob                 # 拡張マッチ
+unsetopt PROMPT_SP                  # 末尾文字非表示
 
 
 #-------------------
@@ -36,16 +37,44 @@ zstyle ':completion:*:default' menu select=1
 
 
 #-------------------
+# Vi モード
+#-------------------
+function zle-line-init zle-keymap-select {
+    case $KEYMAP in
+        "main")
+            mode="INSERT"
+            ;;
+        *)
+            mode=""
+            ;;
+    esac
+    RPROMPT="%F{yellow}$mode"
+    zle reset-prompt
+}
+
+bindkey -v
+KEYTIMEOUT=1                        # 遅延無効化
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+
+#-------------------
 # プロンプト
 #-------------------
-case "$HOST" in
-    "iMac.local"    ) color="cyan";;
-    "cherry"        ) color="green";;
-    *               ) color="magenta";;
+case $HOST in
+    "iMac.local")
+        color="cyan"
+        ;;
+    "cherry")
+        color="green"
+        ;;
+    *)
+        color="magenta"
+        ;;
 esac
 export PS1="[%F{$color}%n@%m%f %F{blue}%1~%f%1(v| %F{red}%1v%f|)]%(!.#.$) "
-export RPROMPT=""
 unset color
+setopt transient_rprompt            # 右プロンプト自動削除
 
 
 #-------------------
