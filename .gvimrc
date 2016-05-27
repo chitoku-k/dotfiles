@@ -1,10 +1,12 @@
 "-------------------
 " 表示
 "-------------------
-colorscheme base16-ocean            " カラースキーム
+set background=dark                 " 背景色
+set transparency=6                  " 透明度
 set lines=50                        " 行
-set columns=140                     " 幅
-set guifont=Ricty\ Regular:h14      " フォント
+set columns=160                     " 幅
+set guifont=Ricty\ Regular:h12      " フォント
+set linespace=2                     " 行間
 
 
 "-------------------
