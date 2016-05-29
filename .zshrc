@@ -80,6 +80,10 @@ setopt transient_rprompt            # 右プロンプト自動削除
 #-------------------
 # キーバインド
 #-------------------
+bindkey "^?" backward-delete-char   # [BACKSPACE]
+bindkey "^W" backward-kill-word     # [Ctrl+W]
+bindkey "^H" backward-delete-char   # [Ctrl+H]
+bindkey "^U" backward-kill-line     # [Ctrl+U]
 bindkey "^[OH" beginning-of-line    # [HOME]
 bindkey "^[OF" end-of-line          # [END]
 bindkey "^[[3~" delete-char         # [DELETE]
