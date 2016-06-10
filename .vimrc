@@ -1,31 +1,22 @@
 "-------------------
-" NeoBundle
+" Plug
 "-------------------
 if &compatible
   set nocompatible
 endif
 
-set runtimepath^=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.vim/plugged')
 
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
+Plug 'mattn/emmet-vim'
+Plug 'leafgarland/typescript-vim'
 
-"-------------------
-" プラグイン
-"-------------------
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'chriskempson/base16-vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'leafgarland/typescript-vim'
-
-
-call neobundle#end()
-filetype plugin indent on
-NeoBundleCheck
+call plug#end()
 
 
 "-------------------
