@@ -24,7 +24,6 @@ precmd () {
 setopt autopushd                    # cd -> pushd 実行
 setopt autocd                       # ディレクトリ名 -> cd
 setopt extendedglob                 # 拡張マッチ
-unsetopt PROMPT_SP                  # 末尾文字非表示
 
 
 #-------------------
