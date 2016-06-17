@@ -7,8 +7,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
@@ -17,6 +15,7 @@ Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 
 call plug#end()
+filetype plugin indent on
 
 
 "-------------------
