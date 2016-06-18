@@ -37,7 +37,7 @@ set noundofile                      " Undo ファイル無効化
 set noswapfile                      " 一時ファイル無効化
 set nobackup                        " バックアップ無効化
 set nowritebackup                   " 上書き時のバックアップ無効化
-set nowrap                          " 改行禁止
+set ttimeoutlen=100                 " ESC キー遅延
 set ambiwidth=double                " 全角文字の文字幅
 set showtabline=2                   " タブ有効化
 set number                          " 行番号表示
@@ -68,7 +68,13 @@ set hlsearch                        " ハイライト表示
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-autocmd FileType html,php,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+nnoremap q <Nop>
+noremap <C-e> $
+nmap <C-a> ^
 
 
 "-------------------
