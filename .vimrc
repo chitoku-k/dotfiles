@@ -7,9 +7,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/vimfiler'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
@@ -25,8 +22,6 @@ filetype plugin indent on
 " プラグイン関連
 "-------------------
 let g:base16colorspace=256          " base16-vim: 表示色
-let g:vimfiler_safe_mode_by_default=0
-let g:vimfiler_ignore_pattern='.git'
 
 
 "-------------------
@@ -50,6 +45,7 @@ set nowritebackup                   " 上書き時のバックアップ無効化
 set ttimeoutlen=100                 " ESC キー遅延
 set ambiwidth=double                " 全角文字の文字幅
 set showtabline=2                   " タブ有効化
+set number                          " 行番号表示
 set title                           " タイトル文字列
 set tabstop=4                       " タブ幅
 set expandtab                       " ソフトタブ
@@ -72,36 +68,11 @@ set hlsearch                        " ハイライト表示
 
 
 "-------------------
-" 関数群
-"-------------------
-function! VimFilerSidebar()
-  VimFiler -split -simple -winwidth=40 -no-quit
-  set nonumber                      " 行番号非表示
-endfunction
-
-function! s:LoadDefault()
-  set number                        " 行番号表示
-endfunction
-
-
-"-------------------
-" autocmd
-"-------------------
-augroup VimFiler
-  autocmd!
-  autocmd BufNew,BufWinEnter * call s:LoadDefault()
-  autocmd BufWinEnter * call VimFilerSidebar()
-  autocmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
-augroup END
-
-
-"-------------------
 " キーバインド
 "-------------------
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-nnoremap <Space>f :call VimFilerSidebar()<CR>
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
