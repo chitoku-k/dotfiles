@@ -7,6 +7,8 @@ set lines=50                        " 行
 set columns=160                     " 幅
 set guifont=Ricty\ Regular:h12      " フォント
 set linespace=2                     " 行間
+set guioptions-=L                   " 左スクロールバー非表示
+set guioptions-=r                   " 右スクロールバー非表示
 
 
 "-------------------
