@@ -15,6 +15,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -29,6 +30,68 @@ let g:NERDTreeWinSize = 35
 if winwidth(0) > 100
   let g:nerdtree_tabs_open_on_console_startup = 1
 endif
+
+let g:lightline = {
+  \   'mode_map': {'c': 'NORMAL'},
+  \   'active': {
+  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+  \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+  \   },
+  \   'inactive': {
+  \     'left': [ [ 'filename' ] ],
+  \     'right': []
+  \   },
+  \   'component_function': {
+  \     'mode': 'LightLineMode',
+  \     'fugitive': 'LightLineFugitive',
+  \     'filename': 'LightLineFilename',
+  \     'fileformat': 'LightLineFileformat',
+  \     'filetype': 'LightLineFiletype',
+  \     'fileencoding': 'LightLineFileencoding'
+  \   }
+  \ }
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname =~ 'NERD_tree' ? 'NERDTree' :
+    \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightLineFugitive()
+  if expand('%:t') !~? 'NERD_tree' && &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    return fugitive#head()
+  else
+    return ''
+  endif
+endfunction
+
+function! LightLineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:t')
+  return fname =~ 'NERD_tree' ? '' :
+    \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+    \ ('' != fname ? fname : '[No Name]') .
+    \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
 
 
 "-------------------
@@ -45,6 +108,7 @@ highlight Normal ctermbg=none       " 標準背景色無効化
 "-------------------
 set encoding=utf-8
 set fileencoding=utf-8
+set noshowmode                      " モード非表示
 set noundofile                      " Undo ファイル無効化
 set noswapfile                      " 一時ファイル無効化
 set nobackup                        " バックアップ無効化
