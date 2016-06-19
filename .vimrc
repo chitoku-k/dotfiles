@@ -16,6 +16,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tomtom/tcomment_vim'
 
 call plug#end()
 filetype plugin indent on
