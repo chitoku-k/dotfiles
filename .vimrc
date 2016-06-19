@@ -143,16 +143,37 @@ set hlsearch                        " ハイライト表示
 "-------------------
 " キーバインド
 "-------------------
+" 対応括弧の補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" カーソル移動
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+nnoremap <C-a> ^
+nnoremap <C-e> $
+
+" フォーカス移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" 検索結果表示位置
+nnoremap n nzz
+nnoremap N Nzz
+
+" ハイライト非表示
+nmap <silent> <ESC><ESC> :nohlsearch<CR>
+
+" 行末まで選択
+vnoremap v $h
+
+" 無効化
 nnoremap q <Nop>
-noremap <C-e> $
-nmap <C-a> ^
 
 
 "-------------------
