@@ -7,6 +7,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
@@ -21,7 +23,12 @@ filetype plugin indent on
 "-------------------
 " プラグイン関連
 "-------------------
-let g:base16colorspace=256          " base16-vim: 表示色
+let g:base16colorspace = 256        " base16-vim: 表示色
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize = 35
+if winwidth(0) > 100
+  let g:nerdtree_tabs_open_on_console_startup = 1
+endif
 
 
 "-------------------
