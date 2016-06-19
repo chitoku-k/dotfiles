@@ -154,6 +154,15 @@ nmap <C-a> ^
 
 
 "-------------------
+" autocmd
+"-------------------
+augroup NERDTree
+  autocmd!
+  autocmd FileType nerdtree nnoremap <silent><buffer> <Space> :<C-u>call NERDTreeQuickLook()<CR>
+augroup END
+
+
+"-------------------
 " マウス
 "-------------------
 set mouse=a
