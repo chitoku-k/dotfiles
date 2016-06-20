@@ -100,9 +100,12 @@ endfunction
 " 表示
 "-------------------
 syntax on                           " シンタックスハイライト
-set background=dark                 " 背景色
 colorscheme base16-ocean            " カラースキーム
 highlight Normal ctermbg=none       " 標準背景色無効化
+set background=dark                 " 背景色
+set list                            " 不可視文字の表示
+set listchars=tab:▸\ ,eol:↲         " 不可視文字の指定
+set fillchars+=vert:\               " 区切り文字の指定
 
 
 "-------------------
@@ -127,8 +130,6 @@ set smartindent                     " スマートインデント
 set virtualedit=block               " 仮想カーソル移動
 set whichwrap=b,s,h,l,[,],<,>       " 行頭/行末からのカーソル移動を許可
 set backspace=indent,eol,start      " バックスペースを空白/行頭/行末で許可
-set list                            " 不可視文字の表示
-set listchars=tab:▸\ ,eol:↲         " 不可視文字の指定
 
 
 "-------------------
