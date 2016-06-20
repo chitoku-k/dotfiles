@@ -107,6 +107,7 @@ syntax on                           " シンタックスハイライト
 colorscheme base16-ocean            " カラースキーム
 highlight Normal ctermbg=none       " 標準背景色無効化
 set background=dark                 " 背景色
+set cursorline                      " カーソル行
 set list                            " 不可視文字の表示
 set listchars=tab:▸\ ,eol:↲         " 不可視文字の指定
 set fillchars+=vert:\               " 区切り文字の指定
