@@ -34,13 +34,17 @@ if winwidth(0) > 100
 endif
 
 let g:lightline = {
-  \   'mode_map': {'c': 'NORMAL'},
+  \   'colorscheme': 'wombat',
   \   'active': {
   \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
   \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
   \   },
   \   'inactive': {
   \     'left': [ [ 'filename' ] ],
+  \     'right': []
+  \   },
+  \   'tabline': {
+  \     'left': [ [ 'tabs' ] ],
   \     'right': []
   \   },
   \   'component_function': {
