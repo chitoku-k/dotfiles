@@ -191,6 +191,10 @@ augroup NERDTree
   autocmd FileType nerdtree nnoremap <silent><buffer> <Space> :<C-u>call NERDTreeQuickLook()<CR>
 augroup END
 
+augroup Comment
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
 
 "-------------------
 " マウス
