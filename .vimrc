@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'Shougo/vimproc', { 'do': 'make' }
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-fugitive'
@@ -16,6 +17,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'felixjung/vim-base16-lightline'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'shawncplus/phpcomplete.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tomtom/tcomment_vim'
