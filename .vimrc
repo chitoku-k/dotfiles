@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
+Plug 'felixjung/vim-base16-lightline'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'itchyny/lightline.vim'
@@ -34,7 +35,7 @@ if winwidth(0) > 100
 endif
 
 let g:lightline = {
-  \   'colorscheme': 'wombat',
+  \   'colorscheme': 'base16_colors',
   \   'active': {
   \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
   \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
