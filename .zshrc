@@ -18,9 +18,9 @@ precmd () {
 #-------------------
 # 一般
 #-------------------
-setopt autopushd                    # cd -> pushd 実行
-setopt autocd                       # ディレクトリ名 -> cd
-setopt extendedglob                 # 拡張マッチ
+setopt autopushd                        # cd -> pushd 実行
+setopt autocd                           # ディレクトリ名 -> cd
+setopt extendedglob                     # 拡張マッチ
 
 
 #-------------------
@@ -30,6 +30,7 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit -u
 zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 
 #-------------------
@@ -53,7 +54,7 @@ prompt() {
 }
 
 bindkey -v
-KEYTIMEOUT=1                        # 遅延無効化
+KEYTIMEOUT=1                            # 遅延無効化
 zle -N zle-line-init
 zle -N zle-keymap-select
 
@@ -61,13 +62,14 @@ zle -N zle-keymap-select
 #-------------------
 # キーバインド
 #-------------------
-bindkey "^?" backward-delete-char   # [BACKSPACE]
-bindkey "^W" backward-kill-word     # [Ctrl+W]
-bindkey "^H" backward-delete-char   # [Ctrl+H]
-bindkey "^U" backward-kill-line     # [Ctrl+U]
-bindkey "^[OH" beginning-of-line    # [HOME]
-bindkey "^[OF" end-of-line          # [END]
-bindkey "^[[3~" delete-char         # [DELETE]
+bindkey "^?" backward-delete-char       # [BACKSPACE]
+bindkey "^W" backward-kill-word         # [Ctrl+W]
+bindkey "^H" backward-delete-char       # [Ctrl+H]
+bindkey "^U" backward-kill-line         # [Ctrl+U]
+bindkey "^[[Z" reverse-menu-complete    # [Shift+Tab]
+bindkey "^[OH" beginning-of-line        # [HOME]
+bindkey "^[OF" end-of-line              # [END]
+bindkey "^[[3~" delete-char             # [DELETE]
 
 
 #-------------------
