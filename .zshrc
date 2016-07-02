@@ -5,8 +5,8 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "*"
-zstyle ':vcs_info:git:*' formats '| %b%c%u'
-zstyle ':vcs_info:git:*' actionformats '| %b%a%c%u'
+zstyle ':vcs_info:git:*' formats '%b' '%c%u'
+zstyle ':vcs_info:git:*' actionformats '%b' '%c%u' '%a'
 
 precmd () {
     psvar=()
@@ -21,6 +21,7 @@ precmd () {
 setopt autopushd                        # cd -> pushd 実行
 setopt autocd                           # ディレクトリ名 -> cd
 setopt extendedglob                     # 拡張マッチ
+KEYTIMEOUT=1                            # 遅延無効化
 
 
 #-------------------
@@ -34,7 +35,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 
 #-------------------
-# Vi モード
+# プロンプト
 #-------------------
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
@@ -49,12 +50,20 @@ function zle-line-init zle-keymap-select {
 }
 
 prompt() {
+    local messages
+
+    if [[ -z ${vcs_info_msg_0_} ]]; then
+        messages=''
+    else
+        [[ -n "$vcs_info_msg_0_" ]] && messages+="| $vcs_info_msg_0_ "
+        [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{1} $vcs_info_msg_1_ %k"
+        [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{3} $vcs_info_msg_2_ %k"
+    fi
+
     PS1="
-%K{$2}%F{0} $1 %f%k%K{19}%F{20} %n | %m | %1~%1(v| %1v|) %f%k%K{18} %(!.#.$) %k "
+%K{$2}%F{0} $1 %f%k%F{20}%K{19} %n | %m | %1~ $messages%k%f%K{18} %(!.#.$) %k "
 }
 
-bindkey -v
-KEYTIMEOUT=1                            # 遅延無効化
 zle -N zle-line-init
 zle -N zle-keymap-select
 
@@ -62,6 +71,7 @@ zle -N zle-keymap-select
 #-------------------
 # キーバインド
 #-------------------
+bindkey -v                              # vi
 bindkey "^?" backward-delete-char       # [BACKSPACE]
 bindkey "^W" backward-kill-word         # [Ctrl+W]
 bindkey "^H" backward-delete-char       # [Ctrl+H]
