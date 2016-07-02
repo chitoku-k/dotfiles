@@ -49,7 +49,7 @@ function zle-line-init zle-keymap-select {
 
 prompt() {
     PS1="
-%K{$2}%F{0} $1 %f%k%K{19}%F{20} %n | %m | %1~ %1(v|%1v|) %f%k%K{18} %(!.#.$) %k "
+%K{$2}%F{0} $1 %f%k%K{19}%F{20} %n | %m | %1~%1(v| %1v|) %f%k%K{18} %(!.#.$) %k "
 }
 
 bindkey -v
