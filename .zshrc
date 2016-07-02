@@ -2,19 +2,16 @@
 # バージョン管理
 #-------------------
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%b)'
-zstyle ':vcs_info:*' actionformats '(%b|%a)'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "*"
-zstyle ':vcs_info:git:*' formats '(%b%c%u)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%c%u)'
+zstyle ':vcs_info:git:*' formats '| %b%c%u'
+zstyle ':vcs_info:git:*' actionformats '| %b%a%c%u'
 
 precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-    RPROMPT="%F{yellow}INSERT"
 }
 
 
@@ -41,39 +38,24 @@ zstyle ':completion:*:default' menu select=1
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
         "main")
-            mode="INSERT"
+            prompt "INSERT" 2
             ;;
         *)
-            mode=""
+            prompt "NORMAL" 4
             ;;
     esac
-    RPROMPT="%F{yellow}$mode"
     zle reset-prompt
+}
+
+prompt() {
+    PS1="
+%K{$2}%F{0} $1 %f%k%K{19}%F{20} %n | %m | %1~ %1(v|%1v|) %f%k%K{18} %(!.#.$) %k "
 }
 
 bindkey -v
 KEYTIMEOUT=1                        # 遅延無効化
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-
-#-------------------
-# プロンプト
-#-------------------
-case $HOST in
-    "iMac.local")
-        color="cyan"
-        ;;
-    "cherry")
-        color="green"
-        ;;
-    *)
-        color="magenta"
-        ;;
-esac
-export PS1="[%F{$color}%n@%m%f %F{blue}%1~%f%1(v| %F{red}%1v%f|)]%(!.#.$) "
-unset color
-setopt transient_rprompt            # 右プロンプト自動削除
 
 
 #-------------------
