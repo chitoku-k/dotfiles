@@ -61,7 +61,7 @@ prompt() {
     fi
 
     PS1="
-%K{$2}%F{0} $1 %f%k%F{20}%K{19} %n | %m | %1~ $messages%k%f%K{18} %(!.#.$) %k "
+%K{$2}%F{0} $1 %f%k%F{20}%K{19} %m | %1~ $messages%k%f%K{18} %(!.#.$) %k "
 }
 
 zle -N zle-line-init
