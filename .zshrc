@@ -7,6 +7,7 @@ zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "*"
 zstyle ':vcs_info:git:*' formats '%b' '%c%u'
 zstyle ':vcs_info:git:*' actionformats '%b' '%c%u' '%a'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 precmd () {
     psvar=()
@@ -47,6 +48,17 @@ function zle-line-init zle-keymap-select {
             ;;
     esac
     zle reset-prompt
+}
+
++vi-git-untracked() {
+    # vcs_info_msg_1 のみ
+    if [[ "$1" != "1" ]]; then
+        return 0
+    fi
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null; then
+        hook_com[unstaged]+='!'
+    fi
 }
 
 prompt() {
