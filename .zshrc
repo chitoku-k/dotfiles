@@ -56,12 +56,12 @@ prompt() {
         messages=''
     else
         [[ -n "$vcs_info_msg_0_" ]] && messages+="| $vcs_info_msg_0_ "
-        [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{1} $vcs_info_msg_1_ %k"
-        [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{3} $vcs_info_msg_2_ %k"
+        [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{3}%F{0} $vcs_info_msg_1_ %f%k"
+        [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
     fi
 
     PS1="
-%K{$2}%F{0} $1 %f%k%F{20}%K{19} %m | %1~ $messages%k%f%K{18} %(!.#.$) %k "
+%K{$2}%F{0} $1 %f%k%F{20}%K{19} %m | %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
 }
 
 zle -N zle-line-init
