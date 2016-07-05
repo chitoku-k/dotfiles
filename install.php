@@ -192,6 +192,8 @@ class Installer
             $this->console->printMessage("({$index}/{$count}) インストール {$package->name}\n");
             $package();
         }
+
+        passthru('[[ $SHELL == *zsh ]] && source $HOME/.zshrc');
     }
 }
 
