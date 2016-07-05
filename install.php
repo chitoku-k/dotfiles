@@ -99,6 +99,15 @@ class Installer
             ),
             new Package(
                 5,
+                'zsh',
+                'zsh-syntax-highlighting',
+                'Fish shell like syntax highlighting for Zsh',
+                function () {
+                    passthru('git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh-syntax-highlighting');
+                }
+            ),
+            new Package(
+                5,
                 'tmux',
                 'tpm',
                 'Tmux Plugin Manager',

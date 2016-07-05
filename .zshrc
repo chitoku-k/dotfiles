@@ -117,3 +117,4 @@ export VISUAL='vim'
 #-------------------
 include "$HOME/.zshrc.local"
 include "$HOME/.config/base16-shell/scripts/base16-ocean.sh"
+include "$HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
