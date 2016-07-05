@@ -16,7 +16,8 @@ class Package
         if (!$this->callback) {
             return symlink(realpath($this->name), $_SERVER['HOME'] . '/' . $this->name);
         }
-        return $this->callback->call($this);
+        $callback = $this->callback;
+        return $callback();
     }
 }
 
