@@ -9,10 +9,6 @@ zstyle ':vcs_info:git:*' formats '%b' '%c%u'
 zstyle ':vcs_info:git:*' actionformats '%b' '%c%u' '%a'
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
-precmd() {
-    LANG=en_US.UTF-8 vcs_info
-}
-
 
 #-------------------
 # 一般
@@ -34,8 +30,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 
 #-------------------
-# プロンプト
+# 関数
 #-------------------
+precmd() {
+    LANG=en_US.UTF-8 vcs_info
+}
+
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
         "main")
@@ -60,18 +60,20 @@ function zle-line-init zle-keymap-select {
 }
 
 prompt() {
-    local messages
+    local messages=''
+    local lf=$'\n'
 
-    if [[ -z ${vcs_info_msg_0_} ]]; then
-        messages=''
-    else
-        [[ -n "$vcs_info_msg_0_" ]] && messages+="| $vcs_info_msg_0_ "
-        [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{3}%F{0} $vcs_info_msg_1_ %f%k"
-        [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
+    [[ -n "$vcs_info_msg_0_" ]] && messages+="| $vcs_info_msg_0_ "
+    [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{3}%F{0} $vcs_info_msg_1_ %f%k"
+    [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
+
+    PS1="$lf%K{$2}%F{0} $1 %f%k%F{20}%K{19} %m | %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
+}
+
+include() {
+    if [[ -s $1 ]]; then
+        source $1
     fi
-
-    PS1="
-%K{$2}%F{0} $1 %f%k%F{20}%K{19} %m | %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
 }
 
 zle -N zle-line-init
@@ -111,13 +113,7 @@ export VISUAL='vim'
 
 
 #-------------------
-# シェル
+# その他
 #-------------------
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-ocean.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-
-#-------------------
-# ローカル設定
-#-------------------
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+include "$HOME/.zshrc.local"
+include "$HOME/.config/base16-shell/scripts/base16-ocean.sh"
