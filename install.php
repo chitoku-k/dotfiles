@@ -113,6 +113,7 @@ class Installer
                 'A minimalist Vim plugin manager',
                 function () {
                     passthru('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim');
+                    passthru('vim +PlugInstall +qa');
                 }
             ),
         );
