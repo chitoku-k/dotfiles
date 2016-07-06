@@ -41,7 +41,7 @@ if winwidth(0) > 100
 endif
 
 let g:lightline = {
-  \   'colorscheme': 'base16_colors',
+  \   'colorscheme': 'base16_ocean',
   \   'active': {
   \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
   \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -114,7 +114,7 @@ syntax on                           " シンタックスハイライト
 set background=dark                 " 背景色
 set cursorline                      " カーソル行
 set list                            " 不可視文字の表示
-set listchars=tab:▸\ ,eol:↲         " 不可視文字の指定
+set listchars=tab:▸\                " 不可視文字の指定
 set fillchars+=vert:\               " 区切り文字の指定
 set scrolloff=3                     " スクロール行数
 try
