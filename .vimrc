@@ -197,6 +197,8 @@ vnoremap v $h
 " 無効化
 nnoremap q <Nop>
 
+" 行番号
+nnoremap <silent> <SPACE> :<C-u>setlocal relativenumber!<CR>
 
 "-------------------
 " autocmd
