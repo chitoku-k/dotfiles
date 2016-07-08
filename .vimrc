@@ -197,8 +197,8 @@ vnoremap v $h
 " 無効化
 nnoremap q <Nop>
 
-" 行番号
-nnoremap <silent> <SPACE> :<C-u>setlocal relativenumber!<CR>
+" 貼り付け
+set pastetoggle=<C-p>
 
 "-------------------
 " autocmd
@@ -210,6 +210,10 @@ augroup END
 
 augroup Comment
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
+augroup PasteToggle
+  autocmd InsertLeave * set nopaste
 augroup END
 
 
