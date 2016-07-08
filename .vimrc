@@ -192,6 +192,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" インクリメント/デクリメント
+nnoremap + <C-a>
+nnoremap - <C-x>
+
 " 検索結果表示位置
 nnoremap n nzz
 nnoremap N Nzz
