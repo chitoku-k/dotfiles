@@ -167,16 +167,24 @@ inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap () ()<Left>
 inoremap {} {}<Left>
 inoremap [] []<Left>
+inoremap <> <><Left>
 inoremap "" ""<Left>
 inoremap '' ''<Left>
+inoremap `` ``<Left>
 
 " カーソル移動
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-nnoremap <C-a> ^
-nnoremap <C-e> $
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
 " フォーカス移動
 nnoremap <C-h> <C-w>h
@@ -199,6 +207,7 @@ nnoremap q <Nop>
 
 " 貼り付け
 set pastetoggle=<C-p>
+
 
 "-------------------
 " autocmd
