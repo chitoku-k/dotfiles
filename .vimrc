@@ -25,6 +25,7 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tomtom/tcomment_vim'
+Plug 't9md/vim-textmanip'
 
 call plug#end()
 filetype plugin indent on
@@ -191,6 +192,13 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" テキスト移動
+xmap <C-h> <Plug>(textmanip-move-left)
+xmap <C-j> <Plug>(textmanip-move-down)
+xmap <C-k> <Plug>(textmanip-move-up)
+xmap <C-l> <Plug>(textmanip-move-right)
+nmap <C-o> <Plug>(textmanip-blank-above)
 
 " インクリメント/デクリメント
 nnoremap + <C-a>
