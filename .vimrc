@@ -20,6 +20,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'nicklasos/vim-jsx-riot'
 Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'itchyny/lightline.vim'
@@ -231,6 +232,10 @@ augroup END
 
 augroup Comment
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
+augroup Riot
+  autocmd BufNewFile,BufRead *.tag setlocal ft=javascript
 augroup END
 
 augroup PasteToggle
