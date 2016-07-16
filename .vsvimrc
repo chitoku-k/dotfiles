@@ -14,3 +14,50 @@ set backspace=indent,eol,start      " バックスペースを空白/行頭/行�
 "-------------------
 set ignorecase                      " 大文字小文字無視
 set smartcase                       " 大文字指定時のみ大文字小文字を区別
+
+
+"-------------------
+" キーバインド
+"-------------------
+" 対応括弧の補完
+inoremap () ()<Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap <> <><Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap `` ``<Left>
+
+" カーソル移動
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+" フォーカス移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" インクリメント/デクリメント
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" 検索結果表示位置
+nnoremap n nzz
+nnoremap N Nzz
+
+" ハイライト非表示
+nmap <ESC><ESC> :nohlsearch<CR>
+
+" 無効化
+nnoremap q <Nop>
