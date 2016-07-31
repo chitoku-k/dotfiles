@@ -151,6 +151,13 @@ set backspace=indent,eol,start                  " バックスペースを空白
 
 
 "-------------------
+" インデント
+"-------------------
+set cindent                                     " C言語
+let g:PHP_vintage_case_default_indent = 1       " PHP: case ラベル
+
+
+"-------------------
 " 検索
 "-------------------
 set ignorecase                                  " 大文字小文字無視
