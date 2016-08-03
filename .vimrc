@@ -141,13 +141,16 @@ set ttimeoutlen=100                             " ESC キー遅延
 set ambiwidth=double                            " 全角文字の文字幅
 set showtabline=2                               " タブ有効化
 set number                                      " 行番号表示
-set title                                       " タイトル文字列
 set tabstop=4                                   " タブ幅
 set expandtab                                   " ソフトタブ
 set shiftwidth=4                                " インデント幅
 set virtualedit=block                           " 仮想カーソル移動
 set whichwrap=b,s,h,l,[,],<,>                   " 行頭/行末からのカーソル移動を許可
 set backspace=indent,eol,start                  " バックスペースを空白/行頭/行末で許可
+
+set title                                       " タイトル文字列
+let &t_ti .= "\e[22;0t"                         " 起動時タイトル文字列保存
+let &t_te .= "\e[23;0t"                         " 終了時タイトル文字列復元
 
 
 "-------------------
