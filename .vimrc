@@ -36,6 +36,7 @@ filetype plugin indent on
 "-------------------
 " プラグイン関連
 "-------------------
+:source $VIMRUNTIME/macros/matchit.vim
 let g:base16colorspace = 256                    " base16-vim: 表示色
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 35
