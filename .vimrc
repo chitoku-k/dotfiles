@@ -27,6 +27,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tomtom/tcomment_vim'
 Plug 't9md/vim-textmanip'
+Plug 'gko/vim-coloresque'
 
 call plug#end()
 filetype plugin indent on
@@ -141,9 +142,10 @@ set ttimeoutlen=100                             " ESC キー遅延
 set ambiwidth=double                            " 全角文字の文字幅
 set showtabline=2                               " タブ有効化
 set number                                      " 行番号表示
-set tabstop=4                                   " タブ幅
 set expandtab                                   " ソフトタブ
 set shiftwidth=4                                " インデント幅
+set tabstop=4                                   " タブ幅
+set softtabstop=4                               " タブ幅（空白）
 set virtualedit=block                           " 仮想カーソル移動
 set whichwrap=b,s,h,l,[,],<,>                   " 行頭/行末からのカーソル移動を許可
 set backspace=indent,eol,start                  " バックスペースを空白/行頭/行末で許可
