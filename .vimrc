@@ -230,6 +230,9 @@ vnoremap v $h
 " 無効化
 nnoremap q <Nop>
 
+" 強制保存
+cnoremap w!! w !sudo tee > /dev/null %<CR>
+
 " 貼り付け
 set pastetoggle=<C-p>
 
