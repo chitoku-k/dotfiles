@@ -16,6 +16,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 setopt autopushd                        # cd -> pushd 実行
 setopt autocd                           # ディレクトリ名 -> cd
 setopt extendedglob                     # 拡張マッチ
+setopt correct                          # コマンド修正
 KEYTIMEOUT=1                            # 遅延無効化
 
 
