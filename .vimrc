@@ -150,6 +150,7 @@ set softtabstop=4                               " タブ幅（空白）
 set virtualedit=block                           " 仮想カーソル移動
 set whichwrap=b,s,h,l,[,],<,>                   " 行頭/行末からのカーソル移動を許可
 set backspace=indent,eol,start                  " バックスペースを空白/行頭/行末で許可
+set visualbell                                  " うるさい
 
 set title                                       " タイトル文字列
 let &t_ti .= "\e[22;0t"                         " 起動時タイトル文字列保存
