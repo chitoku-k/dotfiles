@@ -28,6 +28,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tomtom/tcomment_vim'
 Plug 't9md/vim-textmanip'
 Plug 'gko/vim-coloresque'
+Plug 'sudo.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -230,9 +231,6 @@ vnoremap v $h
 
 " 無効化
 nnoremap q <Nop>
-
-" 強制保存
-cnoremap w!! w !sudo tee > /dev/null %<CR>
 
 " 貼り付け
 set pastetoggle=<C-p>
