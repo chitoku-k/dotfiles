@@ -21,9 +21,16 @@ KEYTIMEOUT=1                            # 遅延無効化
 
 
 #-------------------
+# 機能
+#-------------------
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+
+
+#-------------------
 # 補完
 #-------------------
-zstyle :compinstall filename '~/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit -u
 zstyle ':completion:*:default' menu select=1
