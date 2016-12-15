@@ -37,7 +37,7 @@ filetype plugin indent on
 "-------------------
 " プラグイン関連
 "-------------------
-:source $VIMRUNTIME/macros/matchit.vim
+source $VIMRUNTIME/macros/matchit.vim
 let g:base16colorspace = 256                    " base16-vim: 表示色
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 35
@@ -213,7 +213,7 @@ xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-l> <Plug>(textmanip-move-right)
-nmap <C-o> <Plug>(textmanip-blank-above)
+nmap <CR> <Plug>(textmanip-blank-below)
 
 " インクリメント/デクリメント
 nnoremap + <C-a>
@@ -231,6 +231,7 @@ vnoremap v $h
 
 " 無効化
 nnoremap q <Nop>
+nnoremap <F1> <Nop>
 
 " 貼り付け
 set pastetoggle=<C-p>
@@ -248,12 +249,22 @@ augroup Comment
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
-augroup Riot
-  autocmd BufNewFile,BufRead *.tag setlocal ft=javascript
-augroup END
-
 augroup PasteToggle
   autocmd InsertLeave * set nopaste
+augroup END
+
+augroup CRFix
+  autocmd CmdwinEnter * nnoremap <CR> <CR>
+  autocmd BufReadPost quickfix nnoremap <CR> <CR>
+augroup END
+
+augroup Languages
+  " Indentation
+  autocmd FileType vim,ruby,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  " PHP
+  autocmd FileType php setlocal indentkeys-==?>,=<?
+  " Riot
+  autocmd BufNewFile,BufRead *.tag setlocal ft=javascript
 augroup END
 
 
