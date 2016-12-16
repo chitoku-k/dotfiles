@@ -29,6 +29,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 't9md/vim-textmanip'
 Plug 'gko/vim-coloresque'
 Plug 'sudo.vim'
+Plug 'simeji/winresizer'
 
 call plug#end()
 filetype plugin indent on
@@ -39,6 +40,8 @@ filetype plugin indent on
 "-------------------
 source $VIMRUNTIME/macros/matchit.vim
 let g:base16colorspace = 256                    " base16-vim: 表示色
+let g:winresizer_vert_resize = 5                " winresizer: 横方向リサイズ
+let g:winresizer_horiz_resize = 2               " winresizer: 縦方向リサイズ
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 35
 if winwidth(0) > 100
@@ -202,7 +205,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
-" フォーカス移動
+" ウィンドウ移動
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
