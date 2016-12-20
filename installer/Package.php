@@ -20,7 +20,7 @@ class Package
             $realpath = realpath($name);
 
             if (file_exists($target)) {
-                echo "File exists: {$name}";
+                echo "File exists: {$name}\n";
                 continue;
             }
 
