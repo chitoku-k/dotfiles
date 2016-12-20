@@ -88,11 +88,6 @@ augroup CRFix
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
 augroup END
 
-augroup Languages
-  " Indentation
-  autocmd FileType vim,ruby,yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  " PHP
-  autocmd FileType php setlocal indentkeys-==?>,=<?
-  " Riot
-  autocmd BufNewFile,BufRead *.tag setlocal ft=javascript
+augroup FileTypes
+  autocmd BufNewFile,BufRead *.tag setfiletype riot
 augroup END

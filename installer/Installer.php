@@ -24,7 +24,7 @@ class Installer
                 'Configuration for Vim',
                 function ($self) {
                     $self->symlink($self->name);
-                    $self->symlink('.vim/userautoload');
+                    $self->symlink(glob('.vim/*', GLOB_ONLYDIR));
                 }
             ),
             new Package(
