@@ -158,7 +158,7 @@ class Installer
         }
 
         $this->console->printArrow(true, 3);
-        $this->console->printMessage("インストールするパッケージの番号を入力してください (例: 1 2 3 or 1-3)\n", true);
+        $this->console->printMessage("Enter n° of packages to be installed (ex: 1 2 3 or 1-3)\n", true);
 
         $this->console->printArrow(true, 3);
         $this->console->printLine(true);
@@ -177,11 +177,11 @@ class Installer
             $names[] = $this->packages[$number - 1]->name;
         }
 
-        $this->console->printMessage("\nパッケージ (" . count($numbers) . ') ', true);
+        $this->console->printMessage("\nPackages (" . count($numbers) . ') ', true);
         $this->console->printMessage(implode('  ', $names) . "\n\n");
 
         $this->console->printMessage(':: ', true, 4);
-        $this->console->printMessage('インストールを行いますか？ [Y/n] ', true);
+        $this->console->printMessage('Proceed with installation? [Y/n] ', true);
 
         switch (strtolower($this->console->read())) {
             case '':
@@ -192,13 +192,13 @@ class Installer
         }
 
         $this->console->printMessage(':: ', true, 4);
-        $this->console->printMessage("パッケージの変更を処理しています...\n", true);
+        $this->console->printMessage("Processing package changes...\n", true);
 
         $count = count($numbers);
         foreach ($numbers as $index => $number) {
             $index++;
             $package = $this->packages[$number - 1];
-            $this->console->printMessage("({$index}/{$count}) インストール {$package->name}\n");
+            $this->console->printMessage("({$index}/{$count}) installing {$package->name}\n");
             $package();
         }
     }
