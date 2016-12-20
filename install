@@ -1,0 +1,9 @@
+#!/usr/bin/php
+<?php
+function __autoload($class)
+{
+    require_once __DIR__ . "/installer/{$class}.php";
+}
+
+$installer = new Installer();
+$installer->execute();

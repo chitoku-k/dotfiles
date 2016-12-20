@@ -1,57 +1,4 @@
-#!/usr/bin/php
 <?php
-class Package
-{
-    public function __construct($category_color, $category, $name, $description, $callback = null)
-    {
-        $this->category_color = $category_color;
-        $this->category = $category;
-        $this->name = $name;
-        $this->description = $description;
-        $this->callback = $callback;
-    }
-
-    public function __invoke()
-    {
-        if (!$this->callback) {
-            return symlink(realpath($this->name), $_SERVER['HOME'] . '/' . $this->name);
-        }
-        $callback = $this->callback;
-        return $callback();
-    }
-}
-
-class Console
-{
-    public function getEscapeSequence($codes)
-    {
-        $out = implode(';', array_unique((array)$codes));
-        return "\033[{$out}m";
-    }
-
-    public function printMessage($message, $bold = false, $fg_color = 9, $bg_color = 9)
-    {
-        echo $this->getEscapeSequence(array_filter(array((int)$bold, 30 + $fg_color, 40 + $bg_color)));
-        echo $message;
-        echo $this->getEscapeSequence(0);
-    }
-
-    public function printArrow($bold = false, $fg_color = 9, $bg_color = 9)
-    {
-        $this->printMessage('==> ', $bold, $fg_color, $bg_color);
-    }
-
-    public function printLine($bold = false, $fg_color = 9, $bg_color = 9)
-    {
-        $this->printMessage(str_repeat('-', 43) . "\n", $bold, $fg_color, $bg_color);
-    }
-
-    public function read()
-    {
-        return trim(fgets(STDIN));
-    }
-}
-
 class Installer
 {
     public function __construct()
@@ -75,11 +22,9 @@ class Installer
                 'dotfiles',
                 '.vimrc',
                 'Configuration for Vim',
-                function () {
-                    $name = '.vimrc';
-                    $home = $_SERVER['HOME'];
-                    symlink(realpath($name), "{$home}/{$name}");
-                    symlink(realpath('.vim/userautoload'), "{$home}/.vim/userautoload");
+                function ($self) {
+                    $self->symlink($self->name);
+                    $self->symlink('.vim/userautoload');
                 }
             ),
             new Package(
@@ -209,6 +154,3 @@ class Installer
         }
     }
 }
-
-$installer = new Installer();
-$installer->execute();

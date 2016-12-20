@@ -13,7 +13,7 @@ The script needs git and PHP 5.3 or later.
 ```sh
 $ git clone https://github.com/chitoku-k/dotfiles.git
 $ cd dotfiles
-$ ./install.php
+$ ./install
 ```
 
 Choose whatever packages you want to install and press <kbd>Enter</kbd>.
