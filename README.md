@@ -18,4 +18,4 @@ $ ./install.php
 
 Choose whatever packages you want to install and press <kbd>Enter</kbd>.
 
-<img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.png" alt="" width="454">
+<img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.png" alt="" width="450">
