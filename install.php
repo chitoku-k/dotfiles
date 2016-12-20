@@ -74,7 +74,13 @@ class Installer
                 2,
                 'dotfiles',
                 '.vimrc',
-                'Configuration for Vim'
+                'Configuration for Vim',
+                function () {
+                    $name = '.vimrc';
+                    $home = $_SERVER['HOME'];
+                    symlink(realpath($name), "{$home}/{$name}");
+                    symlink(realpath('.vim/userautoload'), "{$home}/.vim/userautoload");
+                }
             ),
             new Package(
                 2,
