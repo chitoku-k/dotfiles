@@ -1,6 +1,3 @@
-"-------------------
-" キーバインド
-"-------------------
 " 対応括弧の補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>

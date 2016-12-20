@@ -1,33 +1,28 @@
 "-------------------
 " 一般
 "-------------------
-set tabstop=4                       " タブ幅
-set expandtab                       " ソフトタブ
-set shiftwidth=4                    " インデント幅
-set virtualedit=block               " 仮想カーソル移動
-set whichwrap=b,s,h,l,[,],<,>       " 行頭/行末からのカーソル移動を許可
-set backspace=indent,eol,start      " バックスペースを空白/行頭/行末で許可
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set virtualedit=block
+
+" 行頭/行末からのカーソル移動を許可
+set whichwrap=b,s,h,l,[,],<,>
+
+" バックスペースを空白/行頭/行末で許可
+set backspace=indent,eol,start
 
 
 "-------------------
 " 検索
 "-------------------
-set ignorecase                      " 大文字小文字無視
-set smartcase                       " 大文字指定時のみ大文字小文字を区別
+set ignorecase
+set smartcase
 
 
 "-------------------
 " キーバインド
 "-------------------
-" 対応括弧の補完
-inoremap () ()<Left>
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap <> <><Left>
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap `` ``<Left>
-
 " カーソル移動
 nnoremap j gj
 nnoremap k gk
@@ -41,12 +36,6 @@ inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
-
-" フォーカス移動
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " インクリメント/デクリメント
 nnoremap + <C-a>

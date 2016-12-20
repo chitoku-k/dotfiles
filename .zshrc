@@ -13,11 +13,11 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 #-------------------
 # 一般
 #-------------------
-setopt autopushd                        # cd -> pushd 実行
-setopt autocd                           # ディレクトリ名 -> cd
-setopt extendedglob                     # 拡張マッチ
-setopt correct                          # コマンド修正
-KEYTIMEOUT=1                            # 遅延無効化
+setopt autopushd
+setopt autocd
+setopt extendedglob
+setopt correct
+KEYTIMEOUT=1
 
 
 #-------------------
@@ -91,18 +91,28 @@ zle -N zle-keymap-select
 #-------------------
 # キーバインド
 #-------------------
-bindkey -v                              # vi
-bindkey "^?" backward-delete-char       # [BACKSPACE]
-bindkey "^W" backward-kill-word         # [Ctrl+W]
-bindkey "^H" backward-delete-char       # [Ctrl+H]
-bindkey "^U" backward-kill-line         # [Ctrl+U]
-bindkey "^H" backward-char              # [Ctrl+H]
-bindkey "^L" vi-forward-char            # [Ctrl+L]
-bindkey "^R" clear-screen               # [Ctrl+R]
-bindkey "^[[Z" reverse-menu-complete    # [Shift+Tab]
-bindkey "^[OH" beginning-of-line        # [HOME]
-bindkey "^[OF" end-of-line              # [END]
-bindkey "^[[3~" delete-char             # [DELETE]
+bindkey -v
+bindkey "^W" backward-kill-word
+bindkey "^H" backward-delete-char
+bindkey "^U" backward-kill-line
+bindkey "^H" backward-char
+bindkey "^L" vi-forward-char
+bindkey "^R" clear-screen
+
+# [BackSpace]
+bindkey "^?" backward-delete-char
+
+# [Shift+Tab]
+bindkey "^[[Z" reverse-menu-complete
+
+# [HOME]
+bindkey "^[OH" beginning-of-line
+
+# [END]
+bindkey "^[OF" end-of-line
+
+# [DELETE]
+bindkey "^[[3~" delete-char
 
 
 #-------------------
@@ -113,8 +123,6 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias chown='chown -v'
 alias chmod='chmod -v'
-alias chmod-auto='chmod -R a=rX,u+w'
-alias oppai='git pull --prune'
 
 
 #-------------------
