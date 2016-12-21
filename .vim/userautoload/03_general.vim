@@ -2,7 +2,7 @@
 " 一般
 "-------------------
 set encoding=utf-8
-set fileencoding=utf-8
+set fileencodings=utf-8,euc-jp,cp932,sjis
 set noshowmode
 set noundofile
 set noswapfile
@@ -72,6 +72,11 @@ set hlsearch
 "-------------------
 augroup Comment
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
+augroup Cursor
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 augroup END
 
 augroup PasteToggle
