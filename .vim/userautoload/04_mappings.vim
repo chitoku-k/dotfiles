@@ -23,6 +23,16 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
+" カーソル移動抑制
+nnoremap <Left>  :<C-u>!sl<CR>
+nnoremap <Down>  :<C-u>!sl<CR>
+nnoremap <Up>    :<C-u>!sl<CR>
+nnoremap <Right> :<C-u>!sl<CR>
+inoremap <Left>  <Esc>:<C-u>!sl<CR>
+inoremap <Down>  <Esc>:<C-u>!sl<CR>
+inoremap <Up>    <Esc>:<C-u>!sl<CR>
+inoremap <Right> <Esc>:<C-u>!sl<CR>
+
 " ウィンドウ移動
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -34,7 +44,6 @@ xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-l> <Plug>(textmanip-move-right)
-nmap <CR> <Plug>(textmanip-blank-below) jj
 
 " インクリメント/デクリメント
 nnoremap + <C-a>
