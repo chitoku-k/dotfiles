@@ -24,18 +24,18 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
 " カーソル移動抑制
-nnoremap <Left>  :<C-u>!sl<CR>
-nnoremap <Down>  :<C-u>!sl<CR>
-nnoremap <Up>    :<C-u>!sl<CR>
-nnoremap <Right> :<C-u>!sl<CR>
-vnoremap <Left>  :<C-u>!sl<CR>
-vnoremap <Down>  :<C-u>!sl<CR>
-vnoremap <Up>    :<C-u>!sl<CR>
-vnoremap <Right> :<C-u>!sl<CR>
-inoremap <Left>  <Esc>:<C-u>!sl<CR>
-inoremap <Down>  <Esc>:<C-u>!sl<CR>
-inoremap <Up>    <Esc>:<C-u>!sl<CR>
-inoremap <Right> <Esc>:<C-u>!sl<CR>
+nnoremap <Left>  :<C-u>!sl<CR><CR>
+nnoremap <Down>  :<C-u>!sl<CR><CR>
+nnoremap <Up>    :<C-u>!sl<CR><CR>
+nnoremap <Right> :<C-u>!sl<CR><CR>
+vnoremap <Left>  :<C-u>!sl<CR><CR>
+vnoremap <Down>  :<C-u>!sl<CR><CR>
+vnoremap <Up>    :<C-u>!sl<CR><CR>
+vnoremap <Right> :<C-u>!sl<CR><CR>
+inoremap <Left>  <Esc>:<C-u>!sl<CR><CR>
+inoremap <Down>  <Esc>:<C-u>!sl<CR><CR>
+inoremap <Up>    <Esc>:<C-u>!sl<CR><CR>
+inoremap <Right> <Esc>:<C-u>!sl<CR><CR>
 
 " ウィンドウ移動
 nnoremap <C-h> <C-w>h
