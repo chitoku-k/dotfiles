@@ -28,6 +28,10 @@ nnoremap <Left>  :<C-u>!sl<CR>
 nnoremap <Down>  :<C-u>!sl<CR>
 nnoremap <Up>    :<C-u>!sl<CR>
 nnoremap <Right> :<C-u>!sl<CR>
+vnoremap <Left>  :<C-u>!sl<CR>
+vnoremap <Down>  :<C-u>!sl<CR>
+vnoremap <Up>    :<C-u>!sl<CR>
+vnoremap <Right> :<C-u>!sl<CR>
 inoremap <Left>  <Esc>:<C-u>!sl<CR>
 inoremap <Down>  <Esc>:<C-u>!sl<CR>
 inoremap <Up>    <Esc>:<C-u>!sl<CR>
