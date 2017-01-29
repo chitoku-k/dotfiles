@@ -1,0 +1,23 @@
+[include]
+    path = ~/.gitconfig.local
+
+[alias]
+    # 一覧
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+
+    # 表示
+    precommit = diff --cached
+    latest = log -10 --date=short --format=format:'%C(yellow)%h %C(green)%cd %<(8,trunc)%C(blue)%cn %C(reset)%s'
+    graph = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(green)%cd %<(8,trunc)%C(blue)%cn %C(reset)%s'
+
+    # 取消
+    discard = checkout --
+    unstage = reset -q HEAD --
+    uncommit = reset --mixed HEAD~
+    amend = commit --amend
+
+[push]
+    default = simple

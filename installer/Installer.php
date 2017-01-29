@@ -40,6 +40,12 @@ class Installer
                 'Configuration for VsVim'
             ),
             new Package(
+                2,
+                'dotfiles',
+                '.gitconfig',
+                'Configuration for Git'
+            ),
+            new Package(
                 5,
                 'shell',
                 'base16-shell',
@@ -55,15 +61,6 @@ class Installer
                 'Fish shell like syntax highlighting for Zsh',
                 function () {
                     passthru('git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh-syntax-highlighting');
-                }
-            ),
-            new Package(
-                5,
-                'tmux',
-                'tpm',
-                'Tmux Plugin Manager',
-                function () {
-                    passthru('git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm');
                 }
             ),
             new Package(
