@@ -7,6 +7,7 @@
     tags = tag
     stashes = stash list
     remotes = remote -v
+    worktrees = worktree list
 
     # 表示
     precommit = diff --cached
