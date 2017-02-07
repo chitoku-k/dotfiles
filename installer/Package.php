@@ -10,28 +10,23 @@ class Package
         $this->callback = $callback;
     }
 
-    public function symlink($names)
+    public function symlink($name, $target = null)
     {
-        if (!is_array($names) && !$names instanceof Traversable) {
-            return $this->symlink((array)$names);
-        }
-        foreach ($names as $name) {
-            $target = "{$_SERVER['HOME']}/{$name}";
-            $realpath = realpath($name);
+        $target = $target ?: "{$_SERVER['HOME']}/{$name}";
+        $realpath = realpath($name);
 
-            if (file_exists($target)) {
-                echo "File exists: {$name}\n";
-                continue;
-            }
-
-            symlink($realpath, $target);
+        if (file_exists($target)) {
+            echo "File exists: {$name}\n";
+            return;
         }
+
+        symlink($realpath, $target);
     }
 
     public function __invoke()
     {
         if (!$this->callback) {
-            return $this->symlink((array)$this->name);
+            return $this->symlink($this->name);
         }
         $callback = $this->callback;
         return $callback($this);

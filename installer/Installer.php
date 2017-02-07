@@ -23,8 +23,30 @@ class Installer
                 '.vimrc',
                 'Configuration for Vim',
                 function ($self) {
-                    $self->symlink($self->name);
-                    $self->symlink(glob('.vim/*', GLOB_ONLYDIR));
+                    $home = $_SERVER['HOME'];
+
+                    $self->symlink('vim/init.vim', "{$home}/{$self->name}");
+                    foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
+                        $self->symlink($dir, "{$home}/.{$dir}");
+                    }
+                }
+            ),
+            new Package(
+                2,
+                'dotfiles',
+                '.config/nvim/init.vim',
+                'Configuration for Neovim',
+                function ($self) {
+                    $home = $_SERVER['HOME'];
+
+                    if (!file_exists("{$home}/.config/nvim")) {
+                        mkdir("{$home}/.config/nvim", 0755, true);
+                    }
+
+                    $self->symlink('vim/init.vim', "{$home}/{$self->name}");
+                    foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
+                        $self->symlink($dir, "{$home}/.config/n{$dir}");
+                    }
                 }
             ),
             new Package(
@@ -66,11 +88,10 @@ class Installer
             new Package(
                 5,
                 'vim',
-                'vim-plug',
-                'A minimalist Vim plugin manager',
+                'dein.vim',
+                'Dark powered Vim/Neovim plugin manager',
                 function () {
-                    passthru('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim');
-                    passthru('vim +PlugInstall +qa');
+                    passthru('git clone https://github.com/Shougo/dein.vim ~/.cache/dein/repos/github.com/Shougo/dein.vim');
                 }
             ),
         );

@@ -11,7 +11,7 @@ let g:winresizer_horiz_resize = 1
 " NERDTree
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 35
-if winwidth(0) > 100
+if winwidth(0) > 100 || has('nvim')
   let g:nerdtree_tabs_open_on_console_startup = 1
 endif
 

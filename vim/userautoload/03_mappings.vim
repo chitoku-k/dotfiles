@@ -24,18 +24,20 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
 " カーソル移動抑制
-nnoremap <Left>  :<C-u>!sl<CR><CR>
-nnoremap <Down>  :<C-u>!sl<CR><CR>
-nnoremap <Up>    :<C-u>!sl<CR><CR>
-nnoremap <Right> :<C-u>!sl<CR><CR>
-vnoremap <Left>  :<C-u>!sl<CR><CR>
-vnoremap <Down>  :<C-u>!sl<CR><CR>
-vnoremap <Up>    :<C-u>!sl<CR><CR>
-vnoremap <Right> :<C-u>!sl<CR><CR>
-inoremap <Left>  <Esc>:<C-u>!sl<CR><CR>
-inoremap <Down>  <Esc>:<C-u>!sl<CR><CR>
-inoremap <Up>    <Esc>:<C-u>!sl<CR><CR>
-inoremap <Right> <Esc>:<C-u>!sl<CR><CR>
+if !has('nvim')
+  nnoremap <Left>  :<C-u>!sl<CR><CR>
+  nnoremap <Down>  :<C-u>!sl<CR><CR>
+  nnoremap <Up>    :<C-u>!sl<CR><CR>
+  nnoremap <Right> :<C-u>!sl<CR><CR>
+  vnoremap <Left>  :<C-u>!sl<CR><CR>
+  vnoremap <Down>  :<C-u>!sl<CR><CR>
+  vnoremap <Up>    :<C-u>!sl<CR><CR>
+  vnoremap <Right> :<C-u>!sl<CR><CR>
+  inoremap <Left>  <Esc>:<C-u>!sl<CR><CR>
+  inoremap <Down>  <Esc>:<C-u>!sl<CR><CR>
+  inoremap <Up>    <Esc>:<C-u>!sl<CR><CR>
+  inoremap <Right> <Esc>:<C-u>!sl<CR><CR>
+endif
 
 " ウィンドウ移動
 nnoremap <C-h> <C-w>h
@@ -69,3 +71,9 @@ nnoremap <F1> <Nop>
 
 " 貼り付け
 set pastetoggle=<C-p>
+
+" Neovim (C-h)
+" https://github.com/neovim/neovim/issues/2048
+if has('nvim')
+  nmap <BS> <C-w>h
+endif
