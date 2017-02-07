@@ -21,6 +21,9 @@ on_ft = ['javascript']
 [[plugins]]
 repo = 'StanAngeloff/php.vim'
 on_ft = ['php']
+hook_add = '''
+  let g:PHP_vintage_case_default_indent = 1
+'''
 
 [[plugins]]
 repo = 'shawncplus/phpcomplete.vim'

@@ -1,14 +1,26 @@
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+  let g:NERDTreeMinimalUI = 1
+  let g:NERDTreeWinSize = 35
+'''
 
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
+hook_add = '''
+  if winwidth(0) > 100 || has('nvim')
+    let g:nerdtree_tabs_open_on_console_startup = 1
+  endif
+'''
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
 
 [[plugins]]
 repo = 'chriskempson/base16-vim'
+hook_add = '''
+  let g:base16colorspace = 256
+'''
 
 [[plugins]]
 repo = 'felixjung/vim-base16-lightline'
@@ -30,6 +42,10 @@ repo = 'sudo.vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
+hook_add = '''
+  let g:winresizer_vert_resize = 1
+  let g:winresizer_horiz_resize = 1
+'''
 
 [[plugins]]
 repo = "rhysd/clever-f.vim"
@@ -55,7 +71,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add='''
-  let g:deoplete#enable_at_startup = 1
+  if has('nvim') && has('python3')
+    let g:deoplete#enable_at_startup = 1
+  endif
 '''
 
 [[plugins]]

@@ -1,21 +1,3 @@
-" base16-vim
-let g:base16colorspace = 256
-
-" php.vim
-let g:PHP_vintage_case_default_indent = 1
-
-" winresizer
-let g:winresizer_vert_resize = 1
-let g:winresizer_horiz_resize = 1
-
-" NERDTree
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize = 35
-if winwidth(0) > 100 || has('nvim')
-  let g:nerdtree_tabs_open_on_console_startup = 1
-endif
-
-" lightline
 let g:lightline = {
   \   'colorscheme': 'base16_ocean',
   \   'active': {
