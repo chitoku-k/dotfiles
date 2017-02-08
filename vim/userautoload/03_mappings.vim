@@ -39,12 +39,6 @@ if !has('nvim')
   inoremap <Right> <Esc>:<C-u>!sl<CR><CR>
 endif
 
-" ウィンドウ移動
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " インクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
