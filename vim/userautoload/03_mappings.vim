@@ -45,12 +45,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" テキスト移動
-xmap <C-h> <Plug>(textmanip-move-left)
-xmap <C-j> <Plug>(textmanip-move-down)
-xmap <C-k> <Plug>(textmanip-move-up)
-xmap <C-l> <Plug>(textmanip-move-right)
-
 " インクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>

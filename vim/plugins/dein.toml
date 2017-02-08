@@ -33,6 +33,16 @@ repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
+hook_add = '''
+  xmap <C-h> <Plug>(textmanip-move-left)
+  xmap <C-j> <Plug>(textmanip-move-down)
+  xmap <C-k> <Plug>(textmanip-move-up)
+  xmap <C-l> <Plug>(textmanip-move-right)
+
+  if has('nvim')
+    xmap <BS> <Plug>(textmanip-move-left)
+  endif
+'''
 
 [[plugins]]
 repo = 'gko/vim-coloresque'
