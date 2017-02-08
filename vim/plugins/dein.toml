@@ -80,6 +80,9 @@ hook_add='''
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
