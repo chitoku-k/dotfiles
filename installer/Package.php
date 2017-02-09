@@ -12,7 +12,7 @@ class Package
 
     public function symlink($name, $target = null)
     {
-        $target = $target ?: "{$_SERVER['HOME']}/{$name}";
+        $target = $target ?: "{$this->home}/{$name}";
         $realpath = realpath($name);
 
         if (file_exists($target)) {
@@ -20,7 +20,24 @@ class Package
             return;
         }
 
+        if (!file_exists(dirname($target))) {
+            mkdir(dirname($target), 0755, true);
+        }
+
         symlink($realpath, $target);
+    }
+
+    public function clone($repo, $target, $source = 'https://github.com/')
+    {
+        return passthru("git clone {$source}{$repo}.git {$target}");
+    }
+
+    public function __get($name)
+    {
+        switch ($name) {
+            case 'home':
+                return $_SERVER['HOME'];
+        }
     }
 
     public function __invoke()

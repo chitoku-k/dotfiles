@@ -23,11 +23,9 @@ class Installer
                 '.vimrc',
                 'Configuration for Vim',
                 function ($self) {
-                    $home = $_SERVER['HOME'];
-
-                    $self->symlink('vim/init.vim', "{$home}/{$self->name}");
+                    $self->symlink('vim/init.vim', "{$self->home}/{$self->name}");
                     foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                        $self->symlink($dir, "{$home}/.{$dir}");
+                        $self->symlink($dir, "{$self->home}/.{$dir}");
                     }
                 }
             ),
@@ -37,15 +35,9 @@ class Installer
                 '.config/nvim/init.vim',
                 'Configuration for Neovim',
                 function ($self) {
-                    $home = $_SERVER['HOME'];
-
-                    if (!file_exists("{$home}/.config/nvim")) {
-                        mkdir("{$home}/.config/nvim", 0755, true);
-                    }
-
-                    $self->symlink('vim/init.vim', "{$home}/{$self->name}");
+                    $self->symlink('vim/init.vim', "{$self->home}/{$self->name}");
                     foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                        $self->symlink($dir, "{$home}/.config/n{$dir}");
+                        $self->symlink($dir, "{$self->home}/.config/n{$dir}");
                     }
                 }
             ),
@@ -72,8 +64,8 @@ class Installer
                 'shell',
                 'base16-shell',
                 'Base16 for Shells',
-                function () {
-                    passthru('git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell');
+                function ($self) {
+                    $self->clone('chriskempson/base16-shell', '~/.config/base16-shell');
                 }
             ),
             new Package(
@@ -81,8 +73,8 @@ class Installer
                 'zsh',
                 'zsh-syntax-highlighting',
                 'Fish shell like syntax highlighting for Zsh',
-                function () {
-                    passthru('git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh-syntax-highlighting');
+                function ($self) {
+                    $self->clone('zsh-users/zsh-syntax-highlighting', '~/.config/zsh-syntax-highlighting');
                 }
             ),
             new Package(
@@ -90,8 +82,8 @@ class Installer
                 'vim',
                 'dein.vim',
                 'Dark powered Vim/Neovim plugin manager',
-                function () {
-                    passthru('git clone https://github.com/Shougo/dein.vim ~/.cache/dein/repos/github.com/Shougo/dein.vim');
+                function ($self) {
+                    $self->clone('Shougo/dein.vim', '~/.cache/dein/repos/github.com/Shougo/dein.vim');
                 }
             ),
         );
