@@ -65,6 +65,20 @@ repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+hook_add = '''
+  let g:context_filetype#filetypes = {
+  \   'html': [
+  \     {
+  \       'start': '<script\%( [^>]*\)\?>',
+  \       'end': '</script>', 'filetype': 'javascript',
+  \     },
+  \     {
+  \       'start': '<style\%( [^>]*\)\?>',
+  \       'end': '</style>', 'filetype': 'css',
+  \     },
+  \   ]
+  \ }
+'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'

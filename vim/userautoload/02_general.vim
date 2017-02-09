@@ -75,11 +75,6 @@ augroup Comment
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
 
-augroup Cursor
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
-
 augroup PasteToggle
   autocmd InsertLeave * set nopaste
 augroup END
@@ -90,5 +85,5 @@ augroup CRFix
 augroup END
 
 augroup FileTypes
-  autocmd BufNewFile,BufRead *.tag setfiletype riot
+  autocmd BufNewFile,BufRead *.tag setlocal filetype=riot
 augroup END
