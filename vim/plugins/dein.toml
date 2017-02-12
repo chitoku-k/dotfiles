@@ -11,6 +11,9 @@ hook_add = '''
   if winwidth(0) > 100 || has('nvim')
     let g:nerdtree_tabs_open_on_console_startup = 1
   endif
+
+  " https://github.com/jistr/vim-nerdtree-tabs/issues/84
+  let g:nerdtree_tabs_synchronize_view = 0
 '''
 
 [[plugins]]
