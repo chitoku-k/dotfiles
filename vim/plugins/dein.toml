@@ -76,6 +76,10 @@ hook_add = '''
   \       'end': '</script>', 'filetype': 'javascript',
   \     },
   \     {
+  \       'start': '<style type="text/scss"\%( [^>]*\)\?>',
+  \       'end': '</style>', 'filetype': 'scss',
+  \     },
+  \     {
   \       'start': '<style\%( [^>]*\)\?>',
   \       'end': '</style>', 'filetype': 'css',
   \     },

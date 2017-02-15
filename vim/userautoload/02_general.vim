@@ -85,5 +85,5 @@ augroup CRFix
 augroup END
 
 augroup FileTypes
-  autocmd BufNewFile,BufRead *.tag setlocal filetype=riot
+  autocmd BufNewFile,BufRead *.tag setlocal filetype=html
 augroup END
