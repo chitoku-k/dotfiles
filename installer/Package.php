@@ -27,7 +27,7 @@ class Package
         symlink($realpath, $target);
     }
 
-    public function clone($repo, $target, $source = 'https://github.com/')
+    public function cloneGit($repo, $target, $source = 'https://github.com/')
     {
         return passthru("git clone {$source}{$repo}.git {$target}");
     }

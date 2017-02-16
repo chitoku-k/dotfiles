@@ -65,7 +65,7 @@ class Installer
                 'base16-shell',
                 'Base16 for Shells',
                 function ($self) {
-                    $self->clone('chriskempson/base16-shell', '~/.config/base16-shell');
+                    $self->cloneGit('chriskempson/base16-shell', '~/.config/base16-shell');
                 }
             ),
             new Package(
@@ -74,7 +74,7 @@ class Installer
                 'zsh-syntax-highlighting',
                 'Fish shell like syntax highlighting for Zsh',
                 function ($self) {
-                    $self->clone('zsh-users/zsh-syntax-highlighting', '~/.config/zsh-syntax-highlighting');
+                    $self->cloneGit('zsh-users/zsh-syntax-highlighting', '~/.config/zsh-syntax-highlighting');
                 }
             ),
             new Package(
@@ -83,7 +83,7 @@ class Installer
                 'dein.vim',
                 'Dark powered Vim/Neovim plugin manager',
                 function ($self) {
-                    $self->clone('Shougo/dein.vim', '~/.cache/dein/repos/github.com/Shougo/dein.vim');
+                    $self->cloneGit('Shougo/dein.vim', '~/.cache/dein/repos/github.com/Shougo/dein.vim');
                 }
             ),
         );
