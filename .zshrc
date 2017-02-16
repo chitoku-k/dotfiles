@@ -44,13 +44,18 @@ precmd() {
     LANG=en_US.UTF-8 vcs_info
 }
 
+function zle-line-finish {
+    local hostname=$(echo $HOST | cut -d'.' -f1)
+    echo -n "\r\e[38;5;20m\e[48;5;8m $hostname \e[m"
+}
+
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
         "main")
-            prompt "INSERT" 2
+            prompt 2
             ;;
         *)
-            prompt "NORMAL" 4
+            prompt 4
             ;;
     esac
     zle reset-prompt
@@ -75,7 +80,7 @@ prompt() {
     [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{3}%F{0} $vcs_info_msg_1_ %f%k"
     [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
 
-    PS1="$lf%K{$2}%F{0} $1 %f%k%F{20}%K{19} %m | %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
+    PS1="$lf%K{$1}%F{0} %m %k%f%F{20}%K{19} %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
 }
 
 include() {
@@ -85,6 +90,7 @@ include() {
 }
 
 zle -N zle-line-init
+zle -N zle-line-finish
 zle -N zle-keymap-select
 
 
