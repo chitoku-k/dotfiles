@@ -147,6 +147,10 @@ bindkey "^[OF" end-of-line
 # [DELETE]
 bindkey "^[[3~" delete-char
 
+# [^D]
+bindkey -r "^D"
+stty eof undef
+
 
 #-------------------
 # Aliases
