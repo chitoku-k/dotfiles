@@ -45,12 +45,16 @@ precmd() {
 }
 
 function zle-line-finish {
-    # Move cursor up if the number of lines > 1
-    tput cuu $(( $BUFFERLINES <= 1 ? -1 : $BUFFERLINES - 1 ))
+    # The number of lines to move up/down which is used when the number of lines > 1
+    local lines=$(( $BUFFERLINES <= 1 ? -1 : $BUFFERLINES - 1 ))
+    # Move cursor up
+    tput cuu $lines
     # Move cursor to the beginning of the line
     tput hpa 0
     # Overwrite the hostname of drawn prompt
     printf "\e[38;5;20m\e[48;5;8m %s \e[m" $(echo $HOST | cut -d'.' -f1)
+    # Move cursor down
+    tput cud $lines
 }
 
 function zle-line-init zle-keymap-select {
