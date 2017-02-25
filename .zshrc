@@ -1,7 +1,14 @@
 #-------------------
-# Version Control
+# Modules
 #-------------------
 autoload -Uz vcs_info
+autoload -Uz zmv
+autoload -Uz compinit
+
+
+#-------------------
+# Version Control
+#-------------------
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "*"
@@ -17,22 +24,16 @@ setopt autopushd
 setopt autocd
 setopt extendedglob
 setopt correct
+setopt auto_resume
+setopt magic_equal_subst
 KEYTIMEOUT=1
-
-
-#-------------------
-# Features
-#-------------------
-autoload -Uz zmv
-alias zmv='noglob zmv -W'
 
 
 #-------------------
 # Completion
 #-------------------
-zstyle :compinstall filename "$HOME/.zshrc"
-autoload -Uz compinit
 compinit -u
+zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -40,53 +41,28 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #-------------------
 # Functions
 #-------------------
-precmd() {
+function precmd {
     LANG=en_US.UTF-8 vcs_info
 }
 
 function zle-line-finish {
-    # Cancel if continuation
-    if [[ $CONTEXT = "cont" ]]; then
-        return 0;
-    fi
-
-    # The number of lines to move up/down which is used when the number of lines > 1
-    local lines=$(( $BUFFERLINES - 1 ))
-
-    # Move cursor up
-    [[ $lines > 0 ]] && tput cuu $lines
-
-    # Move cursor to the beginning of the line
-    tput hpa 0
-
-    # Overwrite the hostname of drawn prompt
-    printf "\e[38;5;20m\e[48;5;8m %s \e[m" $(echo $HOST | cut -d'.' -f1)
-
-    # Move cursor down
-    [[ $lines > 0 ]] && tput cud $lines
-}
-
-function accept-line-end {
-    # Move cursor to the end of the line
-    CURSOR=$#BUFFER
-
-    # Execute default behavior
-    builtin zle .accept-line
+    prompt 8 20 8 20
+    zle reset-prompt
 }
 
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
         "main")
-            prompt 2
+            prompt 2 0 3 0
             ;;
         *)
-            prompt 4
+            prompt 4 0 3 0
             ;;
     esac
     zle reset-prompt
 }
 
-+vi-git-untracked() {
+function +vi-git-untracked {
     # Only "vcs_info_msg_1"
     if [[ $1 != "1" ]]; then
         return 0
@@ -97,34 +73,34 @@ function zle-line-init zle-keymap-select {
     fi
 }
 
-prompt() {
+function prompt {
+    # $1 - Background color of hostname
+    # $2 - Foreground color of hostname
+    # $3 - Background color of vcs_info
+    # $4 - Foreground color of vcs_info
     local messages=''
     local lf=$'\n'
 
-    [[ -n "$vcs_info_msg_0_" ]] && messages+="| $vcs_info_msg_0_ "
-    [[ -n "$vcs_info_msg_1_" ]] && messages+="%K{3}%F{0} $vcs_info_msg_1_ %f%k"
-    [[ -n "$vcs_info_msg_2_" ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
+    [[ -n $vcs_info_msg_0_ ]] && messages+="| $vcs_info_msg_0_ "
+    [[ -n $vcs_info_msg_1_ ]] && messages+="%K{$3}%F{$4} $vcs_info_msg_1_ %f%k"
+    [[ -n $vcs_info_msg_2_ ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
 
-    PS1="$lf%K{$1}%F{0} %m %k%f%F{20}%K{19} %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
+    PS1="$lf%K{$1}%F{$2} %m %k%f%F{20}%K{19} %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
 }
 
-include() {
-    if [[ -s $1 ]]; then
-        source $1
-    fi
+function include {
+    [[ -s $1 ]] && source $1
 }
 
 zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
-zle -N accept-line-end
 
 
 #-------------------
 # Keybinds
 #-------------------
 bindkey -v
-bindkey "^M" accept-line-end
 bindkey "^W" backward-kill-word
 bindkey "^H" backward-delete-char
 bindkey "^U" backward-kill-line
@@ -155,6 +131,7 @@ stty eof undef
 #-------------------
 # Aliases
 #-------------------
+alias zmv='noglob zmv -W'
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
