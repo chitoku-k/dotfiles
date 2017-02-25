@@ -45,6 +45,11 @@ precmd() {
 }
 
 function zle-line-finish {
+    # Cancel if continuation
+    if [[ $CONTEXT = "cont" ]]; then
+        return 0;
+    fi
+
     # The number of lines to move up/down which is used when the number of lines > 1
     local lines=$(( $BUFFERLINES - 1 ))
 
@@ -59,6 +64,14 @@ function zle-line-finish {
 
     # Move cursor down
     [[ $lines > 0 ]] && tput cud $lines
+}
+
+function accept-line-end {
+    # Move cursor to the end of the line
+    CURSOR=$#BUFFER
+
+    # Execute default behavior
+    builtin zle .accept-line
 }
 
 function zle-line-init zle-keymap-select {
@@ -104,12 +117,14 @@ include() {
 zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
+zle -N accept-line-end
 
 
 #-------------------
 # Keybinds
 #-------------------
 bindkey -v
+bindkey "^M" accept-line-end
 bindkey "^W" backward-kill-word
 bindkey "^H" backward-delete-char
 bindkey "^U" backward-kill-line
