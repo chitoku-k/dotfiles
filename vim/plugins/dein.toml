@@ -17,6 +17,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'EvanDotPro/nerdtree-chmod'
+
+[[plugins]]
 repo = 'flazz/vim-colorschemes'
 
 [[plugins]]
