@@ -1,5 +1,5 @@
 #-------------------
-# バージョン管理
+# Version Control
 #-------------------
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -11,7 +11,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 
 #-------------------
-# 一般
+# General
 #-------------------
 setopt autopushd
 setopt autocd
@@ -21,14 +21,14 @@ KEYTIMEOUT=1
 
 
 #-------------------
-# 機能
+# Features
 #-------------------
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
 
 #-------------------
-# 補完
+# Completion
 #-------------------
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
@@ -38,15 +38,19 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 
 #-------------------
-# 関数
+# Functions
 #-------------------
 precmd() {
     LANG=en_US.UTF-8 vcs_info
 }
 
 function zle-line-finish {
-    local hostname=$(echo $HOST | cut -d'.' -f1)
-    echo -n "\r\e[38;5;20m\e[48;5;8m $hostname \e[m"
+    # Move cursor up if the number of lines > 1
+    tput cuu $(( $BUFFERLINES <= 1 ? -1 : $BUFFERLINES - 1 ))
+    # Move cursor to the beginning of the line
+    tput hpa 0
+    # Overwrite the hostname of drawn prompt
+    printf "\e[38;5;20m\e[48;5;8m %s \e[m" $(echo $HOST | cut -d'.' -f1)
 }
 
 function zle-line-init zle-keymap-select {
@@ -62,7 +66,7 @@ function zle-line-init zle-keymap-select {
 }
 
 +vi-git-untracked() {
-    # vcs_info_msg_1 のみ
+    # Only "vcs_info_msg_1"
     if [[ "$1" != "1" ]]; then
         return 0
     fi
@@ -95,7 +99,7 @@ zle -N zle-keymap-select
 
 
 #-------------------
-# キーバインド
+# Keybinds
 #-------------------
 bindkey -v
 bindkey "^W" backward-kill-word
@@ -122,7 +126,7 @@ bindkey "^[[3~" delete-char
 
 
 #-------------------
-# エイリアス
+# Aliases
 #-------------------
 alias mv='mv -v'
 alias cp='cp -v'
@@ -132,13 +136,13 @@ alias chmod='chmod -v'
 
 
 #-------------------
-# 環境変数
+# Variables
 #-------------------
 export VISUAL='vim'
 
 
 #-------------------
-# その他
+# Others
 #-------------------
 include "$HOME/.zshrc.local"
 include "$HOME/.config/base16-shell/scripts/base16-ocean.sh"
