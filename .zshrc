@@ -46,15 +46,19 @@ precmd() {
 
 function zle-line-finish {
     # The number of lines to move up/down which is used when the number of lines > 1
-    local lines=$(( $BUFFERLINES <= 1 ? -1 : $BUFFERLINES - 1 ))
+    local lines=$(( $BUFFERLINES - 1 ))
+
     # Move cursor up
-    tput cuu $lines
+    [[ $lines > 0 ]] && tput cuu $lines
+
     # Move cursor to the beginning of the line
     tput hpa 0
+
     # Overwrite the hostname of drawn prompt
     printf "\e[38;5;20m\e[48;5;8m %s \e[m" $(echo $HOST | cut -d'.' -f1)
+
     # Move cursor down
-    tput cud $lines
+    [[ $lines > 0 ]] && tput cud $lines
 }
 
 function zle-line-init zle-keymap-select {
@@ -71,7 +75,7 @@ function zle-line-init zle-keymap-select {
 
 +vi-git-untracked() {
     # Only "vcs_info_msg_1"
-    if [[ "$1" != "1" ]]; then
+    if [[ $1 != "1" ]]; then
         return 0
     fi
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
