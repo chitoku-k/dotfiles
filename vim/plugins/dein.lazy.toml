@@ -39,7 +39,7 @@ on_ft = ['javascript']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'css']
+on_ft = ['html', 'php', 'css', 'scss']
 
 [[plugins]]
 repo = 'cespare/vim-toml'
