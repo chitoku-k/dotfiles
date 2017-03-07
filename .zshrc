@@ -26,6 +26,7 @@ setopt extendedglob
 setopt correct
 setopt auto_resume
 setopt magic_equal_subst
+setopt nonomatch
 KEYTIMEOUT=1
 
 
