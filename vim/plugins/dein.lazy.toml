@@ -11,8 +11,8 @@ repo = 'pangloss/vim-javascript'
 on_ft = ['javascript']
 
 [[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = ['css']
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = ['css', 'scss']
 
 [[plugins]]
 repo = 'nicklasos/vim-jsx-riot'
