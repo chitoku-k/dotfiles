@@ -135,3 +135,9 @@ hook_add='''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion'
+hook_add='''
+  call camelcasemotion#CreateMotionMappings('q')
+'''
