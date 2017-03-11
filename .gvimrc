@@ -21,6 +21,12 @@ set guioptions-=e
 " カーソル位置復元無効化
 augroup vimStartup | au! | augroup END
 
+" メニュー項目非表示
+augroup gvimrc
+  autocmd!
+  autocmd BufWinEnter * source $VIMRUNTIME/delmenu.vim
+augroup END
+
 "-------------------
 " クリップボード
 "-------------------

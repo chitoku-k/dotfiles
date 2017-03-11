@@ -72,19 +72,11 @@ set hlsearch
 "-------------------
 " autocmd
 "-------------------
-augroup Comment
+augroup vimrc
+  autocmd!
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-augroup END
-
-augroup PasteToggle
   autocmd InsertLeave * set nopaste
-augroup END
-
-augroup CRFix
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
-augroup END
-
-augroup FileTypes
   autocmd BufNewFile,BufRead *.tag setlocal filetype=html
 augroup END
