@@ -24,7 +24,7 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
 " カーソル移動抑制
-if !has('nvim')
+if !has('nvim') && !has('gui')
   nnoremap <Left>  :<C-u>!sl<CR><CR>
   nnoremap <Down>  :<C-u>!sl<CR><CR>
   nnoremap <Up>    :<C-u>!sl<CR><CR>
