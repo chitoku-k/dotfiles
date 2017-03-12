@@ -32,7 +32,7 @@ repo = 'felixjung/vim-base16-lightline'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-# VTE_VERSION is used for detection
+# Either $TERM_PROGRAM or $VTE_VERSION is used for detection
 repo = 'jszakmeister/vim-togglecursor'
 
 [[plugins]]
