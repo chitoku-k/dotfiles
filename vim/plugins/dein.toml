@@ -121,10 +121,12 @@ repo = 'christoomey/vim-tmux-navigator'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'kana/vim-textobj-user'
-
-[[plugins]]
-repo = 'easymotion/vim-easymotion'
+repo = 'haya14busa/incsearch.vim'
+hook_add='''
+  map / <Plug>(incsearch-forward)
+  map ? <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+'''
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
@@ -132,16 +134,24 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add='''
-  map <silent> sa <Plug>(operator-surround-append)
-  map <silent> sd <Plug>(operator-surround-delete)
-  map <silent> sr <Plug>(operator-surround-replace)
+  nmap ys <Plug>(operator-surround-append)
+  nmap ds <Plug>(operator-surround-delete)
+  nmap cs <Plug>(operator-surround-replace)
 '''
 
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-jabraces'
+
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion'
 hook_add='''
-  call camelcasemotion#CreateMotionMappings('q')
+  if exists('g:loaded_camelcasemotion')
+    call camelcasemotion#CreateMotionMappings('q')
+  endif
 '''
