@@ -122,10 +122,20 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
-hook_add='''
+hook_add = '''
+  let g:incsearch#magic = '\v'
   map / <Plug>(incsearch-forward)
   map ? <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
+'''
+
+[[plugins]]
+repo = 'haya14busa/vim-asterisk'
+hook_add = '''
+  map *  <Plug>(asterisk-z*)
+  map #  <Plug>(asterisk-z#)
+  map g* <Plug>(asterisk-gz*)
+  map g# <Plug>(asterisk-gz#)
 '''
 
 [[plugins]]
@@ -134,9 +144,9 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add='''
-  nmap ys <Plug>(operator-surround-append)
-  nmap ds <Plug>(operator-surround-delete)
-  nmap cs <Plug>(operator-surround-replace)
+  map <silent>ys <Plug>(operator-surround-append)
+  map <silent>ds <Plug>(operator-surround-delete)
+  map <silent>cs <Plug>(operator-surround-replace)
 '''
 
 [[plugins]]
@@ -156,3 +166,6 @@ repo = 'sgur/vim-textobj-parameter'
 
 [[plugins]]
 repo = 'Julian/vim-textobj-variable-segment'
+
+[[plugins]]
+repo = 'whatyouhide/vim-textobj-xmlattr'
