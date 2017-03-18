@@ -31,8 +31,8 @@ repo = 'felixjung/vim-base16-lightline'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
-[[plugins]]
 # Either $TERM_PROGRAM or $VTE_VERSION is used for detection
+[[plugins]]
 repo = 'jszakmeister/vim-togglecursor'
 
 [[plugins]]
@@ -146,12 +146,13 @@ repo = 'kana/vim-textobj-user'
 repo = 'kana/vim-textobj-jabraces'
 
 [[plugins]]
+repo = 'kana/vim-textobj-line'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
 repo = 'sgur/vim-textobj-parameter'
 
 [[plugins]]
-repo = 'bkad/CamelCaseMotion'
-hook_add='''
-  if exists('g:loaded_camelcasemotion')
-    call camelcasemotion#CreateMotionMappings('q')
-  endif
-'''
+repo = 'Julian/vim-textobj-variable-segment'
