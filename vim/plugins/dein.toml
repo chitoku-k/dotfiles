@@ -144,9 +144,9 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add='''
-  map <silent>ys <Plug>(operator-surround-append)
-  map <silent>ds <Plug>(operator-surround-delete)
-  map <silent>cs <Plug>(operator-surround-replace)
+  nmap <silent>ys <Plug>(operator-surround-append)
+  nmap <silent>ds <Plug>(operator-surround-delete)
+  nmap <silent>cs <Plug>(operator-surround-replace)
 '''
 
 [[plugins]]
