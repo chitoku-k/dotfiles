@@ -150,5 +150,7 @@ export VISUAL='vim'
 # Others
 #-------------------
 include "$HOME/.zshrc.local"
-include "$HOME/.config/base16-shell/scripts/base16-ocean.sh"
 include "$HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+BASE16_SHELL="$HOME/.config/base16-shell"
+[ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$($BASE16_SHELL/profile_helper.sh)"
