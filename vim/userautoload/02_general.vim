@@ -36,11 +36,11 @@ let &t_te .= "\e[23;0t"
 "-------------------
 syntax on
 set background=dark
-set cursorline
 set list
 set scrolloff=3
 set visualbell
 set number
+set numberwidth=5
 set showtabline=2
 set laststatus=2
 set ambiwidth=double
@@ -55,6 +55,8 @@ set fillchars+=vert:\
 try
   colorscheme base16-ocean
   highlight Normal ctermbg=none
+  highlight CursorLineNr term=bold cterm=NONE ctermfg=7 ctermbg=8
+  highlight clear CursorLine
 catch
   colorscheme desert
 endtry
@@ -75,8 +77,15 @@ set hlsearch
 augroup vimrc
   autocmd!
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-  autocmd InsertLeave * set nopaste
+  autocmd InsertLeave * setlocal nopaste
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
   autocmd BufNewFile,BufRead *.tag setlocal filetype=html
+  autocmd QuickFixCmdPost *grep* cwindow
+  autocmd WinLeave,TabLeave * call anzu#clear_search_status()
+augroup END
+augroup CursorLine
+  autocmd!
+  autocmd WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave,VimEnter * setlocal nocursorline
 augroup END

@@ -1,55 +1,76 @@
 let g:lightline = {
   \   'colorscheme': 'base16_ocean',
   \   'active': {
-  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-  \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'anzu' ] ],
+  \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
   \   },
   \   'inactive': {
   \     'left': [ [ 'filename' ] ],
-  \     'right': []
+  \     'right': [],
   \   },
   \   'tabline': {
   \     'left': [ [ 'tabs' ] ],
-  \     'right': []
+  \     'right': [],
   \   },
   \   'component_function': {
   \     'mode': 'LightLineMode',
   \     'fugitive': 'LightLineFugitive',
   \     'filename': 'LightLineFilename',
+  \     'lineinfo': 'LightLineLineinfo',
   \     'fileformat': 'LightLineFileformat',
   \     'filetype': 'LightLineFiletype',
-  \     'fileencoding': 'LightLineFileencoding'
-  \   }
+  \     'fileencoding': 'LightLineFileencoding',
+  \     'anzu': 'anzu#search_status',
+  \   },
   \ }
 
 function! LightLineMode()
   let fname = expand('%:t')
-  return fname =~ 'NERD_tree' ? 'NERDTree' :
-    \ winwidth(0) > 60 ? lightline#mode() : ''
+  if fname =~ 'NERD_tree' || &ft =~ 'qf' || winwidth(0) < 60
+    return ''
+  endif
+  return lightline#mode()
 endfunction
 
 function! LightLineFugitive()
-  if expand('%:t') !~? 'NERD_tree' && &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-    return fugitive#head()
-  else
+  let fname = expand('%:t')
+  if fname =~ 'NERD_tree' || !exists('*fugitive#head')
     return ''
   endif
+  return fugitive#head()
 endfunction
 
 function! LightLineModified()
-  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  if &ft =~ 'help' || !&modified
+    return ''
+  endif
+  return '+'
 endfunction
 
 function! LightLineReadonly()
-  return &ft !~? 'help' && &readonly ? 'RO' : ''
+  if &ft =~ 'help' || !&readonly
+    return ''
+  endif
+  return 'RO'
 endfunction
 
 function! LightLineFilename()
   let fname = expand('%:t')
-  return fname =~ 'NERD_tree' ? '' :
-    \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-    \ ('' != fname ? fname : '[No Name]') .
-    \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  if fname =~ 'NERD_tree' || &ft =~ 'qf'
+    return ''
+  endif
+  let readonly = LightLineReadonly() != '' ? LightLineReadonly() . ' ' : ''
+  let filename = fname != '' ? fname : '[No Name]'
+  let modified = LightLineModified() != '' ? ' ' . LightLineModified() : ''
+  return readonly . filename . modified
+endfunction
+
+function! LightLineLineinfo()
+  let fname = expand('%:t')
+  if fname =~ 'NERD_tree'
+    return ''
+  endif
+  return printf("%3d/%d", line('.'), line('$'))
 endfunction
 
 function! LightLineFileformat()
