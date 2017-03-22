@@ -17,9 +17,6 @@ hook_add = '''
 repo = 'chitoku-k/nerdtree-chmod'
 
 [[plugins]]
-repo = 'flazz/vim-colorschemes'
-
-[[plugins]]
 repo = 'chriskempson/base16-vim'
 hook_add = '''
   let g:base16colorspace = 256
