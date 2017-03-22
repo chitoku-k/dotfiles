@@ -150,10 +150,16 @@ repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
-hook_add='''
+hook_add = '''
   nmap <silent>ys <Plug>(operator-surround-append)
   nmap <silent>ds <Plug>(operator-surround-delete)
   nmap <silent>cs <Plug>(operator-surround-replace)
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-operator-stay-cursor'
+hook_add = '''
+  nmap y <Plug>(operator-stay-cursor-yank)
 '''
 
 [[plugins]]
