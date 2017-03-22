@@ -48,16 +48,19 @@ function precmd {
 
 function zle-line-finish {
     prompt 8 20 8 20
+    cursor 'block'
     zle reset-prompt
 }
 
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
-        "main")
+        'main')
             prompt 2 0 3 0
+            cursor 'line'
             ;;
         *)
             prompt 4 0 3 0
+            cursor 'block'
             ;;
     esac
     zle reset-prompt
@@ -72,6 +75,34 @@ function +vi-git-untracked {
         git status --porcelain | grep '??' &> /dev/null; then
         hook_com[unstaged]+='!'
     fi
+}
+
+function is-decscusr-supported {
+    if [[ $TERM_PROGRAM == 'iTerm.app' ]]; then
+        echo 'true'
+    fi
+    if [[ $TERM_PROGRAM == 'Apple_Terminal' ]]; then
+        echo 'true'
+    fi
+    if [[ $VTE_VERSION -ge 3900 ]]; then
+        echo 'true'
+    fi
+    echo 'false'
+}
+
+function cursor {
+    if [[ $(is-decscusr-supported) == 'false' ]]; then
+        return 0
+    fi
+
+    case $1 in
+        'line')
+            printf "\e[6 q"
+            ;;
+        *)
+            printf "\e[2 q"
+            ;;
+    esac
 }
 
 function prompt {

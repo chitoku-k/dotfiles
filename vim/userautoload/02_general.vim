@@ -50,7 +50,7 @@ set nowrap
 set listchars=tab:▸\ 
 
 " 区切り文字の指定
-set fillchars+=vert:\
+set fillchars+=vert:\ 
 
 try
   colorscheme base16-ocean
