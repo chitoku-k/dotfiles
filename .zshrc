@@ -80,12 +80,15 @@ function +vi-git-untracked {
 function is-decscusr-supported {
     if [[ $TERM_PROGRAM == 'iTerm.app' ]]; then
         echo 'true'
+        return 0
     fi
     if [[ $TERM_PROGRAM == 'Apple_Terminal' ]]; then
         echo 'true'
+        return 0
     fi
     if [[ $VTE_VERSION -ge 3900 ]]; then
         echo 'true'
+        return 0
     fi
     echo 'false'
 }
@@ -95,12 +98,15 @@ function cursor {
         return 0
     fi
 
+    local format='%b'
+    [[ -n $TMUX ]] && format="\ePtmux;\e%b\e\\"
+
     case $1 in
         'line')
-            printf "\e[6 q"
+            printf $format "\e[6 q"
             ;;
         *)
-            printf "\e[2 q"
+            printf $format "\e[2 q"
             ;;
     esac
 }
