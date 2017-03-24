@@ -1,29 +1,3 @@
-let g:lightline = {
-  \   'colorscheme': 'base16_ocean',
-  \   'active': {
-  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'anzu' ] ],
-  \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
-  \   },
-  \   'inactive': {
-  \     'left': [ [ 'filename' ] ],
-  \     'right': [],
-  \   },
-  \   'tabline': {
-  \     'left': [ [ 'tabs' ] ],
-  \     'right': [],
-  \   },
-  \   'component_function': {
-  \     'mode': 'LightLineMode',
-  \     'fugitive': 'LightLineFugitive',
-  \     'filename': 'LightLineFilename',
-  \     'lineinfo': 'LightLineLineinfo',
-  \     'fileformat': 'LightLineFileformat',
-  \     'filetype': 'LightLineFiletype',
-  \     'fileencoding': 'LightLineFileencoding',
-  \     'anzu': 'anzu#search_status',
-  \   },
-  \ }
-
 function! LightLineMode()
   let fname = expand('%:t')
   if fname =~ 'NERD_tree' || &ft =~ 'qf' || winwidth(0) < 60

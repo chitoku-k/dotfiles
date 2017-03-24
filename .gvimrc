@@ -7,7 +7,7 @@ set columns=200
 set linespace=3
 
 if has('gui_gtk2')
-  set guifont=Inconsolata\ 8
+  set guifont=Inconsolata\ 11
 elseif has('gui_macvim')
   set transparency=3
   set guifont=Inconsolata:h11
@@ -32,11 +32,11 @@ set guioptions-=T
 " ベル無効化
 set t_vb=
 
-" カーソル位置復元無効化
-augroup vimStartup | au! | augroup END
+" マウス無効化
+set mouse=
 
-" メニュー項目非表示
-augroup gvimrc
+" カーソル位置復元/メニュー無効化
+augroup vimStartup
   autocmd!
   autocmd BufWinEnter * source $VIMRUNTIME/delmenu.vim
 augroup END

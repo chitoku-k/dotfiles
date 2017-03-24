@@ -27,6 +27,33 @@ repo = 'felixjung/vim-base16-lightline'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {
+  \   'colorscheme': 'base16_ocean',
+  \   'active': {
+  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'anzu' ] ],
+  \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
+  \   },
+  \   'inactive': {
+  \     'left': [ [ 'filename' ] ],
+  \     'right': [],
+  \   },
+  \   'tabline': {
+  \     'left': [ [ 'tabs' ] ],
+  \     'right': [],
+  \   },
+  \   'component_function': {
+  \     'mode': 'LightLineMode',
+  \     'fugitive': 'LightLineFugitive',
+  \     'filename': 'LightLineFilename',
+  \     'lineinfo': 'LightLineLineinfo',
+  \     'fileformat': 'LightLineFileformat',
+  \     'filetype': 'LightLineFiletype',
+  \     'fileencoding': 'LightLineFileencoding',
+  \     'anzu': 'anzu#search_status',
+  \   },
+  \ }
+'''
 
 # Either $TERM_PROGRAM or $VTE_VERSION is used for detection
 [[plugins]]
