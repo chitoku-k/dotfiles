@@ -157,12 +157,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'osyo-manga/vim-operator-stay-cursor'
-hook_add = '''
-  nmap y <Plug>(operator-stay-cursor-yank)
-'''
-
-[[plugins]]
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
