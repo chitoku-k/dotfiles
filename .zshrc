@@ -42,17 +42,17 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #-------------------
 # Functions
 #-------------------
-function precmd {
+precmd() {
     LANG=en_US.UTF-8 vcs_info
 }
 
-function zle-line-finish {
+zle-line-finish() {
     prompt 8 20 8 20
     cursor 'block'
     zle reset-prompt
 }
 
-function zle-line-init zle-keymap-select {
+zle-line-init zle-keymap-select() {
     case $KEYMAP in
         'main')
             prompt 2 0 3 0
@@ -66,7 +66,7 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
-function +vi-git-untracked {
++vi-git-untracked() {
     # Only "vcs_info_msg_1"
     if [[ $1 != "1" ]]; then
         return 0
@@ -77,7 +77,7 @@ function +vi-git-untracked {
     fi
 }
 
-function is-decscusr-supported {
+is-decscusr-supported() {
     if [[ $TERM_PROGRAM == 'iTerm.app' ]]; then
         echo 'true'
         return 0
@@ -93,7 +93,7 @@ function is-decscusr-supported {
     echo 'false'
 }
 
-function cursor {
+cursor() {
     if [[ $(is-decscusr-supported) == 'false' ]]; then
         return 0
     fi
@@ -111,7 +111,7 @@ function cursor {
     esac
 }
 
-function prompt {
+prompt() {
     # $1 - Background color of hostname
     # $2 - Foreground color of hostname
     # $3 - Background color of vcs_info
@@ -126,7 +126,7 @@ function prompt {
     PS1="$lf%K{$1}%F{$2} %m %k%f%F{20}%K{19} %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
 }
 
-function include {
+include() {
     [[ -s $1 ]] && source $1
 }
 
