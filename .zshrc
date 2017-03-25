@@ -103,10 +103,10 @@ function cursor {
 
     case $1 in
         'line')
-            printf $format "\e[6 q"
+            printf $format "\e[5 q"
             ;;
         *)
-            printf $format "\e[2 q"
+            printf $format "\e[0 q"
             ;;
     esac
 }
