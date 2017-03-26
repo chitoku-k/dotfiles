@@ -27,7 +27,6 @@ setopt correct
 setopt auto_resume
 setopt magic_equal_subst
 setopt nonomatch
-KEYTIMEOUT=1
 
 
 #-------------------
@@ -44,6 +43,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #-------------------
 precmd() {
     LANG=en_US.UTF-8 vcs_info
+}
+
+TRAPINT() {
+    zle zle-line-finish
+    return $((128 + $1))
 }
 
 zle-line-finish() {
@@ -116,14 +120,17 @@ prompt() {
     # $2 - Foreground color of hostname
     # $3 - Background color of vcs_info
     # $4 - Foreground color of vcs_info
-    local messages=''
-    local lf=$'\n'
+    local hostname="%K{$1}%F{$2} %m %k%f"
+    local directory="%K{19}%F{20} %1~ %k%f"
+    local vcs_info=''
+    local user="%(!.%K{1} # %k.%K{18} $ %k) "
 
-    [[ -n $vcs_info_msg_0_ ]] && messages+="| $vcs_info_msg_0_ "
-    [[ -n $vcs_info_msg_1_ ]] && messages+="%K{$3}%F{$4} $vcs_info_msg_1_ %f%k"
-    [[ -n $vcs_info_msg_2_ ]] && messages+="%K{16} $vcs_info_msg_2_ %k"
+    [[ -n $vcs_info_msg_0_ ]] && vcs_info+="%K{19}%F{20}| $vcs_info_msg_0_ "
+    [[ -n $vcs_info_msg_1_ ]] && vcs_info+="%K{$3}%F{$4} $vcs_info_msg_1_ %f%k"
+    [[ -n $vcs_info_msg_2_ ]] && vcs_info+="%K{16} $vcs_info_msg_2_ %k"
+    [[ -n $vcs_info ]] && vcs_info+="%k%f"
 
-    PS1="$lf%K{$1}%F{$2} %m %k%f%F{20}%K{19} %1~ $messages%k%f%(!.%K{1} # %k.%K{18} $ %k) "
+    PS1=$'\n'$hostname$directory$vcs_info$user
 }
 
 include() {
@@ -181,6 +188,8 @@ alias chmod='chmod -v'
 # Variables
 #-------------------
 export VISUAL='vim'
+PS1=
+KEYTIMEOUT=1
 
 
 #-------------------
