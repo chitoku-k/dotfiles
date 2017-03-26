@@ -178,6 +178,25 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add = '''
+  let g:operator#surround#blocks = {
+  \   '-': [
+  \     {
+  \       'block': ['(', ')'],
+  \       'motionwise': ['char', 'line', 'block'],
+  \       'keys': ['b'],
+  \     },
+  \     {
+  \       'block': ["'", "'"],
+  \       'motionwise': ['char', 'line', 'block'],
+  \       'keys': ['q'],
+  \     },
+  \     {
+  \       'block': ['"', '"'],
+  \       'motionwise': ['char', 'line', 'block'],
+  \       'keys': ['Q'],
+  \     },
+  \   ]
+  \ }
   nmap <silent>ys <Plug>(operator-surround-append)
   nmap <silent>ds <Plug>(operator-surround-delete)
   nmap <silent>cs <Plug>(operator-surround-replace)
