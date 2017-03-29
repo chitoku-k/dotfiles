@@ -144,7 +144,7 @@ include "$HOME/.zplug/init.zsh" && {
     zplug "chriskempson/base16-shell"
     zplug "chitoku-k/zsh-togglecursor"
     zplug "hcgraf/zsh-sudo"
-    zplug "zsh-users/zsh-syntax-highlighting"
+    zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
     if ! zplug check; then
         printf "Install? [y/N]: "
