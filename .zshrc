@@ -46,25 +46,8 @@ precmd() {
 }
 
 TRAPINT() {
-    zle zle-line-finish
-    return $((128 + $1))
-}
-
-zle-line-finish() {
-    prompt 8 20 8 20
-    zle reset-prompt
-}
-
-zle-line-init zle-keymap-select() {
-    case $KEYMAP in
-        'main')
-            prompt 2 0 3 0
-            ;;
-        *)
-            prompt 4 0 3 0
-            ;;
-    esac
-    zle reset-prompt
+    _zsh_prompt_redraw 0
+    return $(( 128 + $1 ))
 }
 
 +vi-git-untracked() {
@@ -78,7 +61,28 @@ zle-line-init zle-keymap-select() {
     fi
 }
 
-prompt() {
+_zsh_prompt_redraw() {
+    # Only callable when zle is active
+    if ! zle; then
+        return 0
+    fi
+
+    if [[ $1 = "0" ]] || [[ $WIDGET =~ finish ]]; then
+        _zsh_prompt 8 20 8 20
+    else
+        case $KEYMAP in
+            'main')
+                _zsh_prompt 2 0 3 0
+                ;;
+            *)
+                _zsh_prompt 4 0 3 0
+                ;;
+        esac
+    fi
+    zle reset-prompt
+}
+
+_zsh_prompt() {
     local hostname="%K{$1}%F{$2} %m %k%f"
     local directory="%K{19}%F{20} %1~ %k%f"
     local vcs_info=''
@@ -96,9 +100,9 @@ include() {
     [[ -s $1 ]] && source $1
 }
 
-zle -N zle-line-init
-zle -N zle-line-finish
-zle -N zle-keymap-select
+zle -N zle-line-init _zsh_prompt_redraw
+zle -N zle-line-finish _zsh_prompt_redraw
+zle -N zle-keymap-select _zsh_prompt_redraw
 
 
 #-------------------
@@ -133,6 +137,27 @@ stty eof undef
 
 
 #-------------------
+# Plugins
+#-------------------
+include "$HOME/.zshrc.local"
+include "$HOME/.zplug/init.zsh" && {
+    zplug "chriskempson/base16-shell"
+    zplug "chitoku-k/zsh-togglecursor"
+    zplug "hcgraf/zsh-sudo"
+    zplug "zsh-users/zsh-syntax-highlighting"
+
+    if ! zplug check; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+
+    zplug load
+}
+
+
+#-------------------
 # Aliases
 #-------------------
 alias zmv='noglob zmv -W'
@@ -149,13 +174,3 @@ alias chmod='chmod -v'
 export VISUAL='vim'
 export PS1=
 KEYTIMEOUT=1
-
-
-#-------------------
-# Others
-#-------------------
-include "$HOME/.zshrc.local"
-include "$HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-BASE16_SHELL="$HOME/.config/base16-shell"
-[ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$($BASE16_SHELL/profile_helper.sh)"

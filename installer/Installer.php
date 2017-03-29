@@ -61,20 +61,11 @@ class Installer
             ),
             new Package(
                 5,
-                'shell',
-                'base16-shell',
-                'Base16 for Shells',
-                function ($self) {
-                    $self->cloneGit('chriskempson/base16-shell', '~/.config/base16-shell');
-                }
-            ),
-            new Package(
-                5,
                 'zsh',
-                'zsh-syntax-highlighting',
-                'Fish shell like syntax highlighting for Zsh',
+                'zplug',
+                'A next-generation plugin manager for zsh',
                 function ($self) {
-                    $self->cloneGit('zsh-users/zsh-syntax-highlighting', '~/.config/zsh-syntax-highlighting');
+                    $self->cloneGit('zplug/zplug', '~/.zplug');
                 }
             ),
             new Package(

@@ -29,7 +29,7 @@ class Package
 
     public function cloneGit($repo, $target, $source = 'https://github.com/')
     {
-        return passthru("git clone {$source}{$repo}.git {$target}");
+        return passthru("git clone --depth 1 {$source}{$repo}.git {$target}");
     }
 
     public function __get($name)
