@@ -52,7 +52,6 @@ TRAPINT() {
 
 zle-line-finish() {
     prompt 8 20 8 20
-    cursor 'block'
     zle reset-prompt
 }
 
@@ -60,11 +59,9 @@ zle-line-init zle-keymap-select() {
     case $KEYMAP in
         'main')
             prompt 2 0 3 0
-            cursor 'line'
             ;;
         *)
             prompt 4 0 3 0
-            cursor 'block'
             ;;
     esac
     zle reset-prompt
@@ -81,45 +78,7 @@ zle-line-init zle-keymap-select() {
     fi
 }
 
-is-decscusr-supported() {
-    if [[ $TERM_PROGRAM == 'iTerm.app' ]]; then
-        echo 'true'
-        return 0
-    fi
-    if [[ $TERM_PROGRAM == 'Apple_Terminal' ]]; then
-        echo 'true'
-        return 0
-    fi
-    if [[ $VTE_VERSION -ge 3900 ]]; then
-        echo 'true'
-        return 0
-    fi
-    echo 'false'
-}
-
-cursor() {
-    if [[ $(is-decscusr-supported) == 'false' ]]; then
-        return 0
-    fi
-
-    local format='%b'
-    [[ -n $TMUX ]] && format="\ePtmux;\e%b\e\\"
-
-    case $1 in
-        'line')
-            printf $format "\e[5 q"
-            ;;
-        *)
-            printf $format "\e[0 q"
-            ;;
-    esac
-}
-
 prompt() {
-    # $1 - Background color of hostname
-    # $2 - Foreground color of hostname
-    # $3 - Background color of vcs_info
-    # $4 - Foreground color of vcs_info
     local hostname="%K{$1}%F{$2} %m %k%f"
     local directory="%K{19}%F{20} %1~ %k%f"
     local vcs_info=''
@@ -188,7 +147,7 @@ alias chmod='chmod -v'
 # Variables
 #-------------------
 export VISUAL='vim'
-PS1=
+export PS1=
 KEYTIMEOUT=1
 
 
