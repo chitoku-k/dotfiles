@@ -8,7 +8,7 @@ Setting files expect each version below or later:
 
 - Git 1.7.10
 - Vim 7.4
-- Zsh 5.0
+- Zsh 5.3
 - tmux 2.1
 
 ## Installation
@@ -22,4 +22,4 @@ $ ./install
 
 Choose whatever packages you want to install and press <kbd>Enter</kbd>.
 
-<img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.png" alt="" width="450">
+<img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.gif" alt="" width="400">
