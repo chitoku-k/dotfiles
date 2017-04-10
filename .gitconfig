@@ -20,6 +20,10 @@
     uncommit = reset --mixed HEAD~
     amend = commit --amend
 
+    # 無視
+    preserve = update-index --assume-unchanged --
+    unpreserve = update-index --no-assume-unchanged --
+
 [diff]
     compactionHeuristic = true
 
