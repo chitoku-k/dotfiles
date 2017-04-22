@@ -4,12 +4,13 @@
 set background=dark
 set lines=50
 set columns=200
-set linespace=3
 
 if has('gui_gtk2')
+  set linespace=3
   set guifont=Inconsolata\ 11
 elseif has('gui_macvim')
   set transparency=3
+  set linespace=5
   set guifont=Inconsolata:h11
   set guifontwide=HiraginoSans-W3
 endif
