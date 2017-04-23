@@ -176,6 +176,12 @@ hook_add = '''
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
+repo = 'kana/vim-operator-replace'
+hook_add = '''
+  nmap R <Plug>(operator-replace)
+'''
+
+[[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add = '''
   let g:operator#surround#blocks = {
