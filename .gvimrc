@@ -47,5 +47,5 @@ augroup END
 " クリップボード
 "-------------------
 if has('gui') || has('xterm_clipboard')
-  set clipboard=unnamed
+  set clipboard=unnamedplus,unnamed
 endif
