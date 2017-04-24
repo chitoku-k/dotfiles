@@ -42,10 +42,12 @@ vnoremap <Left> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Up> <Nop>
 vnoremap <Right> <Nop>
-inoremap <Left> <Nop>
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Right> <Nop>
+if !has('gui')
+  inoremap <Left> <Nop>
+  inoremap <Down> <Nop>
+  inoremap <Up> <Nop>
+  inoremap <Right> <Nop>
+endif
 
 " 貼り付け
 set pastetoggle=<C-p>
