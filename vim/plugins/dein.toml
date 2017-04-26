@@ -31,7 +31,7 @@ hook_add = '''
   let g:lightline = {
   \   'colorscheme': 'base16_ocean',
   \   'active': {
-  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'anzu' ] ],
+  \     'left': [ [ 'mode', 'paste' ], [ 'filename' ], [ 'anzu' ] ],
   \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
   \   },
   \   'inactive': {

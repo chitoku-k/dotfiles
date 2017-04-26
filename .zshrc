@@ -42,7 +42,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Functions
 #-------------------
 precmd() {
-    LANG=en_US.UTF-8 vcs_info
+    if [[ $(filesystem) =~ 'osxfuse|sshfs|smbfs' ]]; then
+        unset vcs_info_msg_0_ vcs_info_msg_1_ vcs_info_msg_2_
+    else
+        LANG=en_US.UTF-8 vcs_info
+    fi
 }
 
 TRAPINT() {
@@ -94,6 +98,17 @@ _zsh_prompt() {
     [[ -n $vcs_info ]] && vcs_info+="%k%f"
 
     PS1=$'\n'$hostname$directory$vcs_info$user
+}
+
+filesystem() {
+    case $OSTYPE in
+        darwin*)
+            mount | grep $(df -P . | cut -d' ' -f1 | tail -n1) | sed -E 's/.*\(|,.*//g'
+            ;;
+        *)
+            stat -f -L -c %T .
+            ;;
+    esac
 }
 
 include() {
