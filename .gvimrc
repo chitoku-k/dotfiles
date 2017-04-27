@@ -6,7 +6,7 @@ set lines=50
 set columns=200
 
 " GVim (GTK)
-if has('gui_gtk2')
+if has('gui_gtk')
   set linespace=3
   set guifont=Inconsolata\ 11
 endif
