@@ -33,8 +33,6 @@ let &t_te .= "\e[23;0t"
 "-------------------
 " 表示
 "-------------------
-syntax on
-set background=dark
 set list
 set scrolloff=3
 set visualbell
@@ -50,15 +48,6 @@ set listchars=tab:▸\
 
 " 区切り文字の指定
 set fillchars+=vert:\ 
-
-try
-  colorscheme base16-ocean
-  highlight Normal ctermbg=none
-  highlight CursorLineNr term=bold cterm=NONE ctermfg=7 ctermbg=8
-  highlight clear CursorLine
-catch
-  colorscheme desert
-endtry
 
 
 "-------------------

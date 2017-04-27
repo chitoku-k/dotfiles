@@ -6,14 +6,6 @@ function! LightLineMode()
   return lightline#mode()
 endfunction
 
-function! LightLineFugitive()
-  let fname = expand('%:t')
-  if fname =~ 'NERD_tree' || !exists('*fugitive#head')
-    return ''
-  endif
-  return fugitive#head()
-endfunction
-
 function! LightLineModified()
   if &ft =~ 'help' || !&modified
     return ''

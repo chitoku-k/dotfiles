@@ -1,14 +1,18 @@
 "-------------------
 " 表示
 "-------------------
-set background=dark
+runtime! userautoload/colors.vim
 set lines=50
 set columns=200
 
+" GVim (GTK)
 if has('gui_gtk2')
   set linespace=3
   set guifont=Inconsolata\ 11
-elseif has('gui_macvim')
+endif
+
+" MacVim
+if has('gui_macvim')
   set transparency=3
   set linespace=5
   set guifont=Inconsolata:h11
@@ -48,4 +52,5 @@ augroup END
 "-------------------
 if has('gui') || has('xterm_clipboard')
   set clipboard=unnamedplus,unnamed
+  inoremap <D-v> <C-r>*
 endif

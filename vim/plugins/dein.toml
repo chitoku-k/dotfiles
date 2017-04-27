@@ -44,7 +44,6 @@ hook_add = '''
   \   },
   \   'component_function': {
   \     'mode': 'LightLineMode',
-  \     'fugitive': 'LightLineFugitive',
   \     'filename': 'LightLineFilename',
   \     'lineinfo': 'LightLineLineinfo',
   \     'fileformat': 'LightLineFileformat',
@@ -156,7 +155,6 @@ hook_add = '''
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
-  let g:anzu_enable_CursorMoved_AnzuUpdateSearchStatus = 1
   let g:anzu_status_format = "%/ (%i/%l)"
   nmap <silent> <Esc><Esc> <Plug>(anzu-clear-search-status):nohlsearch<CR>
   nmap n <Plug>(anzu-n)zz
