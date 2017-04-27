@@ -42,7 +42,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Functions
 #-------------------
 precmd() {
-    if [[ $(filesystem) =~ 'osxfuse|sshfs|smbfs' ]]; then
+    if [[ $(filesystem) =~ 'osxfuse|sshfs|smbfs|fuseblk' ]]; then
         unset vcs_info_msg_0_ vcs_info_msg_1_ vcs_info_msg_2_
     else
         LANG=en_US.UTF-8 vcs_info
