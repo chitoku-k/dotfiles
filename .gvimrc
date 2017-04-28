@@ -17,6 +17,7 @@ if has('gui_macvim')
   set linespace=5
   set guifont=Inconsolata:h11
   set guifontwide=HiraginoSans-W3
+  inoremap <D-v> <C-r>*
 endif
 
 " 左スクロールバー非表示
@@ -45,12 +46,3 @@ augroup vimStartup
   autocmd!
   autocmd BufWinEnter * source $VIMRUNTIME/delmenu.vim
 augroup END
-
-
-"-------------------
-" クリップボード
-"-------------------
-if has('gui') || has('xterm_clipboard')
-  set clipboard=unnamedplus,unnamed
-  inoremap <D-v> <C-r>*
-endif

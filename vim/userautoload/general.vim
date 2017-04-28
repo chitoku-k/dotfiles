@@ -16,6 +16,7 @@ set softtabstop=4
 set virtualedit=block
 set cindent
 set title
+set clipboard=unnamedplus,unnamed
 
 " 行頭/行末からのカーソル移動を許可
 set whichwrap=b,s,h,l,[,],<,>
@@ -71,9 +72,4 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.tag setlocal filetype=html
   autocmd QuickFixCmdPost *grep* cwindow
   autocmd WinLeave,TabLeave * call anzu#clear_search_status()
-augroup END
-augroup CursorLine
-  autocmd!
-  autocmd WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave,VimEnter * setlocal nocursorline
 augroup END

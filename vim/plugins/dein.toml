@@ -171,6 +171,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'kana/vim-fakeclip'
+
+[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
