@@ -56,7 +56,7 @@ TRAPINT() {
 
 +vi-git-untracked() {
     # Only "vcs_info_msg_1"
-    if [[ $1 != "1" ]]; then
+    if [[ "$1" != "1" ]]; then
         return 0
     fi
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
@@ -71,10 +71,14 @@ _zsh_prompt_redraw() {
         return 0
     fi
 
-    if [[ $1 = "0" ]] || [[ $WIDGET =~ finish ]]; then
+    if [[ -n "$TMUX" ]]; then
+        tmux setenv 'ZSH_KEYMAP_'$(tmux display -p '#D' | tr -d %) "$KEYMAP"
+    fi
+
+    if [[ "$1" = "0" ]] || [[ "$WIDGET" =~ finish ]]; then
         _zsh_prompt 8 20 8 20
     else
-        case $KEYMAP in
+        case "$KEYMAP" in
             'main')
                 _zsh_prompt 2 0 3 0
                 ;;
@@ -92,16 +96,16 @@ _zsh_prompt() {
     local vcs_info=''
     local user="%(!.%K{1} # %k.%K{18} $ %k) "
 
-    [[ -n $vcs_info_msg_0_ ]] && vcs_info+="%K{19}%F{20}| $vcs_info_msg_0_ "
-    [[ -n $vcs_info_msg_1_ ]] && vcs_info+="%K{$3}%F{$4} $vcs_info_msg_1_ %f%k"
-    [[ -n $vcs_info_msg_2_ ]] && vcs_info+="%K{16} $vcs_info_msg_2_ %k"
-    [[ -n $vcs_info ]] && vcs_info+="%k%f"
+    [[ -n "$vcs_info_msg_0_" ]] && vcs_info+="%K{19}%F{20}| $vcs_info_msg_0_ "
+    [[ -n "$vcs_info_msg_1_" ]] && vcs_info+="%K{$3}%F{$4} $vcs_info_msg_1_ %f%k"
+    [[ -n "$vcs_info_msg_2_" ]] && vcs_info+="%K{16} $vcs_info_msg_2_ %k"
+    [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
     PS1=$'\n'$hostname$directory$vcs_info$user
 }
 
 filesystem() {
-    case $OSTYPE in
+    case "$OSTYPE" in
         darwin*)
             mount | grep $(df -P . | cut -d' ' -f1 | tail -n1) | sed -E 's/.*\(|,.*//g'
             ;;
@@ -112,7 +116,7 @@ filesystem() {
 }
 
 include() {
-    [[ -s $1 ]] && source $1
+    [[ -s "$1" ]] && source $1
 }
 
 zle -N zle-line-init _zsh_prompt_redraw
@@ -130,6 +134,8 @@ bindkey "^U" backward-kill-line
 bindkey "^H" backward-char
 bindkey "^L" vi-forward-char
 bindkey "^R" clear-screen
+bindkey -r "^J"
+bindkey -r "^K"
 
 # [BackSpace]
 bindkey "^?" backward-delete-char
