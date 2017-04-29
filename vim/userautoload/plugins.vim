@@ -27,8 +27,7 @@ function! LightLineFilename()
   endif
   let readonly = LightLineReadonly() != '' ? LightLineReadonly() . ' ' : ''
   let filename = fname != '' ? fname : '[No Name]'
-  let modified = LightLineModified() != '' ? ' ' . LightLineModified() : ''
-  return readonly . filename . modified
+  return readonly . filename
 endfunction
 
 function! LightLineLineinfo()
