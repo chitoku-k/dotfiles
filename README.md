@@ -9,7 +9,7 @@ Setting files expect each version below or later:
 - Git 1.7.10
 - Vim 7.4
 - Zsh 5.3
-- tmux 2.1
+- tmux 2.4
 
 ## Installation
 The script needs git and PHP 5.3 or later.
