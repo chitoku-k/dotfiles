@@ -3,7 +3,7 @@ if &compatible
 endif
 
 let s:dein_dir = expand('~/.cache/dein')
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim,~/.vim/after,~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)

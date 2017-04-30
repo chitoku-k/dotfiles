@@ -11,6 +11,14 @@ if has('gui_gtk')
   set guifont=Inconsolata\ 11
 endif
 
+" GVim (Windows)
+if has('gui_win32')
+  set transparency=240
+  set linespace=4
+  set guifont=Consolas:h10
+  set guifontwide=MS_Gothic:h10
+endif
+
 " MacVim
 if has('gui_macvim')
   set transparency=3
