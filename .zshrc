@@ -190,6 +190,14 @@ alias chmod='chmod -v'
 
 
 #-------------------
+# Terminal
+#-------------------
+if [[ _zsh_togglecursor_supported ]]; then
+    TERM='screen-256color-bce'
+fi
+
+
+#-------------------
 # Variables
 #-------------------
 export VISUAL='vim'
