@@ -2,7 +2,7 @@
 <?php
 function __autoload($class)
 {
-    require_once __DIR__ . "/installer/{$class}.php";
+    require_once __DIR__ . "/scripts/{$class}.php";
 }
 
 $installer = new Installer();

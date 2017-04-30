@@ -12,12 +12,19 @@ Setting files expect each version below or later:
 - tmux 2.4
 
 ## Installation
+
 The script needs git and PHP 5.3 or later.
 
 ```sh
 $ git clone https://github.com/chitoku-k/dotfiles.git
 $ cd dotfiles
 $ ./install
+```
+
+```bat
+> git clone https://github.com/chitoku-k/dotfiles.git
+> cd dotfiles
+> install.bat
 ```
 
 Choose whatever packages you want to install and press <kbd>Enter</kbd>.
