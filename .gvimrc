@@ -28,25 +28,9 @@ if has('gui_macvim')
   inoremap <D-v> <C-r>*
 endif
 
-" 左スクロールバー非表示
-set guioptions-=L
-
-" 右スクロールバー非表示
-set guioptions-=r
-
-" タブバー非表示
-set guioptions-=e
-
-" メニューバー非表示
-set guioptions-=m
-
-" ツールバー非表示
-set guioptions-=T
-
-" ベル無効化
+" GUI 無効化
 set t_vb=
-
-" マウス無効化
+set guioptions=c
 set mouse=
 
 " カーソル位置復元/メニュー無効化
