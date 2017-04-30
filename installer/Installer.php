@@ -65,7 +65,7 @@ class Installer
                 'zplug',
                 'A next-generation plugin manager for zsh',
                 function ($self) {
-                    $self->cloneGit('zplug/zplug', '~/.zplug');
+                    $self->cloneGit('zplug/zplug', "{$self->home}/.zplug");
                 }
             ),
             new Package(
@@ -74,7 +74,7 @@ class Installer
                 'dein.vim',
                 'Dark powered Vim/Neovim plugin manager',
                 function ($self) {
-                    $self->cloneGit('Shougo/dein.vim', '~/.cache/dein/repos/github.com/Shougo/dein.vim');
+                    $self->cloneGit('Shougo/dein.vim', "{$self->home}/.cache/dein/repos/github.com/Shougo/dein.vim");
                 }
             ),
         );

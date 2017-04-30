@@ -35,8 +35,12 @@ class Package
     public function __get($name)
     {
         switch ($name) {
-            case 'home':
+            case 'home': {
+                if (DIRECTORY_SEPARATOR === '\\') {
+                    return $_SERVER['USERPROFILE'];
+                }
                 return $_SERVER['HOME'];
+            }
         }
     }
 
