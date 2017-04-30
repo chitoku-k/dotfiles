@@ -35,7 +35,7 @@ hook_add = '''
   \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ],
   \   },
   \   'inactive': {
-  \     'left': [ [ 'filename' ] ],
+  \     'left': [ [ 'filename', 'modified' ] ],
   \     'right': [],
   \   },
   \   'tabline': {
@@ -136,9 +136,6 @@ hook_add='''
 '''
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 
 [[plugins]]
@@ -208,6 +205,12 @@ hook_add = '''
   nmap <silent>ys <Plug>(operator-surround-append)
   nmap <silent>ds <Plug>(operator-surround-delete)
   nmap <silent>cs <Plug>(operator-surround-replace)
+'''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_add = '''
+  let g:caw_operator_keymappings = 1
 '''
 
 [[plugins]]
