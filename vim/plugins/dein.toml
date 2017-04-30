@@ -1,6 +1,7 @@
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
+  let g:NERDTreeAutoDeleteBuffer = 1
   let g:NERDTreeMinimalUI = 1
   let g:NERDTreeWinSize = 25
 '''
