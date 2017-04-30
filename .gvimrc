@@ -16,7 +16,7 @@ if has('gui_win32')
   set transparency=240
   set linespace=4
   set guifont=Consolas:h10
-  set guifontwide=MS_Gothic:h10
+  set guifontwide=Meiryo\ for\ Console:h10,MS_Gothic:h10
 endif
 
 " MacVim
