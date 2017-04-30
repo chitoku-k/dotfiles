@@ -71,11 +71,9 @@ _zsh_prompt_redraw() {
         return 0
     fi
 
-    if [[ -n "$TMUX" ]]; then
-        tmux setenv 'ZSH_KEYMAP_'$(tmux display -p '#D' | tr -d %) "$KEYMAP"
-    fi
-
+    local keymap="$KEYMAP"
     if [[ "$1" = "0" ]] || [[ "$WIDGET" =~ finish ]]; then
+        keymap='finish'
         _zsh_prompt 8 20 8 20
     else
         case "$KEYMAP" in
@@ -87,6 +85,11 @@ _zsh_prompt_redraw() {
                 ;;
         esac
     fi
+
+    if [[ -n "$TMUX" ]]; then
+        tmux setenv 'ZSH_KEYMAP_'$(tmux display -p '#D' | tr -d %) "$keymap"
+    fi
+
     zle reset-prompt
 }
 
