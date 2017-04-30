@@ -3,6 +3,11 @@ class Console
 {
     public function getEscapeSequence($codes)
     {
+        // Windows Command Prompt
+        if (DIRECTORY_SEPARATOR === '\\') {
+            return '';
+        }
+
         $out = implode(';', array_unique((array)$codes));
         return "\033[{$out}m";
     }
