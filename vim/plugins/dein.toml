@@ -121,9 +121,6 @@ repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
 repo = 'lambdalisue/vim-gista'
-hook_add = '''
-  let g:gista#github_user = 'chitoku-k'
-'''
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
