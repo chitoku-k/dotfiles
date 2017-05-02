@@ -7,7 +7,7 @@ This repository contains my dotfiles and its installation script.
 Setting files expect each version below or later:
 
 - Git 1.7.10
-- Vim 7.4
+- Vim 7.4 or Neovim 0.20
 - Zsh 5.3
 - tmux 2.4
 

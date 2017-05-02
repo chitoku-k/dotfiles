@@ -51,9 +51,3 @@ endif
 
 " 貼り付け
 set pastetoggle=<C-p>
-
-" Neovim (C-h)
-" https://github.com/neovim/neovim/issues/2048
-if has('nvim')
-  nmap <BS> <C-w>h
-endif
