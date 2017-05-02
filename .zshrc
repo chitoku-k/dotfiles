@@ -191,6 +191,10 @@ alias rm='rm -v'
 alias chown='chown -v'
 alias chmod='chmod -v'
 
+if (( $+commands[nvim] )); then
+    alias vim='nvim'
+fi
+
 
 #-------------------
 # Terminal
