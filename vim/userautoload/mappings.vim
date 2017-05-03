@@ -49,5 +49,10 @@ if !has('gui')
   inoremap <Right> <Nop>
 endif
 
+" Neovim
+if has('nvim')
+  tnoremap <silent> <Esc> <Esc><C-\><C-n>
+endif
+
 " 貼り付け
 set pastetoggle=<C-p>
