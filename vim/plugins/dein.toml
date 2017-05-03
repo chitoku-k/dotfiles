@@ -123,10 +123,21 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-hook_add='''
+hook_add = '''
   if has('nvim') && has('python3')
     let g:deoplete#enable_at_startup = 1
   endif
+'''
+
+[[plugins]]
+repo = 'yssl/QFEnter'
+hook_add = '''
+  let g:qfenter_keymap = {
+  \   'open': ['<CR>'],
+  \   'vopen': ['s'],
+  \   'hopen': ['i'],
+  \   'topen': ['t'],
+  \ }
 '''
 
 [[plugins]]
