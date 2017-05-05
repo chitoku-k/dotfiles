@@ -72,4 +72,5 @@ augroup vimrc
   autocmd BufNewFile,BufRead *.tag setlocal filetype=html
   autocmd QuickFixCmdPost *grep* cwindow
   autocmd WinLeave,TabLeave * call anzu#clear_search_status()
+  autocmd BufEnter term://* startinsert
 augroup END

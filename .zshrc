@@ -65,6 +65,13 @@ TRAPINT() {
     fi
 }
 
+_neovim_quit() {
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+        _zsh_prompt 8 20 8 20
+        python3 <<< "import neovim; neovim.attach('socket', path='$NVIM_LISTEN_ADDRESS').input('<C-\\><C-n>')"
+    fi
+}
+
 _zsh_prompt_redraw() {
     # Only callable when zle is active
     if ! zle; then
@@ -89,8 +96,6 @@ _zsh_prompt_redraw() {
     if [[ -n "$TMUX" ]]; then
         tmux setenv 'ZSH_KEYMAP_'$(tmux display -p '#D' | tr -d %) "$keymap"
     fi
-
-    zle reset-prompt
 }
 
 _zsh_prompt() {
@@ -105,6 +110,7 @@ _zsh_prompt() {
     [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
     PS1=$'\n'$hostname$directory$vcs_info$user
+    zle reset-prompt
 }
 
 filesystem() {
@@ -125,6 +131,7 @@ include() {
 zle -N zle-line-init _zsh_prompt_redraw
 zle -N zle-line-finish _zsh_prompt_redraw
 zle -N zle-keymap-select _zsh_prompt_redraw
+zle -N _neovim_quit
 
 
 #-------------------
@@ -158,6 +165,9 @@ bindkey "^[[3~" delete-char
 # [^D]
 bindkey -r "^D"
 stty eof undef
+
+# Neovim: [Esc]
+bindkey -a "^[" _neovim_quit
 
 
 #-------------------

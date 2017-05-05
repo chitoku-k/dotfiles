@@ -51,7 +51,8 @@ endif
 
 " Neovim
 if has('nvim')
-  tnoremap <silent> <Esc> <Esc><C-\><C-n>
+  nnoremap ts :sp \| terminal<CR>
+  nnoremap tt :tabnew \| terminal<CR>
 endif
 
 " 貼り付け
