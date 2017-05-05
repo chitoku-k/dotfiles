@@ -43,6 +43,10 @@ set showtabline=2
 set laststatus=2
 set ambiwidth=double
 set nowrap
+set lazyredraw
+set splitbelow
+set shortmess+=cs
+set completeopt-=preview
 
 " 不可視文字の指定
 set listchars=tab:▸\ 

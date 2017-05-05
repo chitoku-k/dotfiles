@@ -1,6 +1,9 @@
+function! LightLineHide()
+  return expand('%') =~ '^NERD_tree\|term://' || &ft =~ 'qf'
+endfunction
+
 function! LightLineMode()
-  let fname = expand('%:t')
-  if fname =~ 'NERD_tree' || &ft =~ 'qf' || winwidth(0) < 60
+  if LightLineHide() || winwidth(0) < 60
     return ''
   endif
   return lightline#mode()
@@ -21,31 +24,39 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineFilename()
-  let fname = expand('%:t')
-  if fname =~ 'NERD_tree' || &ft =~ 'qf'
+  if LightLineHide()
     return ''
   endif
+  let fname = expand('%:t')
   let readonly = LightLineReadonly() != '' ? LightLineReadonly() . ' ' : ''
   let filename = fname != '' ? fname : '[No Name]'
   return readonly . filename
 endfunction
 
 function! LightLineLineinfo()
-  let fname = expand('%:t')
-  if fname =~ 'NERD_tree'
+  if LightLineHide()
     return ''
   endif
   return printf("%3d/%d", line('.'), line('$'))
 endfunction
 
 function! LightLineFileformat()
+  if LightLineHide()
+    return ''
+  endif
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
 function! LightLineFiletype()
+  if LightLineHide()
+    return ''
+  endif
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightLineFileencoding()
+  if LightLineHide()
+    return ''
+  endif
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
