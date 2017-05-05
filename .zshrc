@@ -208,5 +208,5 @@ fi
 # Variables
 #-------------------
 export VISUAL='vim'
-export PS1=
+export PS1=' '
 KEYTIMEOUT=1
