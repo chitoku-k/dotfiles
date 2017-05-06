@@ -44,6 +44,15 @@ class Installer
             new Package(
                 2,
                 'dotfiles',
+                '.config/nyaovim',
+                'Configuration for NyaoVim',
+                function ($self) {
+                    $self->symlink('nyaovim', "{$self->home}/{$self->name}");
+                }
+            ),
+            new Package(
+                2,
+                'dotfiles',
                 '.gvimrc',
                 'Configuration for GVim/MacVim'
             ),
