@@ -76,7 +76,7 @@ hook_add = '''
 repo = 'gko/vim-coloresque'
 
 [[plugins]]
-repo = 'sudo.vim'
+repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -126,6 +126,9 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = '''
   if has('nvim') && has('python3')
     let g:deoplete#enable_at_startup = 1
+    let g:deoplete#ignore_sources = {
+    \   '_': ['member'],
+    \ }
   endif
 '''
 

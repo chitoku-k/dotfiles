@@ -3,7 +3,7 @@ repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
 
 [[plugins]]
-repo = 'Quramy/tsuquyomi'
+repo = 'mhartington/nvim-typescript'
 on_ft = ['typescript']
 
 [[plugins]]
