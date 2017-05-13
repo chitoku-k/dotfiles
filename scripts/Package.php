@@ -41,6 +41,18 @@ class Package
                 }
                 return $_SERVER['HOME'];
             }
+            case 'config': {
+                if (DIRECTORY_SEPARATOR === '\\') {
+                    return $_SERVER['LOCALAPPDATA'];
+                }
+                return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.config';
+            }
+            case 'roaming': {
+                if (DIRECTORY_SEPARATOR === '\\') {
+                    return $_SERVER['APPDATA'];
+                }
+                return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.config';
+            }
         }
     }
 

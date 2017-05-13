@@ -32,22 +32,22 @@ class Installer
             new Package(
                 2,
                 'dotfiles',
-                '.config/nvim/init.vim',
+                'nvim/init.vim',
                 'Configuration for Neovim',
                 function ($self) {
-                    $self->symlink('vim/init.vim', "{$self->home}/{$self->name}");
+                    $self->symlink('vim/init.vim', "{$self->config}/{$self->name}");
                     foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                        $self->symlink($dir, "{$self->home}/.config/n{$dir}");
+                        $self->symlink($dir, "{$self->config}/n{$dir}");
                     }
                 }
             ),
             new Package(
                 2,
                 'dotfiles',
-                '.config/nyaovim',
+                'nyaovim',
                 'Configuration for NyaoVim',
                 function ($self) {
-                    $self->symlink('nyaovim', "{$self->home}/{$self->name}");
+                    $self->symlink($self->name, "{$self->roaming}/{$self->name}");
                 }
             ),
             new Package(

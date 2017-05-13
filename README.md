@@ -24,7 +24,7 @@ $ ./install
 ```bat
 > git clone https://github.com/chitoku-k/dotfiles.git
 > cd dotfiles
-> install.bat
+> install
 ```
 
 Choose whatever packages you want to install and press <kbd>Enter</kbd>.
