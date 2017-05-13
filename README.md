@@ -21,12 +21,6 @@ $ cd dotfiles
 $ ./install
 ```
 
-```bat
-> git clone https://github.com/chitoku-k/dotfiles.git
-> cd dotfiles
-> install
-```
-
 Choose whatever packages you want to install and press <kbd>Enter</kbd>.
 
 <img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.gif" alt="" width="400">
