@@ -27,6 +27,7 @@ setopt correct
 setopt auto_resume
 setopt magic_equal_subst
 setopt nonomatch
+setopt ignoreeof
 
 
 #-------------------
@@ -63,13 +64,6 @@ TRAPINT() {
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
         git status --porcelain | grep '??' &> /dev/null; then
         hook_com[unstaged]+='!'
-    fi
-}
-
-_neovim_quit() {
-    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-        _zsh_prompt 8 20 8 20
-        python3 <<< "import neovim; neovim.attach('socket', path='$NVIM_LISTEN_ADDRESS').input('<C-\\><C-n>')"
     fi
 }
 
@@ -132,7 +126,6 @@ include() {
 zle -N zle-line-init _zsh_prompt_redraw
 zle -N zle-line-finish _zsh_prompt_redraw
 zle -N zle-keymap-select _zsh_prompt_redraw
-zle -N _neovim_quit
 
 
 #-------------------
@@ -145,30 +138,18 @@ bindkey "^U" backward-kill-line
 bindkey "^H" backward-char
 bindkey "^L" vi-forward-char
 bindkey "^R" clear-screen
+bindkey -r "^D"
 bindkey -r "^J"
 bindkey -r "^K"
 
 # [BackSpace]
 bindkey "^?" backward-delete-char
 
-# [Shift+Tab]
-bindkey "^[[Z" reverse-menu-complete
-
-# [HOME]
-bindkey "^[OH" beginning-of-line
-
-# [END]
-bindkey "^[OF" end-of-line
-
-# [DELETE]
+# [Delete]
 bindkey "^[[3~" delete-char
 
-# [^D]
-bindkey -r "^D"
-stty eof undef
-
-# Neovim: [Esc]
-bindkey -a "^[" _neovim_quit
+# [Shift+Tab]
+bindkey "^[[Z" reverse-menu-complete
 
 
 #-------------------
@@ -178,6 +159,7 @@ include "$HOME/.zshrc.local"
 include "$HOME/.zplug/init.zsh" && {
     zplug "chriskempson/base16-shell"
     zplug "chitoku-k/zsh-togglecursor"
+    zplug "chitoku-k/zsh-nvim-quit"
     zplug "hcgraf/zsh-sudo"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
@@ -202,8 +184,13 @@ alias rm='rm -v'
 alias chown='chown -v'
 alias chmod='chmod -v'
 
+
+#-------------------
+# Neovim
+#-------------------
 if (( $+commands[nvim] )); then
     alias vim='nvim'
+    bindkey -a "^[" _zsh_nvim_quit
 fi
 
 
