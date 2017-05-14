@@ -12,9 +12,9 @@ autoload -Uz compinit
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "*"
+zstyle ':vcs_info:git:*' untrackedstr "!"
 zstyle ':vcs_info:git:*' formats '%b' '%c%u'
 zstyle ':vcs_info:git:*' actionformats '%b' '%c%u' '%a'
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 
 #-------------------
@@ -43,28 +43,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #-------------------
 # Functions
 #-------------------
-precmd() {
-    if [[ $(filesystem) =~ 'osxfuse|sshfs|smbfs|fuseblk' ]]; then
-        unset vcs_info_msg_0_ vcs_info_msg_1_ vcs_info_msg_2_
-    else
-        LANG=en_US.UTF-8 vcs_info
-    fi
-}
-
 TRAPINT() {
     _zsh_prompt_redraw 0
     return $(( 128 + $1 ))
-}
-
-+vi-git-untracked() {
-    # Only "vcs_info_msg_1"
-    if [[ "$1" != "1" ]]; then
-        return 0
-    fi
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-        git status --porcelain | grep '??' &> /dev/null; then
-        hook_com[unstaged]+='!'
-    fi
 }
 
 _zsh_prompt_redraw() {
@@ -108,17 +89,6 @@ _zsh_prompt() {
     zle reset-prompt
 }
 
-filesystem() {
-    case "$OSTYPE" in
-        darwin*)
-            mount | grep $(df -P . | cut -d' ' -f1 | tail -n1) | sed -E 's/.*\(|,.*//g'
-            ;;
-        *)
-            stat -f -L -c %T .
-            ;;
-    esac
-}
-
 include() {
     [[ -s "$1" ]] && source $1
 }
@@ -160,6 +130,7 @@ include "$HOME/.zplug/init.zsh" && {
     zplug "chriskempson/base16-shell"
     zplug "chitoku-k/zsh-togglecursor"
     zplug "chitoku-k/zsh-nvim-quit"
+    zplug "chitoku-k/zsh-vcs-extended"
     zplug "hcgraf/zsh-sudo"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
