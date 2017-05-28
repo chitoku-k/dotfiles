@@ -17,17 +17,11 @@ set virtualedit=block
 set cindent
 set title
 set clipboard=unnamedplus,unnamed
-
-" 行頭/行末からのカーソル移動を許可
 set whichwrap=b,s,h,l,[,],<,>
-
-" バックスペースを空白/行頭/行末で許可
 set backspace=indent,eol,start
 
-" 起動時タイトル文字列保存
+" タイトル文字列
 let &t_ti .= "\e[22;0t"
-
-" 終了時タイトル文字列復元
 let &t_te .= "\e[23;0t"
 
 
@@ -47,11 +41,7 @@ set lazyredraw
 set splitbelow
 set shortmess+=cs
 set completeopt-=preview
-
-" 不可視文字の指定
 set listchars=tab:▸\ 
-
-" 区切り文字の指定
 set fillchars+=vert:\ 
 
 
@@ -62,6 +52,14 @@ set ignorecase
 set smartcase
 set wrapscan
 set hlsearch
+
+
+"-------------------
+" grep
+"-------------------
+if has('unix') && !system('(( $+functions[via-ssh] ))') && v:shell_error == 0
+  set grepprg=via-ssh\ grep\ -n\ $*\ /dev/null
+endif
 
 
 "-------------------

@@ -131,6 +131,7 @@ include "$HOME/.zplug/init.zsh" && {
     zplug "chitoku-k/zsh-togglecursor"
     zplug "chitoku-k/zsh-nvim-quit"
     zplug "chitoku-k/zsh-vcs-extended"
+    zplug "chitoku-k/zsh-via-ssh"
     zplug "hcgraf/zsh-sudo"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
