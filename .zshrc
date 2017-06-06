@@ -31,6 +31,7 @@ setopt ignore_eof
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt pushd_ignore_dups
+setopt no_flow_control
 
 
 #-------------------
@@ -112,6 +113,7 @@ bindkey "^U" backward-kill-line
 bindkey "^H" backward-char
 bindkey "^L" vi-forward-char
 bindkey "^R" clear-screen
+bindkey "^S" sudo-command-line
 bindkey -r "^D"
 bindkey -r "^J"
 bindkey -r "^K"
