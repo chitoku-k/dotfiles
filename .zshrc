@@ -20,14 +20,17 @@ zstyle ':vcs_info:git:*' actionformats '%b' '%c%u' '%a'
 #-------------------
 # General
 #-------------------
-setopt autopushd
-setopt autocd
-setopt extendedglob
+setopt auto_pushd
+setopt auto_cd
+setopt extended_glob
 setopt correct
 setopt auto_resume
 setopt magic_equal_subst
-setopt nonomatch
-setopt ignoreeof
+setopt no_no_match
+setopt ignore_eof
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt pushd_ignore_dups
 
 
 #-------------------
@@ -38,6 +41,7 @@ zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' completer _complete _approximate
 
 
 #-------------------
