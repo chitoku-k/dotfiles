@@ -25,7 +25,7 @@
     unpreserve = update-index --no-assume-unchanged --
 
 [diff]
-    compactionHeuristic = true
+    indentHeuristic = true
 
 [push]
     default = simple
