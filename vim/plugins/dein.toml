@@ -216,6 +216,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tyru/operator-reverse.vim'
+hook_add = '''
+  nmap <silent>vs <Plug>(operator-reverse-text)
+'''
+
+[[plugins]]
 repo = 'tyru/caw.vim'
 hook_add = '''
   let g:caw_operator_keymappings = 1
