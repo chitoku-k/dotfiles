@@ -231,7 +231,7 @@ hook_add = '''
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
-repo = 'kana/vim-textobj-jabraces'
+repo = 'kana/vim-textobj-indent'
 
 [[plugins]]
 repo = 'kana/vim-textobj-line'
