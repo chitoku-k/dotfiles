@@ -60,3 +60,23 @@ function! LightLineFileencoding()
   endif
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
+
+function! LightLineCharcode()
+  redir => code
+  silent! ascii
+  redir END
+
+  let match = matchlist(code, '\v.+,\s+.+\s(\x+),')
+  if empty(match)
+    return ''
+  endif
+
+  let hex = str2nr(match[1], 16)
+  if hex < 0x10000
+    return printf("U+%X", hex)
+  endif
+
+  let hi = (hex - 0x10000) / 0x400 + 0xd800
+  let lo = (hex - 0x10000) % 0x400 + 0xdc00
+  return printf("U+%X (U+%X U+%X)", hex, hi, lo)
+endfunction
