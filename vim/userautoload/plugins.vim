@@ -62,6 +62,10 @@ function! LightLineFileencoding()
 endfunction
 
 function! LightLineCharcode()
+  if LightLineHide()
+    return ''
+  endif
+
   redir => code
   silent! ascii
   redir END
