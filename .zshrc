@@ -111,12 +111,12 @@ bindkey "^W" backward-kill-word
 bindkey "^H" backward-delete-char
 bindkey "^U" backward-kill-line
 bindkey "^H" backward-char
+bindkey "^J" up-line-or-history
+bindkey "^K" down-line-or-history
 bindkey "^L" vi-forward-char
 bindkey "^R" clear-screen
 bindkey "^F" sudo-command-line
 bindkey -r "^D"
-bindkey -r "^J"
-bindkey -r "^K"
 
 # [BackSpace]
 bindkey "^?" backward-delete-char
