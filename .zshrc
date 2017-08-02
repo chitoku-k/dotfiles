@@ -113,7 +113,7 @@ bindkey "^U" backward-kill-line
 bindkey "^H" backward-char
 bindkey "^L" vi-forward-char
 bindkey "^R" clear-screen
-bindkey "^S" sudo-command-line
+bindkey "^F" sudo-command-line
 bindkey -r "^D"
 bindkey -r "^J"
 bindkey -r "^K"
@@ -155,7 +155,7 @@ include "$HOME/.zplug/init.zsh" && {
 #-------------------
 # Aliases
 #-------------------
-alias zmv='noglob zmv -W'
+alias zmv='noglob zmv -vW'
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
@@ -184,5 +184,5 @@ fi
 # Variables
 #-------------------
 export VISUAL='vim'
-export PS1=' '
+export PS1=''
 KEYTIMEOUT=1
