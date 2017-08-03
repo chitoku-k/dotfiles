@@ -87,7 +87,14 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = "rhysd/clever-f.vim"
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+  nmap <silent> <Space>r :TREPLSendLine<CR>
+  vmap <silent> <Space>r :TREPLSendSelection<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -192,25 +199,6 @@ hook_add = '''
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add = '''
-  let g:operator#surround#blocks = {
-  \   '-': [
-  \     {
-  \       'block': ['(', ')'],
-  \       'motionwise': ['char', 'line', 'block'],
-  \       'keys': ['b'],
-  \     },
-  \     {
-  \       'block': ["'", "'"],
-  \       'motionwise': ['char', 'line', 'block'],
-  \       'keys': ['q'],
-  \     },
-  \     {
-  \       'block': ['"', '"'],
-  \       'motionwise': ['char', 'line', 'block'],
-  \       'keys': ['Q'],
-  \     },
-  \   ]
-  \ }
   nmap <silent>ys <Plug>(operator-surround-append)
   nmap <silent>ds <Plug>(operator-surround-delete)
   nmap <silent>cs <Plug>(operator-surround-replace)
