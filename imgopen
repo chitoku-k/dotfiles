@@ -7,7 +7,7 @@ do
         continue
     fi
     if [[ "$f" =~ /pixiv_([0-9]+)( ?\([0-9]+\))?\. ]]; then
-        open "http://www.pixiv.net/member_illust.php?mode=medium&illust_id="$match[1]
+        open "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="$match[1]
         continue
     fi
     if [[ "$f" =~ /seiga_([0-9]+)( ?\([0-9]+\))?\. ]]; then
@@ -15,7 +15,7 @@ do
         continue
     fi
     if [[ "$f" =~ /nijie_([0-9]+)( ?\([0-9]+\))?\. ]]; then
-        open "http://nijie.info/view.php?id="$match[1]
+        open "https://nijie.info/view.php?id="$match[1]
         continue
     fi
 done
