@@ -15,15 +15,16 @@ repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['css', 'scss']
 
 [[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+on_ft = ['javascript']
+
+[[plugins]]
 repo = 'nicklasos/vim-jsx-riot'
 on_ft = ['javascript']
 
 [[plugins]]
 repo = 'StanAngeloff/php.vim'
 on_ft = ['php']
-hook_add = '''
-  let g:PHP_vintage_case_default_indent = 1
-'''
 
 [[plugins]]
 repo = 'shawncplus/phpcomplete.vim'
@@ -40,6 +41,13 @@ on_ft = ['javascript']
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'php', 'css', 'scss']
+hook_add = '''
+  let g:user_emmet_settings = {
+  \    'variables': {
+  \      'lang': 'ja',
+  \    },
+  \ }
+'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'
