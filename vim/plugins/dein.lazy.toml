@@ -15,6 +15,10 @@ repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['css', 'scss']
 
 [[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['css', 'scss']
+
+[[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
 on_ft = ['javascript']
 
