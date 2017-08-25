@@ -116,6 +116,28 @@ hook_add = '''
   \       'start': '<style\%( [^>]*\)\?>',
   \       'end': '</style>', 'filetype': 'css',
   \     },
+  \     {
+  \       'start': '<svg\%( [^>]*\)\?>',
+  \       'end': '</svg>', 'filetype': 'svg',
+  \     },
+  \   ]
+  \   'php': [
+  \     {
+  \       'start': '<script\%( [^>]*\)\?>',
+  \       'end': '</script>', 'filetype': 'javascript',
+  \     },
+  \     {
+  \       'start': '<style type="text/scss"\%( [^>]*\)\?>',
+  \       'end': '</style>', 'filetype': 'scss',
+  \     },
+  \     {
+  \       'start': '<style\%( [^>]*\)\?>',
+  \       'end': '</style>', 'filetype': 'css',
+  \     },
+  \     {
+  \       'start': '<svg\%( [^>]*\)\?>',
+  \       'end': '</svg>', 'filetype': 'svg',
+  \     },
   \   ]
   \ }
 '''
