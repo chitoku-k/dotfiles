@@ -120,7 +120,7 @@ hook_add = '''
   \       'start': '<svg\%( [^>]*\)\?>',
   \       'end': '</svg>', 'filetype': 'svg',
   \     },
-  \   ]
+  \   ],
   \   'php': [
   \     {
   \       'start': '<script\%( [^>]*\)\?>',
@@ -138,7 +138,7 @@ hook_add = '''
   \       'start': '<svg\%( [^>]*\)\?>',
   \       'end': '</svg>', 'filetype': 'svg',
   \     },
-  \   ]
+  \   ],
   \ }
 '''
 
