@@ -32,11 +32,11 @@ hook_add = '''
   let g:lightline = {
   \   'colorscheme': 'base16_ocean',
   \   'active': {
-  \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'anzu' ] ],
+  \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'path', 'anzu' ] ],
   \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'charcode' ] ],
   \   },
   \   'inactive': {
-  \     'left': [ [ 'filename', 'modified' ] ],
+  \     'left': [ [ 'filename', 'modified', 'path' ] ],
   \     'right': [],
   \   },
   \   'tabline': {
@@ -47,6 +47,7 @@ hook_add = '''
   \     'mode': 'LightLineMode',
   \     'filename': 'LightLineFilename',
   \     'modified': 'LightLineModified',
+  \     'path': 'LightLinePath',
   \     'anzu': 'anzu#search_status',
   \     'lineinfo': 'LightLineLineinfo',
   \     'fileformat': 'LightLineFileformat',

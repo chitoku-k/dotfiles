@@ -61,6 +61,18 @@ function! LightLineFileencoding()
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
+function! LightLinePath()
+  if LightLineHide() || winwidth(0) < 60
+    return ''
+  endif
+  let path = expand('%:h')
+  if strlen(path) > 40
+    return '...' . path[strlen(path)-40:]
+  else
+    return path
+  endif
+endfunction
+
 function! LightLineCharcode()
   if LightLineHide()
     return ''
