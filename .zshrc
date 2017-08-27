@@ -107,13 +107,12 @@ zle -N zle-keymap-select _zsh_prompt_redraw
 # Keybinds
 #-------------------
 bindkey -v
-bindkey "^W" backward-kill-word
-bindkey "^H" backward-delete-char
-bindkey "^U" backward-kill-line
 bindkey "^H" backward-char
 bindkey "^J" up-line-or-history
 bindkey "^K" down-line-or-history
 bindkey "^L" vi-forward-char
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
 bindkey "^R" clear-screen
 bindkey "^F" sudo-command-line
 bindkey -r "^D"
