@@ -88,6 +88,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
+hook_add = '''
+  let g:clever_f_across_no_line = 1
+'''
 
 [[plugins]]
 repo = 'kassio/neoterm'
