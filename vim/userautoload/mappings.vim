@@ -61,7 +61,7 @@ endif
 if has('nvim')
   nnoremap <silent> <Space>s :sp \| terminal<CR>
   nnoremap <silent> <Space>t :tabnew \| terminal<CR>
-  tnoremap <Space>q <C-\><C-n>
+  tnoremap <C-q> <C-\><C-n>
 endif
 
 " 貼り付け
