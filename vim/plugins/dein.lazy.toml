@@ -43,6 +43,15 @@ repo = 'vim-scripts/jQuery'
 on_ft = ['javascript']
 
 [[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = ['go']
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'php', 'css', 'scss']
 hook_add = '''
