@@ -62,12 +62,12 @@ function! LightLineFileencoding()
 endfunction
 
 function! LightLinePath()
-  if LightLineHide() || winwidth(0) < 60
+  if LightLineHide() || winwidth(0) < 60 || &ft =~ 'help' || &ft ==# ''
     return ''
   endif
-  let path = expand('%:h')
+  let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
   if strlen(path) > 40
-    return '...' . path[strlen(path)-40:]
+    return '...' . path[strlen(path) - 40:]
   else
     return path
   endif
