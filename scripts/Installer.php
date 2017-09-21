@@ -47,7 +47,7 @@ class Installer
                 'nyaovim',
                 'Configuration for NyaoVim',
                 function ($self) {
-                    $self->symlink($self->name, "{$self->roaming}/{$self->name}");
+                    $self->symlink('vim/nyaovim', "{$self->roaming}/{$self->name}");
                 }
             ),
             new Package(

@@ -1,2 +1,2 @@
-nyaovim/
-!nyaovim/nyaovimrc.html
+vim/nyaovim/*
+!vim/nyaovim/nyaovimrc.html
