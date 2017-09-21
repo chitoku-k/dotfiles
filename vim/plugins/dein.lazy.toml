@@ -34,6 +34,16 @@ on_ft = ['php']
 repo = 'shawncplus/phpcomplete.vim'
 on_ft = ['php']
 
+# PHP extensions listed below are required:
+# - PCNTL Extension
+# - Msgpack 0.5.7+ Extension
+[[plugins]]
+repo = 'lvht/phpcd.vim'
+on_ft = ['php']
+build = '''
+  composer install
+'''
+
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['javascript']

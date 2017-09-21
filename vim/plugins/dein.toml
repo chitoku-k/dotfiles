@@ -155,6 +155,7 @@ repo = 'lambdalisue/vim-gista'
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# Python 3 is required
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
