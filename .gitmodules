@@ -1,3 +1,0 @@
-[submodule "neovim-terminal-utils"]
-	path = neovim-terminal-utils
-	url = git@github.com:himanoa/neovim-terminal-utils
