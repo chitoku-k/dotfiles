@@ -1,9 +1,13 @@
 function! LightLineHide()
-  return expand('%') =~ '^NERD_tree\|term://' || &ft =~ 'qf'
+  return expand('%') =~ '^NERD_tree' || &ft =~ 'qf'
+endfunction
+
+function! LightLineIsTerm()
+  return expand('%') =~ '^term://'
 endfunction
 
 function! LightLineMode()
-  if LightLineHide() || winwidth(0) < 60
+  if LightLineHide() || winwidth(0) < 60 || lightline#mode() == 'TERMINAL'
     return ''
   endif
   return lightline#mode()
@@ -24,7 +28,7 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineFilename()
-  if LightLineHide()
+  if LightLineHide() || lightline#mode() == 'TERMINAL'
     return ''
   endif
   let fname = expand('%:t')
@@ -34,35 +38,35 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineLineinfo()
-  if LightLineHide()
+  if LightLineHide() || LightLineIsTerm()
     return ''
   endif
   return printf("%3d/%d", line('.'), line('$'))
 endfunction
 
 function! LightLineFileformat()
-  if LightLineHide()
+  if LightLineHide() || LightLineIsTerm()
     return ''
   endif
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
 function! LightLineFiletype()
-  if LightLineHide()
+  if LightLineHide() || LightLineIsTerm()
     return ''
   endif
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightLineFileencoding()
-  if LightLineHide()
+  if LightLineHide() || LightLineIsTerm()
     return ''
   endif
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
 function! LightLinePath()
-  if LightLineHide() || winwidth(0) < 60 || &ft =~ 'help' || &ft ==# ''
+  if LightLineHide() || LightLineIsTerm() || winwidth(0) < 60 || &ft =~ 'help' || &ft ==# ''
     return ''
   endif
   let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
@@ -74,7 +78,7 @@ function! LightLinePath()
 endfunction
 
 function! LightLineCharcode()
-  if LightLineHide()
+  if LightLineHide() || LightLineIsTerm()
     return ''
   endif
 
