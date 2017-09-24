@@ -31,7 +31,7 @@ repo = 'StanAngeloff/php.vim'
 on_ft = ['php']
 
 [[plugins]]
-repo = 'padawan-php/deoplete-padawan'
+repo = 'chitoku-k/deoplete-padawan'
 on_ft = ['php']
 build = '''
   composer install
