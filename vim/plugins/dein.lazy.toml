@@ -27,6 +27,10 @@ repo = 'nicklasos/vim-jsx-riot'
 on_ft = ['javascript']
 
 [[plugins]]
+repo = '2072/PHP-Indenting-for-VIm'
+on_ft = ['php']
+
+[[plugins]]
 repo = 'StanAngeloff/php.vim'
 on_ft = ['php']
 
