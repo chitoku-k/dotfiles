@@ -20,10 +20,6 @@ set clipboard=unnamedplus,unnamed
 set whichwrap=b,s,h,l,[,],<,>
 set backspace=indent,eol,start
 
-" タイトル文字列
-let &t_ti .= "\e[22;0t"
-let &t_te .= "\e[23;0t"
-
 
 "-------------------
 " 表示
