@@ -9,3 +9,16 @@ repo = 'chitoku-k/deoplete-padawan'
 build = '''
   composer install
 '''
+
+[[plugins]]
+repo = 'stephpy/vim-php-cs-fixer'
+build = '''
+  composer require friendsofphp/php-cs-fixer
+'''
+hook_add = '''
+  let g:php_cs_fixer_path = expand('~/.cache/dein/repos/github.com/stephpy/vim-php-cs-fixer/vendor/bin/php-cs-fixer')
+  if glob('~/.php_cs')
+    let s:php_cs_path = expand('~/.php_cs')
+    let g:php_cs_fixer_rules = "'' --config=" . s:php_cs_path . " --allow-risky=yes"
+  endif
+'''

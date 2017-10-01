@@ -69,6 +69,12 @@ class Installer
                 'Configuration for Git'
             ),
             new Package(
+                2,
+                'dotfiles',
+                '.php_cs',
+                'Configuration for PHP-CS-Fixer'
+            ),
+            new Package(
                 5,
                 'zsh',
                 'zplug',
