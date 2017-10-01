@@ -1,0 +1,11 @@
+[[plugins]]
+repo = '2072/PHP-Indenting-for-VIm'
+
+[[plugins]]
+repo = 'StanAngeloff/php.vim'
+
+[[plugins]]
+repo = 'chitoku-k/deoplete-padawan'
+build = '''
+  composer install
+'''

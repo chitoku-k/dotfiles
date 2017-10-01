@@ -13,7 +13,17 @@ if dein#load_state(s:dein_dir)
                     \                 expand('~\AppData\Local\nvim\plugins')
 
   call dein#load_toml(s:plugins_dir . '/dein.toml', {'lazy': 0})
-  call dein#load_toml(s:plugins_dir . '/dein.lazy.toml', {'lazy': 1})
+
+  for s:file in glob(s:plugins_dir . '/lang/*.toml', 1, 1)
+    let s:match = matchlist(s:file, '\v/(\w+)\.toml$')
+    if empty(s:match)
+      continue
+    endif
+    call dein#load_toml(s:file, {
+    \   'lazy': 1,
+    \   'on_ft': s:match[1],
+    \ })
+  endfor
 
   if dein#check_install()
     call dein#install()

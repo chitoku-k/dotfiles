@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'

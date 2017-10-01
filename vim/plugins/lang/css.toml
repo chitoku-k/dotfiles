@@ -1,0 +1,18 @@
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'php', 'scss']
+hook_add = '''
+  let g:user_emmet_settings = {
+  \    'variables': {
+  \      'lang': 'ja',
+  \    },
+  \ }
+'''
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = ['scss']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['scss']

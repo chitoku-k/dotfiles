@@ -1,0 +1,11 @@
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+
+[[plugins]]
+repo = 'nicklasos/vim-jsx-riot'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'vim-scripts/jQuery'
