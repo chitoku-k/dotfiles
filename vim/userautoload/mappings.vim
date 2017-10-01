@@ -36,8 +36,8 @@ vnoremap v $h
 vnoremap e joko
 
 " 無効化
-nnoremap <F1> <Nop>
-inoremap <F1> <Nop>
+noremap <C-q> <Nop>
+noremap <F1> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Up> <Nop>
