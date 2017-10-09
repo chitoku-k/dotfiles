@@ -92,18 +92,6 @@ class Installer
                     $self->cloneGit('Shougo/dein.vim', "{$self->home}/.cache/dein/repos/github.com/Shougo/dein.vim");
                 }
             ),
-            new Package(
-                3,
-                'basic',
-                '.vimrc',
-                'Simple Configuration for Vim',
-                function ($self) {
-                    $self->symlink('vim/basic.vim', "{$self->home}/.vimrc");
-                    foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                        $self->symlink($dir, "{$self->home}/.{$dir}");
-                    }
-                }
-            ),
         );
     }
 

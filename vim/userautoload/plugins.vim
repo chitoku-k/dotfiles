@@ -1,8 +1,3 @@
-augroup plugins
-  autocmd!
-  autocmd WinLeave,TabLeave * call anzu#clear_search_status()
-augroup END
-
 function! LightLineHide()
   return expand('%') =~ '^NERD_tree' || &ft =~ 'qf'
 endfunction
