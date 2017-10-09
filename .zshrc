@@ -73,10 +73,6 @@ _zsh_prompt_redraw() {
                 ;;
         esac
     fi
-
-    if [[ -n "$TMUX" ]]; then
-        tmux setenv 'ZSH_KEYMAP_'$(tmux display -p '#D' | tr -d %) "$keymap"
-    fi
 }
 
 _zsh_prompt() {

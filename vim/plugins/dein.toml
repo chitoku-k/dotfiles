@@ -186,9 +186,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'christoomey/vim-tmux-navigator'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
