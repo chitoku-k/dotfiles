@@ -27,7 +27,7 @@ set backspace=indent,eol,start
 filetype plugin indent on
 set list
 set scrolloff=3
-set visualbell
+set novisualbell
 set number
 set numberwidth=5
 set showtabline=2
