@@ -6,12 +6,16 @@ repo = 'StanAngeloff/php.vim'
 
 [[plugins]]
 repo = 'chitoku-k/deoplete-padawan'
+lazy = 1
+on_ft = ['php']
 build = '''
   composer install
 '''
 
 [[plugins]]
 repo = 'stephpy/vim-php-cs-fixer'
+lazy = 1
+on_ft = ['php']
 build = '''
   composer require friendsofphp/php-cs-fixer
 '''

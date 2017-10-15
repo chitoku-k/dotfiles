@@ -1,6 +1,9 @@
 [[plugins]]
 repo = 'fatih/vim-go'
+lazy = 1
+on_ft = ['go']
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
+lazy = 1
 build = 'make'

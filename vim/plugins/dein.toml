@@ -206,6 +206,11 @@ hook_add = '''
   nmap N <Plug>(anzu-N)zz
   nmap * <Plug>(anzu-star)<Plug>(asterisk-z*)zz
   nmap # <Plug>(anzu-sharp)<Plug>(asterisk-z#)zz
+
+  augroup anzu
+    autocmd!
+    autocmd WinLeave,TabLeave * call anzu#clear_search_status()
+  augroup END
 '''
 
 [[plugins]]

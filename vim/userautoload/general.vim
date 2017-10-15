@@ -62,6 +62,5 @@ augroup vimrc
   autocmd InsertLeave * setlocal nopaste
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
-  autocmd BufNewFile,BufRead *.tag setlocal filetype=html
   autocmd QuickFixCmdPost *grep* cwindow
 augroup END

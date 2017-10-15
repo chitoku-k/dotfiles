@@ -15,17 +15,9 @@ endif
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-  call dein#load_toml(s:plugins_dir . '/dein.toml', {'lazy': 0})
 
-  for s:file in glob(s:plugins_dir . '/lang/*.toml', 1, 1)
-    let s:match = matchlist(s:file, '\v/(\w+)\.toml$')
-    if empty(s:match)
-      continue
-    endif
-    call dein#load_toml(s:file, {
-    \   'lazy': 1,
-    \   'on_ft': s:match[1],
-    \ })
+  for s:file in glob(s:plugins_dir . '/**/*.toml', 1, 1)
+    call dein#load_toml(s:file)
   endfor
 
   if dein#check_install()
@@ -35,8 +27,3 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
-
-augroup plugins
-  autocmd!
-  autocmd WinLeave,TabLeave * call anzu#clear_search_status()
-augroup END
