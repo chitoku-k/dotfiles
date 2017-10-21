@@ -4,14 +4,10 @@ hook_add = '''
   let g:NERDTreeAutoDeleteBuffer = 1
   let g:NERDTreeMinimalUI = 1
   let g:NERDTreeWinSize = 25
-'''
-
-[[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
-hook_add = '''
-  if winwidth(0) > 80 || has('nvim')
-    let g:nerdtree_tabs_open_on_console_startup = 1
-  endif
+  augroup nerdtree
+    autocmd!
+    autocmd VimEnter * NERDTree
+  augroup END
 '''
 
 [[plugins]]
