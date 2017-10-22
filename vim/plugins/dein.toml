@@ -140,6 +140,7 @@ hook_add = '''
   \     },
   \   ],
   \ }
+  nnoremap <silent> <Space>f :Denite buffer<CR>
 '''
 
 [[plugins]]

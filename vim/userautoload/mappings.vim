@@ -34,6 +34,8 @@ cnoremap <C-l> <Right>
 " インクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
+vnoremap + g<C-a>
+vnoremap - g<C-x>
 
 " 行末まで選択
 vnoremap v $h
