@@ -108,6 +108,7 @@ function! LightLineCharcode()
   return printf("U+%X (U+%X U+%X)", hex, hi, lo)
 endfunction
 
+" See: https://github.com/itchyny/lightline.vim/issues/16#issuecomment-23426807
 function! CtrlPStatusMain(focus, byfname, regex, prev, item, next, marked)
   let g:lightline.ctrlp_item = a:item
   let g:lightline.ctrlp_marked = a:marked
