@@ -100,7 +100,19 @@ hook_add = '''
 repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+  nnoremap <silent> <Space>f :CtrlPBuffer<CR>
+  let g:ctrlp_match_current_file = 1
+  let g:ctrlp_match_window = 'bottom,order:ttb,min:10,max:10,results:10'
+  let g:ctrlp_buffer_func = {
+  \   'enter': 'CtrlPBufferEnter',
+  \ }
+  let g:ctrlp_status_func = {
+  \   'main': 'CtrlPStatusMain',
+  \   'prog': 'CtrlPStatusProg',
+  \ }
+'''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -143,7 +155,6 @@ hook_add = '''
   \     },
   \   ],
   \ }
-  nnoremap <silent> <Space>f :Denite buffer<CR>
 '''
 
 [[plugins]]
