@@ -37,7 +37,7 @@ function! LightLineFilename()
   endif
   let fname = expand('%:t')
   if fname == 'ControlP'
-    return g:lightline.ctrlp_item
+    return exists('g:lightline.ctrlp_item') ? g:lightline.ctrlp_item : ''
   endif
   let readonly = LightLineReadonly() != '' ? LightLineReadonly() . ' ' : ''
   let filename = fname != '' ? fname : '[No Name]'
@@ -106,10 +106,6 @@ function! LightLineCharcode()
   let hi = (hex - 0x10000) / 0x400 + 0xd800
   let lo = (hex - 0x10000) % 0x400 + 0xdc00
   return printf("U+%X (U+%X U+%X)", hex, hi, lo)
-endfunction
-
-function! CtrlPBufferEnter()
-  highlight link CtrlPPrtText Normal
 endfunction
 
 function! CtrlPStatusMain(focus, byfname, regex, prev, item, next, marked)
