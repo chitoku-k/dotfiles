@@ -3,10 +3,10 @@
 "-------------------
 set encoding=utf-8
 set fileencodings=utf-8,euc-jp,cp932,sjis
+set hidden
 set noshowmode
 set noundofile
 set noswapfile
-set nobackup
 set nowritebackup
 set ttimeoutlen=100
 set expandtab

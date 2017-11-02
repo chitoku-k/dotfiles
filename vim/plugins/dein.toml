@@ -6,7 +6,7 @@ hook_add = '''
   let g:NERDTreeWinSize = 25
   augroup nerdtree
     autocmd!
-    autocmd VimEnter * NERDTree
+    autocmd VimEnter * NERDTree | wincmd l
   augroup END
 '''
 
@@ -106,8 +106,8 @@ hook_add = '''
   nnoremap <silent> <Space>d :CtrlPCurWD<CR>
   nnoremap <silent> <Space>g :CtrlPRoot<CR>
   let g:ctrlp_match_current_file = 1
-  let g:ctrlp_by_filename = 1
-  let g:ctrlp_match_window = 'bottom,order:ttb,min:10,max:10,results:10'
+  let g:ctrlp_match_window = 'bottom,order:ttb,min:20,max:20,results:20'
+  let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
   let g:ctrlp_status_func = {
   \   'main': 'CtrlPStatusMain',
   \   'prog': 'CtrlPStatusProg',
