@@ -71,9 +71,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'lilydjwg/colorizer'
-
-[[plugins]]
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
