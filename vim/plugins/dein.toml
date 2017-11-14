@@ -270,6 +270,9 @@ repo = 'kana/vim-textobj-indent'
 repo = 'kana/vim-textobj-line'
 
 [[plugins]]
+repo = 'rhysd/vim-textobj-anyblock'
+
+[[plugins]]
 repo = 'kana/vim-textobj-entire'
 
 [[plugins]]
