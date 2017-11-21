@@ -5,7 +5,7 @@ repo = '2072/PHP-Indenting-for-VIm'
 repo = 'StanAngeloff/php.vim'
 
 [[plugins]]
-repo = 'chitoku-k/deoplete-padawan'
+repo = 'padawan-php/deoplete-padawan'
 lazy = 1
 on_ft = ['php']
 build = '''
