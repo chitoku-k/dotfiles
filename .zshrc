@@ -147,6 +147,14 @@ include "$HOME/.zplug/init.zsh" && {
 
 
 #-------------------
+# Neovim
+#-------------------
+if (( $+commands[nvim] )); then
+    alias vim='nvim'
+fi
+
+
+#-------------------
 # Aliases
 #-------------------
 alias zmv='noglob zmv -vW'
