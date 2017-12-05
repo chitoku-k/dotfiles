@@ -11,8 +11,8 @@
 
     # 表示
     precommit = diff --cached
-    history = log -10 --date=short --format=format:'%C(yellow)%h %C(green)%cd %<(10,trunc)%C(blue)%an %C(reset)%s'
-    graph = log --graph --date=short --decorate=short --pretty=format:'%C(yellow)%h %C(green)%cd %<(10,trunc)%C(blue)%an %C(reset)%s'
+    history = log -10 --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an%n    %C(reset)%s%n'
+    graph = log --graph --date=format:'%Y-%m-%d %H:%M:%S' --decorate=short --pretty=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an %C(red)%d%n    %C(reset)%s%n'
 
     # 取消
     discard = checkout --
