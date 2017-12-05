@@ -130,7 +130,6 @@ include "$HOME/.zshrc.local"
 include "$HOME/.zplug/init.zsh" && {
     zplug "chriskempson/base16-shell"
     zplug "chitoku-k/zsh-togglecursor"
-    zplug "chitoku-k/zsh-nvim-quit"
     zplug "chitoku-k/zsh-vcs-extended"
     zplug "chitoku-k/zsh-via-ssh"
     zplug "hcgraf/zsh-sudo"
@@ -156,15 +155,6 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias chown='chown -v'
 alias chmod='chmod -v'
-
-
-#-------------------
-# Neovim
-#-------------------
-if (( $+commands[nvim] )); then
-    alias vim='nvim'
-    bindkey -a "^[" _zsh_nvim_quit
-fi
 
 
 #-------------------
