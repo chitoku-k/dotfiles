@@ -17,8 +17,8 @@ set virtualedit=block
 set cindent
 set title
 set clipboard=unnamedplus,unnamed
-set whichwrap=b,s,h,l,[,],<,>
-set backspace=indent,eol,start
+set whichwrap=
+set backspace=
 
 
 "-------------------
