@@ -249,6 +249,13 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'haya14busa/vim-operator-flashy'
+hook_add = '''
+  map y <Plug>(operator-flashy)
+  nmap Y <Plug>(operator-flashy)$
+'''
+
+[[plugins]]
 repo = 'tyru/operator-reverse.vim'
 hook_add = '''
   nmap <silent>vs <Plug>(operator-reverse-text)
