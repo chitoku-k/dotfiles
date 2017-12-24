@@ -51,6 +51,9 @@ set ignorecase
 set smartcase
 set wrapscan
 set hlsearch
+if exists('&inccommand')
+  set inccommand=split
+endif
 
 
 "-------------------
