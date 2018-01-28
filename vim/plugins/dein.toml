@@ -71,6 +71,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+hook_add = '''
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+'''
+
+[[plugins]]
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
