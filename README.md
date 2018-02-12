@@ -4,7 +4,7 @@ This repository contains my dotfiles and its installation script.
 
 ## Requirements
 
-Setting files expect each version below or later:
+Setting files expect each version or later:
 
 - Git 1.7.10
 - Vim 7.4 or Neovim 0.20
@@ -21,6 +21,6 @@ $ cd dotfiles
 $ ./install
 ```
 
-Choose whatever packages you want to install and press <kbd>Enter</kbd>.
+Choose whatever package you want to install and press <kbd>Enter</kbd>.
 
 <img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.gif" alt="" width="400">
