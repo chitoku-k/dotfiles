@@ -16,6 +16,7 @@ set smarttab
 set virtualedit=block
 set cindent
 set title
+set titleold=
 set clipboard=unnamedplus,unnamed
 set whichwrap=
 set backspace=

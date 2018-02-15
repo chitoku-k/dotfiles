@@ -122,6 +122,7 @@ bindkey "^[[Z" reverse-menu-complete
 include "$HOME/.zshrc.local"
 include "$HOME/.zplug/init.zsh" && {
     zplug "chriskempson/base16-shell"
+    zplug "chitoku-k/zsh-reset-title"
     zplug "chitoku-k/zsh-togglecursor"
     zplug "chitoku-k/zsh-vcs-extended"
     zplug "chitoku-k/zsh-via-ssh"
