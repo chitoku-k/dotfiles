@@ -20,6 +20,12 @@ class Installer
             new Package(
                 2,
                 'dotfiles',
+                '.fonts.conf',
+                'Configuration for fontconfig'
+            ),
+            new Package(
+                2,
+                'dotfiles',
                 '.vimrc',
                 'Configuration for Vim',
                 function ($self) {
