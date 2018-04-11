@@ -1,104 +1,17 @@
 <?php
+
 class Installer
 {
-    public function __construct()
+    /** @var Console */
+    protected $console;
+
+    /** @var Package[] */
+    protected $packages;
+
+    public function __construct(Console $console, array $packages)
     {
-        $this->console = new Console();
-        $this->packages = array(
-            new Package(
-                2,
-                'dotfiles',
-                '.zshrc',
-                'Configuration for Zsh'
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.tmux.conf',
-                'Configuration for tmux'
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.fonts.conf',
-                'Configuration for fontconfig'
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.vimrc',
-                'Configuration for Vim',
-                function ($self) {
-                    $self->symlink('vim/init.vim', "{$self->home}/{$self->name}");
-                    foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                        $self->symlink($dir, "{$self->home}/.{$dir}");
-                    }
-                }
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                'nvim/init.vim',
-                'Configuration for Neovim',
-                function ($self) {
-                    $self->symlink('vim/init.vim', "{$self->config}/{$self->name}");
-                    foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                        $self->symlink($dir, "{$self->config}/n{$dir}");
-                    }
-                }
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                'nyaovim',
-                'Configuration for NyaoVim',
-                function ($self) {
-                    $self->symlink('vim/nyaovim', "{$self->roaming}/{$self->name}");
-                }
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.gvimrc',
-                'Configuration for GVim/MacVim'
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.vsvimrc',
-                'Configuration for VsVim'
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.gitconfig',
-                'Configuration for Git'
-            ),
-            new Package(
-                2,
-                'dotfiles',
-                '.php_cs',
-                'Configuration for PHP-CS-Fixer'
-            ),
-            new Package(
-                5,
-                'zsh',
-                'zplug',
-                'A next-generation plugin manager for zsh',
-                function ($self) {
-                    $self->cloneGit('zplug/zplug', "{$self->home}/.zplug");
-                }
-            ),
-            new Package(
-                5,
-                'vim',
-                'dein.vim',
-                'Dark powered Vim/Neovim plugin manager',
-                function ($self) {
-                    $self->cloneGit('Shougo/dein.vim', "{$self->home}/.cache/dein/repos/github.com/Shougo/dein.vim");
-                }
-            ),
-        );
+        $this->console = $console;
+        $this->packages = $packages;
     }
 
     protected function parsePackages($packages)

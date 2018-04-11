@@ -1,4 +1,5 @@
 <?php
+
 class Package
 {
     public function __construct($category_color, $category, $name, $description, $callback = null)
@@ -45,11 +46,17 @@ class Package
                 if (DIRECTORY_SEPARATOR === '\\') {
                     return $_SERVER['LOCALAPPDATA'];
                 }
+                if (isset($_SERVER['XDG_CONFIG_HOME'])) {
+                    return $_SERVER['XDG_CONFIG_HOME'];
+                }
                 return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.config';
             }
             case 'roaming': {
                 if (DIRECTORY_SEPARATOR === '\\') {
                     return $_SERVER['APPDATA'];
+                }
+                if (isset($_SERVER['XDG_CONFIG_HOME'])) {
+                    return $_SERVER['XDG_CONFIG_HOME'];
                 }
                 return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.config';
             }
