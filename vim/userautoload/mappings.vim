@@ -59,12 +59,5 @@ if !has('gui')
   inoremap <Right> <Nop>
 endif
 
-" Neovim
-if has('nvim')
-  nnoremap <silent> <Space>s :sp \| terminal<CR>
-  nnoremap <silent> <Space>t :tabnew \| terminal<CR>
-  tnoremap <C-q> <C-\><C-n>
-endif
-
 " 貼り付け
 set pastetoggle=<C-p>
