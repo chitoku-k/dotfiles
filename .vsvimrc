@@ -6,12 +6,8 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set virtualedit=block
-
-" 行頭/行末からのカーソル移動を許可
-set whichwrap=b,s,h,l,[,],<,>
-
-" バックスペースを空白/行頭/行末で許可
-set backspace=indent,eol,start
+set whichwrap=
+set backspace=
 
 
 "-------------------
@@ -19,6 +15,8 @@ set backspace=indent,eol,start
 "-------------------
 set ignorecase
 set smartcase
+set wrapscan
+set hlsearch
 
 
 "-------------------
@@ -41,6 +39,8 @@ inoremap <C-l> <Right>
 " インクリメント/デクリメント
 nnoremap + <C-a>
 nnoremap - <C-x>
+vnoremap + g<C-a>
+vnoremap - g<C-x>
 
 " 検索結果表示位置
 nnoremap n nzz
@@ -48,6 +48,3 @@ nnoremap N Nzz
 
 " ハイライト非表示
 nmap <ESC><ESC> :nohlsearch<CR>
-
-" 無効化
-nnoremap q <Nop>
