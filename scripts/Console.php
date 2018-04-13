@@ -1,4 +1,5 @@
 <?php
+
 class Console
 {
     public function getEscapeSequence($codes)

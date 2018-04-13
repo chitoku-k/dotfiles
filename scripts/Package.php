@@ -13,6 +13,9 @@ class Package
 
     public function symlink($name, $target)
     {
+        if (is_link($target)) {
+            unlink($target);
+        }
         if (file_exists($target)) {
             echo "File exists: {$name}\n";
             return;
