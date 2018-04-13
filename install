@@ -11,45 +11,59 @@ $installer = new Installer(
             2,
             'dotfiles',
             '.zshrc',
-            'Configuration for Zsh'
+            'Configuration for Zsh',
+            function (Package $self) {
+                $self->symlink($self->name, "{$self->home}/{$self->name}");
+            }
         ),
         new Package(
             2,
             'dotfiles',
             '.tmux.conf',
-            'Configuration for tmux'
-        ),
-        new Package(
-            2,
-            'dotfiles',
-            'fonts.conf',
-            'Configuration for fontconfig',
+            'Configuration for tmux',
             function (Package $self) {
-                $self->symlink('fonts.conf', "{$self->config}/fontconfig/{$self->name}");
+                $self->symlink($self->name, "{$self->home}/{$self->name}");
             }
         ),
         new Package(
             2,
-            'dotfiles',
-            '.vimrc',
+            'xdg',
+            'git/config',
+            'Configuration for Git',
+            function (Package $self) {
+                $self->symlink($self->name, "{$self->config}/{$self->name}");
+            }
+        ),
+        new Package(
+            2,
+            'xdg',
+            'vim',
             'Configuration for Vim',
             function (Package $self) {
-                $self->symlink('vim/init.vim', "{$self->home}/{$self->name}");
-                foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                    $self->symlink($dir, "{$self->home}/.{$dir}");
+                $self->symlink('vim/init.vim', "{$self->home}/.vimrc");
+                foreach (glob('vim/*', GLOB_ONLYDIR) as $name) {
+                    $self->symlink($name, "{$self->config}/{$name}");
                 }
             }
         ),
         new Package(
             2,
-            'dotfiles',
-            'nvim/init.vim',
+            'xdg',
+            'nvim',
             'Configuration for Neovim',
             function (Package $self) {
-                $self->symlink('vim/init.vim', "{$self->config}/{$self->name}");
-                foreach (glob('vim/*', GLOB_ONLYDIR) as $dir) {
-                    $self->symlink($dir, "{$self->config}/n{$dir}");
+                foreach (glob('vim/*') as $name) {
+                    $self->symlink($name, "{$self->config}/n{$name}");
                 }
+            }
+        ),
+        new Package(
+            2,
+            'xdg',
+            'fontconfig/fonts.conf',
+            'Configuration for fontconfig',
+            function (Package $self) {
+                $self->symlink($self->name, "{$self->config}/{$self->name}");
             }
         ),
         new Package(
@@ -65,25 +79,28 @@ $installer = new Installer(
             2,
             'dotfiles',
             '.gvimrc',
-            'Configuration for GVim/MacVim'
+            'Configuration for GVim/MacVim',
+            function (Package $self) {
+                $self->symlink($self->name, "{$self->home}/{$self->name}");
+            }
         ),
         new Package(
             2,
             'dotfiles',
             '.vsvimrc',
-            'Configuration for VsVim'
-        ),
-        new Package(
-            2,
-            'dotfiles',
-            '.gitconfig',
-            'Configuration for Git'
+            'Configuration for VsVim',
+            function (Package $self) {
+                $self->symlink($self->name, "{$self->home}/{$self->name}");
+            }
         ),
         new Package(
             2,
             'dotfiles',
             '.php_cs',
-            'Configuration for PHP-CS-Fixer'
+            'Configuration for PHP-CS-Fixer',
+            function (Package $self) {
+                $self->symlink($self->name, "{$self->home}/{$self->name}");
+            }
         ),
         new Package(
             5,
@@ -100,7 +117,7 @@ $installer = new Installer(
             'dein.vim',
             'Dark powered Vim/Neovim plugin manager',
             function (Package $self) {
-                $self->cloneGit('Shougo/dein.vim', "{$self->home}/.cache/dein/repos/github.com/Shougo/dein.vim");
+                $self->cloneGit('Shougo/dein.vim', "{$self->xdgcache}/dein/repos/github.com/Shougo/dein.vim");
             }
         ),
     )

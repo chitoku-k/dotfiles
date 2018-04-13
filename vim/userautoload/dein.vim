@@ -2,10 +2,10 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.vim,~/.vim/after,~/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 let s:repo_dir = expand('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 let s:dein_dir = expand('~/.cache/dein')
-let s:plugins_dir = !has('nvim') ? expand('~/.vim/plugins') :
+let s:plugins_dir = !has('nvim') ? expand('~/.config/vim/plugins') :
                   \ !has('win32') ? expand('~/.config/nvim/plugins') :
                   \                 expand('~\AppData\Local\nvim\plugins')
 

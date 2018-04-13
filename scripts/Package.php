@@ -11,11 +11,8 @@ class Package
         $this->callback = $callback;
     }
 
-    public function symlink($name, $target = null)
+    public function symlink($name, $target)
     {
-        $target = $target ?: "{$this->home}/{$name}";
-        $realpath = realpath($name);
-
         if (file_exists($target)) {
             echo "File exists: {$name}\n";
             return;
@@ -25,12 +22,18 @@ class Package
             mkdir(dirname($target), 0755, true);
         }
 
-        symlink($realpath, $target);
+        symlink(realpath($name), $target);
     }
 
     public function cloneGit($repo, $target, $source = 'https://github.com/')
     {
-        return passthru("git clone --depth 1 {$source}{$repo}.git {$target}");
+        return passthru(
+            sprintf(
+                'git clone --depth 1 %s %s',
+                escapeshellarg("{$source}{$repo}.git"),
+                escapeshellarg($target)
+            )
+        );
     }
 
     public function __get($name)
@@ -46,28 +49,31 @@ class Package
                 if (DIRECTORY_SEPARATOR === '\\') {
                     return $_SERVER['LOCALAPPDATA'];
                 }
-                if (isset($_SERVER['XDG_CONFIG_HOME'])) {
-                    return $_SERVER['XDG_CONFIG_HOME'];
-                }
-                return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.config';
+                return $this->xdgconfig;
             }
             case 'roaming': {
                 if (DIRECTORY_SEPARATOR === '\\') {
                     return $_SERVER['APPDATA'];
                 }
+                return $this->xdgconfig;
+            }
+            case 'xdgconfig': {
                 if (isset($_SERVER['XDG_CONFIG_HOME'])) {
                     return $_SERVER['XDG_CONFIG_HOME'];
                 }
                 return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.config';
+            }
+            case 'xdgcache': {
+                if (isset($_SERVER['XDG_CACHE_HOME'])) {
+                    return $_SERVER['XDG_CACHE_HOME'];
+                }
+                return $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.cache';
             }
         }
     }
 
     public function __invoke()
     {
-        if (!$this->callback) {
-            return $this->symlink($this->name);
-        }
         $callback = $this->callback;
         return $callback($this);
     }
