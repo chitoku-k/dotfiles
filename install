@@ -21,11 +21,11 @@ $installer = new Installer(
         ),
         new Package(
             2,
-            'dotfiles',
-            '.tmux.conf',
+            'xdg',
+            'tmux',
             'Configuration for tmux',
             function (Package $self) {
-                $self->symlink($self->name, "{$self->home}/{$self->name}");
+                $self->symlink($self->name, "{$self->config}/{$self->name}");
             }
         ),
         new Package(

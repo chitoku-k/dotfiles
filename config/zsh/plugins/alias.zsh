@@ -9,6 +9,10 @@ if (( $+commands[nvim] )); then
     alias vim='nvim'
 fi
 
+if (( $+commands[tmux] )); then
+    alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+fi
+
 if (( $+commands[systemctl] )); then
     alias sc='systemctl'
     alias ssc='sudo systemctl'
