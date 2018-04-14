@@ -1,2 +1,8 @@
-vim/nyaovim/*
-!vim/nyaovim/nyaovimrc.html
+# Zsh
+config/zsh/.zcompdump
+config/zsh/local/*
+!config/zsh/local/.gitkeep
+
+# NyaoVim
+config/vim/nyaovim/*
+!config/vim/nyaovim/nyaovimrc.html

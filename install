@@ -11,11 +11,12 @@ $installer = new Installer(
     array(
         new Package(
             2,
-            'dotfiles',
-            '.zshrc',
+            'xdg',
+            'zsh',
             'Configuration for Zsh',
             function (Package $self) {
-                $self->symlink($self->name, "{$self->home}/{$self->name}");
+                $self->symlink('zsh/.zshenv', "{$self->home}/.zshenv");
+                $self->symlink($self->name, "{$self->config}/{$self->name}");
             }
         ),
         new Package(
