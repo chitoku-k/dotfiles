@@ -1,26 +1,19 @@
-[include]
-    path = ~/.gitconfig.local
-
 [alias]
-    # 一覧
     branches = branch -a
     tags = tag
     stashes = stash list
     remotes = remote -v
     worktrees = worktree list
 
-    # 表示
     precommit = diff --cached
     history = log -10 --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an %C(red)%d%n%C(reset)%w(0, 4, 4)%B'
     graph = log --graph --decorate=short --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an %C(red)%d%n%C(reset)%w(0, 4, 4)%B'
 
-    # 取消
     discard = checkout --
     unstage = reset -q HEAD --
     uncommit = reset --mixed HEAD~
     amend = commit --amend
 
-    # 無視
     preserve = update-index --assume-unchanged --
     unpreserve = update-index --no-assume-unchanged --
     exclude = "!f() { echo $1 >> \"${GIT_PREFIX}.git/info/exclude\"; }; f"
