@@ -43,9 +43,7 @@ $installer = new Installer(
             'Configuration for Vim',
             function (Package $self) {
                 $self->symlink('vim/init.vim', "{$self->home}/.vimrc");
-                foreach (glob('vim/*', GLOB_ONLYDIR) as $name) {
-                    $self->symlink($name, "{$self->config}/{$name}");
-                }
+                $self->symlink($self->name, "{$self->config}/{$self->name}");
             }
         ),
         new Package(
@@ -54,9 +52,7 @@ $installer = new Installer(
             'nvim',
             'Configuration for Neovim',
             function (Package $self) {
-                foreach (glob('vim/*') as $name) {
-                    $self->symlink($name, "{$self->config}/n{$name}");
-                }
+                $self->symlink('vim', "{$self->config}/{$self->name}");
             }
         ),
         new Package(
