@@ -107,7 +107,7 @@ $installer = new Installer(
             'zplug',
             'A next-generation plugin manager for zsh',
             function (Package $self) {
-                $self->cloneGit('zplug/zplug', "{$self->home}/.zplug");
+                $self->cloneGit('zplug/zplug', "{$self->xdgcache}/zplug");
             }
         ),
         new Package(

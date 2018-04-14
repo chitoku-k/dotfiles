@@ -1,5 +1,5 @@
-[[ -s "$HOME/.zplug" ]] && {
-    source "$HOME/.zplug/init.zsh"
+[[ -a "$ZPLUG_HOME" ]] && {
+    source "$ZPLUG_HOME/init.zsh"
 
     zplug "chitoku-k/zsh-reset-title"
     zplug "chitoku-k/zsh-togglecursor", defer:1
