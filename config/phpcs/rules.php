@@ -1,5 +1,5 @@
 <?php
-// vim:set ft=php:
+
 $finder = PhpCsFixer\Finder::create()->exclude('vendor')->in(__DIR__);
 $rules = [
     '@Symfony' => true,

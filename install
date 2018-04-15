@@ -67,7 +67,7 @@ $installer = new Installer(
         ),
         new Package(
             2,
-            'dotfiles',
+            'xdg',
             'nyaovim',
             'Configuration for NyaoVim',
             function (Package $self) {
@@ -94,11 +94,11 @@ $installer = new Installer(
         ),
         new Package(
             2,
-            'dotfiles',
-            '.php_cs',
-            'Configuration for PHP-CS-Fixer',
+            'xdg',
+            'phpcs/rules.php',
+            'Rules for PHP-CS-Fixer',
             function (Package $self) {
-                $self->symlink($self->name, "{$self->home}/{$self->name}");
+                $self->symlink($self->name, "{$self->config}/{$self->name}");
             }
         ),
         new Package(

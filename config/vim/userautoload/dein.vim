@@ -12,7 +12,7 @@ endif
 if dein#load_state(GetPluginDirectory())
   call dein#begin(GetPluginDirectory())
 
-  for s:file in glob(GetConfigDirectory('/plugins/**.toml'), 1, 1)
+  for s:file in glob(GetConfigDirectory('/plugins/**/*.toml'), 1, 1)
     call dein#load_toml(s:file)
   endfor
 
