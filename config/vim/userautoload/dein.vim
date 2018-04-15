@@ -2,21 +2,17 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-let s:repo_dir = expand('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-let s:dein_dir = expand('~/.cache/dein')
-let s:plugins_dir = !has('nvim') ? expand('~/.config/vim/plugins') :
-                  \ !has('win32') ? expand('~/.config/nvim/plugins') :
-                  \                 expand('~\AppData\Local\nvim\plugins')
+let s:dein_dir = GetPluginDirectory('/repos/github.com/Shougo/dein.vim')
+let &runtimepath .= ',' . s:dein_dir
 
-if !isdirectory(s:repo_dir)
+if !isdirectory(s:dein_dir)
   finish
 endif
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+if dein#load_state(GetPluginDirectory())
+  call dein#begin(GetPluginDirectory())
 
-  for s:file in glob(s:plugins_dir . '/**/*.toml', 1, 1)
+  for s:file in glob(GetConfigDirectory('/plugins/**.toml'), 1, 1)
     call dein#load_toml(s:file)
   endfor
 
@@ -27,3 +23,9 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
+
+for s:file in glob(GetConfigDirectory('/has/*.vim'), 1, 1)
+  if has(get(matchlist(s:file, '\v.+/(.*)\.vim'), 1))
+    exec 'source ' . s:file
+  endif
+endfor

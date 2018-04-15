@@ -3,6 +3,9 @@ config/zsh/.zcompdump
 config/zsh/local/*
 !config/zsh/local/.gitkeep
 
+# Vim
+config/vim/.netrwhist
+
 # NyaoVim
 config/vim/nyaovim/*
 !config/vim/nyaovim/nyaovimrc.html
