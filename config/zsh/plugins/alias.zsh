@@ -11,6 +11,7 @@ fi
 
 if (( $+commands[tmux] )); then
     alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+    alias work='tmux attach || tmux'
 fi
 
 if (( $+commands[systemctl] )); then
@@ -18,3 +19,12 @@ if (( $+commands[systemctl] )); then
     alias ssc='sudo systemctl'
     alias scs='systemctl status'
 fi
+
+case "$OSTYPE" in
+    linux*)
+        alias ls='ls --color=auto'
+        ;;
+    darwin*)
+        alias ls='ls -G'
+        ;;
+esac
