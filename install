@@ -119,6 +119,15 @@ $installer = new Installer(
                 $self->cloneGit('Shougo/dein.vim', "{$self->xdgcache}/dein/repos/github.com/Shougo/dein.vim");
             }
         ),
+        new Package(
+            5,
+            'tmux',
+            'tpm',
+            'Tmux Plugin Manager',
+            function (Package $self) {
+                $self->cloneGit('tmux-plugins/tpm', "{$self->xdgcache}/tpm/plugins");
+            }
+        ),
     )
 );
 $installer->execute();
