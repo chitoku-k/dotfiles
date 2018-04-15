@@ -17,7 +17,7 @@ class Package
             unlink($target);
         }
         if (file_exists($target)) {
-            echo "File exists: {$name}\n";
+            echo "File exists: {$target}\n";
             return;
         }
 
