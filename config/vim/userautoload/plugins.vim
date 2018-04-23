@@ -77,8 +77,8 @@ function! LightLinePath()
     return ''
   endif
   let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
-  if strlen(path) > 40
-    return '...' . path[strlen(path) - 40:]
+  if strdisplaywidth(path) > 40
+    return '...' . strcharpart(path, strchars(path) - 40)
   else
     return path
   endif
@@ -89,23 +89,18 @@ function! LightLineCharcode()
     return ''
   endif
 
-  redir => code
-  silent! ascii
-  redir END
-
-  let match = matchlist(code, '\v.+,\s+.+\s(\x+),')
-  if empty(match)
+  let hex = strgetchar(getline('.')[col('.') - 1:], 0)
+  if hex < 0
     return ''
   endif
 
-  let hex = str2nr(match[1], 16)
   if hex < 0x10000
-    return printf("U+%X", hex)
+    return printf('U+%X', hex)
+  else
+    let hi = (hex - 0x10000) / 0x400 + 0xd800
+    let lo = (hex - 0x10000) % 0x400 + 0xdc00
+    return printf('U+%X (U+%X U+%X)', hex, hi, lo)
   endif
-
-  let hi = (hex - 0x10000) / 0x400 + 0xd800
-  let lo = (hex - 0x10000) % 0x400 + 0xdc00
-  return printf("U+%X (U+%X U+%X)", hex, hi, lo)
 endfunction
 
 " See: https://github.com/itchyny/lightline.vim/issues/16#issuecomment-23426807
