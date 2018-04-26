@@ -4,25 +4,18 @@ TRAPINT() {
 }
 
 _zsh_prompt_redraw() {
-    # Only callable when zle is active
-    if ! zle; then
-        return 0
-    fi
-
-    local keymap="$KEYMAP"
     if [[ "$1" = "0" ]] || [[ "$WIDGET" =~ finish ]]; then
-        keymap='finish'
         _zsh_prompt 8 20 8 20
-    else
-        case "$KEYMAP" in
-            'main')
-                _zsh_prompt 2 0 3 0
-                ;;
-            *)
-                _zsh_prompt 4 0 3 0
-                ;;
-        esac
+        return
     fi
+    case "$KEYMAP" in
+        'main')
+            _zsh_prompt 2 0 3 0
+            ;;
+        *)
+            _zsh_prompt 4 0 3 0
+            ;;
+    esac
 }
 
 _zsh_prompt() {
@@ -37,7 +30,7 @@ _zsh_prompt() {
     [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
     PS1=$'\n'$hostname$directory$vcs_info$user
-    zle reset-prompt
+    zle && zle reset-prompt
 }
 
 zle -N zle-line-init _zsh_prompt_redraw
