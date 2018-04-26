@@ -1,6 +1,5 @@
 autoload -Uz zmv
 
-export VISUAL='vim'
 KEYTIMEOUT=1
 
 setopt auto_pushd

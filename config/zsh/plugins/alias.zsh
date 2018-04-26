@@ -1,3 +1,5 @@
+export VISUAL='vim'
+
 alias zmv='noglob zmv -vW'
 alias mv='mv -v'
 alias cp='cp -v'
@@ -6,6 +8,7 @@ alias chown='chown -v'
 alias chmod='chmod -v'
 
 if (( $+commands[nvim] )); then
+    export VISUAL='nvim'
     alias vim='nvim'
 fi
 
