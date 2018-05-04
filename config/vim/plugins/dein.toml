@@ -1,4 +1,10 @@
 [[plugins]]
+repo = 'justinmk/vim-dirvish'
+hook_add = '''
+  nnoremap <silent> <Space>e :edit .<CR>
+'''
+
+[[plugins]]
 repo = 'chriskempson/base16-vim'
 hook_add = '''
   let g:base16colorspace = 256
