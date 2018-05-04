@@ -1,20 +1,4 @@
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-  let g:NERDTreeAutoDeleteBuffer = 1
-  let g:NERDTreeBookmarksFile = expand('$XDG_CACHE_HOME') . '/NERDTreeBookmarks'
-  let g:NERDTreeMinimalUI = 1
-  let g:NERDTreeWinSize = 25
-  augroup nerdtree
-    autocmd!
-    autocmd VimEnter * NERDTree | wincmd l
-  augroup END
-'''
-
-[[plugins]]
-repo = 'chitoku-k/nerdtree-chmod'
-
-[[plugins]]
 repo = 'chriskempson/base16-vim'
 hook_add = '''
   let g:base16colorspace = 256
@@ -73,9 +57,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
-hook_add = '''
-  let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-'''
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
@@ -91,13 +72,6 @@ hook_add = '''
 repo = 'rhysd/clever-f.vim'
 hook_add = '''
   let g:clever_f_across_no_line = 1
-'''
-
-[[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-  nmap <silent> <Space>r :TREPLSendLine<CR>
-  vmap <silent> <Space>r :TREPLSendSelection<CR>
 '''
 
 [[plugins]]
@@ -199,9 +173,6 @@ hook_add = '''
   \   'topen': ['t'],
   \ }
 '''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
