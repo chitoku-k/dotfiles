@@ -77,10 +77,11 @@ function! LightLinePath()
     return ''
   endif
   let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
-  if strdisplaywidth(path) > 40
-    return '...' . strcharpart(path, strchars(path) - 40)
+  let disp_path = strcharpart(path, strchars(path) - 40)
+  if disp_path !=# path
+    return '...' . disp_path
   else
-    return path
+    return disp_path
   endif
 endfunction
 

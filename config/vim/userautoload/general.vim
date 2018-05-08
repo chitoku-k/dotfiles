@@ -29,6 +29,7 @@ filetype plugin indent on
 set list
 set scrolloff=3
 set novisualbell
+set nofoldenable
 set number
 set numberwidth=5
 set showtabline=2
