@@ -3,19 +3,19 @@
 for f in "$@"
 do
     if [[ "$f" =~ /([0-9]+)( ?\([0-9]+\))?\. ]]; then
-        open "https://twitter.com/user/status/"$match[1]
+        echo "https://twitter.com/user/status/"$match[1]
         continue
     fi
     if [[ "$f" =~ /pixiv_([0-9]+)( ?\([0-9]+\))?\. ]]; then
-        open "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="$match[1]
+        echo "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="$match[1]
         continue
     fi
     if [[ "$f" =~ /seiga_([0-9]+)( ?\([0-9]+\))?\. ]]; then
-        open "http://seiga.nicovideo.jp/seiga/im"$match[1]
+        echo "http://seiga.nicovideo.jp/seiga/im"$match[1]
         continue
     fi
     if [[ "$f" =~ /nijie_([0-9]+)( ?\([0-9]+\))?\. ]]; then
-        open "https://nijie.info/view.php?id="$match[1]
+        echo "https://nijie.info/view.php?id="$match[1]
         continue
     fi
 done
