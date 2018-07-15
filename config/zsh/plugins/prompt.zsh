@@ -30,7 +30,7 @@ _zsh_prompt() {
     [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
     PS1=$'\n'$hostname$directory$vcs_info$user
-    zle && zle reset-prompt
+    zle reset-prompt 2> /dev/null
 }
 
 zle -N zle-line-init _zsh_prompt_redraw
