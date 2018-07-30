@@ -14,3 +14,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt pushd_ignore_dups
 setopt no_flow_control
+
+catee() {
+    cat $1 | sudo tee $2 > /dev/null
+}
