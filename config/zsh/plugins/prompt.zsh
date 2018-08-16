@@ -1,8 +1,3 @@
-TRAPINT() {
-    _zsh_prompt_redraw 0
-    return $(( 128 + $1 ))
-}
-
 _zsh_prompt_redraw() {
     if [[ "$1" = "0" ]] || [[ "$WIDGET" =~ finish ]]; then
         _zsh_prompt 8 20 8 20
@@ -30,7 +25,7 @@ _zsh_prompt() {
     [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
     PS1=$'\n'$hostname$directory$vcs_info$user
-    zle reset-prompt 2> /dev/null
+    zle reset-prompt
 }
 
 zle -N zle-line-init _zsh_prompt_redraw
