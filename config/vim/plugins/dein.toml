@@ -68,6 +68,9 @@ repo = 'editorconfig/editorconfig-vim'
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
+repo = 'lambdalisue/suda.vim'
+
+[[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
   let g:winresizer_vert_resize = 1
