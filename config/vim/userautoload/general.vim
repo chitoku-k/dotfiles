@@ -1,7 +1,10 @@
 "-------------------
 " 一般
 "-------------------
-language en_US.UTF-8
+try
+  language en_US.UTF-8
+catch
+endtry
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,cp932,sjis
 set hidden
