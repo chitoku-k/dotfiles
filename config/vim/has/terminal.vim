@@ -3,8 +3,5 @@ nnoremap <silent> <Space>t :tabnew \| terminal ++curwin<CR>
 tmap <C-q><C-q> <C-w>N
 augroup termrc
   autocmd!
-  autocmd BufWinEnter *
-        \ if &l:buftype ==# 'terminal' |
-        \   setlocal nonumber |
-        \ endif
+  autocmd TerminalOpen * setlocal nonumber
 augroup END
