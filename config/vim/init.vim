@@ -1,1 +1,1 @@
-runtime! userautoload/{dein,*}.vim
+call vimrc#init()

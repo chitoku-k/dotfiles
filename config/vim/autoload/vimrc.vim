@@ -19,3 +19,31 @@ endfunction
 function! vimrc#config_dir(...) abort
   return s:root_dir . join(a:000)
 endfunction
+
+function! vimrc#init() abort
+  let dein_dir = vimrc#plugin_dir('/repos/github.com/Shougo/dein.vim')
+  let &runtimepath .= ',' . dein_dir
+
+  if isdirectory(dein_dir) && dein#load_state(vimrc#plugin_dir())
+    call dein#begin(vimrc#plugin_dir())
+
+    for file in glob(vimrc#config_dir('/plugins/**/*.toml'), 1, 1)
+      call dein#load_toml(file)
+    endfor
+
+    if dein#check_install()
+      call dein#install()
+    endif
+
+    call dein#end()
+    call dein#save_state()
+  endif
+
+  runtime! userautoload/*.vim
+
+  if !has('nvim')
+    let &directory = vimrc#cache_dir('/swap')
+    let &backupdir = vimrc#cache_dir('/backup')
+    let &viminfo = "'1000,n" . vimrc#cache_dir('/viminfo')
+  endif
+endfunction
