@@ -41,6 +41,12 @@ function! vimrc#init() abort
 
   runtime! userautoload/*.vim
 
+  for file in glob(vimrc#config_dir('/has/*.vim'), 1, 1)
+    if has(get(matchlist(file, '\v.+[/\\](.*)\.vim'), 1))
+      exec 'source ' . file
+    endif
+  endfor
+
   if !has('nvim')
     let &directory = vimrc#cache_dir('/swap')
     let &backupdir = vimrc#cache_dir('/backup')
