@@ -43,7 +43,7 @@ $installer = new Installer(
             'vim',
             'Configuration for Vim',
             function (Package $self) {
-                $self->symlink('vim/init.vim', "{$self->home}/.vimrc");
+                $self->symlink('.vimrc', "{$self->home}/.vimrc");
                 $self->symlink($self->name, "{$self->config}/{$self->name}");
             }
         ),
