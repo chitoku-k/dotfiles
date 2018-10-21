@@ -1,13 +1,13 @@
-function! LightLineHide()
-  return expand('%') =~ '^NERD_tree' || &ft =~ 'qf'
+function! vimrc#lightline#hide() abort
+  return &ft =~ 'qf'
 endfunction
 
-function! LightLineIsTerm()
+function! vimrc#lightline#is_term() abort
   return expand('%') =~ '^term://'
 endfunction
 
-function! LightLineMode()
-  if LightLineHide() || winwidth(0) < 60 || lightline#mode() == 'TERMINAL'
+function! vimrc#lightline#mode() abort
+  if vimrc#lightline#hide() || winwidth(0) < 60 || lightline#mode() == 'TERMINAL'
     return ''
   endif
   let fname = expand('%:t')
@@ -17,63 +17,63 @@ function! LightLineMode()
   return lightline#mode()
 endfunction
 
-function! LightLineModified()
+function! vimrc#lightline#modified() abort
   if &ft =~ 'help' || !&modified
     return ''
   endif
   return '+'
 endfunction
 
-function! LightLineReadonly()
+function! vimrc#lightline#readonly() abort
   if &ft =~ 'help' || !&readonly
     return ''
   endif
   return 'RO'
 endfunction
 
-function! LightLineFilename()
-  if LightLineHide() || lightline#mode() == 'TERMINAL'
+function! vimrc#lightline#filename() abort
+  if vimrc#lightline#hide() || lightline#mode() == 'TERMINAL'
     return ''
   endif
   let fname = expand('%:t')
   if fname == 'ControlP'
     return exists('g:lightline.ctrlp_item') ? g:lightline.ctrlp_item : ''
   endif
-  let readonly = LightLineReadonly() != '' ? LightLineReadonly() . ' ' : ''
+  let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
   let filename = fname != '' ? fname : '[No Name]'
   return readonly . filename
 endfunction
 
-function! LightLineLineinfo()
-  if LightLineHide() || LightLineIsTerm()
+function! vimrc#lightline#lineinfo() abort
+  if vimrc#lightline#hide() || vimrc#lightline#is_term()
     return ''
   endif
   return printf("%3d/%d", line('.'), line('$'))
 endfunction
 
-function! LightLineFileformat()
-  if LightLineHide() || LightLineIsTerm()
+function! vimrc#lightline#fileformat() abort
+  if vimrc#lightline#hide() || vimrc#lightline#is_term()
     return ''
   endif
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
-function! LightLineFiletype()
-  if LightLineHide() || LightLineIsTerm()
+function! vimrc#lightline#filetype() abort
+  if vimrc#lightline#hide() || vimrc#lightline#is_term()
     return ''
   endif
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
-function! LightLineFileencoding()
-  if LightLineHide() || LightLineIsTerm()
+function! vimrc#lightline#fileencoding() abort
+  if vimrc#lightline#hide() || vimrc#lightline#is_term()
     return ''
   endif
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
-function! LightLinePath()
-  if LightLineHide() || LightLineIsTerm() || winwidth(0) < 60 || &ft =~ 'help' || &ft ==# ''
+function! vimrc#lightline#path() abort
+  if vimrc#lightline#hide() || vimrc#lightline#is_term() || winwidth(0) < 60 || &ft =~ 'help' || &ft ==# ''
     return ''
   endif
   let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
@@ -85,8 +85,8 @@ function! LightLinePath()
   endif
 endfunction
 
-function! LightLineCharcode()
-  if LightLineHide() || LightLineIsTerm()
+function! vimrc#lightline#charcode() abort
+  if vimrc#lightline#hide() || vimrc#lightline#is_term()
     return ''
   endif
 
@@ -102,15 +102,4 @@ function! LightLineCharcode()
     let lo = (hex - 0x10000) % 0x400 + 0xdc00
     return printf('U+%X (U+%X U+%X)', hex, hi, lo)
   endif
-endfunction
-
-" See: https://github.com/itchyny/lightline.vim/issues/16#issuecomment-23426807
-function! CtrlPStatusMain(focus, byfname, regex, prev, item, next, marked)
-  let g:lightline.ctrlp_item = a:item
-  let g:lightline.ctrlp_marked = a:marked
-  return lightline#statusline(0)
-endfunction
-
-function! CtrlPStatusProg(str)
-  return lightline#statusline(0)
 endfunction

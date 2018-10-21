@@ -6,7 +6,7 @@ else
   let &runtimepath .= ',' . expand('$XDG_CONFIG_HOME/vim/after')
 endif
 
-runtime! userautoload/{vimrc,dein,*}.vim
+runtime! userautoload/{dein,*}.vim
 
 let &directory = vimrc#cache_dir('/swap')
 let &backupdir = vimrc#cache_dir('/backup')

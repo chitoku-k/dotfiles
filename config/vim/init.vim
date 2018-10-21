@@ -1,1 +1,1 @@
-runtime! userautoload/{vimrc,dein,*}.vim
+runtime! userautoload/{dein,*}.vim
