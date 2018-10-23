@@ -221,7 +221,6 @@ repo = 'kana/vim-fakeclip'
 
 [[plugins]]
 repo = 'raghur/vim-ghost'
-build = './install'
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
