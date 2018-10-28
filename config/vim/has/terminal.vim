@@ -1,6 +1,6 @@
 nnoremap <silent> <Space>s :sp \| terminal ++curwin<CR>
 nnoremap <silent> <Space>t :tabnew \| terminal ++curwin<CR>
-tmap <C-q><C-q> <C-w>N
+tnoremap <C-q> <C-\><C-n>
 augroup termrc
   autocmd!
   autocmd TerminalOpen * setlocal nonumber

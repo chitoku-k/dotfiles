@@ -6,3 +6,6 @@ bindkey "^L" clear-screen
 bindkey "^F" sudo-command-line
 bindkey "^[[3~" delete-char
 bindkey "^[[Z" reverse-menu-complete
+
+# Disable START/STOP output control
+stty -ixon
