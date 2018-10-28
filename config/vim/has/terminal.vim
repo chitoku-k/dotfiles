@@ -3,5 +3,7 @@ nnoremap <silent> <Space>t :tabnew \| terminal ++curwin<CR>
 tnoremap <C-q> <C-\><C-n>
 augroup termrc
   autocmd!
-  autocmd TerminalOpen * setlocal nonumber
+  autocmd TerminalOpen *
+        \ setlocal nonumber |
+        \ match ExtraWhitespace /^^/
 augroup END
