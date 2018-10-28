@@ -35,7 +35,7 @@ function! vimrc#lightline#filename() abort
     return ''
   endif
   if &ft == 'ctrlp'
-    return exists('g:lightline.ctrlp_item') ? g:lightline.ctrlp_item : ''
+    return get(g:lightline, 'ctrlp_item', '')
   endif
   if &ft == 'dirvish'
     return expand('%')
@@ -49,7 +49,7 @@ function! vimrc#lightline#lineinfo() abort
   if vimrc#lightline#hide() || vimrc#lightline#term()
     return ''
   endif
-  return printf("%3d/%d", line('.'), line('$'))
+  return printf('%3d/%d', line('.'), line('$'))
 endfunction
 
 function! vimrc#lightline#fileformat() abort
