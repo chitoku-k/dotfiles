@@ -5,6 +5,7 @@ repo = 'leafgarland/typescript-vim'
 repo = 'mhartington/nvim-typescript'
 on_ft = ['typescript']
 build = './install.sh'
+if = 'has("nvim") && has("python3") && executable("npm")'
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'

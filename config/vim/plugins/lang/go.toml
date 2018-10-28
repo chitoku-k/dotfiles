@@ -7,3 +7,4 @@ on_ft = ['go']
 repo = 'zchee/deoplete-go'
 lazy = 1
 build = 'make'
+if = 'has("python3") && executable("go")'
