@@ -111,6 +111,7 @@ hook_add = '''
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
   let g:context_filetype#filetypes = {
+  \   'help': [],
   \   'html': [
   \     {
   \       'start': '<script\%( [^>]*\)\?>',
