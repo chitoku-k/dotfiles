@@ -1,24 +1,23 @@
-function! vimrc#lightline#hide() abort
-  return &ft =~ 'qf'
+function! vimrc#lightline#hide(...) abort
+  return &ft =~ 'qf' || get(a:, 0, 0) && winwidth(0) < 60
 endfunction
 
-function! vimrc#lightline#is_term() abort
-  return expand('%') =~ '^term://'
+function! vimrc#lightline#term() abort
+  return expand('%') =~ '^\(!\|term://\)'
 endfunction
 
 function! vimrc#lightline#mode() abort
-  if vimrc#lightline#hide() || winwidth(0) < 60 || lightline#mode() == 'TERMINAL'
+  if vimrc#lightline#hide(1) || lightline#mode() == 'TERMINAL'
     return ''
   endif
-  let fname = expand('%:t')
-  if fname == 'ControlP'
+  if &filetype == 'ctrlp'
     return 'CtrlP'
   endif
   return lightline#mode()
 endfunction
 
 function! vimrc#lightline#modified() abort
-  if &ft =~ 'help' || !&modified
+  if &ft =~ 'help' || vimrc#lightline#term() || !&modified
     return ''
   endif
   return '+'
@@ -35,45 +34,47 @@ function! vimrc#lightline#filename() abort
   if vimrc#lightline#hide() || lightline#mode() == 'TERMINAL'
     return ''
   endif
-  let fname = expand('%:t')
-  if fname == 'ControlP'
+  if &ft == 'ctrlp'
     return exists('g:lightline.ctrlp_item') ? g:lightline.ctrlp_item : ''
   endif
+  if &ft == 'dirvish'
+    return expand('%')
+  endif
   let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
-  let filename = fname != '' ? fname : '[No Name]'
+  let filename = expand('%:t') != '' ? expand('%:t') : '[No Name]'
   return readonly . filename
 endfunction
 
 function! vimrc#lightline#lineinfo() abort
-  if vimrc#lightline#hide() || vimrc#lightline#is_term()
+  if vimrc#lightline#hide() || vimrc#lightline#term()
     return ''
   endif
   return printf("%3d/%d", line('.'), line('$'))
 endfunction
 
 function! vimrc#lightline#fileformat() abort
-  if vimrc#lightline#hide() || vimrc#lightline#is_term()
+  if vimrc#lightline#hide(1) || vimrc#lightline#term()
     return ''
   endif
-  return winwidth(0) > 70 ? &fileformat : ''
+  return &fileformat
 endfunction
 
 function! vimrc#lightline#filetype() abort
-  if vimrc#lightline#hide() || vimrc#lightline#is_term()
+  if vimrc#lightline#hide(1) || vimrc#lightline#term()
     return ''
   endif
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  return &filetype !=# '' ? &filetype : 'no ft'
 endfunction
 
 function! vimrc#lightline#fileencoding() abort
-  if vimrc#lightline#hide() || vimrc#lightline#is_term()
+  if vimrc#lightline#hide(1) || vimrc#lightline#term()
     return ''
   endif
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  return &fenc !=# '' ? &fenc : &enc
 endfunction
 
 function! vimrc#lightline#path() abort
-  if vimrc#lightline#hide() || vimrc#lightline#is_term() || winwidth(0) < 60 || &ft =~ 'help' || &ft ==# ''
+  if vimrc#lightline#hide(1) || vimrc#lightline#term() || &ft =~ '^\(help\|dirvish\|\)$'
     return ''
   endif
   let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
@@ -86,7 +87,7 @@ function! vimrc#lightline#path() abort
 endfunction
 
 function! vimrc#lightline#charcode() abort
-  if vimrc#lightline#hide() || vimrc#lightline#is_term()
+  if vimrc#lightline#hide() || vimrc#lightline#term()
     return ''
   endif
 
