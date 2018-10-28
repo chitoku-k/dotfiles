@@ -1,7 +1,8 @@
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
 hook_add = '''
-  nnoremap <silent> <Space>e :edit .<CR>
+  nnoremap <silent> <Space>e :Dirvish<CR>
+  nnoremap <silent> <Space>r :Dirvish %<CR>
 '''
 
 [[plugins]]
