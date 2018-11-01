@@ -38,7 +38,7 @@ function! vimrc#lightline#filename() abort
     return get(g:lightline, 'ctrlp_item', '')
   endif
   if &ft == 'dirvish'
-    return expand('%')
+    return substitute(expand('%'), expand('$HOME'), '~', '')
   endif
   let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
   let filename = expand('%:t') != '' ? expand('%:t') : '[No Name]'
