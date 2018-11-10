@@ -22,21 +22,24 @@ endfunction
 
 function! vimrc#init() abort
   let dein_dir = vimrc#plugin_dir('/repos/github.com/Shougo/dein.vim')
-  let &runtimepath .= ',' . dein_dir
 
-  if isdirectory(dein_dir) && dein#load_state(vimrc#plugin_dir())
-    call dein#begin(vimrc#plugin_dir())
+  if isdirectory(dein_dir)
+    let &runtimepath .= ',' . dein_dir
 
-    for file in glob(vimrc#config_dir('/plugins/**/*.toml'), 1, 1)
-      call dein#load_toml(file)
-    endfor
+    if dein#load_state(vimrc#plugin_dir())
+      call dein#begin(vimrc#plugin_dir())
 
-    if dein#check_install()
-      call dein#install()
+      for file in glob(vimrc#config_dir('/plugins/**/*.toml'), 1, 1)
+        call dein#load_toml(file)
+      endfor
+
+      if dein#check_install()
+        call dein#install()
+      endif
+
+      call dein#end()
+      call dein#save_state()
     endif
-
-    call dein#end()
-    call dein#save_state()
   endif
 
   runtime! userautoload/*.vim
@@ -48,8 +51,12 @@ function! vimrc#init() abort
   endfor
 
   if !has('nvim')
-    let &directory = vimrc#cache_dir('/swap')
-    let &backupdir = vimrc#cache_dir('/backup')
-    let &viminfo = "'1000,n" . vimrc#cache_dir('/viminfo')
+    let &runtimepath .= ',' . vimrc#config_dir('/after')
+
+    if isdirectory(vimrc#cache_dir())
+      let &directory = vimrc#cache_dir('/swap')
+      let &backupdir = vimrc#cache_dir('/backup')
+      let &viminfo = "'1000,n" . vimrc#cache_dir('/viminfo')
+    endif
   endif
 endfunction
