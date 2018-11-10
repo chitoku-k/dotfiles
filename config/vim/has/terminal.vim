@@ -5,5 +5,7 @@ augroup termrc
   autocmd!
   autocmd TerminalOpen *
         \ setlocal nonumber |
-        \ match ExtraWhitespace /^^/
+        \ if exists('g:loaded_trailing_whitespace_plugin') |
+        \   match ExtraWhitespace /^^/ |
+        \ endif
 augroup END
