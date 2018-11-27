@@ -8,3 +8,7 @@ augroup termrc
         \ setlocal ambiwidth=single |
         \ startinsert
 augroup END
+
+if !vimrc#supports_cursor()
+  set guicursor=
+endif
