@@ -1,16 +1,4 @@
 [[plugins]]
-repo = 'mattn/emmet-vim'
-lazy = 1
-on_ft = ['html', 'php', 'scss']
-hook_add = '''
-  let g:user_emmet_settings = {
-  \    'variables': {
-  \      'lang': 'ja',
-  \    },
-  \ }
-'''
-
-[[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 
 [[plugins]]

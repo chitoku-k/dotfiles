@@ -152,6 +152,17 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'php', 'javascript', 'css', 'scss']
+hook_add = '''
+  let g:user_emmet_settings = {
+  \    'variables': {
+  \      'lang': 'ja',
+  \    },
+  \ }
+'''
+
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
