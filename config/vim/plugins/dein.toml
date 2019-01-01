@@ -148,6 +148,12 @@ hook_add = '''
         \       'end': '</svg>', 'filetype': 'svg',
         \     },
         \   ],
+        \   'javascript.jsx': [
+        \     {
+        \       'start': 'styled\..*`',
+        \       'end': '`', 'filetype': 'css',
+        \     },
+        \   ],
         \ }
 '''
 

@@ -6,3 +6,9 @@ repo = 'pangloss/vim-javascript'
 
 [[plugins]]
 repo = 'vim-scripts/jQuery'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
