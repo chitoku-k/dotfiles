@@ -115,6 +115,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
+  let g:context_filetype#same_filetypes = {
+        \   'typescript.tsx': 'javascript.jsx',
+        \ }
   let g:context_filetype#filetypes = {
         \   'help': [],
         \   'html': [
@@ -164,10 +167,13 @@ hook_add = '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'php', 'javascript', 'css', 'scss']
+on_ft = ['html', 'php', 'javascript', 'typescript', 'css', 'scss']
 hook_add = '''
   let g:user_emmet_settings = {
         \   'javascript.jsx': {
+        \     'extends': 'jsx',
+        \   },
+        \   'typescript.tsx': {
         \     'extends': 'jsx',
         \   },
         \   'variables': {

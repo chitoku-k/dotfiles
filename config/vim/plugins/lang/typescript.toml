@@ -2,6 +2,9 @@
 repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
+repo = 'ianks/vim-tsx'
+
+[[plugins]]
 repo = 'mhartington/nvim-typescript'
 on_ft = ['typescript']
 build = './install.sh'
