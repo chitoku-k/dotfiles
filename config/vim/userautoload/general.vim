@@ -38,7 +38,7 @@ set number
 set numberwidth=5
 set showtabline=2
 set laststatus=2
-set ambiwidth=double
+set ambiwidth=single
 set nowrap
 set lazyredraw
 set splitbelow
