@@ -13,6 +13,9 @@ try
   highlight NeomakeErrorSign ctermfg=Red
   highlight NeomakeWarningSign ctermfg=Yellow
   highlight NeomakeInfoSign ctermfg=Blue
+  highlight link jsxPunct htmlTag
+  highlight link jsxCloseString htmlTag
+  highlight link typescriptEndColons jsObjectSeparator
   highlight clear SignColumn
   highlight clear CursorLine
 catch

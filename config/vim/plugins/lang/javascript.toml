@@ -5,10 +5,7 @@ repo = 'nicklasos/vim-jsx-riot'
 repo = 'pangloss/vim-javascript'
 
 [[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+
+[[plugins]]
 repo = 'vim-scripts/jQuery'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-
-[[plugins]]
-repo = 'styled-components/vim-styled-components'
