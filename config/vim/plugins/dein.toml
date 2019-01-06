@@ -20,7 +20,7 @@ hook_add = '''
   let g:lightline = {
         \   'colorscheme': 'base16_ocean',
         \   'active': {
-        \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'path', 'anzu' ] ],
+        \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'sign' ], [ 'path', 'anzu' ] ],
         \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'charcode' ] ],
         \   },
         \   'inactive': {
@@ -43,7 +43,16 @@ hook_add = '''
         \     'filetype': 'vimrc#lightline#filetype',
         \     'charcode': 'vimrc#lightline#charcode',
         \   },
+        \   'component_expand': {
+        \     'sign': 'vimrc#lightline#sign',
+        \   },
+        \   'component_type': {
+        \     'sign': 'error',
+        \   },
         \ }
+
+  let s:palette = g:lightline#colorscheme#base16_ocean#palette
+  let s:palette.normal.error = [['#ebcb8b', '#bf616a', '07', '01']]
 '''
 
 # Either $TERM_PROGRAM or $VTE_VERSION is used for detection

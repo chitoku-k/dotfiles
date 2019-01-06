@@ -37,4 +37,13 @@ hook_add = '''
         \     },
         \   },
         \ ]
+
+  let g:nvim_typescript#diagnostics_enable = 0
+  augroup nvim_typescript
+    autocmd!
+    autocmd BufEnter,Filetype typescript,typescript.tsx execute 'TSGetDiagnostics' | call lightline#update()
+    autocmd TextChanged *.ts,*.tsx execute 'TSGetDiagnostics' | call lightline#update()
+    autocmd InsertLeave *.ts,*.tsx execute 'TSGetDiagnostics' | call lightline#update()
+    autocmd CursorMoved *.ts,*.tsx call TSEchoMessage() | call lightline#update()
+  augroup END
 '''

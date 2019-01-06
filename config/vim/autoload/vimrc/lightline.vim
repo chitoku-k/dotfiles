@@ -86,6 +86,16 @@ function! vimrc#lightline#path() abort
   endif
 endfunction
 
+function! vimrc#lightline#sign() abort
+  let count = 0
+  for line in split(execute('sign place file=' . expand('%')), '\n')
+    if line =~ '^    line='
+      let count += 1
+    end
+  endfor
+  return count == 0 ? '' : '✖ ' . count
+endfunction
+
 function! vimrc#lightline#charcode() abort
   if vimrc#lightline#hide() || vimrc#lightline#term()
     return ''
