@@ -170,10 +170,10 @@ repo = 'mattn/emmet-vim'
 on_ft = ['html', 'php', 'javascript', 'typescript', 'css', 'scss']
 hook_add = '''
   let g:user_emmet_settings = {
-        \   'javascript.jsx': {
+        \   'javascript': {
         \     'extends': 'jsx',
         \   },
-        \   'typescript.tsx': {
+        \   'typescript': {
         \     'extends': 'jsx',
         \   },
         \   'variables': {
