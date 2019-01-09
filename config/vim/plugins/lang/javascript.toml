@@ -8,4 +8,7 @@ repo = 'pangloss/vim-javascript'
 repo = 'MaxMEllon/vim-jsx-pretty'
 
 [[plugins]]
+repo = 'jparise/vim-graphql'
+
+[[plugins]]
 repo = 'vim-scripts/jQuery'

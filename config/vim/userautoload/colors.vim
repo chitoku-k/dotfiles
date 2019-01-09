@@ -16,6 +16,7 @@ try
   highlight link jsxPunct htmlTag
   highlight link jsxCloseString htmlTag
   highlight link typescriptEndColons jsObjectSeparator
+  highlight link graphqlName Operator
   highlight clear SignColumn
   highlight clear CursorLine
 catch
