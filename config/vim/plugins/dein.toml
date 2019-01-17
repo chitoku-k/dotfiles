@@ -131,10 +131,6 @@ hook_add = '''
         \   'help': [],
         \   'html': [
         \     {
-        \       'start': '<script\%( [^>]*\)\?>',
-        \       'end': '</script>', 'filetype': 'javascript',
-        \     },
-        \     {
         \       'start': '<style type="text/scss"\%( [^>]*\)\?>',
         \       'end': '</style>', 'filetype': 'scss',
         \     },
@@ -148,10 +144,6 @@ hook_add = '''
         \     },
         \   ],
         \   'php': [
-        \     {
-        \       'start': '<script\%( [^>]*\)\?>',
-        \       'end': '</script>', 'filetype': 'javascript',
-        \     },
         \     {
         \       'start': '<style type="text/scss"\%( [^>]*\)\?>',
         \       'end': '</style>', 'filetype': 'scss',
