@@ -58,6 +58,7 @@ hook_add = '''
 # Either $TERM_PROGRAM or $VTE_VERSION is used for detection
 [[plugins]]
 repo = 'jszakmeister/vim-togglecursor'
+if = '!has("nvim")'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
@@ -78,9 +79,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
-
-[[plugins]]
-repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
@@ -187,9 +185,6 @@ hook_add = '''
 repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
-repo = 'lambdalisue/vim-gista'
-
-[[plugins]]
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
@@ -227,7 +222,6 @@ hook_add = '''
   let g:incsearch#magic = '\v'
   map / <Plug>(incsearch-forward)
   map ? <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
 '''
 
 [[plugins]]
@@ -237,8 +231,8 @@ hook_add = '''
   nmap <silent> <Esc><Esc> <Plug>(anzu-clear-search-status):nohlsearch<CR>
   nmap n <Plug>(anzu-n)zz
   nmap N <Plug>(anzu-N)zz
-  nmap * <Plug>(anzu-star)<Plug>(asterisk-z*)zz
-  nmap # <Plug>(anzu-sharp)<Plug>(asterisk-z#)zz
+  nmap * <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)zz
+  nmap # <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)zz
 
   augroup anzu
     autocmd!
@@ -248,10 +242,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'haya14busa/vim-asterisk'
-hook_add = '''
-  map g* <Plug>(asterisk-gz*)
-  map g# <Plug>(asterisk-gz#)
-'''
 
 [[plugins]]
 repo = 'kana/vim-fakeclip'
@@ -318,4 +308,4 @@ repo = 'sgur/vim-textobj-parameter'
 repo = 'Julian/vim-textobj-variable-segment'
 
 [[plugins]]
-repo = 'whatyouhide/vim-textobj-xmlattr'
+repo = 'inside/vim-textobj-jsxattr'
