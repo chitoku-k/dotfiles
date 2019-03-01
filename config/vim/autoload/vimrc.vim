@@ -20,12 +20,16 @@ function! vimrc#config_dir(...) abort
   return s:root_dir . join(a:000)
 endfunction
 
+function! vimrc#repo_dir(...) abort
+  return vimrc#plugin_dir('/repos/github.com') . join(a:000)
+endfunction
+
 function! vimrc#supports_cursor() abort
   return expand('$TERM_PROGRAM') =~# 'iTerm\.app\|Apple_Terminal' || expand('$VTE_VERSION') >= 3900
 endfunction
 
 function! vimrc#init() abort
-  let dein_dir = vimrc#plugin_dir('/repos/github.com/Shougo/dein.vim')
+  let dein_dir = vimrc#repo_dir('/Shougo/dein.vim')
 
   if isdirectory(dein_dir)
     let &runtimepath .= ',' . dein_dir

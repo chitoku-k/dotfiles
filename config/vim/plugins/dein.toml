@@ -122,9 +122,6 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
-  let g:context_filetype#same_filetypes = {
-        \   'typescript.tsx': 'javascript.jsx',
-        \ }
   let g:context_filetype#filetypes = {
         \   'help': [],
         \   'html': [
@@ -155,13 +152,21 @@ hook_add = '''
         \       'end': '</svg>', 'filetype': 'svg',
         \     },
         \   ],
-        \   'javascript.jsx': [
-        \     {
-        \       'start': 'styled\..*`',
-        \       'end': '`', 'filetype': 'css',
-        \     },
-        \   ],
         \ }
+
+  " TODO: Switch filetype without setting syntax
+  " 'javascript': [
+  "   {
+  "     'start': 'styled\(\..*\|(.*)\)`',
+  "     'end': '`', 'filetype': 'css',
+  "   },
+  " ],
+  " 'typescript': [
+  "   {
+  "     'start': 'styled\(\..*\|(.*)\)`',
+  "     'end': '`', 'filetype': 'css',
+  "   },
+  " ],
 '''
 
 [[plugins]]
