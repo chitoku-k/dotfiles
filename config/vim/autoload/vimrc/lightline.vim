@@ -1,43 +1,43 @@
 function! vimrc#lightline#hide(...) abort
-  return &ft =~ 'qf' || get(a:, 0, 0) && winwidth(0) < 60
+  return &filetype ==# 'qf' || get(a:, 0, 0) && winwidth(0) < 60
 endfunction
 
 function! vimrc#lightline#term() abort
-  return expand('%') =~ '^\(!\|term://\)'
+  return expand('%') =~# '^\(!\|term://\)'
 endfunction
 
 function! vimrc#lightline#mode() abort
-  if vimrc#lightline#hide(1) || lightline#mode() == 'TERMINAL'
+  if vimrc#lightline#hide(1) || lightline#mode() ==# 'TERMINAL'
     return ''
   endif
-  if &filetype == 'ctrlp'
+  if &filetype ==# 'ctrlp'
     return 'CtrlP'
   endif
   return lightline#mode()
 endfunction
 
 function! vimrc#lightline#modified() abort
-  if &ft =~ 'help' || vimrc#lightline#term() || !&modified
+  if &filetype ==# 'help' || vimrc#lightline#term() || !&modified
     return ''
   endif
   return '+'
 endfunction
 
 function! vimrc#lightline#readonly() abort
-  if &ft =~ 'help' || !&readonly
+  if &filetype ==# 'help' || !&readonly
     return ''
   endif
   return 'RO'
 endfunction
 
 function! vimrc#lightline#filename() abort
-  if vimrc#lightline#hide() || lightline#mode() == 'TERMINAL'
+  if vimrc#lightline#hide() || lightline#mode() ==# 'TERMINAL'
     return ''
   endif
-  if &ft == 'ctrlp'
+  if &filetype ==# 'ctrlp'
     return get(g:lightline, 'ctrlp_item', '')
   endif
-  if &ft == 'dirvish'
+  if &filetype ==# 'dirvish'
     return substitute(expand('%'), expand('$HOME'), '~', '')
   endif
   let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
@@ -70,11 +70,11 @@ function! vimrc#lightline#fileencoding() abort
   if vimrc#lightline#hide(1) || vimrc#lightline#term()
     return ''
   endif
-  return &fenc !=# '' ? &fenc : &enc
+  return &fileencoding !=# '' ? &fileencoding : &encoding
 endfunction
 
 function! vimrc#lightline#path() abort
-  if vimrc#lightline#hide(1) || vimrc#lightline#term() || &ft =~ '^\(help\|dirvish\|\)$'
+  if vimrc#lightline#hide(1) || vimrc#lightline#term() || &filetype =~# '^\(help\|dirvish\|\)$'
     return ''
   endif
   let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
@@ -89,7 +89,7 @@ endfunction
 function! vimrc#lightline#sign() abort
   let count = 0
   for line in split(execute('sign place file=' . expand('%')), '\n')
-    if line =~ '^    line='
+    if line =~# '^    line='
       let count += 1
     end
   endfor
