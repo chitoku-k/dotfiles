@@ -87,12 +87,7 @@ function! vimrc#lightline#path() abort
 endfunction
 
 function! vimrc#lightline#sign() abort
-  let count = 0
-  for line in split(execute('sign place file=' . expand('%')), '\n')
-    if line =~# '^    line='
-      let count += 1
-    end
-  endfor
+  let count = len(getloclist(0))
   return count == 0 ? '' : '✖ ' . count
 endfunction
 
