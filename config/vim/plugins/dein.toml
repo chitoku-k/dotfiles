@@ -2,7 +2,7 @@
 repo = 'justinmk/vim-dirvish'
 hook_add = '''
   nnoremap <silent> <Space>e :Dirvish<CR>
-  nnoremap <silent> <Space>r :Dirvish %<CR>
+  nnoremap <silent> <Space>r :Dirvish %:h<CR>
 '''
 
 [[plugins]]
