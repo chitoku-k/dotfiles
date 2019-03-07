@@ -120,6 +120,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'qpkorr/vim-bufkill'
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
   let g:context_filetype#filetypes = {
