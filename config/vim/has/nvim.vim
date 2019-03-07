@@ -6,7 +6,6 @@ augroup termrc
   autocmd TermOpen *
         \ setlocal nonumber |
         \ setlocal ambiwidth=single |
-        \ setlocal scrolloff=0 |
         \ startinsert
 augroup END
 

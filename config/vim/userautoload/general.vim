@@ -31,7 +31,6 @@ set backspace=
 "-------------------
 filetype plugin indent on
 set list
-set scrolloff=3
 set novisualbell
 set nofoldenable
 set number
@@ -72,4 +71,10 @@ augroup vimrc
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
   autocmd QuickFixCmdPost *grep* cwindow
+  autocmd BufEnter *
+        \ if vimrc#lightline#term() |
+        \   set scrolloff=0 |
+        \ else |
+        \   set scrolloff=3 |
+        \ endif
 augroup END
