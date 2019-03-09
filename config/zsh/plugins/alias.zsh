@@ -23,6 +23,20 @@ if (( $+commands[systemctl] )); then
     alias scs='systemctl status'
 fi
 
+if (( $+commands[sshfs] )); then
+    mount-ssh() {
+        sshfs -o reconnect $@
+    }
+
+    umount-ssh() {
+        if (( $+commands[fusermount] )); then
+            fusermount -uz $@
+        elif (( $+commands[diskutil] )); then
+            diskutil unmount force $@
+        fi
+    }
+fi
+
 case "$OSTYPE" in
     linux*)
         alias ls='ls --color=auto'
