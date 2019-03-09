@@ -77,4 +77,8 @@ augroup vimrc
         \ else |
         \   set scrolloff=3 |
         \ endif
+  autocmd BufUnload *
+        \ if vimrc#lightline#term() && expand('<afile>:t') ==# 'COMMIT_EDITMSG' |
+        \   call jobsend(b:terminal_job_id, '') |
+        \ endif
 augroup END
