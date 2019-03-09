@@ -7,6 +7,7 @@
     zplug "chitoku-k/zsh-via-ssh"
     zplug "chriskempson/base16-shell", use:scripts/base16-ocean.sh
     zplug "hcgraf/zsh-sudo"
+    zplug "himanoa/neovim-terminal-utils", as:command, use:"*"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
     zplug "$ZDOTDIR/plugins", from:local

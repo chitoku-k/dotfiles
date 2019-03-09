@@ -12,6 +12,10 @@ if (( $+commands[nvim] )); then
     alias vim='nvim'
 fi
 
+if (( $+commands[godopen] )) && [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+    export GIT_EDITOR='godopen --sync --split'
+fi
+
 if (( $+commands[tmux] )); then
     alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
     alias work='tmux attach || tmux'
