@@ -18,7 +18,7 @@ try
   highlight link typescriptEndColons jsObjectSeparator
   highlight link typescriptOpSymbols Function
   highlight link typescriptOperator Function
-  highlight link graphqlName Operator
+  highlight link graphqlConstant Operator
   highlight clear SignColumn
   highlight clear CursorLine
 catch
