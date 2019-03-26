@@ -61,7 +61,7 @@ if !has('gui')
 endif
 
 " 日付
-inoremap <silent> <F5> <C-R>=strftime('%FT%T%z')<CR>
+inoremap <silent> <F5> <C-R>=substitute(strftime('%FT%T%z'), '+\(\d\d\)\(\d\d\)$', '+\1:\2', '')<CR>
 
 " 貼り付け
 set pastetoggle=<C-p>
