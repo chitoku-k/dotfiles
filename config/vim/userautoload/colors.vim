@@ -2,8 +2,9 @@ syntax on
 set background=dark
 
 try
+  set termguicolors
   colorscheme base16-ocean
-  highlight Normal ctermbg=NONE
+  highlight Normal ctermbg=NONE guibg=NONE
   highlight Comment cterm=italic gui=italic
   highlight Conceal ctermbg=NONE ctermfg=Green guibg=Black guifg=Grey
   highlight CursorLineNr term=bold cterm=NONE ctermfg=7 ctermbg=8

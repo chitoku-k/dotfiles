@@ -9,6 +9,8 @@ augroup termrc
         \ startinsert
 augroup END
 
+set fillchars+=eob:\ 
+
 if !vimrc#supports_cursor()
   set guicursor=
 endif
