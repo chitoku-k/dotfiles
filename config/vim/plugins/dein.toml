@@ -190,6 +190,13 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'RRethy/vim-hexokinase'
+hook_add = '''
+  let g:Hexokinase_ftAutoload = ['*']
+  let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI']
+'''
+
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
