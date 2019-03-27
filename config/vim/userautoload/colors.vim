@@ -1,6 +1,16 @@
 syntax on
 set background=dark
 
+" TODO: NOT WORKING CURRENTLY
+" https://github.com/neovim/neovim/issues/7018
+" https://github.com/neovim/neovim/issues/9393
+" let g:terminal_color_16 = "#d08770"
+" let g:terminal_color_17 = "#ab7967"
+" let g:terminal_color_18 = "#343d46"
+" let g:terminal_color_19 = "#4f5b66"
+" let g:terminal_color_20 = "#a7adba"
+" let g:terminal_color_21 = "#dfe1e8"
+
 try
   set termguicolors
   colorscheme base16-ocean
