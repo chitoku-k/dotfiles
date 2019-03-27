@@ -109,8 +109,8 @@ function! vimrc#lightline#path() abort
 endfunction
 
 function! vimrc#lightline#sign() abort
-  let count = len(getloclist(0))
-  return count == 0 ? '' : '✖ ' . count
+  let sign_count = len(getloclist(0))
+  return sign_count == 0 ? '' : '✖ ' . sign_count
 endfunction
 
 function! vimrc#lightline#charcode() abort
