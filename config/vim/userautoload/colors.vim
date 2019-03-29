@@ -18,7 +18,9 @@ catch
   colorscheme desert
 endtry
 
-highlight Normal ctermbg=NONE guibg=NONE
+if !exists('g:nyaovim_version')
+  highlight Normal ctermbg=NONE guibg=NONE
+endif
 highlight Comment cterm=italic gui=italic
 highlight Conceal ctermbg=NONE ctermfg=Green guibg=NONE guifg=Grey
 highlight CursorLineNr term=bold cterm=NONE ctermfg=7 ctermbg=8
