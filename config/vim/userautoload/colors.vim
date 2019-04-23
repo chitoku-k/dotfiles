@@ -27,9 +27,9 @@ highlight CursorLineNr term=bold cterm=NONE ctermfg=7 ctermbg=8
 highlight CursorIM guifg=NONE guibg=SteelBlue
 highlight EndOfBuffer ctermfg=19 guifg=bg guibg=NONE
 highlight SpellBad ctermbg=NONE ctermfg=Red cterm=underline
-highlight NeomakeErrorSign ctermfg=Red
-highlight NeomakeWarningSign ctermfg=Yellow
-highlight NeomakeInfoSign ctermfg=Blue
+highlight NeomakeErrorSign ctermfg=Red guifg=#bf616a
+highlight NeomakeWarningSign ctermfg=Yellow guifg=#ffbd2c
+highlight NeomakeInfoSign ctermfg=Blue guifg=#005a9d
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag
 highlight link typescriptEndColons jsObjectSeparator
