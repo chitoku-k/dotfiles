@@ -18,7 +18,7 @@ catch
   colorscheme desert
 endtry
 
-if !exists('g:nyaovim_version')
+if !exists('g:nyaovim_version') && !has('gui')
   highlight Normal ctermbg=NONE guibg=NONE
 endif
 highlight Comment cterm=italic gui=italic
