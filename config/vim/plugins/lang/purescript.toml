@@ -1,0 +1,2 @@
+[[plugins]]
+repo = 'purescript-contrib/purescript-vim'
