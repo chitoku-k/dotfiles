@@ -41,6 +41,7 @@ set ambiwidth=single
 set nowrap
 set lazyredraw
 set splitbelow
+set splitright
 set shortmess+=cs
 set completeopt-=preview
 set pumheight=20
