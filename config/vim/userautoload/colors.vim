@@ -36,5 +36,6 @@ highlight link typescriptEndColons jsObjectSeparator
 highlight link typescriptOpSymbols Function
 highlight link typescriptOperator Function
 highlight link graphqlConstant Operator
+highlight link purescriptOperator Delimiter
 highlight clear SignColumn
 highlight clear CursorLine
