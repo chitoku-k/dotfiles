@@ -6,7 +6,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'chriskempson/base16-vim'
+repo = 'base16-community/base16-vim'
 hook_add = '''
   let g:base16colorspace = 256
 '''
