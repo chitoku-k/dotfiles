@@ -73,41 +73,6 @@ function! vimrc#lightline#fileencoding() abort
   return &fileencoding !=# '' ? &fileencoding : &encoding
 endfunction
 
-function! vimrc#lightline#width() abort
-  let elements = map([
-        \   vimrc#lightline#mode(),
-        \   vimrc#lightline#filename(),
-        \   vimrc#lightline#modified(),
-        \   vimrc#lightline#sign(),
-        \   vimrc#lightline#charcode(),
-        \   &fileformat,
-        \   &encoding,
-        \   vimrc#lightline#filetype(),
-        \   vimrc#lightline#lineinfo(),
-        \ ], 'strlen(v:val)')
-  let width = 0
-  for i in elements
-    let width += i + 3
-  endfor
-  return width
-endfunction
-
-function! vimrc#lightline#path() abort
-  if vimrc#lightline#hide(1) || vimrc#lightline#term() || &filetype =~# '^\(help\|dirvish\|\)$'
-    return ''
-  endif
-  let ellipsis = '...'
-  let path = substitute(expand('%:p:h'), expand('$HOME'), '~', '')
-  let disp_path = strcharpart(path, strchars(path) - (winwidth(0) - vimrc#lightline#width() - strlen(ellipsis)))
-  if disp_path ==# ''
-    return disp_path
-  elseif disp_path !=# path
-    return ellipsis . disp_path
-  else
-    return disp_path
-  endif
-endfunction
-
 function! vimrc#lightline#sign() abort
   let sign_count = len(getloclist(0))
   return sign_count == 0 ? '' : '✖ ' . sign_count

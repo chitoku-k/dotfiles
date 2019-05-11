@@ -31,11 +31,13 @@ hook_add = '''
         \     'left': [ [ 'tabs' ] ],
         \     'right': [],
         \   },
+        \   'component': {
+        \     'path': '%<%{substitute(expand("%:p:h"), expand("$HOME"), "~", "")}',
+        \   },
         \   'component_function': {
         \     'mode': 'vimrc#lightline#mode',
         \     'filename': 'vimrc#lightline#filename',
         \     'modified': 'vimrc#lightline#modified',
-        \     'path': 'vimrc#lightline#path',
         \     'anzu': 'anzu#search_status',
         \     'lineinfo': 'vimrc#lightline#lineinfo',
         \     'fileformat': 'vimrc#lightline#fileformat',
