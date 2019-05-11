@@ -32,7 +32,7 @@ hook_add = '''
         \     'right': [],
         \   },
         \   'component': {
-        \     'path': '%<%{substitute(expand("%:p:h"), expand("$HOME"), "~", "")}',
+        \     'path': '%<%{expand("%:p:~:h")}',
         \   },
         \   'component_function': {
         \     'mode': 'vimrc#lightline#mode',
