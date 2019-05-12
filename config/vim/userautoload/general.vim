@@ -1,10 +1,8 @@
-"-------------------
-" 一般
-"-------------------
 try
   language en_US.UTF-8
 catch
 endtry
+
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,cp932,sjis
 set hidden
@@ -25,10 +23,6 @@ set clipboard=unnamedplus,unnamed
 set whichwrap=
 set backspace=
 
-
-"-------------------
-" 表示
-"-------------------
 filetype plugin indent on
 set list
 set novisualbell
@@ -49,10 +43,6 @@ set previewheight=5
 set listchars=tab:▸\ 
 set fillchars+=vert:\ 
 
-
-"-------------------
-" 検索
-"-------------------
 set ignorecase
 set smartcase
 set wrapscan
@@ -61,10 +51,6 @@ if exists('&inccommand')
   set inccommand=split
 endif
 
-
-"-------------------
-" autocmd
-"-------------------
 augroup vimrc
   autocmd!
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
