@@ -213,6 +213,8 @@ hook_add = '''
 # Python 3 is required
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+lazy = 1
+on_ft = ['go', 'php', 'typescript']
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#ignore_sources = {
