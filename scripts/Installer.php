@@ -37,19 +37,17 @@ class Installer
     public function execute()
     {
         foreach ($this->packages as $index => $package) {
-            $this->console->printMessage($index + 1, false, 0, 3);
-            $this->console->printMessage(" {$package->category}/", true, $package->category_color);
+            $this->console->printMessage($index + 1, false, 5);
+            $this->console->printMessage(" {$package->category}", true, $package->category_color);
+            $this->console->printMessage('/');
             $this->console->printMessage("{$package->name}\n", true);
             $this->console->printMessage("    {$package->description}\n");
         }
 
-        $this->console->printArrow(true, 3);
-        $this->console->printMessage("Enter n° of packages to be installed (ex: 1 2 3 or 1-3)\n", true);
+        $this->console->printArrow(true, 2);
+        $this->console->printMessage("Packages to install (eg: 1 2 3 or 1-3)\n", true, 2);
 
-        $this->console->printArrow(true, 3);
-        $this->console->printLine(true);
-
-        $this->console->printArrow(true, 3);
+        $this->console->printArrow(true, 2);
 
         $numbers = $this->parsePackages($this->console->read());
         $names = array();
