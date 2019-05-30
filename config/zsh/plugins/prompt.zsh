@@ -23,11 +23,11 @@ _zsh_prompt() {
     [[ -n "$vcs_info_msg_1_" ]] && vcs_info+="%K{$3}%F{$4} $vcs_info_msg_1_ %f%k"
     [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
-    PS1=$'\n'$hostname$directory$vcs_info$user
+    PROMPT=$'\n'$hostname$directory$vcs_info$user
     zle reset-prompt
 }
 
 zle -N zle-line-init _zsh_prompt_redraw
 zle -N zle-line-finish _zsh_prompt_redraw
 zle -N zle-keymap-select _zsh_prompt_redraw
-export PS1=''
+export PROMPT=''
