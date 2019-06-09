@@ -16,10 +16,6 @@ vnoremap j gj
 vnoremap k gk
 vnoremap gj j
 vnoremap gk k
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
