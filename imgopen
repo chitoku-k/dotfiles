@@ -2,20 +2,28 @@
 
 for f in "$@"
 do
-    if [[ "$f" =~ /([0-9]+)( ?\([0-9]+\))?\. ]]; then
+    if [[ "$f" =~ /([0-9]+)( ?\([0-9]+\))?\\. ]]; then
         echo "https://twitter.com/user/status/"$match[1]
         continue
     fi
-    if [[ "$f" =~ /pixiv_([0-9]+)( ?\([0-9]+\))?\. ]]; then
+    if [[ "$f" =~ /pixiv_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
         echo "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="$match[1]
         continue
     fi
-    if [[ "$f" =~ /seiga_([0-9]+)( ?\([0-9]+\))?\. ]]; then
+    if [[ "$f" =~ /seiga_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
         echo "http://seiga.nicovideo.jp/seiga/im"$match[1]
         continue
     fi
-    if [[ "$f" =~ /nijie_([0-9]+)( ?\([0-9]+\))?\. ]]; then
+    if [[ "$f" =~ /nijie_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
         echo "https://nijie.info/view.php?id="$match[1]
+        continue
+    fi
+    if [[ "$f" =~ /itolife_([0-9]+\-[0-9]+\\..*) ]]; then
+        echo "http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile="$match[1]
+        continue
+    fi
+    if [[ "$f" =~ /youkan-hh_([0-9]+\\..*) ]]; then
+        echo "http://youkan-hh.sakura.ne.jp/"$match[1]
         continue
     fi
 done
