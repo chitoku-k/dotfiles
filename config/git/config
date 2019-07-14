@@ -6,7 +6,8 @@
     worktrees = worktree list
 
     precommit = diff --cached
-    history = log -10 --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an %C(red)%d%n%C(reset)%w(0, 4, 4)%B%-%n'
+    history = log --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an %C(red)%d%n%C(reset)%w(0, 4, 4)%B%-%n'
+    history-no-bot = history --invert-grep --author='dependabot\\(\\|-preview\\[bot\\]\\)'
     graph = log --graph --decorate=short --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h  %C(green)%cd  %C(blue)%an %C(red)%d%n%C(reset)%w(0, 4, 4)%B%-%n'
 
     discard = checkout --
