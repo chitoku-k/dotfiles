@@ -6,6 +6,7 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias chown='chown -v'
 alias chmod='chmod -v'
+alias grep='grep --color=auto'
 
 if (( $+commands[nvim] )); then
     export VISUAL='nvim'
