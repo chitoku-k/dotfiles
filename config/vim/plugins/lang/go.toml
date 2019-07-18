@@ -4,7 +4,8 @@ lazy = 1
 on_ft = ['go']
 
 [[plugins]]
-repo = 'zchee/deoplete-go'
+repo = 'deoplete-plugins/deoplete-go'
 lazy = 1
+on_ft = ['go']
 build = 'make'
 if = 'has("python3") && executable("go")'
