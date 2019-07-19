@@ -5,14 +5,13 @@ packages() {
     local descriptions=$2
 
     paste -d '\n' \
-        <(nl -n ln < "$packages" |
-            awk '{
-                gsub(/^/, "'$(tput setaf 5)'");
-                gsub(/ *\t/, " '$(tput setaf 2)$(tput bold)'");
-                gsub(/\//, "'$(tput sgr0)'/");
-                print
-            }') \
-        <(awk '{ print "    " $0 }' < "$descriptions")
+        <(awk '{
+            gsub(/\//, "'$(tput sgr0)'/");
+            print "'$(tput setaf 5)'" NR " '$(tput setaf 2)$(tput bold)'" $0
+        }' < "$packages") \
+        <(awk '{
+            print "    " $0
+        }' < "$descriptions")
 }
 
 expand-ranges() {
