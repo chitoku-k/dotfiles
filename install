@@ -1,133 +1,101 @@
-#!/usr/bin/env php
-<?php
-spl_autoload_register(function ($class) {
-    require_once __DIR__ . "/scripts/{$class}.php";
-});
+#!/usr/bin/env bash
 
-chdir(__DIR__ . '/config');
+packages() {
+    local packages=$1
+    local descriptions=$2
 
-$installer = new Installer(
-    new Console(),
-    array(
-        new Package(
-            2,
-            'xdg',
-            'zsh',
-            'Configuration for Zsh',
-            function (Package $self) {
-                $self->symlink('zsh/.zshenv', "{$self->home}/.zshenv");
-                $self->symlink($self->name, "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'tmux',
-            'Configuration for tmux',
-            function (Package $self) {
-                $self->symlink($self->name, "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'git/config',
-            'Configuration for Git',
-            function (Package $self) {
-                $self->symlink($self->name, "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'vim',
-            'Configuration for Vim',
-            function (Package $self) {
-                $self->symlink('.vimrc', "{$self->home}/.vimrc");
-                $self->symlink($self->name, "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'nvim',
-            'Configuration for Neovim',
-            function (Package $self) {
-                $self->symlink('vim', "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'fontconfig/fonts.conf',
-            'Configuration for fontconfig',
-            function (Package $self) {
-                $self->symlink($self->name, "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'nyaovim',
-            'Configuration for NyaoVim',
-            function (Package $self) {
-                $self->symlink('vim/nyaovim', "{$self->roaming}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'dotfiles',
-            '.gvimrc',
-            'Configuration for GVim/MacVim',
-            function (Package $self) {
-                $self->symlink($self->name, "{$self->home}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'dotfiles',
-            '.vsvimrc',
-            'Configuration for VsVim',
-            function (Package $self) {
-                $self->symlink($self->name, "{$self->home}/{$self->name}");
-            }
-        ),
-        new Package(
-            2,
-            'xdg',
-            'phpcs/rules.php',
-            'Rules for PHP-CS-Fixer',
-            function (Package $self) {
-                $self->symlink($self->name, "{$self->config}/{$self->name}");
-            }
-        ),
-        new Package(
-            5,
-            'zsh',
-            'zplug',
-            'A next-generation plugin manager for zsh',
-            function (Package $self) {
-                $self->cloneGit('zplug/zplug', "{$self->xdgcache}/zplug");
-            }
-        ),
-        new Package(
-            5,
-            'vim',
-            'dein.vim',
-            'Dark powered Vim/Neovim plugin manager',
-            function (Package $self) {
-                $self->cloneGit('Shougo/dein.vim', "{$self->xdgcache}/dein/repos/github.com/Shougo/dein.vim");
-            }
-        ),
-        new Package(
-            5,
-            'tmux',
-            'tpm',
-            'Tmux Plugin Manager',
-            function (Package $self) {
-                $self->cloneGit('tmux-plugins/tpm', "{$self->xdgcache}/tpm/plugins");
-            }
-        ),
-    )
-);
-$installer->execute();
+    paste -d '\n' \
+        <(nl -n ln < "$packages" |
+            awk '{
+                gsub(/^/, "'$(tput setaf 5)'");
+                gsub(/ *\t/, " '$(tput setaf 2)$(tput bold)'");
+                gsub(/\//, "'$(tput sgr0)'/");
+                print
+            }') \
+        <(awk '{ print "    " $0 }' < "$descriptions")
+}
+
+expand-ranges() {
+    local num
+
+    while IFS= read -r num; do
+        if grep -q '^[0-9]\+\(-[0-9]\+\)\?$' <<< "$num"; then
+            seq \
+                $(awk '{ sub(/-[0-9]+$/, ""); print }' <<< "$num") \
+                $(awk '{ sub(/^[0-9]+-/, ""); print }' <<< "$num")
+        fi
+    done
+}
+
+read-install() {
+    local input
+    local packages=$1
+
+    {
+        tput setaf 2
+        tput bold
+        echo '==> Packages to install (eg: 1 2 3 or 1-3)'
+        echo -n '==> '
+        tput sgr0
+    } >&2
+
+    read -r input
+
+    tr ' ' '\n' <<< "$input" |
+        expand-ranges |
+        sort -g |
+        uniq |
+        awk '{ ORS="P;"; print }' |
+        xargs -I {} sed -n {} "$packages"
+}
+
+list-install() {
+    local num
+    local list=$(cat -)
+
+    {
+        tput bold
+        echo
+        echo -n "Packages ($(wc -l <<< "$list" | xargs)) "
+        tput sgr0
+
+        awk '{ ORS="  "; sub(/[^\/]*\//, ""); print }' <<< "$list"
+        echo
+    } >&2
+}
+
+confirm-install() {
+    local confirm
+
+    {
+        echo
+        tput bold
+        tput setaf 4
+        echo -n ':: '
+        tput sgr0
+
+        tput bold
+        echo -n 'Proceed with installation? [Y/n] '
+        tput sgr0
+    } >&2
+
+    read -r confirm
+    case "$confirm" in
+        [yY]*|'')
+            return 0
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
+
+# List packages
+packages ./packages/list ./packages/descriptions
+
+# Read packages to install
+installing=$(read-install ./packages/list)
+list-install <<< "$installing"
+
+# Install
+confirm-install && ./installer/install-package <<< "$installing"

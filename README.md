@@ -13,7 +13,7 @@ Setting files expect each version or later:
 
 ## Installation
 
-The script needs git and PHP 5.3 or later.
+The script needs git and bash.
 
 ```sh
 $ git clone https://github.com/chitoku-k/dotfiles.git

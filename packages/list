@@ -1,0 +1,13 @@
+xdg/zsh
+xdg/tmux
+xdg/git/config
+xdg/vim
+xdg/nvim
+xdg/fontconfig/fonts.conf
+xdg/nyaovim
+dotfiles/.gvimrc
+dotfiles/.vsvimrc
+xdg/phpcs/rules.php
+zsh/zplug
+vim/dein.vim
+tmux/tpm
