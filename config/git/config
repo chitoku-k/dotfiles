@@ -22,5 +22,8 @@
 [diff]
     indentHeuristic = true
 
+[color]
+    ui = auto
+
 [push]
     default = simple
