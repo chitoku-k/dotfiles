@@ -1,4 +1,4 @@
-[[ -a "$ZPLUG_HOME" ]] && {
+if [[ -a "$ZPLUG_HOME" ]]; then
     source "$ZPLUG_HOME/init.zsh"
 
     zplug "chitoku-k/zsh-reset-title"
@@ -13,4 +13,8 @@
     zplug "$ZDOTDIR/local", from:local
 
     zplug load
-}
+else
+    for file in $ZDOTDIR/{plugins,local}/*.zsh; do
+        source "$file"
+    done
+fi

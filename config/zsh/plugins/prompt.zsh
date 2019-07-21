@@ -50,19 +50,17 @@ else
 fi
 
 _zsh_prompt_redraw() {
-    if [[ "$1" = "0" ]] || [[ "$WIDGET" =~ finish ]]; then
+    if [[ "$1" = '0' ]] || [[ "$WIDGET" =~ finish ]]; then
         _zsh_prompt 'finish'
-        _zsh_togglecursor_apply_cursor 'block'
         return
     fi
+
     case "$KEYMAP" in
         main)
             _zsh_prompt 'insert'
-            _zsh_togglecursor_apply_cursor 'line'
             ;;
         *)
             _zsh_prompt 'normal'
-            _zsh_togglecursor_apply_cursor 'block'
             ;;
     esac
 }

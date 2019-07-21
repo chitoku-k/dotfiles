@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-packages() {
+dotfiles-packages() {
     local packages=$1
     local descriptions=$2
 
@@ -14,7 +14,7 @@ packages() {
         }' < "$descriptions")
 }
 
-expand-ranges() {
+dotfiles-expand-ranges() {
     local num
 
     while IFS= read -r num; do
@@ -26,7 +26,7 @@ expand-ranges() {
     done
 }
 
-read-install() {
+dotfiles-read-install() {
     local input
     local packages=$1
 
@@ -41,14 +41,14 @@ read-install() {
     read -r input
 
     tr ' ' '\n' <<< "$input" |
-        expand-ranges |
+        dotfiles-expand-ranges |
         sort -g |
         uniq |
         awk '{ ORS="P;"; print }' |
         xargs -I {} sed -n {} "$packages"
 }
 
-list-install() {
+dotfiles-list-install() {
     local num
     local list=$(cat -)
 
@@ -63,7 +63,7 @@ list-install() {
     } >&2
 }
 
-confirm-install() {
+dotfiles-confirm-install() {
     local confirm
 
     {
@@ -89,14 +89,34 @@ confirm-install() {
     esac
 }
 
-# List packages
-packages ./packages/list ./packages/descriptions
+dotfiles-download() {
+    local repository='https://github.com/chitoku-k/dotfiles'
+    local tarball='https://github.com/chitoku-k/dotfiles/archive/master.tar.gz'
 
-# Read packages to install
-installing=$(read-install ./packages/list)
-[[ -z "$installing" ]] && exit 1
+    if type git &> /dev/null; then
+        git clone "$repository"
+    elif type curl &> /dev/null; then
+        curl -sSL "$tarball" | tar xz
+        mv 'dotfiles-master' 'dotfiles'
+    fi
+}
 
-list-install <<< "$installing"
+dotfiles-install() {
+    # List packages
+    dotfiles-packages ./packages/list ./packages/descriptions
 
-# Install
-confirm-install && ./installer/install-package <<< "$installing"
+    # Read packages to install
+    local installing=$(dotfiles-read-install ./packages/list)
+    [[ -z "$installing" ]] && exit 1
+
+    dotfiles-list-install <<< "$installing"
+
+    # Install
+    dotfiles-confirm-install && ./installer/install-package <<< "$installing"
+}
+
+if [[ ! -d 'config' ]]; then
+    (dotfiles-download && cd 'dotfiles' && dotfiles-install "$@")
+else
+    dotfiles-install "$@"
+fi
