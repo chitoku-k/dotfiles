@@ -3,18 +3,21 @@ autoload -U is-at-least
 typeset -gA _zsh_prompt_format
 
 if is-at-least 5.7; then
+    _zsh_prompt_format[normal-prefix]=$'\n'
     _zsh_prompt_format[normal-hostname]='%K{#8fa1b3}%F{#2b303b} %m %k%f'
     _zsh_prompt_format[normal-directory]='%K{#4f5b66}%F{#a7adba} %1~ %k%f'
     _zsh_prompt_format[normal-vcs0]='%%K{#4f5b66}%%F{#a7adba}| %s '
     _zsh_prompt_format[normal-vcs1]='%%K{#ebcb8b}%%F{#2b303b} %s %%f%%k'
     _zsh_prompt_format[normal-user]='%F{#a7adba}%(!.%K{#b3666c} # %k.%K{#343d46} $ %k) %f'
 
+    _zsh_prompt_format[insert-prefix]=${_zsh_prompt_format[normal-prefix]}
     _zsh_prompt_format[insert-hostname]='%K{#a3be8c}%F{#2b303b} %m %k%f'
     _zsh_prompt_format[insert-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[insert-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[insert-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[insert-user]=${_zsh_prompt_format[normal-user]}
 
+    _zsh_prompt_format[finish-prefix]=${_zsh_prompt_format[normal-prefix]}
     _zsh_prompt_format[finish-hostname]='%K{#65737e}%F{#a7adba} %m %k%f'
     _zsh_prompt_format[finish-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[finish-vcs0]=${_zsh_prompt_format[normal-vcs0]}
@@ -40,6 +43,7 @@ else
     _zsh_prompt_format[finish-user]=${_zsh_prompt_format[normal-user]}
 
     add-zsh-hook precmd () {
+        [[ -z "$@" ]] && echo >&2
         LANG=en_US.UTF-8 vcs_info
         _zsh_prompt 'insert' 2> /dev/null
     }
@@ -48,20 +52,24 @@ fi
 _zsh_prompt_redraw() {
     if [[ "$1" = "0" ]] || [[ "$WIDGET" =~ finish ]]; then
         _zsh_prompt 'finish'
+        _zsh_togglecursor_apply_cursor 'block'
         return
     fi
     case "$KEYMAP" in
         main)
             _zsh_prompt 'insert'
+            _zsh_togglecursor_apply_cursor 'line'
             ;;
         *)
             _zsh_prompt 'normal'
+            _zsh_togglecursor_apply_cursor 'block'
             ;;
     esac
 }
 
 _zsh_prompt() {
     local vcs_info
+    local prefix=${_zsh_prompt_format[$1-prefix]}
     local hostname=${_zsh_prompt_format[$1-hostname]}
     local directory=${_zsh_prompt_format[$1-directory]}
     local vcs0=${_zsh_prompt_format[$1-vcs0]}
@@ -72,7 +80,7 @@ _zsh_prompt() {
     [[ -n "$vcs_info_msg_1_" ]] && vcs_info+=$(printf "$vcs1" "$vcs_info_msg_1_")
     [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
 
-    PROMPT=$'\n'$hostname$directory$vcs_info$user
+    PROMPT=$prefix$hostname$directory$vcs_info$user
     zle reset-prompt
 }
 
