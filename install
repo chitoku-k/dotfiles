@@ -115,8 +115,15 @@ dotfiles-install() {
     dotfiles-confirm-install && ./installer/install-package <<< "$installing"
 }
 
+dotfiles-reload() {
+    source "$HOME/.zshenv" && source "$ZDOTDIR/.zshrc"
+    [[ -a "$ZPLUG_HOME" ]] && zplug install && source "$ZDOTDIR/.zshrc"
+}
+
 if [[ ! -d 'config' ]]; then
     (dotfiles-download && cd 'dotfiles' && dotfiles-install "$@")
 else
     dotfiles-install "$@"
 fi
+
+dotfiles-reload
