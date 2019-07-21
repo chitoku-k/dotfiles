@@ -106,7 +106,7 @@ dotfiles-install() {
     dotfiles-packages ./packages/list ./packages/descriptions
 
     # Read packages to install
-    local installing=$(dotfiles-read-install ./packages/list)
+    local installing="$(dotfiles-read-install ./packages/list)"
     [[ -z "$installing" ]] && exit 1
 
     dotfiles-list-install <<< "$installing"
@@ -116,14 +116,16 @@ dotfiles-install() {
 }
 
 dotfiles-reload() {
+    if [[ -z "$ZSH_NAME" ]]; then
+        return
+    fi
+
     source "$HOME/.zshenv" && source "$ZDOTDIR/.zshrc"
     [[ -a "$ZPLUG_HOME" ]] && zplug install && source "$ZDOTDIR/.zshrc"
 }
 
 if [[ ! -d 'config' ]]; then
-    (dotfiles-download && cd 'dotfiles' && dotfiles-install "$@")
+    (dotfiles-download && cd 'dotfiles' && dotfiles-install "$@") && dotfiles-reload
 else
-    dotfiles-install "$@"
+    dotfiles-install "$@" && dotfiles-reload
 fi
-
-dotfiles-reload
