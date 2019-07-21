@@ -94,6 +94,8 @@ packages ./packages/list ./packages/descriptions
 
 # Read packages to install
 installing=$(read-install ./packages/list)
+[[ -z "$installing" ]] && exit 1
+
 list-install <<< "$installing"
 
 # Install
