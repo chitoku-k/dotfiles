@@ -50,12 +50,13 @@ dotfiles-read-install() {
 
 dotfiles-list-install() {
     local num
-    local list=$(cat -)
+    local list="$(cat -)"
+    local count="$(wc -l <<< "$list" | xargs)"
 
     {
         tput bold
         echo
-        echo -n "Packages ($(wc -l <<< "$list" | xargs)) "
+        echo -n "Packages ($count) "
         tput sgr0
 
         awk '{ ORS="  "; sub(/[^\/]*\//, ""); print }' <<< "$list"

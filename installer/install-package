@@ -33,45 +33,45 @@ install-package() {
         echo "(${index}/${count}) installing ${name#*/}" >&2
 
         case "$name" in
-            xdg/zsh)
+            'xdg/zsh')
                 create-symlink ./config/zsh/.zshenv "$home/.zshenv"
                 create-symlink ./config/zsh "$xdgconfig/zsh"
                 ;;
-            xdg/tmux)
+            'xdg/tmux')
                 create-symlink ./config/tmux "$xdgconfig/tmux"
                 ;;
-            xdg/git/config)
+            'xdg/git/config')
                 create-symlink ./config/git "$xdgconfig/git"
                 ;;
-            xdg/vim)
+            'xdg/vim')
                 create-symlink ./config/.vimrc "$home/.vimrc"
                 create-symlink ./config/vim "$xdgconfig/vim"
                 ;;
-            xdg/nvim)
+            'xdg/nvim')
                 create-symlink ./config/vim "$xdgconfig/nvim"
                 ;;
-            xdg/fontconfig/fonts.conf)
+            'xdg/fontconfig/fonts.conf')
                 create-symlink ./config/fontconfig/fonts.conf "$xdgconfig/fontconfig/fonts.conf"
                 ;;
-            xdg/nyaovim)
+            'xdg/nyaovim')
                 create-symlink ./config/vim/nyaovim "$xdgconfig/nyaovim"
                 ;;
-            dotfiles/.gvimrc)
+            'dotfiles/.gvimrc')
                 create-symlink ./config/.gvimrc "$home/.gvimrc"
                 ;;
-            dotfiles/.vsvimrc)
+            'dotfiles/.vsvimrc')
                 create-symlink ./config/.vsvimrc "$home/.vsvimrc"
                 ;;
-            xdg/phpcs/rules.php)
+            'xdg/phpcs/rules.php')
                 create-symlink ./config/phpcs/rules.php "$xdgconfig/phpcs/rules.php"
                 ;;
-            zsh/zplug)
+            'zsh/zplug')
                 git clone --depth 1 https://github.com/zplug/zplug.git "$xdgcache/zplug"
                 ;;
-            vim/dein.vim)
+            'vim/dein.vim')
                 git clone --depth 1 https://github.com/Shougo/dein.vim.git "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
                 ;;
-            tmux/tpm)
+            'tmux/tpm')
                 git clone --depth 1 https://github.com/tmux-plugins/tpm.git "$xdgcache/tpm/plugins"
                 ;;
             *)
