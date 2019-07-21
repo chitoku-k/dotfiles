@@ -2,6 +2,7 @@
 repo = 'fatih/vim-go'
 lazy = 1
 on_ft = ['go']
+if = 'has("nvim-0.3.2")'
 
 [[plugins]]
 repo = 'deoplete-plugins/deoplete-go'
