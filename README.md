@@ -16,6 +16,12 @@ Setting files expect each version or later:
 The script needs git and bash.
 
 ```sh
+$ eval "$(curl -sL dot.chitoku.jp)"
+```
+
+or
+
+```sh
 $ git clone https://github.com/chitoku-k/dotfiles.git
 $ cd dotfiles
 $ ./install
