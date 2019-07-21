@@ -14,7 +14,7 @@ if [[ -a "$ZPLUG_HOME" ]]; then
 
     zplug load
 else
-    for file in $ZDOTDIR/{plugins,local}/*.zsh; do
+    for file in $ZDOTDIR/{plugins,local}/*.zsh(D); do
         source "$file"
     done
 fi
