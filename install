@@ -96,7 +96,7 @@ dotfiles-download() {
     if type git &> /dev/null; then
         git clone "$repository"
     elif type curl &> /dev/null; then
-        curl -sSL "$tarball" | tar xz
+        curl -sSL "$tarball" | tar xz -m
         mv 'dotfiles-master' 'dotfiles'
     fi
 }
