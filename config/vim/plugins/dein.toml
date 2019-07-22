@@ -196,6 +196,10 @@ repo = 'RRethy/vim-hexokinase'
 hook_add = '''
   let g:Hexokinase_ftAutoload = ['*']
   let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI']
+
+  if !has('nvim-0.3.2')
+    let g:Hexokinase_highlighters = ['sign_column']
+  endif
 '''
 
 [[plugins]]
