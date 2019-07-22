@@ -13,13 +13,21 @@ Setting files expect each version or later:
 
 ## Installation
 
-The script needs git and bash.
+The script needs zsh and optionally git for the plugins.
+
+For zsh:
 
 ```sh
-$ eval "$(curl -sL dot.chitoku.jp)"
+$ source <(curl -sL dot.chitoku.jp)
 ```
 
-or
+For bash:
+
+```sh
+$ zsh <(curl -sL dot.chitoku.jp)
+```
+
+To manually install:
 
 ```sh
 $ git clone https://github.com/chitoku-k/dotfiles.git
@@ -27,7 +35,7 @@ $ cd dotfiles
 $ ./install
 ```
 
-Choose whatever package you want to install and press <kbd>Enter</kbd>.
+Choose whatever packages you want to install and press <kbd>Enter</kbd>.
 
 <img src="https://raw.githubusercontent.com/wiki/chitoku-k/dotfiles/installer.gif" alt="" width="400">
 
