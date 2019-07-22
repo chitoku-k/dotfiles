@@ -1,6 +1,7 @@
 if [[ -a "$ZPLUG_HOME" ]]; then
     source "$ZPLUG_HOME/init.zsh"
 
+    zplug "b4b4r07/zsh-vimode-visual", defer:3
     zplug "chitoku-k/zsh-reset-title"
     zplug "chitoku-k/zsh-togglecursor", defer:1
     zplug "chitoku-k/zsh-vcs-extended"

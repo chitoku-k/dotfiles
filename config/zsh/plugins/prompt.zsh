@@ -17,6 +17,13 @@ if is-at-least 5.7; then
     _zsh_prompt_format[insert-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[insert-user]=${_zsh_prompt_format[normal-user]}
 
+    _zsh_prompt_format[visual-prefix]=${_zsh_prompt_format[normal-prefix]}
+    _zsh_prompt_format[visual-hostname]='%K{#b48ead}%F{#343d46} %m %k%f'
+    _zsh_prompt_format[visual-directory]=${_zsh_prompt_format[normal-directory]}
+    _zsh_prompt_format[visual-vcs0]=${_zsh_prompt_format[normal-vcs0]}
+    _zsh_prompt_format[visual-vcs1]=${_zsh_prompt_format[normal-vcs1]}
+    _zsh_prompt_format[visual-user]=${_zsh_prompt_format[normal-user]}
+
     _zsh_prompt_format[finish-prefix]=${_zsh_prompt_format[normal-prefix]}
     _zsh_prompt_format[finish-hostname]='%K{#65737e}%F{#a7adba} %m %k%f'
     _zsh_prompt_format[finish-directory]=${_zsh_prompt_format[normal-directory]}
@@ -35,6 +42,12 @@ else
     _zsh_prompt_format[insert-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[insert-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[insert-user]=${_zsh_prompt_format[normal-user]}
+
+    _zsh_prompt_format[visual-hostname]=$'%{\x1b[48;2;180;142;173m\x1b[38;2;52;61;70m%} %m '
+    _zsh_prompt_format[visual-directory]=${_zsh_prompt_format[normal-directory]}
+    _zsh_prompt_format[visual-vcs0]=${_zsh_prompt_format[normal-vcs0]}
+    _zsh_prompt_format[visual-vcs1]=${_zsh_prompt_format[normal-vcs1]}
+    _zsh_prompt_format[visual-user]=${_zsh_prompt_format[normal-user]}
 
     _zsh_prompt_format[finish-hostname]=$'%{\x1b[48;2;101;115;126m\x1b[38;2;167;173;186m%} %m '
     _zsh_prompt_format[finish-directory]=${_zsh_prompt_format[normal-directory]}
@@ -58,6 +71,9 @@ _zsh_prompt_redraw() {
     case "$KEYMAP" in
         main)
             _zsh_prompt 'insert'
+            ;;
+        vivis|vivli)
+            _zsh_prompt 'visual'
             ;;
         *)
             _zsh_prompt 'normal'
