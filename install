@@ -125,7 +125,7 @@ dotfiles-reload() {
     [[ -a "$ZPLUG_HOME" ]] && zplug install && source "$ZDOTDIR/.zshrc"
 }
 
-if [[ ! -d 'config' ]]; then
+if [[ ! -d 'config' ]] || [[ ! -a 'packages/list' ]] || [[ ! -a 'packages/descriptions' ]]; then
     (dotfiles-download && cd 'dotfiles' && dotfiles-install "$@") && dotfiles-reload
 else
     dotfiles-install "$@" && dotfiles-reload
