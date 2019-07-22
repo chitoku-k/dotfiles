@@ -304,6 +304,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tyru/operator-camelize.vim'
+hook_add = '''
+  nmap <silent>cl <Plug>(operator-camelize-toggle)
+'''
+
+[[plugins]]
 repo = 'tyru/caw.vim'
 hook_add = '''
   let g:caw_operator_keymappings = 1
