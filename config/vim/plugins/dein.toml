@@ -226,6 +226,11 @@ hook_add = '''
         \   'php': ['member', 'omni', 'around'],
         \ }
 '''
+hook_source = '''
+  call deoplete#custom#option('omni_patterns', {
+        \   'go': '[^. *\t]\.\w*',
+        \ })
+'''
 if = 'has("nvim") && has("python3")'
 
 [[plugins]]
