@@ -9,6 +9,9 @@ repo = 'padawan-php/deoplete-padawan'
 lazy = 1
 on_ft = ['php']
 if = 'has("python3") && executable("composer")'
+hook_source = '''
+  call deoplete#enable()
+'''
 build = '''
   composer install
 '''

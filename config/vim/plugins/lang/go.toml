@@ -10,3 +10,6 @@ lazy = 1
 on_ft = ['go']
 build = 'make'
 if = 'has("python3") && executable("go")'
+hook_source = '''
+  call deoplete#enable()
+'''

@@ -19,11 +19,9 @@ set virtualedit=block
 set cindent
 set title
 set titleold=
-set clipboard=unnamedplus,unnamed
 set whichwrap=
 set backspace=
 
-filetype plugin indent on
 set list
 set novisualbell
 set nofoldenable
@@ -54,6 +52,7 @@ endif
 augroup vimrc
   autocmd!
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  autocmd InsertEnter,BufReadPre * set clipboard=unnamedplus,unnamed
   autocmd InsertLeave * setlocal nopaste
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>

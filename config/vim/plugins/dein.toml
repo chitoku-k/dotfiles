@@ -52,7 +52,8 @@ hook_add = '''
         \     'sign': 'error',
         \   },
         \ }
-
+'''
+hook_source = '''
   let s:palette = g:lightline#colorscheme#base16_ocean#palette
   let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
 '''
@@ -220,7 +221,6 @@ repo = 'Shougo/deoplete.nvim'
 lazy = 1
 on_ft = ['go', 'php', 'typescript']
 hook_add = '''
-  let g:deoplete#enable_at_startup = 1
   let g:deoplete#ignore_sources = {
         \   '_': ['member'],
         \   'php': ['member', 'omni', 'around'],
@@ -273,6 +273,7 @@ repo = 'haya14busa/vim-asterisk'
 
 [[plugins]]
 repo = 'kana/vim-fakeclip'
+if = '!has("nvim")'
 
 [[plugins]]
 repo = 'raghur/vim-ghost'

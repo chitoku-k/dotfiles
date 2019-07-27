@@ -37,7 +37,9 @@ hook_add = '''
         \     },
         \   },
         \ ]
-
+'''
+hook_source = '''
+  call deoplete#enable()
   augroup nvim_typescript
     autocmd!
     autocmd CursorMoved,CursorMovedI * call lightline#update()
