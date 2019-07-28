@@ -8,6 +8,7 @@ if [[ -a "$ZPLUG_HOME" ]]; then
     zplug "chitoku-k/zsh-via-ssh"
     zplug "hcgraf/zsh-sudo"
     zplug "himanoa/neovim-terminal-utils", as:command, use:"*"
+    zplug "zsh-users/zsh-autosuggestions"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
     zplug "$ZDOTDIR/plugins", from:local
