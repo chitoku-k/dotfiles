@@ -53,7 +53,7 @@ hook_add = '''
         \   },
         \ }
 '''
-hook_source = '''
+hook_post_source = '''
   let s:palette = g:lightline#colorscheme#base16_ocean#palette
   let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
 '''
@@ -208,6 +208,9 @@ repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
+hook_add = '''
+  autocmd VimEnter * call dein#call_hook('post_source')
+'''
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
