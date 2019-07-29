@@ -67,6 +67,7 @@ install-package() {
                 ;;
             'zsh/zplug')
                 git clone --depth 1 https://github.com/zplug/zplug.git "$xdgcache/zplug"
+                touch -- "$xdgcache/zplug/packages.zsh"
                 ;;
             'vim/dein.vim')
                 git clone --depth 1 https://github.com/Shougo/dein.vim.git "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
