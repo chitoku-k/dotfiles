@@ -18,6 +18,7 @@
     preserve = update-index --assume-unchanged --
     unpreserve = update-index --no-assume-unchanged --
     exclude = "!f() { echo $1 >> \"${GIT_PREFIX}.git/info/exclude\"; }; f"
+    push-current = "!f() { git push -u \"$(git remote)\" \"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
 
 [diff]
     indentHeuristic = true
