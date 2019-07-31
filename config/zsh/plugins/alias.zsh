@@ -14,7 +14,7 @@ if (( $+commands[nvim] )); then
 fi
 
 if (( $+commands[godopen] )) && [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-    export GIT_EDITOR='godopen --sync --split'
+    export GIT_EDITOR='godopen --sync'
 fi
 
 if (( $+commands[tmux] )); then

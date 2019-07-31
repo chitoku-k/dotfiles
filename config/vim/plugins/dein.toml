@@ -124,6 +124,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'qpkorr/vim-bufkill'
+hook_add = '''
+  command! WBD write | BD
+'''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'

@@ -57,8 +57,4 @@ augroup vimrc
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
   autocmd QuickFixCmdPost *grep* cwindow
-  autocmd BufUnload *
-        \ if vimrc#lightline#term() && expand('<afile>:t') ==# 'COMMIT_EDITMSG' |
-        \   call jobsend(b:terminal_job_id, '') |
-        \ endif
 augroup END
