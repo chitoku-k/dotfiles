@@ -20,7 +20,7 @@ hook_add = '''
   let g:lightline = {
         \   'colorscheme': 'base16_ocean',
         \   'active': {
-        \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'sign' ], [ 'path', 'anzu' ] ],
+        \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path', 'anzu' ] ],
         \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'charcode' ] ],
         \   },
         \   'inactive': {
@@ -46,14 +46,17 @@ hook_add = '''
         \     'charcode': 'vimrc#lightline#charcode',
         \   },
         \   'component_expand': {
-        \     'sign': 'vimrc#lightline#sign',
+        \     'coc_error': 'vimrc#lightline#coc_error',
+        \     'coc_warning': 'vimrc#lightline#coc_warning',
+        \     'coc_info': 'vimrc#lightline#coc_info',
         \   },
         \   'component_type': {
-        \     'sign': 'error',
+        \     'coc_error': 'error',
+        \     'coc_warning': 'error',
+        \     'coc_info': 'error',
         \   },
         \ }
-'''
-hook_post_source = '''
+
   let s:palette = g:lightline#colorscheme#base16_ocean#palette
   let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
 '''
@@ -221,23 +224,25 @@ hook_add = '''
   let g:echodoc_enable_at_startup = 1
 '''
 
-# Python 3 is required
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-lazy = 1
-on_ft = ['go', 'php', 'typescript']
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+if = 'has("nvim-0.3.1") || v:version >= 800'
 hook_add = '''
-  let g:deoplete#ignore_sources = {
-        \   '_': ['member'],
-        \   'php': ['member', 'omni', 'around'],
-        \ }
+  let g:coc_global_extensions = [
+        \   'coc-css',
+        \   'coc-json',
+        \   'coc-phpls',
+        \   'coc-tsserver',
+        \   'coc-vetur',
+        \ ]
+
+  augroup coc
+    autocmd!
+    autocmd User CocDiagnosticChange call lightline#update()
+    autocmd CursorHoldI * silent call CocActionAsync('highlight') | call CocActionAsync('doHover')
+  augroup END
 '''
-hook_source = '''
-  call deoplete#custom#option('omni_patterns', {
-        \   'go': '[^. *\t]\.\w*',
-        \ })
-'''
-if = 'has("nvim") && has("python3")'
 
 [[plugins]]
 repo = 'yssl/QFEnter'

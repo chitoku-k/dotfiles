@@ -11,6 +11,7 @@ set noundofile
 set noswapfile
 set nowritebackup
 set ttimeoutlen=100
+set updatetime=300
 set expandtab
 set shiftwidth=4
 set tabstop=4

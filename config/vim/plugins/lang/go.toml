@@ -3,13 +3,3 @@ repo = 'fatih/vim-go'
 lazy = 1
 on_ft = ['go']
 if = 'has("nvim-0.3.2")'
-
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-go'
-lazy = 1
-on_ft = ['go']
-build = 'make'
-if = 'has("python3") && executable("go")'
-hook_source = '''
-  call deoplete#enable()
-'''

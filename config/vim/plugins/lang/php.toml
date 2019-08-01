@@ -5,18 +5,6 @@ repo = '2072/PHP-Indenting-for-VIm'
 repo = 'StanAngeloff/php.vim'
 
 [[plugins]]
-repo = 'padawan-php/deoplete-padawan'
-lazy = 1
-on_ft = ['php']
-if = 'has("python3") && executable("composer")'
-hook_source = '''
-  call deoplete#enable()
-'''
-build = '''
-  composer install
-'''
-
-[[plugins]]
 repo = 'stephpy/vim-php-cs-fixer'
 lazy = 1
 on_ft = ['php']
