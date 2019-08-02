@@ -233,9 +233,12 @@ hook_add = '''
         \   'coc-css',
         \   'coc-json',
         \   'coc-phpls',
+        \   'coc-snippets',
         \   'coc-tsserver',
         \   'coc-vetur',
         \ ]
+
+  inoremap <silent><expr> <C-x><C-n> coc#refresh()
 
   augroup coc
     autocmd!

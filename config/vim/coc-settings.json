@@ -1,7 +1,9 @@
 {
+    "coc.preferences.useQuickfixForLocations": true,
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "⚑",
+    "suggest.snippetIndicator": "↩ ",
     "languageserver": {
         "bash": {
             "command": "bash-language-server",
