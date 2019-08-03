@@ -117,8 +117,13 @@ dotfiles-install() {
 }
 
 dotfiles-reload() {
+    if ! type zsh &> /dev/null; then
+        return
+    fi
+
+    zsh -c 'source "$ZDOTDIR/.zshrc" && compaudit | xargs chmod 755' 2> /dev/null
+    zsh -c '[[ -a "$ZPLUG_HOME" ]] && source "$ZDOTDIR/.zshrc" && zplug install'
     exec -l $(which zsh)
-    [[ -a "$ZPLUG_HOME" ]] && zplug install && source "$ZDOTDIR/.zshrc"
 }
 
 if [[ ! -d 'config' ]] || [[ ! -a 'packages/list' ]] || [[ ! -a 'packages/descriptions' ]]; then
