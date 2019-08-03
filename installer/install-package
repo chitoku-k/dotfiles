@@ -76,7 +76,7 @@ install-package() {
                 git clone --depth 1 https://github.com/tmux-plugins/tpm.git "$xdgcache/tpm/plugins"
                 ;;
             *)
-                exit 1
+                return 1
                 ;;
         esac
     done

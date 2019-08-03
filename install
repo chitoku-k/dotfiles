@@ -108,7 +108,7 @@ dotfiles-install() {
 
     # Read packages to install
     local installing="$(dotfiles-read-install ./packages/list)"
-    [[ -z "$installing" ]] && exit 1
+    [[ -z "$installing" ]] && return 1
 
     dotfiles-list-install <<< "$installing"
 
