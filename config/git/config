@@ -1,3 +1,4 @@
+# vim: set ft=gitconfig :
 [alias]
     branches = branch -a
     tags = tag
