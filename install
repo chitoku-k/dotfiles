@@ -117,11 +117,7 @@ dotfiles-install() {
 }
 
 dotfiles-reload() {
-    if [[ -z "$ZSH_NAME" ]]; then
-        return
-    fi
-
-    source "$HOME/.zshenv" && source "$ZDOTDIR/.zshrc"
+    exec -l $(which zsh)
     [[ -a "$ZPLUG_HOME" ]] && zplug install && source "$ZDOTDIR/.zshrc"
 }
 
