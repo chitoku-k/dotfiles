@@ -1,6 +1,8 @@
 autoload -Uz zmv
 
 KEYTIMEOUT=1
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 setopt auto_pushd
 setopt auto_cd
@@ -16,5 +18,5 @@ setopt pushd_ignore_dups
 setopt no_flow_control
 
 catee() {
-    cat $1 | sudo tee $2 > /dev/null
+    cat -- "$1" | sudo tee -- "$2" > /dev/null
 }
