@@ -11,3 +11,4 @@ xdg/phpcs/rules.php
 zsh/zplug
 vim/dein.vim
 tmux/tpm
+chriskempson/base16-iterm2
