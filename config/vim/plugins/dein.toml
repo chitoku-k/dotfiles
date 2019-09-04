@@ -229,12 +229,13 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 if = '(has("nvim-0.3.1") || v:version >= 800) && executable("node")'
 hook_add = '''
+  " coc-sh has been unavailable since Node.js 12.x
+  " See: https://github.com/mads-hartmann/bash-language-server/issues/124
   let g:coc_global_extensions = [
         \   'coc-css',
         \   'coc-json',
         \   'coc-go',
         \   'coc-phpls',
-        \   'coc-sh',
         \   'coc-snippets',
         \   'coc-tsserver',
         \   'coc-vetur',
