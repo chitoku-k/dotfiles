@@ -21,7 +21,10 @@ fi
 
 if (( $+commands[tmux] )); then
     alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-    alias work='tmux attach || tmux'
+
+    work() {
+        tmux attach || tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf
+    }
 fi
 
 if (( $+commands[systemctl] )); then
