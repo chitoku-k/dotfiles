@@ -1,3 +1,8 @@
+for file in $ZDOTDIR/{plugins,local}/*.zsh(D); do
+    source "$file"
+done
+unset file
+
 if [[ -a "$ZPLUG_HOME" ]]; then
     source "$ZPLUG_HOME/init.zsh"
 
@@ -12,12 +17,5 @@ if [[ -a "$ZPLUG_HOME" ]]; then
     zplug "zsh-users/zsh-completions"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-    zplug "$ZDOTDIR/plugins", from:local
-    zplug "$ZDOTDIR/local", from:local
-
     zplug load
-else
-    for file in $ZDOTDIR/{plugins,local}/*.zsh(D); do
-        source "$file"
-    done
 fi
