@@ -1,1 +1,1 @@
-set +o history
+unset HISTFILE

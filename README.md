@@ -7,8 +7,9 @@ This repository contains my dotfiles and its installation script.
 Setting files expect each version or later:
 
 - Git 1.7.12
-- Vim 7.4.1742, 8.0.1596 or Neovim 0.3.0
+- Vim 7.4.160 or Neovim 0.3.0
 - Zsh 5.0.2
+- Bash 3.5.27
 - tmux 2.4
 
 ## Installation
@@ -24,7 +25,7 @@ $ source <(curl -sL dot.chitoku.jp)
 For bash:
 
 ```sh
-$ zsh <(curl -sL dot.chitoku.jp)
+$ eval "$(curl -sL dot.chitoku.jp)"
 ```
 
 To manually install:
