@@ -1,4 +1,5 @@
 xdg/zsh
+xdg/bash
 xdg/tmux
 xdg/git/config
 xdg/vim

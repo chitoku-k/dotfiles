@@ -37,6 +37,10 @@ install-package() {
                 create-symlink ./config/zsh/.zshenv "$home/.zshenv"
                 create-symlink ./config/zsh "$xdgconfig/zsh"
                 ;;
+            'xdg/bash')
+                create-symlink ./config/bash/.bashrc "$home/.bashrc"
+                create-symlink ./config/bash "$xdgconfig/bash"
+                ;;
             'xdg/tmux')
                 create-symlink ./config/tmux "$xdgconfig/tmux"
                 ;;
