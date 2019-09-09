@@ -35,14 +35,14 @@ fi
 
 if (( $+commands[sshfs] )); then
     mount-ssh() {
-        sshfs -o reconnect $@
+        sshfs -o reconnect "$@"
     }
 
     umount-ssh() {
         if (( $+commands[fusermount] )); then
-            fusermount -uz $@
+            fusermount -uz "$@"
         elif (( $+commands[diskutil] )); then
-            diskutil unmount force $@
+            diskutil unmount force "$@"
         fi
     }
 fi

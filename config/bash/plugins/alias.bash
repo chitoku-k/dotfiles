@@ -27,14 +27,14 @@ fi
 
 if hash sshfs 2> /dev/null; then
     mount-ssh() {
-        sshfs -o reconnect $@
+        sshfs -o reconnect "$@"
     }
 
     umount-ssh() {
         if hash fusermount 2> /dev/null; then
-            fusermount -uz $@
+            fusermount -uz "$@"
         elif hash diskutil 2> /dev/null; then
-            diskutil unmount force $@
+            diskutil unmount force "$@"
         fi
     }
 fi
