@@ -1,6 +1,10 @@
 # Vim-style text objects
 # See: https://github.com/zsh-users/zsh/commit/d257f0143e69c3724466c4c92f59538d2f3fffd1
 
+if [[ $(bindkey -l) != *viopp* ]]; then
+    return
+fi
+
 autoload -U select-bracketed
 autoload -U select-quoted
 autoload -Uz surround
