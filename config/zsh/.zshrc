@@ -1,7 +1,6 @@
-for file in $ZDOTDIR/{plugins,local}/*.zsh(D); do
+for file in $ZDOTDIR/plugins/*.zsh(D); do
     source "$file"
 done
-unset file
 
 if [[ -a "$ZPLUG_HOME" ]]; then
     source "$ZPLUG_HOME/init.zsh"
@@ -19,3 +18,8 @@ if [[ -a "$ZPLUG_HOME" ]]; then
 
     zplug load
 fi
+
+for file in $ZDOTDIR/local/*.zsh(D); do
+    source "$file"
+done
+unset file
