@@ -1,4 +1,5 @@
 {
+    "coc.preferences.colorSupport": false,
     "coc.preferences.useQuickfixForLocations": true,
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
