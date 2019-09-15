@@ -13,13 +13,14 @@ if !exists('g:nyaovim_version') && !has('gui')
   highlight Normal ctermbg=NONE guibg=NONE
 endif
 highlight CocErrorSign guifg=#bf616a
-highlight CocWarningSign guifg=#ebcb8b
 highlight CocInfoSign guifg=#8fa1b3
+highlight CocWarningSign guifg=#ebcb8b
 highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
 highlight CursorIM guifg=NONE guibg=SteelBlue
 highlight EndOfBuffer guifg=#363d45 guibg=NONE
 highlight SpellBad guifg=#bf616a
+highlight link CocHoverRange CursorColumn
 highlight link graphqlConstant Operator
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag
