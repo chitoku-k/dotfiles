@@ -233,6 +233,7 @@ hook_add = '''
   " See: https://github.com/mads-hartmann/bash-language-server/issues/124
   let g:coc_global_extensions = [
         \   'coc-css',
+        \   'coc-java',
         \   'coc-json',
         \   'coc-go',
         \   'coc-phpls',
