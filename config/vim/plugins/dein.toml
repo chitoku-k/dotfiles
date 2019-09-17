@@ -103,6 +103,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tpope/vim-capslock'
+hook_add = '''
+  imap <C-a> <C-o><Plug>CapsLockToggle
+'''
+
+[[plugins]]
 repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
