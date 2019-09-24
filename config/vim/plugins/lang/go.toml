@@ -3,3 +3,11 @@ repo = 'fatih/vim-go'
 lazy = 1
 on_ft = ['go']
 if = 'has("nvim-0.3.2")'
+
+[[plugins]]
+repo = 'nametake/ctrlp-goimport'
+lazy = 1
+on_ft = ['go']
+build = '''
+  go get -u github.com/uudashr/gopkgs/cmd/gopkgs
+'''
