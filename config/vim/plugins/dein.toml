@@ -200,6 +200,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'RRethy/vim-hexokinase'
+build = '''
+  make hexokinase
+'''
 hook_add = '''
   let g:Hexokinase_ftAutoload = ['*']
   let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI']
