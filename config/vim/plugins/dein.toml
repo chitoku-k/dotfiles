@@ -200,6 +200,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'RRethy/vim-hexokinase'
+if = 'executable("go")'
 build = '''
   make hexokinase
 '''
