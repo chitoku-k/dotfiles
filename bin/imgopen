@@ -2,23 +2,23 @@
 
 for f in "$@"
 do
-    if [[ "$f" =~ /([0-9]+)( ?\([0-9]+\))?\\. ]]; then
+    if [[ "$f" =~ /([0-9]+)( ?\\([0-9]+\\))?\\.jpg ]]; then
         echo "https://twitter.com/user/status/"$match[1]
         continue
     fi
-    if [[ "$f" =~ /pixiv_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
-        echo "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="$match[1]
+    if [[ "$f" =~ /pixiv_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
+        echo "https://www.pixiv.net/artworks/"$match[1]
         continue
     fi
-    if [[ "$f" =~ /fanbox_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
+    if [[ "$f" =~ /fanbox_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://www.pixiv.net/fanbox/creator/0/post/"$match[1]
         continue
     fi
-    if [[ "$f" =~ /seiga_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
+    if [[ "$f" =~ /seiga_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "http://seiga.nicovideo.jp/seiga/im"$match[1]
         continue
     fi
-    if [[ "$f" =~ /nijie_([0-9]+)( ?\([0-9]+\))?\\. ]]; then
+    if [[ "$f" =~ /nijie_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://nijie.info/view.php?id="$match[1]
         continue
     fi
