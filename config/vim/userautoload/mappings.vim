@@ -30,7 +30,6 @@ vnoremap v $h
 vnoremap e joko
 
 nnoremap <C-q> <Nop>
-nnoremap <F1> <Nop>
 inoremap <F1> <Nop>
 inoremap <F2> <Nop>
 inoremap <F3> <Nop>
