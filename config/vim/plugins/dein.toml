@@ -247,6 +247,8 @@ hook_add = '''
 
   inoremap <silent><expr> <C-x><C-n> coc#refresh()
   nnoremap <silent> <F1> :call CocAction('doHover') \| call coc#util#float_jump()<CR>
+  nmap <silent> <F2> <Plug>(coc-definition)
+  nmap <silent> <F3> <Plug>(coc-implementation)
 
   augroup coc
     autocmd!
