@@ -73,4 +73,5 @@ if !has('gui')
   inoremap <Right> <Nop>
 endif
 
-inoremap <silent> <F5> <C-R>=substitute(strftime('%FT%T%z'), '+\(\d\d\)\(\d\d\)$', '+\1:\2', '')<CR>
+nnoremap <silent> <C-p> o<C-r>=substitute(@*, '\n', '', 'g')<CR><Esc>^
+inoremap <silent> <F5> <C-r>=substitute(strftime('%FT%T%z'), '+\(\d\d\)\(\d\d\)$', '+\1:\2', '')<CR>
