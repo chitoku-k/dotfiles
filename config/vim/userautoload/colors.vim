@@ -28,5 +28,4 @@ highlight link typescriptEndColons jsObjectSeparator
 highlight link typescriptOpSymbols Function
 highlight link typescriptOperator Function
 highlight link purescriptOperator Delimiter
-highlight clear CursorLine
 highlight clear SignColumn
