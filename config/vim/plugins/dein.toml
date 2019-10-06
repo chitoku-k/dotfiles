@@ -20,7 +20,7 @@ hook_add = '''
   let g:lightline = {
         \   'colorscheme': 'base16_ocean',
         \   'active': {
-        \     'left': [ [ 'mode', 'paste' ], [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path', 'anzu' ] ],
+        \     'left': [ [ 'mode', 'capslock', 'paste' ], [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path', 'anzu' ] ],
         \     'right': [ [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'charcode' ] ],
         \   },
         \   'inactive': {
@@ -36,6 +36,7 @@ hook_add = '''
         \   },
         \   'component_function': {
         \     'mode': 'vimrc#lightline#mode',
+        \     'capslock': 'vimrc#lightline#capslock',
         \     'filename': 'vimrc#lightline#filename',
         \     'modified': 'vimrc#lightline#modified',
         \     'anzu': 'anzu#search_status',

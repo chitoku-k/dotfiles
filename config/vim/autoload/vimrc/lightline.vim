@@ -73,6 +73,13 @@ function! vimrc#lightline#fileencoding() abort
   return &fileencoding !=# '' ? &fileencoding : &encoding
 endfunction
 
+function! vimrc#lightline#capslock() abort
+  if !exists('*CapsLockStatusline') || CapsLockStatusline() ==# ''
+    return ''
+  endif
+  return 'CAPS'
+endfunction
+
 function! vimrc#lightline#coc_diagnostic(type, mark) abort
   let info = get(b:, 'coc_diagnostic_info', {})
   return get(info, a:type, 0) == 0 ? '' : a:mark . ' ' . info[a:type]
