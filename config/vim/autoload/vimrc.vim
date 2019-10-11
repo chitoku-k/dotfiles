@@ -64,7 +64,6 @@ function! vimrc#init() abort
     if isdirectory(vimrc#cache_dir())
       let &directory = vimrc#cache_dir('/swap')
       let &backupdir = vimrc#cache_dir('/backup')
-      let &viminfo = "'1000,n" . vimrc#cache_dir('/viminfo')
     endif
   endif
 endfunction

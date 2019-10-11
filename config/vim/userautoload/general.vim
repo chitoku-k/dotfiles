@@ -23,6 +23,7 @@ set titleold=
 set clipboard=unnamedplus,unnamed
 set whichwrap=
 set backspace=
+set viminfo=
 
 set list
 set novisualbell
