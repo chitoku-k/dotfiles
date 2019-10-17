@@ -5,30 +5,27 @@ dotfiles-packages() {
     local descriptions=$2
 
     paste -d '\n' \
-        <(awk '{
-            gsub(/\//, "'$(tput sgr0)'/");
-            print "'$(tput setaf 5)'" NR " '$(tput setaf 2)$(tput bold)'" $0
-        }' < "$packages") \
-        <(awk '{
-            print "    " $0
-        }' < "$descriptions")
-}
-
-dotfiles-expand-ranges() {
-    local num
-
-    while IFS= read -r num; do
-        if grep -q '^[0-9]\+\(-[0-9]\+\)\?$' <<< "$num"; then
-            seq \
-                $(awk '{ sub(/-[0-9]+$/, ""); print }' <<< "$num") \
-                $(awk '{ sub(/^[0-9]+-/, ""); print }' <<< "$num")
-        fi
-    done
+        <(awk \
+            -v bold="$(tput bold)" \
+            -v green="$(tput setaf 2)" \
+            -v purple="$(tput setaf 5)" \
+            -v sgr0="$(tput sgr0)" '
+            {
+                gsub(/\//, sgr0 "/")
+                print purple NR " " green bold $0
+            }
+        ' < "$packages") \
+        <(awk '
+            {
+                print "    " $0
+            }
+        ' < "$descriptions")
 }
 
 dotfiles-read-install() {
     local input
-    local packages=$1
+    local packages="$(cat -- "$1")"
+    shift
 
     {
         tput setaf 2
@@ -40,16 +37,25 @@ dotfiles-read-install() {
 
     read -r input
 
-    tr ' ' '\n' <<< "$input" |
-        dotfiles-expand-ranges |
-        sort -g |
-        uniq |
-        awk '{ ORS="P;"; print }' |
-        xargs -I {} sed -n {} "$packages"
+    awk \
+        -v RS='[ \n]' \
+        -v packages="$packages" '
+        BEGIN {
+            split(packages, names, "\n")
+        }
+        /^[0-9]+(-[0-9]+)?$/ {
+            start = end = $0
+            sub(/-.*/, "", start)
+            sub(/.*-/, "", end)
+
+            for (i = int(start); i <= int(end); ++i) {
+                print names[i]
+            }
+        }
+    ' <<< "$input"
 }
 
 dotfiles-list-install() {
-    local num
     local list="$(cat -)"
     local count="$(wc -l <<< "$list" | xargs)"
 
@@ -59,7 +65,13 @@ dotfiles-list-install() {
         echo -n "Packages ($count) "
         tput sgr0
 
-        awk '{ ORS="  "; sub(/[^\/]*\//, ""); print }' <<< "$list"
+        awk \
+            -v ORS='  ' '
+            {
+                sub(/[^\/]*\//, "")
+                print
+            }
+        ' <<< "$list"
         echo
     } >&2
 }
