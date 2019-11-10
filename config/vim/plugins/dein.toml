@@ -92,13 +92,6 @@ repo = 'editorconfig/editorconfig-vim'
 repo = 'lambdalisue/suda.vim'
 
 [[plugins]]
-repo = 'simeji/winresizer'
-hook_add = '''
-  let g:winresizer_vert_resize = 1
-  let g:winresizer_horiz_resize = 1
-'''
-
-[[plugins]]
 repo = 'tpope/vim-capslock'
 hook_add = '''
   imap <C-a> <C-o><Plug>CapsLockToggle
