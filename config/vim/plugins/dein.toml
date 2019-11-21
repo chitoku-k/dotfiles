@@ -127,53 +127,32 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'joker1007/vim-markdown-quote-syntax'
 hook_add = '''
-  let g:context_filetype#filetypes = {
-        \   'help': [],
-        \   'html': [
-        \     {
-        \       'start': '<style type="text/scss"\%( [^>]*\)\?>',
-        \       'end': '</style>', 'filetype': 'scss',
-        \     },
-        \     {
-        \       'start': '<style\%( [^>]*\)\?>',
-        \       'end': '</style>', 'filetype': 'css',
-        \     },
-        \     {
-        \       'start': '<svg\%( [^>]*\)\?>',
-        \       'end': '</svg>', 'filetype': 'svg',
-        \     },
-        \   ],
-        \   'php': [
-        \     {
-        \       'start': '<style type="text/scss"\%( [^>]*\)\?>',
-        \       'end': '</style>', 'filetype': 'scss',
-        \     },
-        \     {
-        \       'start': '<style\%( [^>]*\)\?>',
-        \       'end': '</style>', 'filetype': 'css',
-        \     },
-        \     {
-        \       'start': '<svg\%( [^>]*\)\?>',
-        \       'end': '</svg>', 'filetype': 'svg',
-        \     },
-        \   ],
+  let g:is_bash = 1
+  let g:markdown_quote_syntax_filetypes = {
+        \   'css': {
+        \     'start': 'css',
+        \   },
+        \   'go': {
+        \     'start': 'go',
+        \   },
+        \   'html': {
+        \     'start': 'html',
+        \   },
+        \   'javascript': {
+        \     'start': 'javascript',
+        \   },
+        \   'scss': {
+        \     'start': 'scss',
+        \   },
+        \   'sh': {
+        \     'start': 'sh',
+        \   },
+        \   'typescript': {
+        \     'start': 'typescript',
+        \   },
         \ }
-
-  " TODO: Switch filetype without setting syntax
-  " 'javascript': [
-  "   {
-  "     'start': 'styled\(\..*\|(.*)\)`',
-  "     'end': '`', 'filetype': 'css',
-  "   },
-  " ],
-  " 'typescript': [
-  "   {
-  "     'start': 'styled\(\..*\|(.*)\)`',
-  "     'end': '`', 'filetype': 'css',
-  "   },
-  " ],
 '''
 
 [[plugins]]
@@ -207,9 +186,6 @@ hook_add = '''
     let g:Hexokinase_highlighters = ['sign_column']
   endif
 '''
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
