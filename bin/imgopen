@@ -30,4 +30,8 @@ do
         echo "http://youkan-hh.sakura.ne.jp/"$match[1]
         continue
     fi
+    if [[ "$f" =~ /yuunonn_new_illust[0-9]{2}_up ]]; then
+        echo 'https://www.melonbooks.co.jp/corner/detail.php?corner_id=885'
+        continue
+    fi
 done
