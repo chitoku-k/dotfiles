@@ -47,6 +47,12 @@ if (( $+commands[sshfs] )); then
     }
 fi
 
+if (( $+commands[defaults] )) {
+    defaults-write-com.apple.systempreferences-AttentionPrefBundleIDs-0() {
+        defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
+    }
+}
+
 case "$OSTYPE" in
     linux*)
         alias ls='ls --color=auto'
