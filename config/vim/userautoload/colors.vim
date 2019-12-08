@@ -15,6 +15,7 @@ endif
 highlight CocErrorSign guifg=#bf616a
 highlight CocInfoSign guifg=#8fa1b3
 highlight CocWarningSign guifg=#ebcb8b
+highlight CocHintSign guifg=#8fa1b3
 highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
 highlight CursorIM guifg=NONE guibg=SteelBlue
