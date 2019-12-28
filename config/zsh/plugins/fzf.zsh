@@ -41,3 +41,43 @@ _fzf_complete_git-commit_post() {
         print "'\''" $0 "'\''"
     }'
 }
+
+_fzf_complete_yarn() {
+    if [[ "$@" = 'yarn ' ]]; then
+        _fzf_complete '' "$@" < <(npm run 2> /dev/null | awk '
+            /^  [^ ]/ {
+                gsub(/^ */, "")
+                command = $0
+                getline
+                gsub(/^ */, "")
+                print command "  " $0
+            }')
+        return
+    fi
+
+    zle ${fzf_default_completion:-expand-or-complete}
+}
+
+_fzf_complete_yarn_post() {
+    awk '{ print $1 }'
+}
+
+_fzf_complete_npm() {
+    if [[ "$@" = 'npm run'* ]]; then
+        _fzf_complete '' "$@" < <(npm run 2> /dev/null | awk '
+            /^  [^ ]/ {
+                gsub(/^ */, "")
+                command = $0
+                getline
+                gsub(/^ */, "")
+                print command "  " $0
+            }')
+        return
+    fi
+
+    zle ${fzf_default_completion:-expand-or-complete}
+}
+
+_fzf_complete_npm_post() {
+    awk '{ print $1 }'
+}
