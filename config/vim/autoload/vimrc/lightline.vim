@@ -7,11 +7,11 @@ function! vimrc#lightline#term() abort
 endfunction
 
 function! vimrc#lightline#mode() abort
+  if &filetype ==# 'fzf'
+    return 'FZF'
+  endif
   if vimrc#lightline#hide(1) || lightline#mode() ==# 'TERMINAL'
     return ''
-  endif
-  if &filetype ==# 'ctrlp'
-    return 'CtrlP'
   endif
   return lightline#mode()
 endfunction
@@ -31,11 +31,8 @@ function! vimrc#lightline#readonly() abort
 endfunction
 
 function! vimrc#lightline#filename() abort
-  if vimrc#lightline#hide() || lightline#mode() ==# 'TERMINAL'
+  if vimrc#lightline#hide() || lightline#mode() ==# 'TERMINAL' || &filetype ==# 'fzf'
     return ''
-  endif
-  if &filetype ==# 'ctrlp'
-    return get(g:lightline, 'ctrlp_item', '')
   endif
   if &filetype ==# 'dirvish'
     return substitute(expand('%'), expand('$HOME'), '~', '')
