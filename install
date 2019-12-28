@@ -38,21 +38,24 @@ dotfiles-read-install() {
     read -r input
 
     awk \
-        -v RS='[ \n]' \
-        -v packages="$packages" '
+        -v input="$input" '
         BEGIN {
-            split(packages, names, "\n")
+            split(input, targets, " ")
         }
-        /^[0-9]+(-[0-9]+)?$/ {
-            start = end = $0
-            sub(/-.*/, "", start)
-            sub(/.*-/, "", end)
+        {
+            for (i = 1; i <= length(targets); ++i) {
+                start = end = targets[i]
+                sub(/-.*/, "", start)
+                sub(/.*-/, "", end)
 
-            for (i = int(start); i <= int(end); ++i) {
-                print names[i]
+                for (j = int(start); j <= int(end); ++j) {
+                    if (j == NR) {
+                        print $0
+                    }
+                }
             }
         }
-    ' <<< "$input"
+    ' <<< "$packages"
 }
 
 dotfiles-list-install() {
