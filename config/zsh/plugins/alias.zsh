@@ -1,3 +1,4 @@
+export PATH="$PATH:$XDG_CACHE_HOME/zplug/bin"
 export VISUAL='vim'
 
 alias zmv='noglob zmv -vW'
@@ -17,6 +18,10 @@ if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n "$NVIM_LISTEN
     export VISUAL='godopen --sync'
     export GIT_EDITOR=$VISUAL
     alias vim=$VISUAL
+fi
+
+if (( $+commands[rg] )); then
+    export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 fi
 
 if (( $+commands[tmux] )); then
