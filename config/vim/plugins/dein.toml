@@ -102,8 +102,16 @@ repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
 repo = 'junegunn/fzf'
+build = './install --xdg --no-update-rc'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
 hook_add = '''
-  nnoremap <silent> <Space>g :FZF --reverse<CR>
+  let g:fzf_statusline = 0
+  let g:fzf_nvim_statusline = 0
+  nnoremap <silent> <Space>g :call fzf#vim#files('.', fzf#vim#with_preview({'options': ['--reverse']}))<CR>
+  nnoremap <silent> <Space>f :call fzf#vim#buffers({'options': ['--reverse']})<CR>
 '''
 
 [[plugins]]

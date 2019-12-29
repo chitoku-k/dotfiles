@@ -21,7 +21,7 @@ if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n "$NVIM_LISTEN
 fi
 
 if (( $+commands[rg] )); then
-    export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+    export FZF_DEFAULT_COMMAND='rg --hidden --glob="!.git/*" --glob=".env*" --files-with-matches "" --sort path'
 fi
 
 if (( $+commands[tmux] )); then
