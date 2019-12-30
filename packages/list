@@ -8,6 +8,7 @@ xdg/fontconfig/fonts.conf
 xdg/nyaovim
 dotfiles/.gvimrc
 dotfiles/.vsvimrc
+dotfiles/.rgignore
 xdg/phpcs/rules.php
 zsh/zplug
 vim/dein.vim

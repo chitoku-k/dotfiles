@@ -66,6 +66,9 @@ install-package() {
             'dotfiles/.vsvimrc')
                 create-symlink ./config/.vsvimrc "$home/.vsvimrc"
                 ;;
+            'dotfiles/.rgignore')
+                create-symlink ./config/.rgignore "$home/.rgignore"
+                ;;
             'xdg/phpcs/rules.php')
                 create-symlink ./config/phpcs/rules.php "$xdgconfig/phpcs/rules.php"
                 ;;
