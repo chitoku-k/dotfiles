@@ -19,7 +19,7 @@ _fzf_complete_git() {
     fi
 
     if  [[ "$@" = 'git rebase'* ]] || [[ "$@" = 'git reset'* ]]; then
-        _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)   %s' 2> /dev/null)
+        _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)  %s' 2> /dev/null)
         return
     fi
 
@@ -27,7 +27,7 @@ _fzf_complete_git() {
 }
 
 _fzf_complete_git-commit() {
-    _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)   %s' 2> /dev/null)
+    _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)  %s' 2> /dev/null)
 }
 
 _fzf_complete_git_post() {
@@ -57,8 +57,8 @@ _fzf_complete_git_tabularize() {
             messages[NR] = $0
         }
         END {
-            for (i = 1; i < length(refnames); ++i) {
-                printf "%s%-" refname_max "s%s%s\n", yellow, refnames[i], reset, messages[i]
+            for (i = 1; i <= length(refnames); ++i) {
+                printf "%s%-" refname_max "s%s %s\n", yellow, refnames[i], reset, messages[i]
             }
         }
     '
