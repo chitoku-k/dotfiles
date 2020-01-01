@@ -8,5 +8,9 @@ bindkey "^[[3~" delete-char
 bindkey "^[[Z" reverse-menu-complete
 bindkey -M viins "^X^N" autosuggest-accept
 
+if [[ -a "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]]; then
+    bindkey "^I" fzf-completion
+fi
+
 # Disable START/STOP output control
 stty -ixon
