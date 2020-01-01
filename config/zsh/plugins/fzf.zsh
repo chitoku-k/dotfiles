@@ -9,7 +9,7 @@ fi
 
 _fzf_complete_git() {
     if [[ "$@" = 'git branch'* ]] || [[ "$@" = 'git checkout'* ]]; then
-        _fzf_complete '' "$@" < <(git branch -a --format='%(refname:short)  %(contents:subject)' 2> /dev/null)
+        _fzf_complete --ansi "$@" < <(git branch -a --format='%(refname:short) %(contents:subject)' 2> /dev/null | _fzf_complete_git_tabularize)
         return
     fi
 
@@ -19,7 +19,7 @@ _fzf_complete_git() {
     fi
 
     if  [[ "$@" = 'git rebase'* ]] || [[ "$@" = 'git reset'* ]]; then
-        _fzf_complete '' "$@" < <(git log --format='%h  %s' 2> /dev/null)
+        _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)   %s' 2> /dev/null)
         return
     fi
 
@@ -27,7 +27,7 @@ _fzf_complete_git() {
 }
 
 _fzf_complete_git-commit() {
-    _fzf_complete '' "$@" < <(git log --format='%h  %s' 2> /dev/null)
+    _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)   %s' 2> /dev/null)
 }
 
 _fzf_complete_git_post() {
@@ -40,6 +40,28 @@ _fzf_complete_git-commit_post() {
         sub(/^ /, "", $0)
         print "'\''" $0 "'\''"
     }'
+}
+
+_fzf_complete_git_tabularize() {
+    awk \
+        -v yellow="$(tput setaf 3)" \
+        -v reset="$(tput sgr0)" '
+        {
+            refnames[NR] = $1
+
+            if (length($1) > refname_max) {
+                refname_max = length($1)
+            }
+
+            $1 = ""
+            messages[NR] = $0
+        }
+        END {
+            for (i = 1; i < length(refnames); ++i) {
+                printf "%s%-" refname_max "s%s%s\n", yellow, refnames[i], reset, messages[i]
+            }
+        }
+    '
 }
 
 _fzf_complete_yarn() {
