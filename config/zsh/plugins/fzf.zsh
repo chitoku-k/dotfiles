@@ -4,22 +4,32 @@ if [[ -a "$XDG_CACHE_HOME/zplug/repos/nicodebo/base16-fzf/bash/base16-ocean.conf
 fi
 
 _fzf_complete_git() {
+    local default_opts="$FZF_DEFAULT_OPTS"
+
     if [[ "$@" = 'git branch'* ]] || [[ "$@" = 'git checkout'* ]]; then
         _fzf_complete --ansi "$@" < <(git branch -a --format='%(refname:short) %(contents:subject)' 2> /dev/null | _fzf_complete_git_tabularize)
         return
     fi
 
     if [[ "$@" = 'git commit'* ]]; then
+        FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --tiebreak=index"
+
         if [[ "$prefix" = '--fixup=' ]]; then
             _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)  %s' 2> /dev/null | awk -v prefix="$prefix" '{ print prefix $0 }')
         else
             _fzf_complete_git-commit "$@"
         fi
+
+        FZF_DEFAULT_OPTS="$default_opts"
         return
     fi
 
     if  [[ "$@" = 'git rebase'* ]] || [[ "$@" = 'git reset'* ]]; then
+        FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --tiebreak=index"
+
         _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)  %s' 2> /dev/null)
+
+        FZF_DEFAULT_OPTS="$default_opts"
         return
     fi
 
