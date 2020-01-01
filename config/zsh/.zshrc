@@ -7,6 +7,7 @@ if [[ -a "$ZPLUG_HOME" ]]; then
 
     zplug "b4b4r07/zsh-vimode-visual", defer:3
     zplug 'BurntSushi/ripgrep', from:gh-r, as:command, rename-to:"rg"
+    zplug "chitoku-k/fzf-zsh-completions"
     zplug "chitoku-k/zsh-reset-title"
     zplug "chitoku-k/zsh-togglecursor", defer:1
     zplug "chitoku-k/zsh-vcs-extended"
