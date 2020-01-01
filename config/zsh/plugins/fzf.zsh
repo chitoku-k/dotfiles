@@ -10,7 +10,11 @@ _fzf_complete_git() {
     fi
 
     if [[ "$@" = 'git commit'* ]]; then
-        _fzf_complete_git-commit "$@"
+        if [[ "$prefix" = '--fixup=' ]]; then
+            _fzf_complete --ansi "$@" < <(git log --color=always --format='%C(yellow)%h%C(reset)  %s' 2> /dev/null | awk -v prefix="$prefix" '{ print prefix $0 }')
+        else
+            _fzf_complete_git-commit "$@"
+        fi
         return
     fi
 
