@@ -9,7 +9,7 @@ bindkey "^[[Z" reverse-menu-complete
 bindkey -M viins "^X^N" autosuggest-accept
 
 if [[ -a "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]]; then
-    bindkey "^I" fzf-completion
+    source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 fi
 
 # Disable START/STOP output control
