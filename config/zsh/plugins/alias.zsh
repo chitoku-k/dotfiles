@@ -11,7 +11,7 @@ alias grep='grep --color=auto'
 
 if (( $+commands[nvim] )); then
     export VISUAL='nvim'
-    alias vim='nvim'
+    alias vim=$VISUAL
 fi
 
 if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
@@ -21,7 +21,11 @@ if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n "$NVIM_LISTEN
 fi
 
 if (( $+commands[rg] )); then
-    export FZF_DEFAULT_COMMAND='rg --hidden --files --glob "!.git/*" --sort path'
+    export FZF_DEFAULT_COMMAND='rg --hidden --files --sort path'
+
+    _fzf_compgen_path() {
+        rg --hidden --files --sort path "$@"
+    }
 fi
 
 if (( $+commands[tmux] )); then
