@@ -1,4 +1,5 @@
 !.env*
+.DS_Store
 .android/
 .cache/
 .composer/
@@ -19,3 +20,5 @@
 .tooling/
 .Trash/
 .travis/
+Applications*/
+Library/
