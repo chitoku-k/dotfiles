@@ -20,14 +20,6 @@ if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n "$NVIM_LISTEN
     alias vim=$VISUAL
 fi
 
-if (( $+commands[rg] )); then
-    export FZF_DEFAULT_COMMAND='rg --hidden --files --sort path'
-
-    _fzf_compgen_path() {
-        rg --hidden --files --sort path "$@"
-    }
-fi
-
 if (( $+commands[tmux] )); then
     alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
