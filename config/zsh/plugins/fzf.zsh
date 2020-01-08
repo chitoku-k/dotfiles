@@ -10,3 +10,15 @@ if (( $+commands[rg] )); then
         rg --hidden --files --sort path "$@"
     }
 fi
+
+if (( $+commands[fd] )); then
+    export FZF_DEFAULT_COMMAND='fd --hidden | sort'
+
+    _fzf_compgen_path() {
+        fd --hidden . "$@" | sort
+    }
+
+    _fzf_compgen_dir() {
+        fd --hidden --type d . "$@" | sort
+    }
+fi

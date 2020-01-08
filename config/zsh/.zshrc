@@ -16,6 +16,7 @@ if [[ -a "$ZPLUG_HOME" ]]; then
     zplug "himanoa/neovim-terminal-utils", as:command, use:"*"
     zplug "junegunn/fzf", hook-build:"./install --xdg --no-update-rc"
     zplug "nicodebo/base16-fzf"
+    zplug "sharkdp/fd", from:gh-r, as:command, rename-to:"fd"
     zplug "zsh-users/zsh-autosuggestions"
     zplug "zsh-users/zsh-completions"
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
