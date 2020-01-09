@@ -5,8 +5,6 @@ tnoremap <C-q> <C-\><C-n>
 augroup termrc
   autocmd!
   autocmd TermOpen *
-        \ setlocal nonumber |
-        \ setlocal ambiwidth=single |
         \ startinsert
 augroup END
 

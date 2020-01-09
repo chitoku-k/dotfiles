@@ -39,10 +39,10 @@ if (( $+commands[rg] )); then
 fi
 
 if (( $+commands[fd] )); then
-    export FZF_DEFAULT_COMMAND='fd --hidden | sort'
+    export FZF_DEFAULT_COMMAND='fd --hidden --type f | sort'
 
     _fzf_compgen_path() {
-        fd --hidden . "$@" | sort
+        fd --hidden --type f . "$@" | sort
     }
 
     _fzf_compgen_dir() {
