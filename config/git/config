@@ -18,7 +18,7 @@
 
     preserve = update-index --assume-unchanged --
     unpreserve = update-index --no-assume-unchanged --
-    exclude = "!f() { echo $1 >> \"${PWD/GIT_PREFIX/}/.git/info/exclude\"; }; f"
+    exclude = "!f() { xargs -n 1 <<< \"$@\" >> \"${PWD/GIT_PREFIX/}/.git/info/exclude\"; }; f"
     push-current = "!f() { git push -u \"$(git remote | head -n 1)\" \"$(git rev-parse --abbrev-ref HEAD)\"; }; f"
 
 [diff]
