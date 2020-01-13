@@ -1,3 +1,8 @@
+if [[ -a "$XDG_CACHE_HOME/zplug/repos/nicodebo/base16-fzf/bash/base16-ocean.config" ]]; then
+    source "$XDG_CACHE_HOME/zplug/repos/nicodebo/base16-fzf/bash/base16-ocean.config"
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --color=bg:-1"
+fi
+
 if [[ -a "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]]; then
     fzf-complete-directory() {
         local trigger tokens lbuf prefix tail
@@ -23,11 +28,7 @@ if [[ -a "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]]; then
     }
 
     zle -N fzf-complete-directory
-fi
-
-if [[ -a "$XDG_CACHE_HOME/zplug/repos/nicodebo/base16-fzf/bash/base16-ocean.config" ]]; then
-    source "$XDG_CACHE_HOME/zplug/repos/nicodebo/base16-fzf/bash/base16-ocean.config"
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --color=bg:-1"
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --no-mouse"
 fi
 
 if (( $+commands[rg] )); then
