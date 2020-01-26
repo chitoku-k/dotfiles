@@ -249,10 +249,8 @@ repo = 'osyo-manga/vim-anzu'
 hook_add = '''
   let g:anzu_status_format = "%/ (%i/%l)"
   nmap <silent> <Esc><Esc> <Plug>(anzu-clear-search-status):nohlsearch<CR>
-  nmap n <Plug>(anzu-n)zz
-  nmap N <Plug>(anzu-N)zz
-  nmap * <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
-  nmap # <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
+  nmap * <Plug>(asterisk-*)<Plug>(anzu-update-search-status-with-echo)
+  nmap # <Plug>(asterisk-#)<Plug>(anzu-update-search-status-with-echo)
 
   augroup anzu
     autocmd!
