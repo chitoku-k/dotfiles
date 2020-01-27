@@ -9,10 +9,5 @@ bindkey "^[[Z" reverse-menu-complete
 bindkey -M vicmd -r ":"
 bindkey -M viins "^X^N" autosuggest-accept
 
-if [[ -a "$XDG_CONFIG_HOME/fzf/fzf.zsh" ]]; then
-    fzf_default_completion=fzf-complete-directory
-    source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
-fi
-
 # Disable START/STOP output control
 stty -ixon
