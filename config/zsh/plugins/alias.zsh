@@ -15,9 +15,8 @@ if (( $+commands[nvim] )); then
 fi
 
 if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-    export VISUAL='godopen --sync'
-    export GIT_EDITOR=$VISUAL
-    alias vim=$VISUAL
+    export GIT_EDITOR='godopen --sync'
+    alias vim=$GIT_EDITOR
 fi
 
 if (( $+commands[tmux] )); then
