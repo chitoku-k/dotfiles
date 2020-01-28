@@ -56,19 +56,19 @@ else
     _zsh_prompt_format[finish-user]=${_zsh_prompt_format[normal-user]}
 
     add-zsh-hook precmd () {
-        [[ -z "$@" ]] && echo >&2
+        [[ -z $@ ]] && echo >&2
         LANG=en_US.UTF-8 vcs_info
         _zsh_prompt 'insert' 2> /dev/null
     }
 fi
 
 _zsh_prompt_redraw() {
-    if [[ "$1" = '0' ]] || [[ "$WIDGET" =~ finish ]]; then
+    if [[ $1 = '0' ]] || [[ $WIDGET =~ finish ]]; then
         _zsh_prompt 'finish'
         return
     fi
 
-    case "$KEYMAP" in
+    case $KEYMAP in
         main)
             _zsh_prompt 'insert'
             ;;
@@ -90,9 +90,9 @@ _zsh_prompt() {
     local vcs1=${_zsh_prompt_format[$1-vcs1]}
     local user=${_zsh_prompt_format[$1-user]}
 
-    [[ -n "$vcs_info_msg_0_" ]] && vcs_info+=$(printf "$vcs0" "$vcs_info_msg_0_")
-    [[ -n "$vcs_info_msg_1_" ]] && vcs_info+=$(printf "$vcs1" "$vcs_info_msg_1_")
-    [[ -n "$vcs_info" ]] && vcs_info+="%k%f"
+    [[ -n $vcs_info_msg_0_ ]] && vcs_info+=$(printf "$vcs0" "$vcs_info_msg_0_")
+    [[ -n $vcs_info_msg_1_ ]] && vcs_info+=$(printf "$vcs1" "$vcs_info_msg_1_")
+    [[ -n $vcs_info ]] && vcs_info+='%k%f'
 
     PROMPT=$prefix$hostname$directory$vcs_info$user
     zle reset-prompt

@@ -20,5 +20,5 @@ setopt print_exit_value
 setopt pushd_ignore_dups
 
 catee() {
-    cat -- "$1" | sudo tee -- "$2" > /dev/null
+    cat -- $1 | sudo tee -- $2 > /dev/null
 }

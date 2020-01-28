@@ -2,17 +2,17 @@ rename-illustrations() {
     local dir file updating_file updating_filename
     dir=$(pwd)
 
-    if [[ "$#" != 0 ]]; then
-        dir="$1"
+    if [[ $# != 0 ]]; then
+        dir=$1
         shift
     fi
 
-    if [[ ! -d "$dir" ]]; then
+    if [[ ! -d $dir ]]; then
         echo "[ERR] The directory is not found: $dir" >&2
         return 1
     fi
 
-    if [[ -n "$@" ]]; then
+    if [[ -n $@ ]]; then
         echo "[ERR] Unknown option(s): $@" >&2
         return 1
     fi
@@ -23,8 +23,8 @@ rename-illustrations() {
     local files=($dir/*.{gif,jpg,jpeg,png,webp})
 
     for file in ${files[@]}; do
-        local filename="${file##*/}"
-        case "$filename" in
+        local filename=${file##*/}
+        case $filename in
             [0-9]#_p[0-9]#.*)
                 updating_files[${filename%%_*}]+=" ${filename##*_}"
                 ;;

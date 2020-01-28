@@ -1,4 +1,4 @@
-export PATH="$PATH:$XDG_CACHE_HOME/zplug/bin"
+export PATH=$PATH:$XDG_CACHE_HOME/zplug/bin
 export VISUAL='vim'
 
 alias zmv='noglob zmv -vW'
@@ -35,14 +35,14 @@ fi
 
 if (( $+commands[sshfs] )); then
     mount-ssh() {
-        sshfs -o reconnect "$@"
+        sshfs -o reconnect $@
     }
 
     umount-ssh() {
         if (( $+commands[fusermount] )); then
-            fusermount -uz "$@"
+            fusermount -uz $@
         elif (( $+commands[diskutil] )); then
-            diskutil unmount force "$@"
+            diskutil unmount force $@
         fi
     }
 fi
@@ -53,7 +53,7 @@ if (( $+commands[defaults] )) {
     }
 }
 
-case "$OSTYPE" in
+case $OSTYPE in
     linux*)
         alias ls='ls --color=auto'
         ;;
