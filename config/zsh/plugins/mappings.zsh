@@ -9,5 +9,9 @@ bindkey '^[[Z' reverse-menu-complete
 bindkey -M vicmd -r ':'
 bindkey -M viins '^X^N' autosuggest-accept
 
+if zle -l fzf-completion; then
+    bindkey '^I' fzf-completion
+fi
+
 # Disable START/STOP output control
 stty -ixon
