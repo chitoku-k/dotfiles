@@ -31,6 +31,16 @@ if (( $+commands[systemctl] )); then
     alias sc='systemctl'
     alias ssc='sudo systemctl'
     alias scs='systemctl status'
+
+    _fzf_complete_sc() {
+        _fzf_complete_systemctl $@
+    }
+    _fzf_complete_ssc() {
+        _fzf_complete_systemctl $@
+    }
+    _fzf_complete_scs() {
+        _fzf_complete_systemctl $@
+    }
 fi
 
 if (( $+commands[sshfs] )); then
