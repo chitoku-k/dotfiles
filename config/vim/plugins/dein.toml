@@ -110,8 +110,22 @@ depends = 'fzf'
 hook_add = '''
   let g:fzf_statusline = 0
   let g:fzf_nvim_statusline = 0
-  nnoremap <silent> <Space>g :call fzf#vim#files('.', fzf#vim#with_preview({'options': ['--tiebreak=index', '--reverse']}))<CR>
-  nnoremap <silent> <Space>f :call fzf#vim#buffers({'options': ['--reverse']})<CR>
+  nnoremap <silent> <Space>g :call
+          \ fzf#vim#files(
+          \   '.',
+          \   fzf#vim#with_preview({
+          \     'options': [
+          \       '--tiebreak=index',
+          \       '--reverse',
+          \     ],
+          \   })
+          \ )<CR>
+  nnoremap <silent> <Space>f :call
+          \ fzf#vim#buffers({
+          \   'options': [
+          \     '--reverse',
+          \   ],
+          \ })<CR>
 '''
 
 [[plugins]]

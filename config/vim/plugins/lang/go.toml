@@ -3,12 +3,12 @@ repo = 'fatih/vim-go'
 lazy = 1
 on_ft = ['go']
 if = 'has("nvim-0.3.2") && executable("go")'
-
-[[plugins]]
-repo = 'nametake/ctrlp-goimport'
-lazy = 1
-on_ft = ['go']
-if = 'executable("go")'
-build = '''
-  go get -u github.com/uudashr/gopkgs/cmd/gopkgs
+hook_add = '''
+  command! GoPackages call fzf#run({
+          \   'source': 'gopkgs | sort',
+          \   'sink': 'GoImport',
+          \   'options': [
+          \       '--reverse',
+          \   ],
+          \ })
 '''
