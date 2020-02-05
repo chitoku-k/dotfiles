@@ -1,7 +1,7 @@
 # Vim-style text objects
 # See: https://github.com/zsh-users/zsh/commit/d257f0143e69c3724466c4c92f59538d2f3fffd1
 
-if [[ $(bindkey -l) != *viopp* ]]; then
+if ! bindkey -l viopp &> /dev/null; then
     return
 fi
 
