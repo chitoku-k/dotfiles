@@ -34,19 +34,11 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --no-mouse"
 fi
 
-if (( $+commands[rg] )); then
-    export FZF_DEFAULT_COMMAND='rg --hidden --files --sort path'
-
-    _fzf_compgen_path() {
-        rg --hidden --files --sort path $@
-    }
-fi
-
 if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --hidden --type f | sort'
 
     _fzf_compgen_path() {
-        fd --hidden --type f . $@ | sort
+        fd --hidden . $@ | sort
     }
 
     _fzf_compgen_dir() {
