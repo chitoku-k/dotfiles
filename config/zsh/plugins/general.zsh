@@ -2,21 +2,7 @@ autoload -Uz zmv
 
 SAVEHIST=0
 KEYTIMEOUT=1
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
-    history-search-forward
-    history-search-backward
-    history-beginning-search-forward
-    history-beginning-search-backward
-    history-substring-search-up
-    history-substring-search-down
-    up-line-or-beginning-search
-    down-line-or-beginning-search
-    up-line-or-history
-    down-line-or-history
-    accept-line
-    copy-earlier-word
-    vi-cmd-mode
-)
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=()
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
