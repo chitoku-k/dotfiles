@@ -23,6 +23,8 @@ highlight EndOfBuffer guifg=#363d45 guibg=NONE
 highlight SpellBad guifg=#bf616a
 highlight link CocHoverRange CursorColumn
 highlight link graphqlConstant Operator
+highlight link graphqlName Operator
+highlight link graphqlVariable Operator
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag
 highlight link typescriptEndColons jsObjectSeparator
