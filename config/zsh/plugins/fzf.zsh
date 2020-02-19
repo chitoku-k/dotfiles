@@ -31,7 +31,7 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     }
 
     zle -N fzf-complete-directory
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --no-mouse"
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height=40% --no-mouse"
 fi
 
 if (( $+commands[fd] )); then
