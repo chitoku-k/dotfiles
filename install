@@ -80,6 +80,10 @@ dotfiles-list-install() {
 }
 
 dotfiles-confirm-install() {
+    if [[ ! -t 0 ]]; then
+        return
+    fi
+
     local confirm
 
     {
@@ -132,7 +136,7 @@ dotfiles-install() {
 }
 
 dotfiles-reload() {
-    if ! type zsh &> /dev/null; then
+    if ! type zsh &> /dev/null || [[ ! -t 0 ]]; then
         return
     fi
 
