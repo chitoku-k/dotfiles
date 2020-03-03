@@ -189,6 +189,7 @@ build = '''
 '''
 hook_add = '''
   let g:Hexokinase_ftAutoload = ['*']
+  let g:Hexokinase_optOutPatterns = ['colour_names']
   let g:Hexokinase_refreshEvents = ['BufEnter', 'TextChanged', 'TextChangedI']
 
   if !has('nvim-0.3.2')
