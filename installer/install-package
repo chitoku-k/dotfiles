@@ -73,16 +73,20 @@ install-package() {
                 create-symlink ./config/phpcs/rules.php "$xdgconfig/phpcs/rules.php"
                 ;;
             'zsh/zplug')
+                rm -rf -- "$xdgcache/zplug"
                 git clone --depth 1 https://github.com/zplug/zplug.git "$xdgcache/zplug"
                 touch -- "$xdgcache/zplug/packages.zsh"
                 ;;
             'vim/dein.vim')
+                rm -rf -- "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
                 git clone --depth 1 https://github.com/Shougo/dein.vim.git "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
                 ;;
             'tmux/tpm')
+                rm -rf -- "$xdgcache/tpm/plugins"
                 git clone --depth 1 https://github.com/tmux-plugins/tpm.git "$xdgcache/tpm/plugins"
                 ;;
             'chriskempson/base16-iterm2')
+                rm -rf -- "$xdgcache/iterm2/base16-iterm2"
                 git clone --depth 1 https://github.com/chriskempson/base16-iterm2 "$xdgcache/iterm2/base16-iterm2"
                 ;;
             *)
