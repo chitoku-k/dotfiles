@@ -1,33 +1,9 @@
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap () ()<Left>
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap <> <><Left>
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap `` ``<Left>
-
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-vnoremap j gj
-vnoremap k gk
-vnoremap gj j
-vnoremap gk k
 cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
-nnoremap + <C-a>
-nnoremap - <C-x>
-vnoremap + g<C-a>
-vnoremap - g<C-x>
-
 vnoremap v $h
-vnoremap e joko
 
 nnoremap <C-q> <Nop>
 inoremap <F1> <Nop>
@@ -73,5 +49,4 @@ if !has('gui')
   inoremap <Right> <Nop>
 endif
 
-nnoremap <silent> <C-p> o<C-r>=substitute(@*, '\n', '', 'g')<CR><Esc>^
 inoremap <silent> <F5> <C-r>=substitute(strftime('%FT%T%z'), '+\(\d\d\)\(\d\d\)$', '+\1:\2', '')<CR>
