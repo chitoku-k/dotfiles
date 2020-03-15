@@ -12,6 +12,12 @@ Setting files expect each version or later:
 - Bash 3.5.27
 - tmux 2.4
 
+## Optional
+
+- [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
+- [sharkdp/bat](https://github.com/sharkdp/bat)
+- [sharkdp/fd](https://github.com/sharkdp/fd)
+
 ## Installation
 
 The script needs zsh and optionally git for the plugins.

@@ -2,29 +2,23 @@ for file in $ZDOTDIR/plugins/*.zsh(D); do
     source $file
 done
 
-if [[ -a $ZPLUG_HOME ]]; then
-    source $ZPLUG_HOME/init.zsh
-    arch=*$(uname -m)*$(uname -s)*
+if [[ -a $XDG_CACHE_HOME/antigen ]]; then
+    source $XDG_CACHE_HOME/antigen/antigen.zsh
 
-    zplug 'b4b4r07/zsh-vimode-visual', defer:3
-    zplug 'BurntSushi/ripgrep', from:gh-r, as:command, rename-to:'rg', use:${(L)arch}
-    zplug 'chitoku-k/fzf-zsh-completions'
-    zplug 'chitoku-k/zsh-reset-title'
-    zplug 'chitoku-k/zsh-togglecursor', defer:1
-    zplug 'chitoku-k/zsh-vcs-extended'
-    zplug 'chitoku-k/zsh-via-ssh'
-    zplug 'hcgraf/zsh-sudo'
-    zplug 'himanoa/neovim-terminal-utils', as:command, use:'*'
-    zplug 'junegunn/fzf', hook-build:'./install --xdg --no-update-rc'
-    zplug 'nicodebo/base16-fzf'
-    zplug 'sharkdp/bat', from:gh-r, as:command, rename-to:'bat', use:${(L)arch}
-    zplug 'sharkdp/fd', from:gh-r, as:command, rename-to:'fd', use:${(L)arch}
-    zplug 'zsh-users/zsh-autosuggestions'
-    zplug 'zsh-users/zsh-completions'
-    zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-
-    zplug load
-    unset arch
+    antigen bundle 'b4b4r07/zsh-vimode-visual'
+    antigen bundle 'chitoku-k/fzf-zsh-completions'
+    antigen bundle 'chitoku-k/zsh-reset-title'
+    antigen bundle 'chitoku-k/zsh-togglecursor'
+    antigen bundle 'chitoku-k/zsh-vcs-extended'
+    antigen bundle 'chitoku-k/zsh-via-ssh'
+    antigen bundle 'hcgraf/zsh-sudo'
+    antigen bundle 'himanoa/neovim-terminal-utils'
+    antigen bundle 'junegunn/fzf'
+    antigen bundle 'nicodebo/base16-fzf'
+    antigen bundle 'zsh-users/zsh-autosuggestions'
+    antigen bundle 'zsh-users/zsh-completions'
+    antigen bundle 'zsh-users/zsh-syntax-highlighting'
+    antigen apply
 fi
 
 for file in $ZDOTDIR/local/*.zsh(D); do

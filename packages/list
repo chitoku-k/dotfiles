@@ -10,7 +10,7 @@ dotfiles/.gvimrc
 dotfiles/.vsvimrc
 dotfiles/.ignore
 xdg/phpcs/rules.php
-zsh/zplug
+zsh/antigen
 vim/dein.vim
 tmux/tpm
 chriskempson/base16-iterm2

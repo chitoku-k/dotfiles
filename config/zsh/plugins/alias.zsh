@@ -1,4 +1,3 @@
-export PATH=$PATH:$XDG_CACHE_HOME/zplug/bin
 export VISUAL='vim'
 
 alias zmv='noglob zmv -vW'

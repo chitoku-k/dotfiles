@@ -72,10 +72,9 @@ install-package() {
             'xdg/phpcs/rules.php')
                 create-symlink ./config/phpcs/rules.php "$xdgconfig/phpcs/rules.php"
                 ;;
-            'zsh/zplug')
-                rm -rf -- "$xdgcache/zplug"
-                git clone --depth 1 https://github.com/zplug/zplug.git "$xdgcache/zplug"
-                touch -- "$xdgcache/zplug/packages.zsh"
+            'zsh/antigen')
+                rm -rf -- "$xdgcache/antigen"
+                git clone --depth 1 https://github.com/zsh-users/antigen "$xdgcache/antigen"
                 ;;
             'vim/dein.vim')
                 rm -rf -- "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
