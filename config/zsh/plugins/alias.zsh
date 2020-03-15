@@ -29,6 +29,21 @@ if (( $+commands[tmux] )); then
 
         tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf
     }
+
+    ssh() {
+        local ret
+
+        if [[ -n $TMUX ]]; then
+            tmux rename-window "$0: ${@:-1}"
+            command ssh $@
+            ret=$?
+
+            tmux set-window-option automatic-rename on &> /dev/null
+            return $ret
+        fi
+
+        command ssh $@
+    }
 fi
 
 if (( $+commands[systemctl] )); then
