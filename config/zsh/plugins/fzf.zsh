@@ -23,7 +23,7 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
             [[ -z $trigger ]] && prefix=${tokens[-1]} || prefix=${tokens[-1]:0:-${#trigger}}
             [[ -z ${tokens[-1]} ]] && lbuf=$LBUFFER || lbuf=${LBUFFER:0:-${#tokens[-1]}}
 
-            _fzf_dir_completion "$prefix" "$lbuf"
+            __fzf_generic_path_completion "$prefix" "$lbuf" _fzf_compgen_executable '' ' ' ''
             return
         fi
 
@@ -43,5 +43,9 @@ if (( $+commands[fd] )); then
 
     _fzf_compgen_dir() {
         fd --hidden --type d . $@ | sort
+    }
+
+    _fzf_compgen_executable() {
+        fd --hidden --type d --type x . $@ | sort
     }
 fi
