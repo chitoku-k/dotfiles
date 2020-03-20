@@ -33,7 +33,7 @@ if (( $+commands[tmux] )); then
         local ret
 
         if [[ -n $TMUX ]]; then
-            tmux rename-window "$0: ${@:-1}"
+            tmux rename-window "$0: ${@[-1]}"
             command ssh $@
             ret=$?
 
