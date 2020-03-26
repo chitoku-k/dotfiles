@@ -48,4 +48,32 @@ if (( $+commands[fd] )); then
     _fzf_compgen_executable() {
         fd --hidden --type d --type x . $@ | sort
     }
+else
+    case $OSTYPE in
+        linux*)
+            _fzf_compgen_executable() {
+                find -L $@ \
+                    -name .git -prune \
+                    -o -name .hg -prune \
+                    -o -name .svn -prune \
+                    -o -type d \
+                    -o -executable \
+                    -a -not -path $@ -a -not -path . -print \
+                    2> /dev/null | sed 's/^\.\///'
+            }
+            ;;
+        darwin*)
+            _fzf_compgen_executable() {
+                find -L $@ \
+                    -name .git -prune \
+                    -o -name .hg -prune \
+                    -o -name .svn -prune \
+                    -o -type d \
+                    -a -not -path $@ -a -not -path . -print \
+                    -o -type f -perm +111 \
+                    -a -not -path $@ -a -not -path . -print \
+                    2> /dev/null | sed 's/^\.\///'
+            }
+            ;;
+    esac
 fi
