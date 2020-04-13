@@ -4,6 +4,7 @@ lazy = 1
 on_ft = ['go']
 if = 'has("nvim-0.3.2") && executable("go")'
 hook_add = '''
+  let g:go_echo_go_info = 0
   command! GoPackages call fzf#run({
           \   'source': 'gopkgs | sort',
           \   'sink': 'GoImport',
