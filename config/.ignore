@@ -3,4 +3,5 @@
 Applications*/
 Library/
 !.env*
+!.github/
 !.ssh/
