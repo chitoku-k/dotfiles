@@ -41,6 +41,7 @@ set shortmess+=cs
 set completeopt-=preview
 set pumheight=20
 set previewheight=5
+set signcolumn=yes
 set listchars=tab:▸\ 
 set fillchars+=vert:\ 
 

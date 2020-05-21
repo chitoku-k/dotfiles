@@ -20,6 +20,9 @@ highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
 highlight CursorIM guifg=NONE guibg=SteelBlue
 highlight EndOfBuffer guifg=#363d45 guibg=NONE
+highlight SignatureMarkerText guifg=#bf616a
+highlight SignatureMarkText guifg=#a3be8c
+highlight SignColumn ctermbg=18 guibg=#343d46
 highlight SpellBad guifg=#bf616a
 highlight link CocHoverRange CursorColumn
 highlight link graphqlConstant Operator
@@ -31,4 +34,3 @@ highlight link typescriptEndColons jsObjectSeparator
 highlight link typescriptOpSymbols Function
 highlight link typescriptOperator Function
 highlight link purescriptOperator Delimiter
-highlight clear SignColumn

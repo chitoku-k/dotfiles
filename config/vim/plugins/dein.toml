@@ -309,6 +309,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'kshenoy/vim-signature'
+
+[[plugins]]
 repo = 'tyru/operator-reverse.vim'
 hook_add = '''
   nmap <silent>vs <Plug>(operator-reverse-text)

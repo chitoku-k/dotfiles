@@ -1,5 +1,4 @@
 let &l:commentstring = '-- %s'
-setlocal signcolumn=yes
 
 augroup purescript
   autocmd!

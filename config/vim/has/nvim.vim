@@ -5,6 +5,7 @@ tnoremap <C-q> <C-\><C-n>
 augroup termrc
   autocmd!
   autocmd TermOpen *
+        \ setlocal signcolumn=no |
         \ startinsert
 augroup END
 
