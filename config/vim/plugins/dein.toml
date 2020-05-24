@@ -126,6 +126,12 @@ hook_add = '''
           \     '--reverse',
           \   ],
           \ })<CR>
+  nnoremap <silent> <Space>m :call
+          \ fzf#vim#marks({
+          \   'options': [
+          \     '--reverse',
+          \   ],
+          \ })<CR>
 '''
 
 [[plugins]]
