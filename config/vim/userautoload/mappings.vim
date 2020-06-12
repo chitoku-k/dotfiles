@@ -1,7 +1,7 @@
-cnoremap <C-h> <Left>
+cnoremap <C-b> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
-cnoremap <C-l> <Right>
+cnoremap <C-f> <Right>
 
 vnoremap v $h
 
