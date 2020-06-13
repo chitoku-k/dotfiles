@@ -4,52 +4,52 @@ typeset -gA _zsh_prompt_format
 
 if is-at-least 5.7; then
     _zsh_prompt_format[normal-prefix]=$'\n'
-    _zsh_prompt_format[normal-hostname]='%K{#8fa1b3}%F{#2b303b} %m %k%f'
+    _zsh_prompt_format[normal-hostname]='%K{#8fa1b3}%F{#8fa1b3}[%f%F{#2b303b}%m %k%f'
     _zsh_prompt_format[normal-directory]='%K{#4f5b66}%F{#a7adba} %1~ %k%f'
     _zsh_prompt_format[normal-vcs0]='%%K{#4f5b66}%%F{#a7adba}| %s '
     _zsh_prompt_format[normal-vcs1]='%%K{#ebcb8b}%%F{#2b303b} %s %%f%%k'
-    _zsh_prompt_format[normal-user]='%F{#a7adba}%(!.%K{#b3666c} # %k.%K{#343d46} $ %k) %f'
+    _zsh_prompt_format[normal-user]='%F{#a7adba}%(!.%K{#b3666c} #%F{#b3666c}%f%k.%K{#343d46} $%F{#343d46}]%f%k) '
 
     _zsh_prompt_format[insert-prefix]=${_zsh_prompt_format[normal-prefix]}
-    _zsh_prompt_format[insert-hostname]='%K{#a3be8c}%F{#2b303b} %m %k%f'
+    _zsh_prompt_format[insert-hostname]='%K{#a3be8c}%F{#a3be8c}[%f%F{#2b303b}%m %k%f'
     _zsh_prompt_format[insert-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[insert-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[insert-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[insert-user]=${_zsh_prompt_format[normal-user]}
 
     _zsh_prompt_format[visual-prefix]=${_zsh_prompt_format[normal-prefix]}
-    _zsh_prompt_format[visual-hostname]='%K{#b48ead}%F{#343d46} %m %k%f'
+    _zsh_prompt_format[visual-hostname]='%K{#b48ead}%F{#b48ead}[%f%F{#343d46}%m %k%f'
     _zsh_prompt_format[visual-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[visual-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[visual-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[visual-user]=${_zsh_prompt_format[normal-user]}
 
     _zsh_prompt_format[finish-prefix]=${_zsh_prompt_format[normal-prefix]}
-    _zsh_prompt_format[finish-hostname]='%K{#65737e}%F{#a7adba} %m %k%f'
+    _zsh_prompt_format[finish-hostname]='%K{#65737e}%F{#65737e}[%f%F{#a7adba}%m %k%f'
     _zsh_prompt_format[finish-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[finish-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[finish-vcs1]='%%K{#65737e}%%F{#a7adba} %s %%f%%k'
     _zsh_prompt_format[finish-user]=${_zsh_prompt_format[normal-user]}
 else
-    _zsh_prompt_format[normal-hostname]=$'%{\x1b[48;2;143;161;179m\x1b[38;2;43;48;59m%} %m '
+    _zsh_prompt_format[normal-hostname]=$'%{\x1b[48;2;143;161;179m\x1b[38;2;143;161;179m%}[%{\x1b[38;2;43;48;59m%}%m '
     _zsh_prompt_format[normal-directory]=$'%{\x1b[48;2;79;91;102m\x1b[38;2;167;173;186m%} %1~ '
     _zsh_prompt_format[normal-vcs0]=$'%%{\x1b[48;2;79;91;102m\x1b[38;2;167;173;186m%%}| %s '
     _zsh_prompt_format[normal-vcs1]=$'%%{\x1b[48;2;235;203;139m\x1b[38;2;43;48;59m%%} %s '
-    _zsh_prompt_format[normal-user]=$'%{\x1b[38;2;167;173;186m%}%(!.%{\x1b[48;2;179;102;108m%} # .%{\x1b[48;2;52;61;70m%} $ )%{\x1b[0m%} '
+    _zsh_prompt_format[normal-user]=$'%{\x1b[38;2;167;173;186m%}%(!.%{\x1b[48;2;179;102;108m%} #%{\x1b[38;2;179;102;108m%}].%{\x1b[48;2;52;61;70m%} $%{\x1b[38;2;52;61;70m%}])%{\x1b[0m%} '
 
-    _zsh_prompt_format[insert-hostname]=$'%{\x1b[48;2;163;190;140m\x1b[38;2;43;48;59m%} %m '
+    _zsh_prompt_format[insert-hostname]=$'%{\x1b[48;2;163;190;140m\x1b[38;2;163;190;140m%}[%{\x1b[38;2;43;48;59m%}%m '
     _zsh_prompt_format[insert-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[insert-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[insert-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[insert-user]=${_zsh_prompt_format[normal-user]}
 
-    _zsh_prompt_format[visual-hostname]=$'%{\x1b[48;2;180;142;173m\x1b[38;2;52;61;70m%} %m '
+    _zsh_prompt_format[visual-hostname]=$'%{\x1b[48;2;180;142;173m\x1b[38;2;180;142;173m%}[%{\x1b[38;2;52;61;70m%}%m '
     _zsh_prompt_format[visual-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[visual-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[visual-vcs1]=${_zsh_prompt_format[normal-vcs1]}
     _zsh_prompt_format[visual-user]=${_zsh_prompt_format[normal-user]}
 
-    _zsh_prompt_format[finish-hostname]=$'%{\x1b[48;2;101;115;126m\x1b[38;2;167;173;186m%} %m '
+    _zsh_prompt_format[finish-hostname]=$'%{\x1b[48;2;101;115;126m\x1b[38;2;101;115;126m%}[%{\x1b[38;2;167;173;186m%}%m '
     _zsh_prompt_format[finish-directory]=${_zsh_prompt_format[normal-directory]}
     _zsh_prompt_format[finish-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[finish-vcs1]=$'%%{\x1b[48;2;101;115;126m\x1b[38;2;167;173;186m%%} %s %%f%%k'

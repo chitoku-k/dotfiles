@@ -50,4 +50,3 @@ if !has('gui')
 endif
 
 inoremap <silent> <F5> <C-r>=substitute(strftime('%FT%T%z'), '+\(\d\d\)\(\d\d\)$', '+\1:\2', '')<CR>
-nnoremap <silent> <F5> :execute '%s/ ' . expand('$HOST') . ' [^$]\+\$ \?/$'<CR>
