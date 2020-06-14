@@ -75,11 +75,11 @@ if (( $+commands[sshfs] )); then
     }
 fi
 
-if (( $+commands[defaults] )) {
+if (( $+commands[defaults] )); then
     defaults-write-com.apple.systempreferences-AttentionPrefBundleIDs-0() {
         defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
     }
-}
+fi
 
 case $OSTYPE in
     linux*)
