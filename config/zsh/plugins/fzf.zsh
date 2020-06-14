@@ -34,6 +34,12 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height=40% --no-mouse"
 fi
 
+if (( $+commands[xxh] )); then
+    _fzf_complete_xxh() {
+        _fzf_complete_ssh $@
+    }
+fi
+
 if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --hidden --type f | sort'
 
