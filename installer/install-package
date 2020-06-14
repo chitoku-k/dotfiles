@@ -41,6 +41,9 @@ install-package() {
                 create-symlink ./config/bash/.bashrc "$home/.bashrc"
                 create-symlink ./config/bash "$xdgconfig/bash"
                 ;;
+            'xdg/xxh')
+                create-symlink ./config/xxh "$xdgconfig/xxh"
+                ;;
             'xdg/tmux')
                 create-symlink ./config/tmux "$xdgconfig/tmux"
                 ;;
