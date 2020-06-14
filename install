@@ -148,7 +148,6 @@ dotfiles-reload() {
     fi
 
     zsh -c 'source $ZDOTDIR/.zshrc && compaudit | xargs chmod 755' 2> /dev/null
-    zsh -c '[[ -a $ADOTDIR/bundles/junegunn/fzf ]] && $ADOTDIR/bundles/junegunn/fzf/install --all --xdg --no-update-rc'
 }
 
 if [[ ! -d 'config' ]] || [[ ! -a 'packages/list' ]] || [[ ! -a 'packages/descriptions' ]]; then

@@ -13,4 +13,5 @@ Rules for PHP-CS-Fixer
 The plugin manager for zsh
 Dark powered Vim/Neovim plugin manager
 Tmux Plugin Manager
+A command-line fuzzy finder
 Base16 for iTerm2

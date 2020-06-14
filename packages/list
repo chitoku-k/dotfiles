@@ -13,4 +13,5 @@ xdg/phpcs/rules.php
 zsh/antigen
 vim/dein.vim
 tmux/tpm
+junegunn/fzf
 chriskempson/base16-iterm2

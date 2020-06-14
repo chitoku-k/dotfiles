@@ -78,11 +78,16 @@ install-package() {
                 ;;
             'vim/dein.vim')
                 rm -rf -- "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
-                git clone --depth 1 https://github.com/Shougo/dein.vim.git "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
+                git clone --depth 1 https://github.com/Shougo/dein.vim "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
                 ;;
             'tmux/tpm')
                 rm -rf -- "$xdgcache/tpm/plugins"
-                git clone --depth 1 https://github.com/tmux-plugins/tpm.git "$xdgcache/tpm/plugins"
+                git clone --depth 1 https://github.com/tmux-plugins/tpm "$xdgcache/tpm/plugins"
+                ;;
+            'junegunn/fzf')
+                rm -rf -- "$xdgcache/antigen/bundles/junegunn/fzf"
+                git clone --depth 1 https://github.com/junegunn/fzf "$xdgcache/antigen/bundles/junegunn/fzf"
+                $xdgcache/antigen/bundles/junegunn/fzf/install --all --xdg --no-update-rc > /dev/null
                 ;;
             'chriskempson/base16-iterm2')
                 rm -rf -- "$xdgcache/iterm2/base16-iterm2"
