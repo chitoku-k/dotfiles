@@ -1,5 +1,3 @@
-fpath+=($ZDOTDIR/{plugins,local}/autoload)
-
 if [[ -a $XDG_CACHE_HOME/antigen ]]; then
     source $XDG_CACHE_HOME/antigen/antigen.zsh
 
@@ -8,3 +6,5 @@ if [[ -a $XDG_CACHE_HOME/antigen ]]; then
     antigen bundles < $ZDOTDIR/bundles
     antigen apply
 fi
+
+fpath=($ZDOTDIR/{plugins,local}/autoload $fpath)
