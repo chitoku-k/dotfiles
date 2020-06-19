@@ -48,10 +48,10 @@ dotfiles-read-install() {
     awk \
         -v input="$input" '
         BEGIN {
-            split(input, targets, " ")
+            n = split(input, targets, " ")
         }
         {
-            for (i = 1; i <= length(targets); ++i) {
+            for (i = 1; i <= n; ++i) {
                 start = end = targets[i]
                 sub(/-.*/, "", start)
                 sub(/.*-/, "", end)
