@@ -4,5 +4,5 @@ hosts:
     ++install:
     ++shell: zsh
     ++install-xxh-packages:
-      - xxh-shell-zsh
+      - xxh-shell-zsh+git+https://github.com/chitoku-k/xxh-shell-zsh
       - xxh-plugin-prerun-dotfiles+git+https://github.com/chitoku-k/xxh-plugin-prerun-dotfiles
