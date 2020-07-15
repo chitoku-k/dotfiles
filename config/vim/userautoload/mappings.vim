@@ -29,6 +29,7 @@ inoremap <F21> <Nop>
 inoremap <F22> <Nop>
 inoremap <F23> <Nop>
 inoremap <F24> <Nop>
+inoremap <C-Space> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Up> <Nop>
