@@ -5,13 +5,14 @@
     "copyFormatting": false,
     "profiles": {
         "defaults": {
-            "colorScheme": "base16-ocean"
+            "colorScheme": "base16-ocean",
+            "fontSize": 10
         },
         "list": [
             {
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
+                "commandline": "pwsh.exe -nologo"
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -70,7 +71,7 @@
         },
         {
             "keys": "ctrl+shift+f",
-            "command": "find",
+            "command": "find"
         },
         {
             "keys": "alt+shift+d",
