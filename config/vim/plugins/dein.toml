@@ -1,6 +1,7 @@
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
 hook_add = '''
+  let g:dirvish_mode = ':sort ,^.*[\/],'
   nnoremap <silent> <Space>e :Dirvish<CR>
   nnoremap <silent> <Space>r :Dirvish %:h<CR>
 '''
