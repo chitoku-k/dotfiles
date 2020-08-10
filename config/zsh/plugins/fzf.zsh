@@ -41,7 +41,7 @@ if (( $+commands[xxh] )); then
 fi
 
 if (( $+commands[fd] )); then
-    export FZF_DEFAULT_COMMAND='fd --hidden --type f | sort'
+    export FZF_DEFAULT_COMMAND='fd --hidden | sort'
 
     _fzf_compgen_path() {
         fd --hidden . $@ | sort
