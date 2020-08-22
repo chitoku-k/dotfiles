@@ -10,7 +10,7 @@ Setting files expect each version or later:
 - Vim 7.4.160 or Neovim 0.3.0
 - Zsh 5.0.2
 - Bash 3.5.27
-- tmux 2.4
+- tmux 3.1
 
 ## Optional
 

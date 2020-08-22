@@ -12,14 +12,12 @@ if hash nvim 2> /dev/null; then
 fi
 
 if hash tmux 2> /dev/null; then
-    alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-
     work() {
         if tmux attach || [[ -n $TMUX ]]; then
             return
         fi
 
-        tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf
+        tmux $@
     }
 
     ssh() {
