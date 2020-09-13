@@ -234,6 +234,7 @@ hook_add = '''
         \   'coc-styled-components',
         \   'coc-tsserver',
         \   'coc-vetur',
+        \   'coc-yaml',
         \ ]
 
   inoremap <silent><expr> <C-x><C-n> coc#refresh()

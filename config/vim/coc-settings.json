@@ -6,6 +6,12 @@
     "diagnostic.infoSign": "⚑",
     "diagnostic.hintSign": "❇︎",
     "suggest.snippetIndicator": "↩ ",
+    "yaml.format.singleQuote": true,
+    "yaml.schemas": {
+        "kubernetes": [
+            "/manifests*/*.yml"
+        ]
+    },
     "languageserver": {
         "purescript": {
             "command": "purescript-language-server",
