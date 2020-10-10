@@ -99,6 +99,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
