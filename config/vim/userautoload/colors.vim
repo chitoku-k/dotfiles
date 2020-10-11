@@ -21,7 +21,7 @@ highlight Conceal guifg=Grey guibg=NONE
 highlight CursorIM guifg=NONE guibg=SteelBlue
 highlight DiffAdd guifg=NONE guibg=#334539
 highlight DiffChange guifg=NONE guibg=#454133
-highlight DiffDelete guibg=#45333a guifg=#45333a
+highlight DiffDelete guibg=NONE guibg=#45333a
 highlight DiffText guifg=NONE guibg=#5f5d42
 highlight DiffLine guifg=NONE guibg=#8fa1b3
 highlight EndOfBuffer guifg=#363d45 guibg=NONE
@@ -30,10 +30,6 @@ highlight SignatureMarkText guifg=#a3be8c
 highlight SignColumn ctermbg=18 guibg=#343d46
 highlight SpellBad guifg=#bf616a
 highlight link CocHoverRange CursorColumn
-highlight link DiffAdded DiffAdd
-highlight link DiffFile DiffText
-highlight link DiffNewFile DiffText
-highlight link DiffRemoved DiffChange
 highlight link graphqlConstant Operator
 highlight link graphqlName Operator
 highlight link graphqlVariable Operator

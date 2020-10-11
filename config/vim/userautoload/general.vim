@@ -42,8 +42,9 @@ set completeopt-=preview
 set pumheight=20
 set previewheight=5
 set signcolumn=yes
+set diffopt+=context:3
 set listchars=tab:▸\ 
-set fillchars+=vert:\ 
+set fillchars+=vert:\ ,diff:\ 
 
 set ignorecase
 set smartcase
