@@ -21,7 +21,7 @@ highlight Conceal guifg=Grey guibg=NONE
 highlight CursorIM guifg=NONE guibg=SteelBlue
 highlight DiffAdd guifg=NONE guibg=#334539
 highlight DiffChange guifg=NONE guibg=#454133
-highlight DiffDelete guibg=NONE guibg=#45333a
+highlight DiffDelete guifg=NONE guibg=#45333a
 highlight DiffText guifg=NONE guibg=#5f5d42
 highlight DiffLine guifg=NONE guibg=#8fa1b3
 highlight EndOfBuffer guifg=#363d45 guibg=NONE
