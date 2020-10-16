@@ -1,5 +1,6 @@
 {
     "coc.preferences.colorSupport": false,
+    "coc.preferences.messageLevel": "error",
     "coc.preferences.useQuickfixForLocations": true,
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
