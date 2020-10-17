@@ -1,4 +1,5 @@
 export VISUAL='vim'
+export EDITOR=$VISUAL
 
 alias mv='mv -v'
 alias cp='cp -v'
@@ -8,6 +9,7 @@ alias chmod='chmod -v'
 
 if hash nvim 2> /dev/null; then
     export VISUAL='nvim'
+    export EDITOR=$VISUAL
     alias vim='nvim'
 fi
 

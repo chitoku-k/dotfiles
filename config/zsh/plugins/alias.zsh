@@ -1,4 +1,5 @@
 export VISUAL='vim'
+export EDITOR=$VISUAL
 
 alias zmv='noglob zmv -vW'
 alias mv='mv -v'
@@ -10,11 +11,13 @@ alias grep='grep --color=auto'
 
 if (( $+commands[nvim] )); then
     export VISUAL='nvim'
+    export EDITOR=$VISUAL
     alias vim=$VISUAL
 fi
 
 if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n $NVIM_LISTEN_ADDRESS ]]; then
     export VISUAL='godopen --sync'
+    export EDITOR=$VISUAL
     alias vim=$VISUAL
 fi
 
