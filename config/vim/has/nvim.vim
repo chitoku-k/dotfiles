@@ -6,7 +6,10 @@ augroup termrc
   autocmd!
   autocmd TermOpen *
         \ setlocal signcolumn=no |
-        \ startinsert
+        \ startinsert |
+        \ if exists('g:loaded_hexokinase') |
+        \   call hexokinase#v2#scraper#off() |
+        \ endif
 augroup END
 
 if !vimrc#supports_cursor()
