@@ -31,7 +31,7 @@ function! vimrc#lightline#readonly() abort
 endfunction
 
 function! vimrc#lightline#filename() abort
-  if vimrc#lightline#hide() || lightline#mode() ==# 'TERMINAL' || &filetype ==# 'fzf'
+  if vimrc#lightline#hide() || vimrc#lightline#term() || &filetype ==# 'fzf'
     return ''
   endif
   if &filetype ==# 'dirvish'
