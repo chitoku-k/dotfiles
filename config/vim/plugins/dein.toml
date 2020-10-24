@@ -74,6 +74,7 @@ repo = 'bronson/vim-trailing-whitespace'
 hook_add = '''
   let g:extra_whitespace_ignored_filetypes = [
         \   'markdown',
+        \   'qf',
         \ ]
 '''
 
