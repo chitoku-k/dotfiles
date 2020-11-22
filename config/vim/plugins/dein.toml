@@ -245,7 +245,7 @@ hook_add = '''
         \ ]
 
   inoremap <silent><expr> <C-x><C-n> coc#refresh()
-  nnoremap <silent> <F1> :call CocAction('doHover') \| call coc#util#float_jump()<CR>
+  nnoremap <silent> <F1> :call CocAction('doHover')<CR>
   nmap <silent> <F2> <Plug>(coc-rename)
   nmap <silent> <F3> <Plug>(coc-implementation)
   nmap <silent> <F4> <Plug>(coc-definition)
@@ -256,7 +256,7 @@ hook_add = '''
   augroup coc
     autocmd!
     autocmd User CocDiagnosticChange call lightline#update()
-    autocmd CursorHoldI * silent call CocActionAsync('highlight') | call CocActionAsync('doHover')
+    autocmd CursorHoldI * silent call CocActionAsync('highlight')
   augroup END
 '''
 
