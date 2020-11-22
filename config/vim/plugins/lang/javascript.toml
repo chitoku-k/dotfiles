@@ -5,10 +5,6 @@ repo = 'nicklasos/vim-jsx-riot'
 repo = 'pangloss/vim-javascript'
 
 [[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = ['javascript', 'typescript']
-
-[[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'typescript']
 

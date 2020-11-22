@@ -33,9 +33,11 @@ highlight link CocHoverRange CursorColumn
 highlight link graphqlConstant Operator
 highlight link graphqlName Operator
 highlight link graphqlVariable Operator
+highlight link javaScriptComment Comment
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag
 highlight link typescriptEndColons jsObjectSeparator
 highlight link typescriptOpSymbols Function
 highlight link typescriptOperator Function
+highlight link typescriptReserved Keyword
 highlight link purescriptOperator Delimiter
