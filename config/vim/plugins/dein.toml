@@ -256,6 +256,9 @@ hook_add = '''
   augroup coc
     autocmd!
     autocmd User CocDiagnosticChange call lightline#update()
+    autocmd User CocOpenFloat
+          \ execute 'autocmd BufLeave <buffer=' . winbufnr(g:coc_last_float_win) . '> set backspace=' |
+          \ call setwinvar(g:coc_last_float_win, '&backspace', 'indent,eol,start')
     autocmd CursorHoldI * silent call CocActionAsync('highlight')
   augroup END
 '''
