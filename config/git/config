@@ -24,6 +24,9 @@
 [diff]
     indentHeuristic = true
 
+[init]
+    defaultBranch = master
+
 [color]
     ui = auto
 
