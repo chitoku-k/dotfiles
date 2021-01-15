@@ -18,14 +18,14 @@ IME_GET(WinTitle = "A") {
         , Int, 0)
 }
 
-$vk1A::
+$*vk1A::
 if IME_GET() {
     Send,{vk1D}
 } else {
     return
 }
 
-$vk1D::
+$*vk1D::
 if IME_GET() {
     Send,{vk1D}
 } else {

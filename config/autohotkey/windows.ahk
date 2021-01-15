@@ -1,1 +1,1 @@
-#^Enter::Return
+$#^Enter::Return
