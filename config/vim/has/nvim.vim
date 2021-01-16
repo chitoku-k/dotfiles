@@ -15,6 +15,9 @@ augroup guirc
   autocmd!
   autocmd UIEnter *
         \ highlight Normal guibg=#3d4049 |
+        \ if exists(':GuiFont') && has('win32') |
+        \   execute('GuiFont! Consolas:h10') |
+        \ endif |
         \ if exists(':GuiTabline') |
         \   execute('GuiTabline 0') |
         \ endif |
