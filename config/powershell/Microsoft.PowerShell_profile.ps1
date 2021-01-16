@@ -33,7 +33,7 @@ function Prompt {
         $mode = "`e[48;2;163;190;140m`e[38;2;163;190;140m[`e[38;2;43;48;59m"
     }
 
-    $computername = "$env:COMPUTERNAME "
+    $computername = "$(hostname) "
     $directory = "`e[48;2;79;91;102m`e[38;2;167;173;186m $path "
     $prompt = "`e[48;2;79;91;102m`e[38;2;167;173;186m`e[48;2;52;61;70m $`e[38;2;52;61;70m]`e[0m "
 
