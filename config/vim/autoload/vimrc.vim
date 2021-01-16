@@ -25,7 +25,7 @@ function! vimrc#repo_dir(...) abort
 endfunction
 
 function! vimrc#supports_cursor() abort
-  return expand('$TERM_PROGRAM') =~# 'iTerm\.app\|Apple_Terminal' || expand('$VTE_VERSION') >= 3900
+  return expand('$TERM_PROGRAM') =~# 'iTerm\.app\|Apple_Terminal' || expand('$VTE_VERSION') >= 3900 || expand('$WT_SESSION') != ''
 endfunction
 
 function! vimrc#init() abort
