@@ -40,6 +40,40 @@ function Prompt {
     "$cursor$mode$computername$directory$prompt"
 }
 
+function Rename-Illustration {
+    Param(
+        [String]
+        $dir = (Get-Location).Path
+    )
+
+    $count = @{}
+    $files =
+        Get-ChildItem $dir |
+        Where { $_.Extension -In ".gif", ".jpg", ".jpeg", ".png", ".webp" } |
+        Where-Object { $_.BaseName -Match "^.+_p[0-9]+$" } |
+        ForEach-Object {
+            $key = $_.BaseName -Replace "^([0-9]+)_p[0-9]+", "`$1"
+            $count[$key]++
+            @{
+                Key = $key
+                Index = $count[$key]
+                File = $_
+            }
+        }
+
+    $files |
+        ForEach-Object {
+            if ($count[$_.Key] -Eq 1) {
+                $name = "pixiv_$($_.Key)$($_.File.Extension)"
+            } else {
+                $name = "pixiv_$($_.Key) ($($_.Index))$($_.File.Extension)"
+            }
+
+            Rename-Item -Path $_.File -NewName $name
+            "$($_.File.Name) -> $($name)"
+        }
+}
+
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 Set-PSReadLineOption -Colors @{
