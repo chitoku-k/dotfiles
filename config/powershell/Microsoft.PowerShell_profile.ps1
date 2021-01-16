@@ -40,6 +40,7 @@ function Prompt {
     "$cursor$mode$computername$directory$prompt"
 }
 
+Set-PSReadlineOption –HistorySaveStyle SaveNothing
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 Set-PSReadLineOption -Colors @{
