@@ -40,6 +40,28 @@ function Prompt {
     "$cursor$mode$computername$directory$prompt"
 }
 
+function Invoke-Illustration {
+    $services = @{
+        "^(?<id>[0-9]+)\.(?:jpg|png)$" = {"https://twitter.com/user/status/$($args)"}
+        "^pixiv_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/artworks/$($args)"}
+        "^fanbox_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/fanbox/creator/0/post/$($args)"}
+        "^fantia_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://fantia.jp/posts/$($args)"}
+        "^seiga_(?<id>[0-9]+)( \([0-9]+\))?\." = {"http://seiga.nicovideo.jp/seiga/im$($args)"}
+        "^nijie_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://nijie.info/view.php?id=$($args)"}
+        "^itolife_(?<id>[0-9]+\-[0-9]+\..*)" = {"http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=$($args)"}
+        "^youkan-hh_(?<id>[0-9]+\..*)" = {"http://youkan-hh.sakura.ne.jp/$($args)"}
+        "^yuunonn_new_illust[0-9]{2}_up" = {"https://www.melonbooks.co.jp/corner/detail.php?corner_id=885"}
+    }
+
+    Get-Item $args |
+        ForEach-Object {
+            $filename = $_.Name
+            $services.Keys |
+                Where-Object { $filename -Match $_ } |
+                ForEach-Object { Start-Process $services[$_].InvokeReturnAsIs($Matches["id"]) }
+        }
+}
+
 function Rename-Illustration {
     Param(
         [String]
