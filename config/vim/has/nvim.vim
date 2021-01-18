@@ -14,7 +14,9 @@ augroup END
 augroup guirc
   autocmd!
   autocmd UIEnter *
-        \ highlight Normal guibg=#3d4049 |
+        \ if exists('g:GuiLoaded') |
+        \   highlight Normal guibg=#3d4049 |
+        \ endif |
         \ if exists(':GuiFont') && has('win32') |
         \   execute('GuiFont! Consolas:h10') |
         \ endif |
