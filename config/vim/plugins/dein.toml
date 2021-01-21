@@ -236,6 +236,7 @@ hook_add = '''
         \   'coc-json',
         \   'coc-go',
         \   'coc-phpls',
+        \   'coc-powershell',
         \   'coc-sh',
         \   'coc-snippets',
         \   'coc-styled-components',
