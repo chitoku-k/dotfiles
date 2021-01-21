@@ -7,6 +7,8 @@
         "defaults": {
             "colorScheme": "base16-ocean",
             "antialiasingMode": "cleartype",
+            "cursorShape": "filledBox",
+            "cursorColor": "#c0c5ce",
             "fontFace": "Consolas",
             "fontSize": 10
         },
