@@ -76,11 +76,11 @@
             "command": "find"
         },
         {
-            "keys": "ctrl+t",
+            "keys": "ctrl+shift+t",
             "command": "newTab"
         },
         {
-            "keys": "ctrl+w",
+            "keys": "ctrl+shift+w",
             "command": "closeTab"
         },
         {
