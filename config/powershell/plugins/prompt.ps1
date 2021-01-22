@@ -57,5 +57,6 @@ Set-PSReadLineOption -Colors @{
 Set-PSReadLineKeyHandler -ViMode Insert -Chord Enter -ScriptBlock { OnAcceptLine }
 Set-PSReadLineKeyHandler -ViMode Command -Chord Enter -ScriptBlock { OnAcceptLine }
 Set-PSReadLineKeyHandler -ViMode Insert -Chord Ctrl+h -Function BackwardDeleteChar
+Set-PSReadLineKeyHandler -ViMode Command -Chord Escape -ScriptBlock {}
 Set-PSReadLineKeyHandler -ViMode Command -Chord Ctrl+Oem4 -ScriptBlock {}
 Set-PSReadLineKeyHandler -ViMode Insert -Chord Ctrl+Oem4 -Function ViCommandMode
