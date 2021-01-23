@@ -6,6 +6,7 @@
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "⚑",
     "diagnostic.hintSign": "❇︎",
+    "powershell.integratedConsole.showOnStartup": false,
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
     "yaml.schemas": {
