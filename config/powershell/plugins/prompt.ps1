@@ -6,7 +6,7 @@ function OnViModeChange {
 
 function OnAcceptLine {
     $global:PSConsoleAccepting = $TRUE
-    [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+    [Microsoft.PowerShell.PSConsoleReadLine]::ViInsertMode()
     $global:PSConsoleAccepting = $FALSE
 
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
