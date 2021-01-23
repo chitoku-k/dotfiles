@@ -25,19 +25,41 @@ function Prompt {
     if ($global:PSConsoleAccepting) {
         $cursor = "`e[1 q"
         $mode = "`e[48;2;101;115;126m`e[38;2;101;115;126m[`e[38;2;167;173;186m"
+        $vcsStat = $mode
     } elseif ([Microsoft.PowerShell.PSConsoleReadLine]::InViCommandMode()) {
         $cursor = "`e[1 q"
         $mode = "`e[48;2;143;161;179m`e[38;2;143;161;179m[`e[38;2;43;48;59m"
+        $vcsStat = "`e[48;2;235;203;139m`e[38;2;43;48;59m "
     } else {
         $cursor = "`e[5 q"
         $mode = "`e[48;2;163;190;140m`e[38;2;163;190;140m[`e[38;2;43;48;59m"
+        $vcsStat = "`e[48;2;235;203;139m`e[38;2;43;48;59m "
     }
 
     $computername = "$(hostname) "
     $directory = "`e[48;2;79;91;102m`e[38;2;167;173;186m $path "
     $prompt = "`e[48;2;79;91;102m`e[38;2;167;173;186m`e[48;2;52;61;70m $`e[38;2;52;61;70m]`e[0m "
 
-    "$cursor$mode$computername$directory$prompt"
+    if (Get-Command Get-GitStatus -ErrorAction SilentlyContinue) {
+        if ($status = Get-GitStatus) {
+            if ($status.HasIndex) {
+                $vcsStat += "+"
+            }
+            if ($status.HasWorking) {
+                $vcsStat += "*"
+            }
+            if ($status.HasUntracked) {
+                $vcsStat += "!"
+            }
+
+            $vcs = "| $($status.Branch) "
+            if ($status.HasIndex -Or $status.HasWorking -Or $status.HasUntracked) {
+                $vcs += "$($vcsStat) "
+            }
+        }
+    }
+
+    "$cursor$mode$computername$directory$vcs$prompt"
 }
 
 Set-PSReadLineOption -EditMode Vi
