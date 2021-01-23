@@ -29,7 +29,7 @@ function Rename-Illustration {
     $count = @{}
     $files =
         Get-ChildItem $dir |
-        Where { $_.Extension -In ".gif", ".jpg", ".jpeg", ".png", ".webp" } |
+        Where-Object { $_.Extension -In ".gif", ".jpg", ".jpeg", ".png", ".webp" } |
         Where-Object { $_.BaseName -Match "^.+_p[0-9]+$" } |
         ForEach-Object {
             $key = $_.BaseName -Replace "^([0-9]+)_p[0-9]+", "`$1"
