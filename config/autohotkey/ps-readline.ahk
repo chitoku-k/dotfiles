@@ -8,7 +8,7 @@ IME_GET(WinTitle = "A") {
         ptrSize := !A_PtrSize ? 4 : A_PtrSize
         VarSetCapacity(stGTI, cbSize := 4 + 4 + (PtrSize * 6) + 16, 0)
         NumPut(cbSize, stGTI, 0, "UInt")
-        hwnd := DllCall("GetGUIThreadInfo", Uint, 0, Uint, &stGTI) ? NumGet(stGTI, 8 + PtrSize,"UInt") : hwnd
+        hwnd := DllCall("GetGUIThreadInfo", Uint, 0, Uint, &stGTI) ? NumGet(stGTI, 8 + PtrSize, "UInt") : hwnd
     }
 
     return DllCall("SendMessage"
@@ -19,15 +19,13 @@ IME_GET(WinTitle = "A") {
 }
 
 $*vk1A::
-if IME_GET() {
+if IME_GET() or WinActive("ahk_exe vcxsrv.exe") {
     Send,{vk1D}
-} else {
-    return
 }
+return
 
 $*vk1D::
-if IME_GET() {
+if IME_GET() or WinActive("ahk_exe vcxsrv.exe") {
     Send,{vk1D}
-} else {
-    return
 }
+return
