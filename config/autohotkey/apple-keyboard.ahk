@@ -5,7 +5,7 @@ vk7C::vk2C
 #Enter::^Enter
 
 ; かな -> 変換
-vk16::Send,{vk1C}
+*vk16::Send,{vk1C}
 
 ; イコール（テンキー） -> イコール
 vk0C::+vkBD
