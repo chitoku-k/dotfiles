@@ -1,0 +1,2 @@
+[[plugins]]
+repo = 'direnv/direnv.vim'
