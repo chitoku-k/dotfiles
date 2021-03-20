@@ -37,6 +37,7 @@ set nowrap
 set lazyredraw
 set splitbelow
 set splitright
+set noequalalways
 set shortmess+=cs
 set completeopt-=preview
 set pumheight=20
