@@ -21,21 +21,6 @@ if hash tmux 2> /dev/null; then
 
         tmux $@
     }
-
-    ssh() {
-        local ret
-
-        if [[ -n $TMUX ]]; then
-            tmux rename-window "$0: ${@:-1}"
-            command ssh "$@"
-            ret=$?
-
-            tmux set-window-option automatic-rename on &> /dev/null
-            return $ret
-        fi
-
-        command ssh "$@"
-    }
 fi
 
 if hash systemctl 2> /dev/null; then

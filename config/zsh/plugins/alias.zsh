@@ -31,38 +31,8 @@ if (( $+commands[tmux] )); then
     }
 fi
 
-if (( $+commands[ssh] )); then
-    ssh() {
-        local ret
-
-        if [[ -n $TMUX ]]; then
-            tmux rename-window "$0: ${@[-1]}"
-            command $0 $@
-            ret=$?
-
-            tmux set-window-option automatic-rename on &> /dev/null
-            return $ret
-        fi
-
-        command $0 $@
-    }
-fi
-
 if (( $+commands[xxh] )); then
     xxh() {
-        local ret
-
-        if [[ -n $TMUX ]]; then
-            tmux rename-window "$0: ${@[-1]}"
-            command $0 \
-                ++env=TERM_PROGRAM=$TERM_PROGRAM \
-                ++env=VTE_VERSION=$VTE_VERSION $@
-            ret=$?
-
-            tmux set-window-option automatic-rename on &> /dev/null
-            return $ret
-        fi
-
         command $0 \
             ++env=TERM_PROGRAM=$TERM_PROGRAM \
             ++env=VTE_VERSION=$VTE_VERSION $@
