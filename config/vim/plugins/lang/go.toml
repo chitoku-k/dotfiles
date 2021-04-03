@@ -13,3 +13,9 @@ hook_add = '''
           \   ],
           \ })
 '''
+
+[[plugins]]
+repo = 'sebdah/vim-delve'
+lazy = 1
+on_ft = ['go']
+if = 'executable("go")'
