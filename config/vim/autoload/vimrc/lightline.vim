@@ -42,15 +42,8 @@ function! vimrc#lightline#filename() abort
   return readonly . filename
 endfunction
 
-function! vimrc#lightline#lineinfo() abort
-  if vimrc#lightline#hide() || vimrc#lightline#term()
-    return ''
-  endif
-  return printf('%3d/%d', line('.'), line('$'))
-endfunction
-
 function! vimrc#lightline#fileformat() abort
-  if vimrc#lightline#hide(1) || vimrc#lightline#term()
+  if vimrc#lightline#hide(1) || vimrc#lightline#term() || split(&fileformats, ',')[0] ==# &fileformat
     return ''
   endif
   return &fileformat
