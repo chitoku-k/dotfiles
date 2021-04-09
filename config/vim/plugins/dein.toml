@@ -319,6 +319,13 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'chitoku-k/vim-operator-move'
+hook_add = '''
+  nmap <silent>m[ <Plug>(operator-move-begin)
+  nmap <silent>m] <Plug>(operator-move-end)
+'''
+
+[[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_add = '''
   nmap <silent>ys <Plug>(operator-surround-append)
