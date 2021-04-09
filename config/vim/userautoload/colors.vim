@@ -1,7 +1,9 @@
 filetype plugin indent on
 syntax on
 set background=dark
-set termguicolors
+if expand('$TERM') != 'linux'
+  set termguicolors
+endif
 
 try
   colorscheme base16-ocean

@@ -3,6 +3,10 @@ if [[ -a $ADOTDIR/bundles/nicodebo/base16-fzf/bash/base16-ocean.config ]]; then
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --color=bg:-1"
 fi
 
+if [[ $TERM = 'linux' ]]; then
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --no-unicode"
+fi
+
 if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     fzf_default_completion=fzf-complete-directory
     source $XDG_CONFIG_HOME/fzf/fzf.zsh
