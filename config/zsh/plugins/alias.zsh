@@ -31,6 +31,10 @@ if (( $+commands[tmux] )); then
     }
 fi
 
+if (( $+commands[kubectl] )); then
+    alias -g k8s-secret='-o json | jq -r "if .items then .items else [.] end | map({ name: .metadata.name, data: .data | map_values(@base64d) })[]"'
+fi
+
 if (( $+commands[xxh] )); then
     xxh() {
         command $0 \
