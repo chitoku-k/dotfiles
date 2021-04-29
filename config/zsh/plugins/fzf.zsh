@@ -1,10 +1,12 @@
+export FZF_DEFAULT_OPTS=
+
 if [[ -a $ADOTDIR/bundles/nicodebo/base16-fzf/bash/base16-ocean.config ]]; then
     source $ADOTDIR/bundles/nicodebo/base16-fzf/bash/base16-ocean.config
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --color=bg:-1"
+    fzf_default_opts+=($FZF_DEFAULT_OPTS --color='bg:-1')
 fi
 
 if [[ $TERM = 'linux' ]]; then
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS  --no-unicode"
+    fzf_default_opts+=(--no-unicode)
 fi
 
 if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
@@ -35,7 +37,7 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     }
 
     zle -N fzf-complete-directory
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height=40% --no-mouse"
+    fzf_default_opts+=(--reverse --height=40% --no-mouse)
 fi
 
 if (( $+commands[xxh] )); then
@@ -87,3 +89,5 @@ else
             ;;
     esac
 fi
+
+export FZF_DEFAULT_OPTS=$fzf_default_opts
