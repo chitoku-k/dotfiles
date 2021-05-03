@@ -1,8 +1,10 @@
-autoload -Uz select-word-style {backward,forward}-word-match
+autoload -Uz select-word-style {backward,forward}-word-match {inc,dec}arg
 select-word-style shell
 
 zle -N backward-word{,-match}
 zle -N forward-word{,-match}
+zle -N incarg
+zle -N decarg
 
 bindkey -v
 bindkey -r '^D'
@@ -15,6 +17,8 @@ bindkey '^[[Z' reverse-menu-complete
 bindkey -M vicmd -r ':'
 bindkey -M vicmd B backward-word
 bindkey -M vicmd W forward-word
+bindkey -M vicmd '^A' incarg
+bindkey -M vicmd '^X' decarg
 bindkey -M viins '^X^N' autosuggest-accept
 
 if zle -l fzf-completion; then

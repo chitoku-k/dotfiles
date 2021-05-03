@@ -1,0 +1,1 @@
+zle ${WIDGET/dec/inc} -n $(( -${NUMERIC:-1} ))
