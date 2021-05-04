@@ -8,6 +8,10 @@ config/zsh/local/*
 config/bash/local/*
 !config/bash/local/.gitkeep.bash
 
+# PowerShell
+config/powershell/local/*
+!config/powershell/local/.gitkeep.ps1
+
 # Vim
 config/vim/.netrwhist
 
