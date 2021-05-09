@@ -8,12 +8,12 @@ function ConvertTo-Mp3 {
         $arguments
     )
 
-    ffmpeg ^
-        -i $path ^
-        -vn ^
-        -acodec libmp3lame ^
-        -ac 2 ^
-        -ab 256k ^
-        -ar 44100 ^
+    ffmpeg `
+        -i $path `
+        -vn `
+        -acodec libmp3lame `
+        -ac 2 `
+        -ab 256k `
+        -ar 44100 `
         $arguments
 }
