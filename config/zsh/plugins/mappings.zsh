@@ -13,7 +13,7 @@ bindkey '^N' history-beginning-search-forward
 bindkey '^L' clear-screen
 bindkey '^F' sudo-command-line
 bindkey '^[[3~' delete-char
-bindkey '^[[Z' reverse-menu-complete
+bindkey '^[[Z' fzf-tab-complete
 bindkey -M vicmd -r ':'
 bindkey -M vicmd B backward-word
 bindkey -M vicmd W forward-word
