@@ -1,3 +1,1 @@
-if (Get-InstalledModule -Name "posh-git" -ErrorAction SilentlyContinue) {
-    Import-Module posh-git
-}
+Import-Module -ErrorAction SilentlyContinue posh-git
