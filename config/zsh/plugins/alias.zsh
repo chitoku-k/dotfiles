@@ -31,6 +31,12 @@ if (( $+commands[tmux] )); then
     }
 fi
 
+if (( $+commands[docker] )) && (( $+commands[groups] )) && (( $+commands[id] )) && (( $+commands[sudo] )); then
+    if [[ $(groups 2> /dev/null) != *docker* ]] && [[ $(id 2> /dev/null) != 0 ]]; then
+        alias docker='sudo docker'
+    fi
+fi
+
 if (( $+commands[kubectl] )); then
     alias -g k8s-secret='-o json | jq -r "if .items then .items else [.] end | map({ name: .metadata.name, data: .data | map_values(@base64d) })[]"'
 fi
