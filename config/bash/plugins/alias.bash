@@ -19,7 +19,7 @@ if hash tmux 2> /dev/null; then
             return
         fi
 
-        tmux $@
+        tmux "$@"
     }
 fi
 

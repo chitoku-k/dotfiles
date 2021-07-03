@@ -37,12 +37,12 @@ rename-illustrations() {
         for updating_file in $updating_file_suffixes; do
             if (( ${#updating_file_suffixes[@]} == 1 )); then
                 echo "mv -- $dir/${updating_filename}_${updating_file} $dir/pixiv_${updating_filename}.${updating_file##*.}"
-                mv -- $dir/${updating_filename}_${updating_file} $dir/pixiv_${updating_filename}.${updating_file##*.} > /dev/null
+                mv -- "$dir/${updating_filename}_${updating_file}" "$dir/pixiv_${updating_filename}.${updating_file##*.}" > /dev/null
                 continue
             fi
 
             echo "mv -- $dir/${updating_filename}_${updating_file} $dir/pixiv_${updating_filename} ($count).${updating_file##*.}"
-            mv -- $dir/${updating_filename}_${updating_file} "$dir/pixiv_${updating_filename} ($count).${updating_file##*.}" > /dev/null
+            mv -- "$dir/${updating_filename}_${updating_file}" "$dir/pixiv_${updating_filename} ($count).${updating_file##*.}" > /dev/null
             (( count ++ ))
         done
     done

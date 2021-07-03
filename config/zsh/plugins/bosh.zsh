@@ -8,19 +8,19 @@ fi
 
 if [[ -a /var/vcap/bosh ]]; then
     monit() {
-        sudo /var/vcap/bosh/bin/monit $@
+        sudo /var/vcap/bosh/bin/monit "$@"
     }
 fi
 
 if [[ -a /var/vcap/jobs/bpm/bin ]]; then
     bpm() {
-        sudo /var/vcap/jobs/bpm/bin/bpm $@
+        sudo /var/vcap/jobs/bpm/bin/bpm "$@"
     }
 fi
 
 if [[ -a /var/vcap/packages/cfdot/bin ]]; then
     cfdot() {
-        /var/vcap/packages/cfdot/bin/cfdot $@
+        /var/vcap/packages/cfdot/bin/cfdot "$@"
     }
 
     cfdot-runc() {
@@ -31,11 +31,11 @@ if [[ -a /var/vcap/packages/cfdot/bin ]]; then
 
         guid=$(cfdot actual-lrps |
             jq -r --slurp \
-                --arg address $address \
-                --arg port $port \
+                --arg address "$address" \
+                --arg port "$port" \
                 '.[] | select(.address == $address and (.ports | any(.host_port | tostring == $port))) | .instance_guid')
 
         sudo /var/vcap/packages/runc/bin/runc --root \
-            /run/containerd/runc/garden exec -t $guid /bin/bash
+            /run/containerd/runc/garden exec -t "$guid" /bin/bash
     }
 fi

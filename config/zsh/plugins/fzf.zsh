@@ -16,7 +16,7 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     fzf-complete-directory() {
         local trigger tokens lbuf prefix tail
 
-        tokens=(${(z)LBUFFER})
+        tokens=("${(z)LBUFFER[@]}")
         if [[ ${#tokens} = 0 ]]; then
             zle expand-or-complete
             return
@@ -42,7 +42,7 @@ fi
 
 if (( $+commands[xxh] )); then
     _fzf_complete_xxh() {
-        _fzf_complete_ssh $@
+        _fzf_complete_ssh "$@"
     }
 fi
 
@@ -50,40 +50,40 @@ if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --hidden | sort'
 
     _fzf_compgen_path() {
-        fd --hidden . $@ | sort
+        fd --hidden . "$@" | sort
     }
 
     _fzf_compgen_dir() {
-        fd --hidden --type d . $@ | sort
+        fd --hidden --type d . "$@" | sort
     }
 
     _fzf_compgen_executable() {
-        fd --hidden --type d --type x . $@ | sort
+        fd --hidden --type d --type x . "$@" | sort
     }
 else
     case $OSTYPE in
         linux*)
             _fzf_compgen_executable() {
-                find -L $@ \
+                find -L "$@" \
                     -name .git -prune \
                     -o -name .hg -prune \
                     -o -name .svn -prune \
                     -o -type d \
                     -o -executable \
-                    -a -not -path $@ -a -not -path . -print \
+                    -a -not -path "$@" -a -not -path . -print \
                     2> /dev/null | sed 's/^\.\///'
             }
             ;;
         darwin*)
             _fzf_compgen_executable() {
-                find -L $@ \
+                find -L "$@" \
                     -name .git -prune \
                     -o -name .hg -prune \
                     -o -name .svn -prune \
                     -o -type d \
-                    -a -not -path $@ -a -not -path . -print \
+                    -a -not -path "$@" -a -not -path . -print \
                     -o -type f -perm +111 \
-                    -a -not -path $@ -a -not -path . -print \
+                    -a -not -path "$@" -a -not -path . -print \
                     2> /dev/null | sed 's/^\.\///'
             }
             ;;
