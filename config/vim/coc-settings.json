@@ -11,7 +11,8 @@
     "yaml.format.singleQuote": true,
     "yaml.schemas": {
         "kubernetes": [
-            "/manifests*/*.yml"
+            "/manifests*/**/*.yml",
+            "/manifests*/**/*.yaml"
         ]
     },
     "languageserver": {
