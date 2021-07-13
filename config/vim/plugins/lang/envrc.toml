@@ -1,3 +1,6 @@
 [[plugins]]
 repo = 'direnv/direnv.vim'
 if = 'executable("direnv")'
+hook_add = '''
+  let g:direnv_silent_load = 1
+'''
