@@ -41,6 +41,10 @@ if (( $+commands[kubectl] )); then
     alias -g k8s-secret='-o json | jq -r "if .items then .items else [.] end | map({ name: .metadata.name, data: .data | map_values(@base64d) })[]"'
 fi
 
+if (( $+commands[cf] )); then
+    alias -g cf-ups='--guid | xargs -I \{\} cf curl /v2/user_provided_service_instances/\{\} | jq ".entity | { name: .name, credentials: .credentials, syslog_drain_url: .syslog_drain_url }"'
+fi
+
 if (( $+commands[xxh] )); then
     xxh() {
         command $0 \
