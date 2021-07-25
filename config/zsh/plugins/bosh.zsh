@@ -35,7 +35,8 @@ if [[ -a /var/vcap/packages/cfdot/bin ]]; then
                 --arg port "$port" \
                 '.[] | select(.address == $address and (.ports | any(.host_port | tostring == $port))) | .instance_guid')
 
-        sudo /var/vcap/packages/runc/bin/runc --root \
-            /run/containerd/runc/garden exec -t "$guid" /bin/bash
+        sudo /var/vcap/packages/runc/bin/runc \
+            --root=/run/containerd/runc/garden \
+            exec -t "$guid" /bin/bash
     }
 fi
