@@ -3,6 +3,8 @@ autoload -U is-at-least
 typeset -gA _zsh_prompt_format
 
 if is-at-least 5.7; then
+    PROMPT_EOL_MARK='%K{#b3666c} %k'
+
     _zsh_prompt_format[normal-prefix]=$'\n'
     _zsh_prompt_format[normal-hostname]='%K{#8fa1b3}%F{#8fa1b3}[%f%F{#2b303b}%m %k%f'
     _zsh_prompt_format[normal-directory]='%K{#4f5b66}%F{#a7adba} %1~ %k%f'
@@ -31,6 +33,8 @@ if is-at-least 5.7; then
     _zsh_prompt_format[finish-vcs1]='%%K{#65737e}%%F{#a7adba} %s %%f%%k'
     _zsh_prompt_format[finish-user]=${_zsh_prompt_format[normal-user]}
 else
+    PROMPT_EOL_MARK=$'%{\x1b[48;2;179;102;108m%} %{\x1b[0m%}'
+
     _zsh_prompt_format[normal-hostname]=$'%{\x1b[48;2;143;161;179m\x1b[38;2;143;161;179m%}[%{\x1b[38;2;43;48;59m%}%m '
     _zsh_prompt_format[normal-directory]=$'%{\x1b[48;2;79;91;102m\x1b[38;2;167;173;186m%} %1~ '
     _zsh_prompt_format[normal-vcs0]=$'%%{\x1b[48;2;79;91;102m\x1b[38;2;167;173;186m%%}| %s '
