@@ -7,6 +7,8 @@
     "diagnostic.infoSign": "⚑",
     "diagnostic.hintSign": "❇︎",
     "powershell.integratedConsole.showOnStartup": false,
+    "rust-analyzer.inlayHints.chainingHintsSeparator": "⇢ ",
+    "rust-analyzer.inlayHints.typeHintsSeparator": "⇢ ",
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
     "yaml.schemas": {

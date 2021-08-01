@@ -32,6 +32,8 @@ highlight SignatureMarkText guifg=#a3be8c
 highlight SignColumn ctermbg=18 guibg=#343d46
 highlight SpellBad guifg=#bf616a
 highlight link CocHoverRange CursorColumn
+highlight link CocRustChainingHint Comment
+highlight link CocRustTypeHint Comment
 highlight link graphqlConstant Operator
 highlight link graphqlName Operator
 highlight link graphqlVariable Operator
