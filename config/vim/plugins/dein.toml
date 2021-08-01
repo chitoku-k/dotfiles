@@ -240,6 +240,7 @@ hook_add = '''
         \   'coc-go',
         \   'coc-phpls',
         \   'coc-powershell',
+        \   'coc-rust-analyzer',
         \   'coc-sh',
         \   'coc-snippets',
         \   'coc-styled-components',
