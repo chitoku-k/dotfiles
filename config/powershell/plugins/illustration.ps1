@@ -1,13 +1,15 @@
 function Invoke-Illustration {
     $services = @{
-        "^(?<id>[0-9]+)( \([0-9]+\))?\.(?:jpg|png)$" = {"https://twitter.com/user/status/$($args)"}
-        "^pixiv_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/artworks/$($args)"}
-        "^fanbox_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/fanbox/creator/0/post/$($args)"}
-        "^fantia_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://fantia.jp/posts/$($args)"}
-        "^seiga_(?<id>[0-9]+)( \([0-9]+\))?\." = {"http://seiga.nicovideo.jp/seiga/im$($args)"}
-        "^nijie_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://nijie.info/view.php?id=$($args)"}
-        "^itolife_(?<id>[0-9]+\-[0-9]+\..*)" = {"http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=$($args)"}
-        "^youkan-hh_(?<id>[0-9]+\..*)" = {"http://youkan-hh.sakura.ne.jp/$($args)"}
+        "^(?<id>[0-9]+)( \([0-9]+\))?\.(?:jpg|png)$" = {"https://twitter.com/user/status/$($args[1])"}
+        "^pixiv_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/artworks/$($args[1])"}
+        "^fanbox_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/fanbox/creator/0/post/$($args[1])"}
+        "^fanbox_(?<name>[^.]+)_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://$($args[0]).fanbox.cc/posts/$($args[1])"}
+        "^fantia_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://fantia.jp/posts/$($args[1])"}
+        "^skeb_(?<name>[^.]+)_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://skeb.jp/@$($args[0])/works/$($args[1])"}
+        "^seiga_(?<id>[0-9]+)( \([0-9]+\))?\." = {"http://seiga.nicovideo.jp/seiga/im$($args[1])"}
+        "^nijie_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://nijie.info/view.php?id=$($args[1])"}
+        "^itolife_(?<id>[0-9]+\-[0-9]+\..*)" = {"http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=$($args[1])"}
+        "^youkan-hh_(?<id>[0-9]+\..*)" = {"http://youkan-hh.sakura.ne.jp/$($args[1])"}
         "^yuunonn_new_illust[0-9]{2}_up" = {"https://www.melonbooks.co.jp/corner/detail.php?corner_id=885"}
     }
 
@@ -16,7 +18,7 @@ function Invoke-Illustration {
             $filename = $_.Name
             $services.Keys |
                 Where-Object { $filename -Match $_ } |
-                ForEach-Object { Start-Process $services[$_].InvokeReturnAsIs($Matches["id"]) }
+                ForEach-Object { Start-Process $services[$_].InvokeReturnAsIs($Matches["name"], $Matches["id"]) }
         }
 }
 

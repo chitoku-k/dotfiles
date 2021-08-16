@@ -14,8 +14,16 @@ do
         echo "https://www.pixiv.net/fanbox/creator/0/post/${match[1]}"
         continue
     fi
+    if [[ "$f" =~ /fanbox_([^.]+)_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
+        echo "https://${match[1]}.fanbox.cc/posts/${match[2]}"
+        continue
+    fi
     if [[ "$f" =~ /fantia_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://fantia.jp/posts/${match[1]}"
+        continue
+    fi
+    if [[ "$f" =~ /skeb_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
+        echo "https://skeb.jp/@${match[1]}/works/${match[2]}"
         continue
     fi
     if [[ "$f" =~ /seiga_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
