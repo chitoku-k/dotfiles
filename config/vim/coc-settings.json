@@ -12,9 +12,13 @@
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
     "yaml.schemas": {
+        "http://json.schemastore.org/kustomization": [
+            "kustomization.yaml"
+        ],
         "kubernetes": [
             "/*manifests*/**/*.yml",
-            "/*manifests*/**/*.yaml"
+            "/*manifests*/**/*.yaml",
+            "!kustomization.yaml"
         ]
     },
     "languageserver": {
