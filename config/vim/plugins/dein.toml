@@ -281,12 +281,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
+if = '!has("patch-8.0.1238")'
 hook_add = '''
   let g:incsearch#magic = '\v'
   map / <Plug>(incsearch-forward)
   map ? <Plug>(incsearch-backward)
 '''
-if = '!has("patch-8.0.1238")'
 
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
@@ -339,6 +339,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'haya14busa/vim-operator-flashy'
+if = '!has("nvim-0.5.0")'
 hook_add = '''
   map y <Plug>(operator-flashy)
   nmap Y <Plug>(operator-flashy)$

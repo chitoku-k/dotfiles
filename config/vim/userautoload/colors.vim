@@ -27,6 +27,7 @@ highlight DiffDelete guifg=NONE guibg=#45333a
 highlight DiffText guifg=NONE guibg=#5f5d42
 highlight DiffLine guifg=NONE guibg=#8fa1b3
 highlight EndOfBuffer guifg=#363d45 guibg=NONE
+highlight Flashy ctermbg=0 guibg=#13354a
 highlight SignatureMarkerText guifg=#bf616a
 highlight SignatureMarkText guifg=#a3be8c
 highlight SignColumn ctermbg=18 guibg=#343d46

@@ -67,4 +67,5 @@ augroup vimrc
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
   autocmd QuickFixCmdPost *grep* cwindow
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = 'Flashy', timeout = 100 })
 augroup END
