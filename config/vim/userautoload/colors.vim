@@ -11,7 +11,7 @@ catch
   colorscheme desert
 endtry
 
-if !exists('g:nyaovim_version') && !has('gui')
+if has('ttyin') || (!has('patch-8.0.0096') && !has('gui') && !exists('g:nyaovim_version'))
   highlight Normal ctermbg=NONE guibg=NONE
 endif
 highlight CocErrorSign guifg=#bf616a
