@@ -6,6 +6,10 @@
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "⚑",
     "diagnostic.hintSign": "❇︎",
+    "go.goplsOptions": {
+        "semanticTokens": true,
+        "usePlaceholders": true
+    },
     "powershell.integratedConsole.showOnStartup": false,
     "rust-analyzer.inlayHints.chainingHintsSeparator": "⇢ ",
     "rust-analyzer.inlayHints.typeHintsSeparator": "⇢ ",
