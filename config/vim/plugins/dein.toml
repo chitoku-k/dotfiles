@@ -233,6 +233,7 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 if = '(has("nvim-0.3.1") || v:version >= 800) && executable("node")'
 hook_add = '''
+  let g:coc_default_semantic_highlight_groups = 1
   let g:coc_global_extensions = [
         \   'coc-css',
         \   'coc-java',
