@@ -41,9 +41,11 @@ highlight link CocSem_comment NONE
 highlight link CocSem_keyword NONE
 highlight link CocSem_string NONE
 highlight link CocSem_variable NONE
+highlight link goGenerate Special
+highlight link goGenerateVariables PreProc
 highlight link goLabel Keyword
 highlight link goRepeat Keyword
-highlight link goType NONE
+highlight link goType Keyword
 highlight link javaScriptComment Comment
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag

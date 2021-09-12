@@ -5,6 +5,11 @@ on_ft = ['go']
 if = 'has("nvim-0.3.2") && executable("go")'
 hook_add = '''
   let g:go_echo_go_info = 0
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_function_parameters = 1
+  let g:go_highlight_generate_tags = 1
+  let g:go_highlight_types = 1
   command! GoPackages call fzf#run({
           \   'source': 'gopkgs | sort',
           \   'sink': 'GoImport',
