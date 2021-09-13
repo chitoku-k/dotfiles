@@ -7,8 +7,7 @@
     "diagnostic.infoSign": "⚑",
     "diagnostic.hintSign": "❇︎",
     "go.goplsOptions": {
-        "semanticTokens": true,
-        "usePlaceholders": true
+        "semanticTokens": true
     },
     "powershell.integratedConsole.showOnStartup": false,
     "rust-analyzer.inlayHints.chainingHintsSeparator": "⇢ ",
