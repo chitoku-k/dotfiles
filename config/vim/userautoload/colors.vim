@@ -54,6 +54,7 @@ highlight link typescriptEndColons jsObjectSeparator
 highlight link typescriptOpSymbols Function
 highlight link typescriptOperator Function
 highlight link typescriptReserved Keyword
+highlight link phpIdentifier Character
 highlight link purescriptOperator Delimiter
 highlight link yamlBlockMappingKey Macro
 highlight link yamlFlowMappingKey Macro
