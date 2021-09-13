@@ -50,15 +50,15 @@ if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --hidden | sort'
 
     _fzf_compgen_path() {
-        fd --hidden . "$@" | sort
+        fd --hidden --follow . "$@" | sort
     }
 
     _fzf_compgen_dir() {
-        fd --hidden --type d . "$@" | sort
+        fd --hidden --follow --type d . "$@" | sort
     }
 
     _fzf_compgen_executable() {
-        fd --hidden --type d --type x . "$@" | sort
+        fd --hidden --follow --type d --type x . "$@" | sort
     }
 else
     case $OSTYPE in
