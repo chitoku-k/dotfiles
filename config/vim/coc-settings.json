@@ -21,6 +21,7 @@
         "kubernetes": [
             "/*manifests*/**/*.yml",
             "/*manifests*/**/*.yaml",
+            "kubectl-edit-*.yaml",
             "!kustomization.yaml"
         ]
     },
