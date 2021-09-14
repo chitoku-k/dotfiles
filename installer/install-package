@@ -26,7 +26,7 @@ install-package() {
     local count=$(wc -l <<< "$list" | xargs)
     local home=$HOME
     local xdgconfig=${XDG_CONFIG_HOME:-$HOME/.config}
-    local xdgcache=${XDG_CACHE_HOME:-$HOME/.cache}
+    local xdgdata=${XDG_DATA_HOME:-$HOME/.local/share}
 
     for name in $list; do
         let ++index
@@ -76,25 +76,25 @@ install-package() {
                 create-symlink ./config/phpcs/rules.php "$xdgconfig/phpcs/rules.php"
                 ;;
             'zsh/antigen')
-                rm -rf -- "$xdgcache/antigen"
-                git clone --depth 1 https://github.com/zsh-users/antigen "$xdgcache/antigen"
+                rm -rf -- "$xdgdata/antigen"
+                git clone --depth 1 https://github.com/zsh-users/antigen "$xdgdata/antigen"
                 ;;
             'vim/dein.vim')
-                rm -rf -- "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
-                git clone --depth 1 https://github.com/Shougo/dein.vim "$xdgcache/dein/repos/github.com/Shougo/dein.vim"
+                rm -rf -- "$xdgdata/dein/repos/github.com/Shougo/dein.vim"
+                git clone --depth 1 https://github.com/Shougo/dein.vim "$xdgdata/dein/repos/github.com/Shougo/dein.vim"
                 ;;
             'tmux/tpm')
-                rm -rf -- "$xdgcache/tpm/plugins"
-                git clone --depth 1 https://github.com/tmux-plugins/tpm "$xdgcache/tpm/plugins"
+                rm -rf -- "$xdgdata/tpm/plugins"
+                git clone --depth 1 https://github.com/tmux-plugins/tpm "$xdgdata/tpm/plugins"
                 ;;
             'junegunn/fzf')
-                rm -rf -- "$xdgcache/antigen/bundles/junegunn/fzf"
-                git clone --depth 1 https://github.com/junegunn/fzf "$xdgcache/antigen/bundles/junegunn/fzf"
-                $xdgcache/antigen/bundles/junegunn/fzf/install --all --xdg --no-update-rc > /dev/null
+                rm -rf -- "$xdgdata/antigen/bundles/junegunn/fzf"
+                git clone --depth 1 https://github.com/junegunn/fzf "$xdgdata/antigen/bundles/junegunn/fzf"
+                $xdgdata/antigen/bundles/junegunn/fzf/install --all --xdg --no-update-rc > /dev/null
                 ;;
             'chriskempson/base16-iterm2')
-                rm -rf -- "$xdgcache/iterm2/base16-iterm2"
-                git clone --depth 1 https://github.com/chriskempson/base16-iterm2 "$xdgcache/iterm2/base16-iterm2"
+                rm -rf -- "$xdgdata/iterm2/base16-iterm2"
+                git clone --depth 1 https://github.com/chriskempson/base16-iterm2 "$xdgdata/iterm2/base16-iterm2"
                 ;;
             *)
                 return 1

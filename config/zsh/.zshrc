@@ -1,5 +1,5 @@
-if [[ -a $XDG_CACHE_HOME/antigen ]]; then
-    source $XDG_CACHE_HOME/antigen/antigen.zsh
+if [[ -a $XDG_DATA_HOME/antigen ]]; then
+    source $XDG_DATA_HOME/antigen/antigen.zsh
 
     antigen bundle $ZDOTDIR/plugins
     antigen bundle $ZDOTDIR/local

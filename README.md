@@ -75,5 +75,5 @@ Use `$HOME/.gitconfig`.
 
 Vim and tmux depend on environment variables as follows:
 
-- `$XDG_CACHE_HOME`: Defaults to `~/.cache`
 - `$XDG_CONFIG_HOME`: Defaults to `~/.config`
+- `$XDG_DATA_HOME`: Defaults to `~/.local/share`

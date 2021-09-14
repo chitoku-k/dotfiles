@@ -4,15 +4,15 @@ function! vimrc#plugin_dir(...) abort
   if has('win32')
     return expand('$APPDATA\dein') . join(a:000)
   else
-    return expand('$XDG_CACHE_HOME/dein') . join(a:000)
+    return expand('$XDG_DATA_HOME/dein') . join(a:000)
   endif
 endfunction
 
-function! vimrc#cache_dir(...) abort
+function! vimrc#data_dir(...) abort
   if has('win32')
     return expand('$APPDATA\vim') . join(a:000)
   else
-    return expand('$XDG_CACHE_HOME/vim') . join(a:000)
+    return expand('$XDG_DATA_HOME/vim') . join(a:000)
   endif
 endfunction
 
@@ -61,9 +61,9 @@ function! vimrc#init() abort
   if !has('nvim')
     let &runtimepath .= ',' . vimrc#config_dir('/after')
 
-    if isdirectory(vimrc#cache_dir())
-      let &directory = vimrc#cache_dir('/swap')
-      let &backupdir = vimrc#cache_dir('/backup')
+    if isdirectory(vimrc#data_dir())
+      let &directory = vimrc#data_dir('/swap')
+      let &backupdir = vimrc#data_dir('/backup')
     endif
   endif
 endfunction
