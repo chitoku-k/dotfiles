@@ -37,8 +37,12 @@ if hash sshfs 2> /dev/null; then
     umount-ssh() {
         if hash fusermount 2> /dev/null; then
             fusermount -uz "$@"
+        elif hash fusermount3 2> /dev/null; then
+            fusermount3 -uz "$@"
         elif hash diskutil 2> /dev/null; then
             diskutil unmount force "$@"
+        else
+            echo Not supported. >&2
         fi
     }
 fi

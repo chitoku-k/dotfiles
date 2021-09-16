@@ -67,8 +67,12 @@ if (( $+commands[sshfs] )); then
     umount-ssh() {
         if (( $+commands[fusermount] )); then
             fusermount -uz "$@"
+        elif (( $+commands[fusermount3] )); then
+            fusermount3 -uz "$@"
         elif (( $+commands[diskutil] )); then
             diskutil unmount force "$@"
+        else
+            echo Not supported. >&2
         fi
     }
 fi
