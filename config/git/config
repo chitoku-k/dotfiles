@@ -27,6 +27,9 @@
 [init]
     defaultBranch = master
 
+[core]
+    quotepath = false
+
 [color]
     ui = auto
 
