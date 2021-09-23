@@ -107,6 +107,7 @@ repo = 'himanoa/goshiteki'
 
 [[plugins]]
 repo = 'kana/vim-tabpagecd'
+if = '!exists(":tcd")'
 
 [[plugins]]
 repo = 'junegunn/fzf'
