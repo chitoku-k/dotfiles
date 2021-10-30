@@ -88,6 +88,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
