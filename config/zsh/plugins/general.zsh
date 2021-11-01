@@ -19,5 +19,4 @@ setopt ignore_eof
 setopt magic_equal_subst
 setopt no_flow_control
 setopt no_no_match
-setopt print_exit_value
 setopt pushd_ignore_dups
