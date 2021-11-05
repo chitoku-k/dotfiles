@@ -32,6 +32,22 @@ if is-at-least 5.7; then
     _zsh_prompt_format[finish-vcs0]=${_zsh_prompt_format[normal-vcs0]}
     _zsh_prompt_format[finish-vcs1]='%%K{#65737e}%%F{#a7adba} %s %%f%%k'
     _zsh_prompt_format[finish-user]=${_zsh_prompt_format[normal-user]}
+
+    _zsh_prompt_preexec() {
+        _zsh_prompt_preexec=true
+    }
+
+    _zsh_prompt_precmd() {
+        local codes=($pipestatus)
+        local sum=$((${(j:+:)codes}))
+        if [[ $sum != 0 ]] && [[ $_zsh_prompt_preexec = true ]]; then
+            print -P "%F{#ebcb8b}zsh: exit ${(j: | :)codes}%f"
+            unset _zsh_prompt_preexec
+        fi
+    }
+
+    add-zsh-hook preexec _zsh_prompt_preexec
+    add-zsh-hook precmd _zsh_prompt_precmd
 else
     PROMPT_EOL_MARK=$'%{\x1b[48;2;179;102;108m%} %{\x1b[0m%}'
 
@@ -59,11 +75,24 @@ else
     _zsh_prompt_format[finish-vcs1]=$'%%{\x1b[48;2;101;115;126m\x1b[38;2;167;173;186m%%} %s %%f%%k'
     _zsh_prompt_format[finish-user]=${_zsh_prompt_format[normal-user]}
 
-    add-zsh-hook precmd () {
+    _zsh_prompt_preexec() {
+        _zsh_prompt_preexec=true
+    }
+
+    _zsh_prompt_precmd() {
+        local codes=($pipestatus)
+        local sum=$((${(j:+:)codes}))
+        if [[ $sum != 0 ]] && [[ $_zsh_prompt_preexec = true ]]; then
+            print -P "%{\x1b[38;2;235;203;139m%}zsh: exit ${(j: | :)codes}%f"
+            unset _zsh_prompt_preexec
+        fi
+
         [[ -z $@ ]] && echo >&2
-        LANG=en_US.UTF-8 vcs_info
         _zsh_prompt 'insert' 2> /dev/null
     }
+
+    add-zsh-hook preexec _zsh_prompt_preexec
+    add-zsh-hook precmd _zsh_prompt_precmd
 fi
 
 _zsh_prompt_redraw() {
