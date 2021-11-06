@@ -159,29 +159,53 @@ hook_add = '''
   let g:is_bash = 1
   let g:markdown_quote_syntax_on_filetypes = ['liquid']
   let g:markdown_quote_syntax_filetypes = {
+        \   'apache': {
+        \     'start': 'apacheconf.*',
+        \   },
+        \   'c': {
+        \     'start': 'c.*',
+        \   },
         \   'css': {
-        \     'start': 'css',
+        \     'start': 'css.*',
+        \   },
+        \   'dosini': {
+        \     'start': 'ini.*',
         \   },
         \   'go': {
-        \     'start': 'go',
+        \     'start': 'go.*',
+        \   },
+        \   'graphql': {
+        \     'start': 'graphql.*',
         \   },
         \   'html': {
-        \     'start': 'html',
+        \     'start': 'html.*',
+        \   },
+        \   'make': {
+        \     'start': 'makefile.*',
+        \   },
+        \   'nginx': {
+        \     'start': 'nginx.*',
         \   },
         \   'javascript': {
-        \     'start': 'javascript',
+        \     'start': 'javascript.*',
+        \   },
+        \   'json': {
+        \     'start': 'json.*',
         \   },
         \   'scss': {
-        \     'start': 'scss',
+        \     'start': 'scss.*',
         \   },
         \   'sh': {
-        \     'start': 'sh',
+        \     'start': '\%(bash\|sh\|shell\).*',
         \   },
         \   'typescript': {
-        \     'start': 'typescript',
+        \     'start': 'typescript.*',
+        \   },
+        \   'xml': {
+        \     'start': 'xaml.*',
         \   },
         \   'yaml': {
-        \     'start': 'yaml',
+        \     'start': 'yaml.*',
         \   },
         \ }
 '''
