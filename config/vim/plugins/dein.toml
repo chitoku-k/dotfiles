@@ -73,6 +73,7 @@ if = '!has("nvim")'
 repo = 'bronson/vim-trailing-whitespace'
 hook_add = '''
   let g:extra_whitespace_ignored_filetypes = [
+        \   'liquid',
         \   'markdown',
         \   'qf',
         \ ]
@@ -156,6 +157,7 @@ hook_add = '''
 repo = 'joker1007/vim-markdown-quote-syntax'
 hook_add = '''
   let g:is_bash = 1
+  let g:markdown_quote_syntax_on_filetypes = ['liquid']
   let g:markdown_quote_syntax_filetypes = {
         \   'css': {
         \     'start': 'css',
