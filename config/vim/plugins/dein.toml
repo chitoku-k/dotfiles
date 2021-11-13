@@ -196,7 +196,7 @@ hook_add = '''
         \     'start': 'scss.*',
         \   },
         \   'sh': {
-        \     'start': '\%(bash\|sh\|shell\).*',
+        \     'start': '\%(bash\|console\|sh\|shell\).*',
         \   },
         \   'typescript': {
         \     'start': 'typescript.*',
