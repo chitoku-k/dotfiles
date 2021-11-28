@@ -247,9 +247,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
+rev = '204ebfa5de6db00375907e86e90f43a2b47033b9'
 hook_add = '''
   let g:dein#install_github_api_token = expand('$DEIN_INSTALL_GITHUB_API_TOKEN')
-  autocmd VimEnter * call dein#call_hook('post_source')
 '''
 
 [[plugins]]
