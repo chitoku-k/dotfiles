@@ -47,18 +47,18 @@ if (( $+commands[xxh] )); then
 fi
 
 if (( $+commands[fd] )); then
-    export FZF_DEFAULT_COMMAND='fd --hidden | sort'
+    export FZF_DEFAULT_COMMAND='fd --strip-cwd-prefix --hidden | sort'
 
     _fzf_compgen_path() {
-        fd --hidden --follow . "$@" | sort
+        fd --strip-cwd-prefix --hidden --follow "$@" | sort
     }
 
     _fzf_compgen_dir() {
-        fd --hidden --follow --type d . "$@" | sort
+        fd --strip-cwd-prefix --hidden --follow --type d "$@" | sort
     }
 
     _fzf_compgen_executable() {
-        fd --hidden --follow --type d --type x . "$@" | sort
+        fd --strip-cwd-prefix --hidden --follow --type d --type x "$@" | sort
     }
 else
     case $OSTYPE in
