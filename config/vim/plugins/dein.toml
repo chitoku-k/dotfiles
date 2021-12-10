@@ -2,6 +2,8 @@
 repo = 'justinmk/vim-dirvish'
 hook_add = '''
   let g:dirvish_mode = ':sort ,^.*[\/],'
+'''
+hook_post_source = '''
   nnoremap <silent> <Space>e :Dirvish<CR>
   nnoremap <silent> <Space>r :Dirvish %:h<CR>
 '''
@@ -58,7 +60,8 @@ hook_add = '''
         \     'coc_info': 'info',
         \   },
         \ }
-
+'''
+hook_post_source = '''
   let s:palette = g:lightline#colorscheme#base16_ocean#palette
   let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
   let s:palette.normal.info = [['#343d46', '#8fa1b3', '18', '04']]
@@ -81,7 +84,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
-hook_add = '''
+hook_post_source = '''
   xmap <C-h> <Plug>(textmanip-move-left)
   xmap <C-j> <Plug>(textmanip-move-down)
   xmap <C-k> <Plug>(textmanip-move-up)
@@ -99,7 +102,7 @@ repo = 'lambdalisue/suda.vim'
 
 [[plugins]]
 repo = 'tpope/vim-capslock'
-hook_add = '''
+hook_post_source = '''
   imap <C-a> <C-o><Plug>CapsLockToggle
 '''
 
@@ -123,6 +126,8 @@ depends = 'fzf'
 hook_add = '''
   let g:fzf_statusline = 0
   let g:fzf_nvim_statusline = 0
+'''
+hook_post_source = '''
   nnoremap <silent> <Space>g :call
           \ fzf#vim#files(
           \   '.',
@@ -149,7 +154,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'qpkorr/vim-bufkill'
-hook_add = '''
+hook_post_source = '''
   command! WBD write | BD
 '''
 
@@ -247,10 +252,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
-path = 'dein.vim'
-rev = '204ebfa5de6db00375907e86e90f43a2b47033b9'
 hook_add = '''
   let g:dein#install_github_api_token = expand('$DEIN_INSTALL_GITHUB_API_TOKEN')
+  autocmd VimEnter * call dein#call_hook('post_source')
 '''
 
 [[plugins]]
@@ -280,7 +284,8 @@ hook_add = '''
         \   'coc-vetur',
         \   'coc-yaml',
         \ ]
-
+'''
+hook_post_source = '''
   inoremap <silent><expr> <C-x><C-n> coc#refresh()
   nnoremap <silent> <F1> :call CocAction('doHover')<CR>
   nmap <silent> <F2> <Plug>(coc-rename)
@@ -316,6 +321,8 @@ repo = 'haya14busa/incsearch.vim'
 if = '!has("patch-8.0.1238")'
 hook_add = '''
   let g:incsearch#magic = '\v'
+'''
+hook_post_source = '''
   map / <Plug>(incsearch-forward)
   map ? <Plug>(incsearch-backward)
 '''
@@ -324,6 +331,8 @@ hook_add = '''
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
   let g:anzu_status_format = "%/ (%i/%l)"
+'''
+hook_post_source = '''
   nmap <silent> <Esc><Esc> <Plug>(anzu-clear-search-status):nohlsearch<CR>
   nmap * <Plug>(asterisk-*)<Plug>(anzu-update-search-status-with-echo)
   nmap # <Plug>(asterisk-#)<Plug>(anzu-update-search-status-with-echo)
@@ -350,20 +359,20 @@ repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
-hook_add = '''
+hook_post_source = '''
   nmap R <Plug>(operator-replace)
 '''
 
 [[plugins]]
 repo = 'chitoku-k/vim-operator-move'
-hook_add = '''
+hook_post_source = '''
   nmap <silent>m[ <Plug>(operator-move-begin)
   nmap <silent>m] <Plug>(operator-move-end)
 '''
 
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
-hook_add = '''
+hook_post_source = '''
   nmap <silent>ys <Plug>(operator-surround-append)
   nmap <silent>ds <Plug>(operator-surround-delete)
   nmap <silent>cs <Plug>(operator-surround-replace)
@@ -372,7 +381,7 @@ hook_add = '''
 [[plugins]]
 repo = 'haya14busa/vim-operator-flashy'
 if = '!has("nvim-0.5.0")'
-hook_add = '''
+hook_post_source = '''
   map y <Plug>(operator-flashy)
   nmap Y <Plug>(operator-flashy)$
 '''
@@ -382,13 +391,13 @@ repo = 'kshenoy/vim-signature'
 
 [[plugins]]
 repo = 'tyru/operator-reverse.vim'
-hook_add = '''
+hook_post_source = '''
   nmap <silent>vs <Plug>(operator-reverse-text)
 '''
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
-hook_add = '''
+hook_post_source = '''
   nmap <silent>cl <Plug>(operator-camelize-toggle)
 '''
 

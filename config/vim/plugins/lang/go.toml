@@ -10,6 +10,8 @@ hook_add = '''
   let g:go_highlight_function_parameters = 1
   let g:go_highlight_generate_tags = 1
   let g:go_highlight_types = 1
+'''
+hook_post_source = '''
   command! GoPackages call fzf#run({
           \   'source': 'gopkgs | sort',
           \   'sink': 'GoImport',
