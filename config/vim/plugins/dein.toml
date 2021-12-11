@@ -16,6 +16,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'felixjung/vim-base16-lightline'
+hook_post_source = '''
+  let s:palette = g:lightline#palette()
+  let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
+  let s:palette.normal.info = [['#343d46', '#8fa1b3', '18', '04']]
+  call lightline#colorscheme()
+'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -60,11 +66,6 @@ hook_add = '''
         \     'coc_info': 'info',
         \   },
         \ }
-'''
-hook_post_source = '''
-  let s:palette = g:lightline#colorscheme#base16_ocean#palette
-  let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
-  let s:palette.normal.info = [['#343d46', '#8fa1b3', '18', '04']]
 '''
 
 # Either $TERM_PROGRAM or $VTE_VERSION is used for detection
