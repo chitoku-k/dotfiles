@@ -21,6 +21,9 @@ highlight CocSem_namespace gui=italic
 highlight CocWarningSign guifg=#ebcb8b
 highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerEnd guibg=#2f628e
+highlight ConflictMarkerSeparator guibg=#363d45
 highlight CursorIM guifg=NONE guibg=SteelBlue
 highlight DiffAdd guifg=NONE guibg=#334539
 highlight DiffChange guifg=NONE guibg=#454133

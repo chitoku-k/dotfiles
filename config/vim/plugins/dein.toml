@@ -111,6 +111,14 @@ hook_post_source = '''
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'rhysd/conflict-marker.vim'
+hook_add = '''
+  let g:conflict_marker_highlight_group = ''
+  let g:conflict_marker_begin = '^<<<<<<< .*$'
+  let g:conflict_marker_end = '^>>>>>>> .*$'
+'''
+
+[[plugins]]
 repo = 'himanoa/goshiteki'
 
 [[plugins]]
