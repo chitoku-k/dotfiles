@@ -24,7 +24,7 @@ highlight Conceal guifg=Grey guibg=NONE
 highlight ConflictMarkerBegin guibg=#2f7366
 highlight ConflictMarkerEnd guibg=#2f628e
 highlight ConflictMarkerSeparator guibg=#363d45
-highlight CursorIM guifg=NONE guibg=SteelBlue
+highlight CursorIM guifg=NONE guibg=#4682b4
 highlight DiffAdd guifg=NONE guibg=#334539
 highlight DiffChange guifg=NONE guibg=#454133
 highlight DiffDelete guifg=NONE guibg=#45333a
