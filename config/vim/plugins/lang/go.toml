@@ -11,22 +11,3 @@ hook_add = '''
   let g:go_highlight_generate_tags = 1
   let g:go_highlight_types = 1
 '''
-hook_post_source = '''
-  command! GoPackages call fzf#run({
-          \   'source': 'gopkgs | sort',
-          \   'sink': 'GoImport',
-          \   'options': [
-          \       '--reverse',
-          \   ],
-          \ })
-'''
-
-[[plugins]]
-repo = 'sebdah/vim-delve'
-lazy = 1
-on_ft = ['go']
-if = 'executable("go")'
-hook_add = '''
-  " Support debugging in containers mounted from volume
-  let g:delve_project_root = ''
-'''

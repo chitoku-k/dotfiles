@@ -3,18 +3,3 @@ repo = '2072/PHP-Indenting-for-VIm'
 
 [[plugins]]
 repo = 'StanAngeloff/php.vim'
-
-[[plugins]]
-repo = 'stephpy/vim-php-cs-fixer'
-lazy = 1
-on_ft = ['php']
-if = 'executable("php")'
-build = '''
-  composer require friendsofphp/php-cs-fixer
-'''
-hook_add = '''
-  let g:php_cs_fixer_path = vimrc#plugin_dir('/repos/github.com/stephpy/vim-php-cs-fixer/vendor/bin/php-cs-fixer')
-  if glob('~/.php_cs')
-    let g:php_cs_fixer_rules = "'' --config=" . expand(vimrc#plugin_dir('/../phpcs/rules.php'))
-  endif
-'''

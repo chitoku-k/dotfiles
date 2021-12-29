@@ -372,13 +372,6 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'chitoku-k/vim-operator-move'
-hook_post_source = '''
-  nmap <silent>m[ <Plug>(operator-move-begin)
-  nmap <silent>m] <Plug>(operator-move-end)
-'''
-
-[[plugins]]
 repo = 'rhysd/vim-operator-surround'
 hook_post_source = '''
   nmap <silent>ys <Plug>(operator-surround-append)
@@ -396,12 +389,6 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'kshenoy/vim-signature'
-
-[[plugins]]
-repo = 'tyru/operator-reverse.vim'
-hook_post_source = '''
-  nmap <silent>vs <Plug>(operator-reverse-text)
-'''
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
@@ -423,9 +410,6 @@ repo = 'kana/vim-textobj-indent'
 
 [[plugins]]
 repo = 'kana/vim-textobj-line'
-
-[[plugins]]
-repo = 'rhysd/vim-textobj-anyblock'
 
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
