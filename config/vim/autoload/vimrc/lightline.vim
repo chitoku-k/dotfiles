@@ -6,6 +6,15 @@ function! vimrc#lightline#term() abort
   return expand('%') =~# '^\(!\|term://\)'
 endfunction
 
+function! vimrc#lightline#fugitive() abort
+  if expand('%') !~# '^fugitive://'
+    return ['', '']
+  endif
+  let [object, git_dir] = FugitiveParse(expand('%'))
+  let [commit; filename] = split(object, ':')
+  return [commit, join(filename, ':')]
+endfunction
+
 function! vimrc#lightline#mode() abort
   if &filetype ==# 'fzf'
     return 'FZF'
@@ -34,12 +43,27 @@ function! vimrc#lightline#filename() abort
   if vimrc#lightline#hide() || vimrc#lightline#term() || &filetype ==# 'fzf'
     return ''
   endif
+  let [commit, filename] = vimrc#lightline#fugitive()
+  if commit !=# ''
+    return fnamemodify(filename, ':t') . ' | ' . strpart(commit, 0, 8)
+  endif
   if &filetype ==# 'dirvish'
     return substitute(expand('%'), expand('$HOME'), '~', '')
   endif
   let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
   let filename = expand('%:t') != '' ? expand('%:t') : '[No Name]'
   return readonly . filename
+endfunction
+
+function! vimrc#lightline#path() abort
+  if &filetype ==# 'fzf'
+    return ''
+  endif
+  let [commit, filename] = vimrc#lightline#fugitive()
+  if commit !=# ''
+    return fnamemodify(filename, ':h')
+  endif
+  return expand('%:h')
 endfunction
 
 function! vimrc#lightline#fileformat() abort

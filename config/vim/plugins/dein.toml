@@ -41,7 +41,7 @@ hook_add = '''
         \     'right': [],
         \   },
         \   'component': {
-        \     'path': '%<%{&filetype ==# "fzf" ? "" : expand("%:p:~:h")}',
+        \     'path': '%<%{vimrc#lightline#path()}',
         \   },
         \   'component_function': {
         \     'mode': 'vimrc#lightline#mode',
