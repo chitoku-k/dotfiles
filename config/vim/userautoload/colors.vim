@@ -18,6 +18,7 @@ highlight CocErrorSign guifg=fg guibg=#bf616a
 highlight CocHintSign guifg=#343d46 guibg=#8fa1b3
 highlight CocInfoSign guifg=#343d46 guibg=#8fa1b3
 highlight CocSem_namespace gui=italic
+highlight CocUnderline guisp=#bf616a gui=undercurl
 highlight CocWarningSign guifg=#ebcb8b guibg=#343d46
 highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
