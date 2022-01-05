@@ -14,11 +14,11 @@ endtry
 if has('ttyin') || (!has('patch-8.0.0096') && !has('gui') && !exists('g:nyaovim_version'))
   highlight Normal ctermbg=NONE guibg=NONE
 endif
-highlight CocErrorSign guifg=#bf616a
-highlight CocHintSign guifg=#8fa1b3
-highlight CocInfoSign guifg=#8fa1b3
+highlight CocErrorSign guifg=fg guibg=#bf616a
+highlight CocHintSign guifg=#343d46 guibg=#8fa1b3
+highlight CocInfoSign guifg=#343d46 guibg=#8fa1b3
 highlight CocSem_namespace gui=italic
-highlight CocWarningSign guifg=#ebcb8b
+highlight CocWarningSign guifg=#ebcb8b guibg=#343d46
 highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
 highlight ConflictMarkerBegin guibg=#2f7366
