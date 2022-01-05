@@ -100,15 +100,15 @@ function! vimrc#lightline#coc_diagnostic(type, mark) abort
 endfunction
 
 function! vimrc#lightline#coc_error() abort
-  return vimrc#lightline#coc_diagnostic('error', '✖')
+  return vimrc#lightline#coc_diagnostic('error', '✖ ')
 endfunction
 
 function! vimrc#lightline#coc_warning() abort
-  return vimrc#lightline#coc_diagnostic('warning', '⚠')
+  return vimrc#lightline#coc_diagnostic('warning', '⚠ ')
 endfunction
 
 function! vimrc#lightline#coc_info() abort
-  return vimrc#lightline#coc_diagnostic('information', '⚑')
+  return vimrc#lightline#coc_diagnostic('information', '⚑ ')
 endfunction
 
 function! vimrc#lightline#charcode() abort
