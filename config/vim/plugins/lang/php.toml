@@ -1,5 +1,2 @@
 [[plugins]]
 repo = '2072/PHP-Indenting-for-VIm'
-
-[[plugins]]
-repo = 'StanAngeloff/php.vim'

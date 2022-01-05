@@ -59,6 +59,8 @@ highlight link typescriptOpSymbols Function
 highlight link typescriptOperator Function
 highlight link typescriptReserved Keyword
 highlight link phpIdentifier Character
+highlight link phpMethodsVar Function
+highlight link phpRepeat Keyword
 highlight link purescriptOperator Delimiter
 highlight link yamlBlockMappingKey Macro
 highlight link yamlFlowMappingKey Macro
