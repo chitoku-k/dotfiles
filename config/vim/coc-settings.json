@@ -6,8 +6,16 @@
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "⚑",
     "diagnostic.hintSign": "❇︎",
+    "diagnostic.floatConfig": {
+        "border": true,
+        "borderhighlight": "FloatBorder"
+    },
     "go.goplsOptions": {
         "semanticTokens": true
+    },
+    "hover.floatConfig": {
+        "border": true,
+        "borderhighlight": "FloatBorder"
     },
     "powershell.integratedConsole.showOnStartup": false,
     "rust-analyzer.inlayHints.chainingHintsSeparator": "⇢ ",
