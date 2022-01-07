@@ -14,12 +14,16 @@ endtry
 if has('ttyin') || (!has('patch-8.0.0096') && !has('gui') && !exists('g:nyaovim_version'))
   highlight Normal ctermbg=NONE guibg=NONE
 endif
-highlight CocErrorSign guifg=fg guibg=#bf616a
-highlight CocHintSign guifg=#343d46 guibg=#8fa1b3
+highlight CocErrorFloat guifg=#bf616a
+highlight CocErrorHighlight guisp=#bf616a gui=undercurl
+highlight CocErrorSign guifg=#c0c5ce guibg=#bf616a
+highlight CocInfoFloat guifg=#8fa1b3
+highlight CocInfoHighlight guisp=#8fa1b3 gui=undercurl
 highlight CocInfoSign guifg=#343d46 guibg=#8fa1b3
 highlight CocSem_namespace gui=italic
-highlight CocUnderline guisp=#bf616a gui=undercurl
-highlight CocWarningSign guifg=#ebcb8b guibg=#343d46
+highlight CocWarningFloat guifg=#ebcb8b
+highlight CocWarningHighlight guisp=#ebcb8b gui=undercurl
+highlight CocWarningSign guifg=#bf616a guibg=#ebcb8b
 highlight Comment gui=italic
 highlight Conceal guifg=Grey guibg=NONE
 highlight ConflictMarkerBegin guibg=#2f7366
@@ -38,6 +42,9 @@ highlight SignatureMarkerText guifg=#bf616a
 highlight SignatureMarkText guifg=#a3be8c
 highlight SignColumn ctermbg=18 guibg=#343d46
 highlight SpellBad guifg=#bf616a
+highlight link CocHintFloat CocInfoFloat
+highlight link CocHintHighlight CocInfoHighlight
+highlight link CocHintSign CocInfoSign
 highlight link CocHoverRange CursorColumn
 highlight link CocRustChainingHint Comment
 highlight link CocRustTypeHint Comment
