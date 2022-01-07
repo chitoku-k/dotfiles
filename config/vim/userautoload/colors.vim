@@ -53,6 +53,7 @@ highlight link CocSem_comment NONE
 highlight link CocSem_keyword NONE
 highlight link CocSem_string NONE
 highlight link CocSem_variable NONE
+highlight link dockerfileFrom Tag
 highlight link goGenerate Special
 highlight link goGenerateVariables PreProc
 highlight link goLabel Keyword
