@@ -18,6 +18,9 @@ hook_add = '''
 repo = 'felixjung/vim-base16-lightline'
 hook_post_source = '''
   let s:palette = g:lightline#palette()
+  let s:palette.inactive.error = s:palette.inactive.left
+  let s:palette.inactive.warning = s:palette.inactive.left
+  let s:palette.inactive.info = s:palette.inactive.left
   let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
   let s:palette.normal.info = [['#343d46', '#8fa1b3', '18', '04']]
   call lightline#colorscheme()
@@ -33,7 +36,7 @@ hook_add = '''
         \     'right': [ [ 'filetype' ], [ 'fileformat', 'fileencoding' ], [ 'charcode' ] ],
         \   },
         \   'inactive': {
-        \     'left': [ [ 'filename', 'modified', 'path' ] ],
+        \     'left': [ [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path' ] ],
         \     'right': [],
         \   },
         \   'tabline': {

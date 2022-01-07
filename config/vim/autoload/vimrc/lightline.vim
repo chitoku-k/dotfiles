@@ -96,19 +96,19 @@ endfunction
 
 function! vimrc#lightline#coc_diagnostic(type, mark) abort
   let info = get(b:, 'coc_diagnostic_info', {})
-  return get(info, a:type, 0) == 0 ? '' : a:mark . ' ' . info[a:type]
+  return get(info, a:type, 0) == 0 ? '' : a:mark . '  ' . info[a:type]
 endfunction
 
 function! vimrc#lightline#coc_error() abort
-  return vimrc#lightline#coc_diagnostic('error', '✖ ')
+  return '%{vimrc#lightline#coc_diagnostic("error", "✖")}'
 endfunction
 
 function! vimrc#lightline#coc_warning() abort
-  return vimrc#lightline#coc_diagnostic('warning', '⚠ ')
+  return '%{vimrc#lightline#coc_diagnostic("warning", "⚠")}'
 endfunction
 
 function! vimrc#lightline#coc_info() abort
-  return vimrc#lightline#coc_diagnostic('information', '⚑ ')
+  return '%{vimrc#lightline#coc_diagnostic("information", "⚑")}'
 endfunction
 
 function! vimrc#lightline#charcode() abort
