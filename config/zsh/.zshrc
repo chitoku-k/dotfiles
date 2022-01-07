@@ -1,3 +1,5 @@
+typeset -A ZSH_HIGHLIGHT_REGEXP
+
 if [[ -a $XDG_DATA_HOME/antigen ]]; then
     source $XDG_DATA_HOME/antigen/antigen.zsh
 

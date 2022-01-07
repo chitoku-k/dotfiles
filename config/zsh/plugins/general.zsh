@@ -8,6 +8,9 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main regexp)
+ZSH_HIGHLIGHT_REGEXP=('^\s*\*\*$' 'fg=blue')
+
 setopt auto_cd
 setopt auto_pushd
 setopt auto_resume
