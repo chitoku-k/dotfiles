@@ -38,6 +38,7 @@ highlight DiffLine guifg=NONE guibg=#8fa1b3
 highlight EndOfBuffer guifg=#363d45 guibg=NONE
 highlight Flashy ctermbg=0 guibg=#13354a
 highlight Identifier ctermfg=7 guifg=#c0c5ce
+highlight qfError guifg=#bf616a
 highlight SignatureMarkerText guifg=#bf616a
 highlight SignatureMarkText guifg=#a3be8c
 highlight SignColumn ctermbg=18 guibg=#343d46
