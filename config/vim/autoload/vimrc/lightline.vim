@@ -48,7 +48,7 @@ function! vimrc#lightline#filename() abort
     return fnamemodify(filename, ':t') . ' | ' . strpart(commit, 0, 8)
   endif
   if &filetype ==# 'dirvish'
-    return substitute(expand('%'), expand('$HOME'), '~', '')
+    return expand('%:~:h:t')
   endif
   let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
   let filename = expand('%:t') != '' ? expand('%:t') : '[No Name]'
@@ -59,11 +59,14 @@ function! vimrc#lightline#path() abort
   if &filetype ==# 'fzf'
     return ''
   endif
+  if &filetype ==# 'dirvish'
+    return expand('%:~:h')
+  endif
   let [commit, filename] = vimrc#lightline#fugitive()
   if commit !=# ''
-    return fnamemodify(filename, ':h')
+    return fnamemodify(filename, ':~:h')
   endif
-  return expand('%:h')
+  return expand('%:~:h')
 endfunction
 
 function! vimrc#lightline#fileformat() abort
