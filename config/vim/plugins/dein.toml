@@ -328,6 +328,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tpope/vim-speeddating'
+
+[[plugins]]
 repo = 'haya14busa/incsearch.vim'
 if = '!has("patch-8.0.1238")'
 hook_add = '''
