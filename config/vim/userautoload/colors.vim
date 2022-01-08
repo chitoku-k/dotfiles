@@ -59,6 +59,7 @@ highlight link goGenerateVariables PreProc
 highlight link goLabel Keyword
 highlight link goRepeat Keyword
 highlight link goType Keyword
+highlight link helpHyperTextJump Underlined
 highlight link javaScriptComment Comment
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag
