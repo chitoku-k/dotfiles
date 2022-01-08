@@ -329,6 +329,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
+hook_post_source = '''
+  SpeedDatingFormat %Y/%m/%d
+  SpeedDatingFormat %Y年%m月%d日
+'''
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
