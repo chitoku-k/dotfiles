@@ -105,9 +105,6 @@ _zsh_prompt_redraw() {
         main)
             _zsh_prompt 'insert'
             ;;
-        vivis|vivli)
-            _zsh_prompt 'visual'
-            ;;
         *)
             _zsh_prompt 'normal'
             ;;
