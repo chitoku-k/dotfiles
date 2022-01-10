@@ -48,7 +48,7 @@ function! vimrc#lightline#filename() abort
     return fnamemodify(filename, ':t') . ' | ' . strpart(commit, 0, 8)
   endif
   if &filetype ==# 'dirvish'
-    return expand('%:~:h:t')
+    return expand('%:~:h:t') . '/'
   endif
   let readonly = vimrc#lightline#readonly() != '' ? vimrc#lightline#readonly() . ' ' : ''
   let filename = expand('%:t') != '' ? expand('%:t') : '[No Name]'
