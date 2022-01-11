@@ -434,6 +434,15 @@ repo = 'kana/vim-textobj-entire'
 repo = 'sgur/vim-textobj-parameter'
 
 [[plugins]]
+repo = 'thinca/vim-textobj-between'
+hook_post_source = '''
+  omap a<Bar> <Plug>(textobj-between-a)<Bar>
+  xmap a<Bar> <Plug>(textobj-between-a)<Bar>
+  omap i<Bar> <Plug>(textobj-between-i)<Bar>
+  xmap i<Bar> <Plug>(textobj-between-i)<Bar>
+'''
+
+[[plugins]]
 repo = 'Julian/vim-textobj-variable-segment'
 
 [[plugins]]
