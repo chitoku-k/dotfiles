@@ -2,6 +2,3 @@
 repo = 'rust-lang/rust.vim'
 lazy = 1
 on_ft = ['rust']
-hook_add = '''
-  let g:rustfmt_autosave = 1
-'''
