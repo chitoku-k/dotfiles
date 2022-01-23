@@ -45,7 +45,7 @@ highlight SignColumn ctermbg=18 guibg=#343d46
 highlight SpellBad guifg=#bf616a
 highlight link CocHintFloat CocInfoFloat
 highlight link CocHintHighlight CocInfoHighlight
-highlight link CocHintSign CocInfoSign
+highlight link CocHintSign NONE
 highlight link CocHoverRange CursorColumn
 highlight link CocRustChainingHint Comment
 highlight link CocRustTypeHint Comment

@@ -5,7 +5,7 @@
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "⚑",
-    "diagnostic.hintSign": "❇︎",
+    "diagnostic.hintSign": "",
     "diagnostic.floatConfig": {
         "border": true,
         "borderhighlight": "FloatBorder"
