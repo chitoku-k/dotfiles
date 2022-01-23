@@ -305,6 +305,7 @@ hook_post_source = '''
   nmap <silent> <F5> <Plug>(coc-format)
   vmap <silent> <F5> <Plug>(coc-format-selected)
   nnoremap <silent> <F6> :CocDiagnostics<CR>
+  nnoremap <silent> <F7> :call CocAction('inspectSemanticToken')<CR>
 
   augroup coc
     autocmd!

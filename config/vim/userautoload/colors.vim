@@ -20,7 +20,7 @@ highlight CocErrorSign guifg=#c0c5ce guibg=#bf616a
 highlight CocInfoFloat guifg=#8fa1b3
 highlight CocInfoHighlight guisp=#8fa1b3 gui=undercurl
 highlight CocInfoSign guifg=#343d46 guibg=#8fa1b3
-highlight CocSem_namespace gui=italic
+highlight CocSemNamespace gui=italic
 highlight CocWarningFloat guifg=#ebcb8b
 highlight CocWarningHighlight guisp=#ebcb8b gui=undercurl
 highlight CocWarningSign guifg=#bf616a guibg=#ebcb8b
@@ -49,11 +49,17 @@ highlight link CocHintSign NONE
 highlight link CocHoverRange CursorColumn
 highlight link CocRustChainingHint Comment
 highlight link CocRustTypeHint Comment
-highlight link CocSem_comment NONE
-highlight link CocSem_keyword NONE
-highlight link CocSem_string NONE
-highlight link CocSem_typeAlias Special
-highlight link CocSem_variable NONE
+highlight link CocSemAsyncKeyword Keyword
+highlight link CocSemComment NONE
+highlight link CocSemConstantVariable Boolean
+highlight link CocSemDerive Type
+highlight link CocSemKeyword NONE
+highlight link CocSemMacro Macro
+highlight link CocSemMacroBang Macro
+highlight link CocSemString NONE
+highlight link CocSemStruct Structure
+highlight link CocSemTypeAlias Special
+highlight link CocSemReadonlyVariable Boolean
 highlight link dockerfileFrom Tag
 highlight link goGenerate Special
 highlight link goGenerateVariables PreProc

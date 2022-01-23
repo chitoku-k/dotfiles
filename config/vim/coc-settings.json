@@ -1,5 +1,4 @@
 {
-    "coc.preferences.colorSupport": false,
     "coc.preferences.messageLevel": "error",
     "coc.preferences.useQuickfixForLocations": true,
     "diagnostic.errorSign": "✖",
@@ -20,6 +19,7 @@
     "powershell.integratedConsole.showOnStartup": false,
     "rust-analyzer.inlayHints.chainingHintsSeparator": "⇢ ",
     "rust-analyzer.inlayHints.typeHintsSeparator": "⇢ ",
+    "semanticTokens.filetypes": ["*"],
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
     "yaml.schemas": {
