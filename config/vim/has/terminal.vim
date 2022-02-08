@@ -5,6 +5,7 @@ tnoremap <C-q> <C-\><C-n>
 augroup termrc
   autocmd!
   autocmd TerminalOpen *
+        \ setlocal nonumber |
         \ if exists('g:loaded_trailing_whitespace_plugin') |
         \   match ExtraWhitespace /^^/ |
         \ endif |

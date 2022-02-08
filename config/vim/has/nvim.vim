@@ -5,6 +5,7 @@ tnoremap <C-q> <C-\><C-n>
 augroup termrc
   autocmd!
   autocmd TermOpen *
+        \ setlocal nonumber |
         \ setlocal signcolumn=no |
         \ startinsert |
         \ if exists('g:loaded_hexokinase') |
