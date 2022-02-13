@@ -56,6 +56,7 @@ highlight link CocSemDerive Type
 highlight link CocSemKeyword NONE
 highlight link CocSemMacro Macro
 highlight link CocSemMacroBang Macro
+highlight link CocSemNumber NONE
 highlight link CocSemString NONE
 highlight link CocSemStruct Structure
 highlight link CocSemTypeAlias Special
