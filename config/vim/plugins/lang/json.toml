@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'mogelbrod/vim-jsonpath'
+hook_post_source = '''
+  augroup jsonpath
+    autocmd!
+    autocmd FileType json nnoremap <buffer> <silent> <F4> :call jsonpath#echo()<CR>
+  augroup END
+'''
