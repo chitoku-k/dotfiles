@@ -37,7 +37,12 @@
         "ccls": {
             "command": "ccls",
             "filetypes": ["c", "cpp"],
-            "rootPatterns": ["compile_commands.json"]
+            "rootPatterns": ["compile_commands.json"],
+            "initializationOptions": {
+                "highlight": {
+                    "lsRanges": true
+                }
+            }
         },
         "purescript": {
             "command": "purescript-language-server",

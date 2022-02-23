@@ -71,6 +71,12 @@ highlight link helpHyperTextJump Underlined
 highlight link javaScriptComment Comment
 highlight link jsxPunct htmlTag
 highlight link jsxCloseString htmlTag
+highlight link LspCxxHlGroupEnumConstant CocSemEnumMember
+highlight link LspCxxHlGroupNamespace CocSemNamespace
+highlight link LspCxxHlGroupMemberVariable Normal
+highlight link LspCxxHlSymField NONE
+highlight link LspCxxHlSymUnknown NONE
+highlight link LspCxxHlSymVariable NONE
 highlight link tomlKey Macro
 highlight link typescriptEndColons jsObjectSeparator
 highlight link typescriptOpSymbols Function
