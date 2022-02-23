@@ -34,6 +34,11 @@
         ]
     },
     "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp"],
+            "rootPatterns": ["compile_commands.json"]
+        },
         "purescript": {
             "command": "purescript-language-server",
             "args": ["--stdio"],
