@@ -54,13 +54,16 @@ highlight link CocSemComment NONE
 highlight link CocSemConstantVariable Boolean
 highlight link CocSemDerive Type
 highlight link CocSemKeyword NONE
+highlight link CocSemLocalVariable NONE
 highlight link CocSemMacro Macro
 highlight link CocSemMacroBang Macro
 highlight link CocSemNumber NONE
 highlight link CocSemString NONE
 highlight link CocSemStruct Structure
 highlight link CocSemTypeAlias Special
-highlight link CocSemReadonlyVariable Boolean
+highlight link CocSemReadonly Boolean
+highlight link CocSemReadonlyFunction Function
+highlight link CocSemReadonlyProperty NONE
 highlight link dockerfileFrom Tag
 highlight link goGenerate Special
 highlight link goGenerateVariables PreProc
