@@ -209,11 +209,17 @@ hook_add = '''
         \   'json': {
         \     'start': 'json.*',
         \   },
+        \   'rust': {
+        \     'start': 'rust.*',
+        \   },
         \   'scss': {
         \     'start': 'scss.*',
         \   },
         \   'sh': {
         \     'start': '\%(bash\|console\|sh\|shell\).*',
+        \   },
+        \   'toml': {
+        \     'start': 'toml.*',
         \   },
         \   'typescript': {
         \     'start': 'typescript.*',
