@@ -58,6 +58,7 @@ highlight link CocSemLocalVariable NONE
 highlight link CocSemMacro Macro
 highlight link CocSemMacroBang Macro
 highlight link CocSemNumber NONE
+highlight link CocSemSelfTypeKeyword Special
 highlight link CocSemString NONE
 highlight link CocSemStruct Structure
 highlight link CocSemTypeAlias Special
