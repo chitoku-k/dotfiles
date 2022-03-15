@@ -62,7 +62,7 @@ endif
 
 augroup vimrc
   autocmd!
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   autocmd InsertLeave * setlocal nopaste
   autocmd CmdwinEnter * nnoremap <CR> <CR>
   autocmd BufReadPost quickfix nnoremap <CR> <CR>
