@@ -8,6 +8,10 @@ config/zsh/local/*
 config/bash/local/*
 !config/bash/local/.gitkeep.bash
 
+# tmux
+config/tmux/local/*
+!config/tmux/local/.gitkeep.conf
+
 # PowerShell
 config/powershell/local/*
 !config/powershell/local/.gitkeep.ps1

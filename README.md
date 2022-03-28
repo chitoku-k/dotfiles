@@ -67,6 +67,18 @@ To manually install:
 
 Use `$XDG_CONFIG_HOME/zsh/local/*.zsh`.
 
+### Bash
+
+Use `$XDG_CONFIG_HOME/bash/local/*.bash`.
+
+### tmux
+
+Use `$XDG_CONFIG_HOME/tmux/local/*.conf`.
+
+### PowerShell
+
+Use `$XDG_CONFIG_HOME/powershell/local/*.ps1`.
+
 ### Git
 
 Use `$HOME/.gitconfig`.
