@@ -6,6 +6,7 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias chown='chown -v'
 alias chmod='chmod -v'
+alias grep='grep --color=auto'
 
 if hash nvim 2> /dev/null; then
     export VISUAL='nvim'
@@ -14,13 +15,7 @@ if hash nvim 2> /dev/null; then
 fi
 
 if hash tmux 2> /dev/null; then
-    work() {
-        if tmux attach || [[ -n $TMUX ]]; then
-            return
-        fi
-
-        tmux "$@"
-    }
+    alias work='tmux attach || [[ -n $TMUX ]] || tmux'
 fi
 
 if hash systemctl 2> /dev/null; then
@@ -30,21 +25,15 @@ if hash systemctl 2> /dev/null; then
 fi
 
 if hash sshfs 2> /dev/null; then
-    mount-ssh() {
-        sshfs -o reconnect "$@"
-    }
+    alias mount-ssh='sshfs -o reconnect'
 
-    umount-ssh() {
-        if hash fusermount 2> /dev/null; then
-            fusermount -uz "$@"
-        elif hash fusermount3 2> /dev/null; then
-            fusermount3 -uz "$@"
-        elif hash diskutil 2> /dev/null; then
-            diskutil unmount force "$@"
-        else
-            echo Not supported. >&2
-        fi
-    }
+    if (( $+commands[fusermount] )); then
+        alias umount-ssh='fusermount -uz'
+    elif (( $+commands[fusermount3] )); then
+        alias umount-ssh='fusermount3 -uz'
+    elif (( $+commands[diskutil] )); then
+        alias umount-ssh='diskutil unmount force'
+    fi
 fi
 
 case "$OSTYPE" in

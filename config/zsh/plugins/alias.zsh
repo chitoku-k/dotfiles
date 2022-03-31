@@ -22,13 +22,7 @@ if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n $NVIM_LISTEN_
 fi
 
 if (( $+commands[tmux] )); then
-    work() {
-        if tmux attach || [[ -n $TMUX ]]; then
-            return
-        fi
-
-        tmux "$@"
-    }
+    alias work='tmux attach || [[ -n $TMUX ]] || tmux'
 fi
 
 if (( $+commands[docker] )) && (( $+commands[groups] )) && (( $+commands[id] )) && (( $+commands[sudo] )); then
@@ -46,11 +40,7 @@ if (( $+commands[cf] )); then
 fi
 
 if (( $+commands[xxh] )); then
-    xxh() {
-        command $0 \
-            ++env=TERM_PROGRAM=$TERM_PROGRAM \
-            ++env=VTE_VERSION=$VTE_VERSION "$@"
-    }
+    alias xxh='command xxh ++env=TERM_PROGRAM=$TERM_PROGRAM ++env=VTE_VERSION=$VTE_VERSION'
 fi
 
 if (( $+commands[systemctl] )); then
@@ -60,27 +50,19 @@ if (( $+commands[systemctl] )); then
 fi
 
 if (( $+commands[sshfs] )); then
-    mount-ssh() {
-        sshfs -o reconnect "$@"
-    }
+    alias mount-ssh='sshfs -o reconnect'
 
-    umount-ssh() {
-        if (( $+commands[fusermount] )); then
-            fusermount -uz "$@"
-        elif (( $+commands[fusermount3] )); then
-            fusermount3 -uz "$@"
-        elif (( $+commands[diskutil] )); then
-            diskutil unmount force "$@"
-        else
-            echo Not supported. >&2
-        fi
-    }
+    if (( $+commands[fusermount] )); then
+        alias umount-ssh='fusermount -uz'
+    elif (( $+commands[fusermount3] )); then
+        alias umount-ssh='fusermount3 -uz'
+    elif (( $+commands[diskutil] )); then
+        alias umount-ssh='diskutil unmount force'
+    fi
 fi
 
 if (( $+commands[defaults] )); then
-    defaults-write-com.apple.systempreferences-AttentionPrefBundleIDs-0() {
-        defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
-    }
+    alias defaults-write-com.apple.systempreferences-AttentionPrefBundleIDs-0='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0'
 fi
 
 case $OSTYPE in
