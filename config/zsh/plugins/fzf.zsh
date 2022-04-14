@@ -47,18 +47,18 @@ if (( $+commands[xxh] )); then
 fi
 
 if (( $+commands[fd] )); then
-    export FZF_DEFAULT_COMMAND='fd --hidden | sort'
+    export FZF_DEFAULT_COMMAND='fd --hidden | sed "s|^./||" | sort'
 
     _fzf_compgen_path() {
-        fd --hidden --follow . "$@" | sort
+        fd --hidden --follow . "$@" | sed 's|^./||' | sort
     }
 
     _fzf_compgen_dir() {
-        fd --hidden --follow --type d . "$@" | sort
+        fd --hidden --follow --type d . "$@" | sed 's|^./||' | sort
     }
 
     _fzf_compgen_executable() {
-        fd --hidden --follow --type d --type x . "$@" | sort
+        fd --hidden --follow --type d --type x . "$@" | sed 's|^./||' | sort
     }
 else
     case $OSTYPE in
