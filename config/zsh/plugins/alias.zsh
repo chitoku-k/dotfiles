@@ -15,7 +15,7 @@ if (( $+commands[nvim] )); then
     alias vim=$VISUAL
 fi
 
-if (( $+commands[godopen] )) && (( $+commands[python3] )) && [[ -n $NVIM_LISTEN_ADDRESS ]]; then
+if (( $+commands[godopen] )) && (( $+commands[python3] )) && ([[ -n $NVIM ]] || [[ -n $NVIM_LISTEN_ADDRESS ]]); then
     export VISUAL='godopen --sync'
     export EDITOR=$VISUAL
     alias vim=$VISUAL
