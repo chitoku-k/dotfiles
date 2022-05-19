@@ -8,6 +8,9 @@ augroup termrc
         \ setlocal nonumber |
         \ setlocal signcolumn=no |
         \ startinsert |
+        \ if exists('g:loaded_trailing_whitespace_plugin') |
+        \   match ExtraWhitespace /^^/ |
+        \ endif |
         \ if exists('g:loaded_hexokinase') |
         \   call hexokinase#v2#scraper#off() |
         \ endif
