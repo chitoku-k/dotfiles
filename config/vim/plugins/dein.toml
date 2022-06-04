@@ -130,7 +130,7 @@ if = '!exists(":tcd")'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install --xdg --no-update-rc'
+build = './install --xdg --completion --key-bindings --no-update-rc'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
