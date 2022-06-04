@@ -308,8 +308,7 @@ hook_post_source = '''
   nmap <silent> <F2> <Plug>(coc-rename)
   nmap <silent> <F3> <Plug>(coc-implementation)
   nmap <silent> <F4> <Plug>(coc-definition)
-  nmap <silent> <F5> <Plug>(coc-format)
-  vmap <silent> <F5> <Plug>(coc-format-selected)
+  nmap <silent> <F5> <Plug>(coc-codeaction-cursor)
   nnoremap <silent> <F6> :CocDiagnostics<CR>
   nnoremap <silent> <F7> :call CocAction('inspectSemanticToken')<CR>
 
