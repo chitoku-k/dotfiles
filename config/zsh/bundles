@@ -1,4 +1,5 @@
 Aloxaf/fzf-tab
+base16-project/base16-fzf@main
 chitoku-k/fzf-zsh-completions
 chitoku-k/zsh-reset-title
 chitoku-k/zsh-togglecursor
@@ -6,7 +7,6 @@ chitoku-k/zsh-vcs-extended
 chitoku-k/zsh-via-ssh
 himanoa/neovim-terminal-utils
 junegunn/fzf
-nicodebo/base16-fzf
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
