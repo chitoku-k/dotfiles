@@ -403,7 +403,7 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'haya14busa/vim-operator-flashy'
-if = '!has("nvim-0.5.0")'
+if = '!has("nvim-0.5.0") && v:version < 900'
 hook_post_source = '''
   map y <Plug>(operator-flashy)
   nmap Y <Plug>(operator-flashy)$
