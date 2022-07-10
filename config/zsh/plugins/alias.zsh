@@ -65,6 +65,16 @@ if (( $+commands[defaults] )); then
     alias defaults-write-com.apple.systempreferences-AttentionPrefBundleIDs-0='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0'
 fi
 
+if (( $+commands[arch] )); then
+    if [[ -a /usr/local/bin/brew ]]; then
+        alias brew-x86_64='arch -x86_64 /usr/local/bin/brew'
+    fi
+
+    if [[ -a /opt/homebrew/bin/brew ]]; then
+        alias brew-arm64e='arch -arm64e /opt/homebrew/bin/brew'
+    fi
+fi
+
 case $OSTYPE in
     linux*)
         alias ls='ls --color=auto'
