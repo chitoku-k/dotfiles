@@ -21,6 +21,7 @@ set cindent
 set title
 set titleold=
 set clipboard=unnamedplus,unnamed
+set mouse=
 set whichwrap=
 set backspace=
 set viminfo=
