@@ -48,8 +48,7 @@ highlight link CocHintFloat CocInfoFloat
 highlight link CocHintHighlight CocInfoHighlight
 highlight link CocHintSign NONE
 highlight link CocHoverRange CursorColumn
-highlight link CocRustChainingHint Comment
-highlight link CocRustTypeHint Comment
+highlight link CocInlayHint Comment
 highlight link CocSemAsyncKeyword Keyword
 highlight link CocSemComment NONE
 highlight link CocSemConstantVariable Boolean

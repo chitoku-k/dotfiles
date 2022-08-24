@@ -17,8 +17,6 @@
         "borderhighlight": "FloatBorder"
     },
     "powershell.integratedConsole.showOnStartup": false,
-    "rust-analyzer.inlayHints.chainingHintsSeparator": "⇢ ",
-    "rust-analyzer.inlayHints.typeHintsSeparator": "⇢ ",
     "semanticTokens.filetypes": ["*"],
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
