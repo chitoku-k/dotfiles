@@ -29,7 +29,7 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
             [[ -z $trigger ]] && prefix=${tokens[-1]} || prefix=${tokens[-1]:0:-${#trigger}}
             [[ -z ${tokens[-1]} ]] && lbuf=$LBUFFER || lbuf=${LBUFFER:0:-${#tokens[-1]}}
 
-            __fzf_generic_path_completion "$prefix" "$lbuf" _fzf_compgen_executable '' ' ' ''
+            __fzf_generic_path_completion "$prefix" "$lbuf" _fzf_compgen_executable '' '' ' '
             return
         fi
 
