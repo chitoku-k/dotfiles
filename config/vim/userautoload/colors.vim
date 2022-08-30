@@ -20,7 +20,9 @@ highlight CocErrorSign guifg=#c0c5ce guibg=#bf616a
 highlight CocInfoFloat guifg=#8fa1b3
 highlight CocInfoHighlight guisp=#8fa1b3 gui=undercurl
 highlight CocInfoSign guifg=#343d46 guibg=#8fa1b3
+highlight CocMenuSel guibg=#4f5b66
 highlight CocNotificationProgress guifg=#8fa1b3
+highlight CocSearch guifg=#8fa1b3
 highlight CocSemNamespace gui=italic
 highlight CocWarningFloat guifg=#ebcb8b
 highlight CocWarningHighlight guisp=#ebcb8b gui=undercurl
