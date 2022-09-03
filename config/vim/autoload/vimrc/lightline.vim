@@ -11,6 +11,9 @@ function! vimrc#lightline#fugitive() abort
     return ['', '']
   endif
   let [object, git_dir] = FugitiveParse(expand('%'))
+  if object ==# ':'
+    return ['', '']
+  endif
   let [commit; filename] = split(object, ':')
   return [commit, join(filename, ':')]
 endfunction
