@@ -1,6 +1,11 @@
 zmodload zsh/datetime
 
 fromunixtime() {
+    if [[ $# = 0 ]]; then
+        echo Usage: fromunixtime '%s'
+        return 1
+    fi
+
     TZ=UTC strftime '%Y-%m-%dT%H:%M:%S%z' "$@"
     strftime '%Y-%m-%dT%H:%M:%S%z' "$@"
 }
