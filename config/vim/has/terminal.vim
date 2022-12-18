@@ -6,8 +6,8 @@ augroup termrc
   autocmd!
   autocmd TerminalOpen *
         \ setlocal nonumber |
-        \ if exists('g:loaded_trailing_whitespace_plugin') |
-        \   match ExtraWhitespace /$^/ |
+        \ if exists('g:loaded_better_whitespace_plugin') |
+        \   execute('DisableWhitespace') |
         \ endif |
         \ if exists('g:loaded_hexokinase') |
         \   call hexokinase#v2#scraper#off() |

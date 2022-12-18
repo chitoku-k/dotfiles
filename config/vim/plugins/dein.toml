@@ -77,12 +77,13 @@ repo = 'jszakmeister/vim-togglecursor'
 if = '!has("nvim")'
 
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
+repo = 'ntpeters/vim-better-whitespace'
 hook_add = '''
-  let g:extra_whitespace_ignored_filetypes = [
+  let g:better_whitespace_guicolor = '#bf616a'
+'''
+hook_post_source = '''
+  let g:better_whitespace_filetypes_blacklist += [
         \   'liquid',
-        \   'markdown',
-        \   'qf',
         \ ]
 '''
 
