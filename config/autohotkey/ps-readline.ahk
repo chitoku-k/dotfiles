@@ -1,31 +1,39 @@
 /**
  * IME制御用 関数群 (IME.ahk)
- * Author: eamat. (http://www6.atwiki.jp/eamat/)
+ * AutoHotkey v2 向けに一部変更あり
+ * Original Author: eamat. (http://www6.atwiki.jp/eamat/)
  */
-IME_GET(WinTitle = "A") {
-    ControlGet,hwnd,HWND,,,%WinTitle%
-    if (WinActive(WinTitle)) {
-        ptrSize := !A_PtrSize ? 4 : A_PtrSize
-        VarSetCapacity(stGTI, cbSize := 4 + 4 + (PtrSize * 6) + 16, 0)
-        NumPut(cbSize, stGTI, 0, "UInt")
-        hwnd := DllCall("GetGUIThreadInfo", Uint, 0, Uint, &stGTI) ? NumGet(stGTI, 8 + PtrSize, "UInt") : hwnd
+IME_GET(WinTitle := "A") {
+    hwnd := ControlGetFocus(WinTitle)
+    if WinActive(WinTitle) {
+        ; cbSize == sizeof(GUITHREADINFO)
+        cbSize := 4 + 4 + (A_PtrSize * 6) + 16
+        guiThreadInfo := Buffer(cbSize)
+        NumPut("UInt", cbSize, guiThreadInfo)
+        ; GUITHREADINFO->hwndFocus
+        hwnd := DllCall("GetGUIThreadInfo", "UInt", 0, "Ptr", guiThreadInfo)
+            ? NumGet(guiThreadInfo, 8 + A_PtrSize, "UInt")
+            : hwnd
     }
 
-    return DllCall("SendMessage"
-        , UInt, DllCall("imm32\ImmGetDefaultIMEWnd", Uint, hwnd)
-        , UInt, 0x0283
-        , Int, 0x0005
-        , Int, 0)
+    return DllCall("SendMessage",
+        "UInt", DllCall("imm32\ImmGetDefaultIMEWnd", "UInt", hwnd),
+        "UInt", 0x0283,
+        "Int", 0x0005,
+        "Int", 0
+    )
 }
 
-$*vk1A::
-if IME_GET() or WinActive("ahk_exe vcxsrv.exe") {
-    Send,{vk1D}
+$*vk1A::{
+    if IME_GET() or WinActive("ahk_exe vcxsrv.exe") {
+        Send("{vk1D}")
+    }
+    return
 }
-return
 
-$*vk1D::
-if IME_GET() or WinActive("ahk_exe vcxsrv.exe") {
-    Send,{vk1D}
+$*vk1D::{
+    if IME_GET() or WinActive("ahk_exe vcxsrv.exe") {
+        Send("{vk1D}")
+    }
+    return
 }
-return
