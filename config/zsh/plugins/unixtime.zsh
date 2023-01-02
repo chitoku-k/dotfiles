@@ -1,4 +1,6 @@
 zmodload zsh/datetime
+autoload -U colors
+colors
 
 fromunixtime() {
     if [[ $# = 0 ]]; then
@@ -6,8 +8,9 @@ fromunixtime() {
         return 1
     fi
 
-    TZ=UTC strftime '%Y-%m-%dT%H:%M:%S%z' "$@"
-    strftime '%Y-%m-%dT%H:%M:%S%z' "$@"
+    echo "${fg[blue]}# $@$reset_color" >&2
+    TZ=UTC strftime '%Y-%m-%dT%H:%M:%S%z' "${@%.*}"
+    strftime '%Y-%m-%dT%H:%M:%S%z' "${@%.*}"
 }
 
 tounixtime() {
@@ -16,6 +19,9 @@ tounixtime() {
         return 1
     fi
 
-    echo "$@+0000" >&2
+    echo "${fg[blue]}# $@+0000$reset_color" >&2
     TZ=UTC strftime -r '%Y-%m-%dT%H:%M:%S' "$@"
+
+    echo "${fg[blue]}# $@"$(strftime '%z')"$reset_color" >&2
+    strftime -r '%Y-%m-%dT%H:%M:%S' "$@"
 }
