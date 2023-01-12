@@ -423,6 +423,7 @@ hook_post_source = '''
 repo = 'tyru/caw.vim'
 hook_add = '''
   let g:caw_operator_keymappings = 1
+  let g:caw_hatpos_sp = ''
 '''
 
 [[plugins]]
