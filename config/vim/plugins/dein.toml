@@ -186,6 +186,9 @@ hook_add = '''
         \   'css': {
         \     'start': 'css.*',
         \   },
+        \   'diff': {
+        \     'start': 'diff.*',
+        \   },
         \   'dosini': {
         \     'start': 'ini.*',
         \   },
