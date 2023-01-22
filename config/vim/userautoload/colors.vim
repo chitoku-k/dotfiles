@@ -55,6 +55,7 @@ highlight link CocSemAsyncKeyword Keyword
 highlight link CocSemComment NONE
 highlight link CocSemConstantVariable Boolean
 highlight link CocSemDerive Type
+highlight link CocSemEnumMember Boolean
 highlight link CocSemKeyword NONE
 highlight link CocSemLocalVariable NONE
 highlight link CocSemMacro Macro
