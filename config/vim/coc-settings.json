@@ -17,7 +17,7 @@
         "borderhighlight": "FloatBorder"
     },
     "powershell.integratedConsole.showOnStartup": false,
-    "semanticTokens.filetypes": ["*"],
+    "semanticTokens.enable": true,
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
     "yaml.schemas": {
