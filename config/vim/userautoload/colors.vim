@@ -92,6 +92,7 @@ highlight link phpIdentifier Character
 highlight link phpMethodsVar Function
 highlight link phpRepeat Keyword
 highlight link purescriptOperator Delimiter
+highlight link sshconfigEnum Boolean
 highlight link yamlBlockMappingKey Macro
 highlight link yamlFlowMappingKey Macro
 highlight link yamlPlainScalar String
