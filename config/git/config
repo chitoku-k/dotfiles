@@ -25,6 +25,9 @@
 	prune = true
 [init]
 	defaultBranch = master
+[advice]
+	detachedHead = false
+	statusHints = false
 [core]
 	quotepath = false
 [color]
