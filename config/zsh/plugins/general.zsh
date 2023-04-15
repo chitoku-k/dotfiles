@@ -21,5 +21,5 @@ setopt hist_ignore_all_dups
 setopt ignore_eof
 setopt magic_equal_subst
 setopt no_flow_control
-setopt no_no_match
+setopt no_nomatch
 setopt pushd_ignore_dups
