@@ -7,6 +7,7 @@ chitoku-k/zsh-vcs-extended
 chitoku-k/zsh-via-ssh
 himanoa/neovim-terminal-utils
 junegunn/fzf
+olets/zsh-abbr@main
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
