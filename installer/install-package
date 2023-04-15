@@ -36,7 +36,6 @@ install-package() {
             'xdg/zsh')
                 create-symlink ./config/zsh/.zshenv "$home/.zshenv"
                 create-symlink ./config/zsh "$xdgconfig/zsh"
-                create-symlink ./config/zsh-abbr "$xdgconfig/zsh-abbr"
                 ;;
             'xdg/bash')
                 create-symlink ./config/bash/.bashrc "$home/.bashrc"
