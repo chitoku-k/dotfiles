@@ -26,7 +26,7 @@ if (( $+commands[tmux] )); then
 fi
 
 if (( $+commands[docker] )) && (( $+commands[groups] )) && (( $+commands[id] )) && (( $+commands[sudo] )); then
-    if [[ $(groups 2> /dev/null) != *docker* ]] && [[ $(id 2> /dev/null) != 0 ]]; then
+    if [[ $(groups 2> /dev/null) != *docker* ]] && [[ $(id -u 2> /dev/null) != 0 ]]; then
         alias docker='sudo docker'
     fi
 fi
