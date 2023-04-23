@@ -168,7 +168,15 @@ hook_post_source = '''
 [[plugins]]
 repo = 'qpkorr/vim-bufkill'
 hook_post_source = '''
+  function! s:HookBD(cmd) abort
+    let dir = expand('%:p:h')
+    execute a:cmd
+    execute "edit " . dir
+  endfunction
+
+  command! BDU call <SID>HookBD("BD")
   command! WBD write | BD
+  command! WBDU call <SID>HookBD("WBD")
 '''
 
 [[plugins]]
