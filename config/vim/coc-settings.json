@@ -18,6 +18,7 @@
     },
     "powershell.integratedConsole.showOnStartup": false,
     "semanticTokens.enable": true,
+    "snippets.ultisnips.pythonPrompt": false,
     "suggest.snippetIndicator": "↩ ",
     "yaml.format.singleQuote": true,
     "yaml.schemas": {
