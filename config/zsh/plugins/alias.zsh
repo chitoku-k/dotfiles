@@ -32,7 +32,7 @@ if (( $+commands[docker] )) && (( $+commands[groups] )) && (( $+commands[id] )) 
 fi
 
 if (( $+commands[kubectl] )); then
-    alias -g k8s-secret='-o json | jq ".items[]? // . | { metadata: .metadata | { name, namespace }, data: .data | map_values(@base64d) }"'
+    alias -g k8s-secret='-o json | jq ".items[]? // . | { metadata: .metadata | { name, namespace }, type, data: (if .type == \"kubernetes.io/dockerconfigjson\" then .data | map_values(@base64d | fromjson) else .data | map_values(@base64d) end) }"'
 fi
 
 if (( $+commands[cf] )); then
