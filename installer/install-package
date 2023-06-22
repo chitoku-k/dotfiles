@@ -50,21 +50,14 @@ install-package() {
             'xdg/git/config')
                 create-symlink ./config/git "$xdgconfig/git"
                 ;;
-            'xdg/vim')
-                create-symlink ./config/.vimrc "$home/.vimrc"
-                create-symlink ./config/vim "$xdgconfig/vim"
-                ;;
             'xdg/nvim')
-                create-symlink ./config/vim "$xdgconfig/nvim"
+                create-symlink ./config/nvim "$xdgconfig/nvim"
                 ;;
             'xdg/fontconfig/fonts.conf')
                 create-symlink ./config/fontconfig/fonts.conf "$xdgconfig/fontconfig/fonts.conf"
                 ;;
             'xdg/nyaovim')
-                create-symlink ./config/vim/nyaovim "$xdgconfig/nyaovim"
-                ;;
-            'dotfiles/.gvimrc')
-                create-symlink ./config/.gvimrc "$home/.gvimrc"
+                create-symlink ./config/nvim/nyaovim "$xdgconfig/nyaovim"
                 ;;
             'dotfiles/.vsvimrc')
                 create-symlink ./config/.vsvimrc "$home/.vsvimrc"

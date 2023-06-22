@@ -3,11 +3,9 @@ xdg/bash
 xdg/xxh
 xdg/tmux
 xdg/git/config
-xdg/vim
 xdg/nvim
 xdg/fontconfig/fonts.conf
 xdg/nyaovim
-dotfiles/.gvimrc
 dotfiles/.vsvimrc
 dotfiles/.ignore
 xdg/phpcs/rules.php

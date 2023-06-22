@@ -3,11 +3,9 @@ Configuration for Bash
 Configuration for xxh
 Configuration for tmux
 Configuration for Git
-Configuration for Vim
 Configuration for Neovim
 Configuration for fontconfig
 Configuration for NyaoVim
-Configuration for GVim/MacVim
 Configuration for VsVim
 Configuration for ripgrep and fd
 Rules for PHP-CS-Fixer

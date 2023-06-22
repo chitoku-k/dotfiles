@@ -1,7 +1,5 @@
 set linespace=4
-if !exists(':GuiFont')
-  set guifont=Consolas:h10
-endif
+set guifont=Consolas:h10
 set guifontwide=Meiryo:h10,MS_Gothic:h10
 
 if executable('pwsh')

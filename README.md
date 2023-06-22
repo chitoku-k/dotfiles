@@ -7,7 +7,7 @@ This repository contains my dotfiles and its installation script.
 Setting files expect each version or later:
 
 - Git 1.7.12
-- Vim 7.4.160 or Neovim 0.3.0
+- Neovim 0.3.0
 - Zsh 5.0.2
 - Bash 3.5.27
 - PowerShell 7.x
@@ -85,7 +85,7 @@ Use `$HOME/.gitconfig`.
 
 ## Prerequisites
 
-Vim and tmux depend on environment variables as follows:
+tmux depends on environment variables as follows:
 
 - `$XDG_CONFIG_HOME`: Defaults to `~/.config`
 - `$XDG_DATA_HOME`: Defaults to `~/.local/share`

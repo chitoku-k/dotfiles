@@ -57,13 +57,4 @@ function! vimrc#init() abort
       exec 'source ' . file
     endif
   endfor
-
-  if !has('nvim')
-    let &runtimepath .= ',' . vimrc#config_dir('/after')
-
-    if isdirectory(vimrc#data_dir())
-      let &directory = vimrc#data_dir('/swap')
-      let &backupdir = vimrc#data_dir('/backup')
-    endif
-  endif
 endfunction

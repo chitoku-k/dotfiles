@@ -15,22 +15,6 @@ augroup termrc
         \   call hexokinase#v2#scraper#off() |
         \ endif
 augroup END
-augroup guirc
-  autocmd!
-  autocmd UIEnter *
-        \ if exists('g:GuiLoaded') |
-        \   highlight Normal guibg=#3d4049 |
-        \ endif |
-        \ if exists(':GuiFont') && has('win32') |
-        \   execute('GuiFont! Consolas:h10') |
-        \ endif |
-        \ if exists(':GuiTabline') |
-        \   execute('GuiTabline 0') |
-        \ endif |
-        \ if exists(':GuiPopupmenu') |
-        \   execute('GuiPopupmenu 0') |
-        \ endif
-augroup END
 
 if !vimrc#supports_cursor()
   set guicursor=
