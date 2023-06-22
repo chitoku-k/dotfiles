@@ -147,7 +147,12 @@ dotfiles-reload() {
         return
     fi
 
-    zsh -c 'source $ZDOTDIR/.zshrc && compaudit | xargs chmod 755' 2> /dev/null
+    local insecure=($(zsh -c 'autoload -Uz compinit && compinit -i && compaudit'))
+
+    local dir
+    for dir in "${insecure[@]}"; do
+        chmod 755 -- "$dir"
+    done
 }
 
 if [[ ! -d 'config' ]] || [[ ! -a 'packages/list' ]] || [[ ! -a 'packages/descriptions' ]]; then
