@@ -1,1 +1,0 @@
-call vimrc#init()
