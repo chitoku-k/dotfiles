@@ -111,41 +111,29 @@ lua_add = '''
 repo = 'himanoa/goshiteki'
 
 [[plugins]]
-repo = 'junegunn/fzf'
-build = './install --xdg --completion --key-bindings --no-update-rc'
-
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-depends = 'fzf'
+repo = 'ibhagwan/fzf-lua'
+if = 'executable("fzf")'
 lua_add = '''
-  vim.g.fzf_statusline = 0
-  vim.g.fzf_nvim_statusline = 0
+  require('fzf-lua').setup({
+    fzf_opts = {
+      ['--layout'] = 'reverse',
+    },
+  })
 '''
 lua_post_source = '''
   vim.keymap.set('n', '<Space>g', function()
-    vim.fn['fzf#vim#files'](
-      '.',
-      vim.fn['fzf#vim#with_preview']({
-        options = {
-          '--tiebreak=index',
-          '--reverse',
-        },
-      })
-    )
+    require('fzf-lua').files({
+      fzf_opts = {
+        ['--tiebreak'] = 'index',
+        ['--layout'] = 'reverse',
+      },
+    })
   end)
   vim.keymap.set('n', '<Space>f', function()
-    vim.fn['fzf#vim#buffers']({
-      options = {
-        '--reverse',
-      },
-    })
+    require('fzf-lua').buffers()
   end)
   vim.keymap.set('n', '<Space>m', function()
-    vim.fn['fzf#vim#marks']({
-      options = {
-        '--reverse',
-      },
-    })
+    require('fzf-lua').marks()
   end)
 '''
 
