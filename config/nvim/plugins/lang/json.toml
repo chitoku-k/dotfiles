@@ -1,8 +1,14 @@
 [[plugins]]
 repo = 'mogelbrod/vim-jsonpath'
-hook_post_source = '''
-  augroup jsonpath
-    autocmd!
-    autocmd FileType json nnoremap <buffer> <silent> <F4> :call jsonpath#echo()<CR>
-  augroup END
+lua_post_source = '''
+  local jsonpath_id = vim.api.nvim_create_augroup('jsonpath', {})
+  vim.api.nvim_create_autocmd('FileType', {
+    group = jsonpath_id,
+    pattern = { 'json' },
+    callback = function()
+      vim.keymap.set('n', '<F4>', function()
+        vim.fn['jsonpath#echo']()
+      end, { buffer = true })
+    end,
+  })
 '''

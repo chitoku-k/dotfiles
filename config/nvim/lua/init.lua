@@ -4,19 +4,20 @@ local dein_dir = utils.repo_dir('/Shougo/dein.vim')
 if vim.fn.isdirectory(dein_dir) == 1 then
   vim.opt.runtimepath:append(dein_dir)
 
-  if vim.fn['dein#load_state'](utils.plugin_dir()) == 1 then
-    vim.fn['dein#begin'](utils.plugin_dir())
+  local dein = require('dein')
+  if dein.load_state(utils.plugin_dir()) == 1 then
+    dein.begin(utils.plugin_dir())
 
     for _, file in ipairs(vim.fn.glob(utils.config_dir('/plugins/**/*.toml'), 1, 1)) do
-      vim.fn['dein#load_toml'](file)
+      dein.load_toml(file)
     end
 
-    if vim.fn['dein#check_install']() == 1 then
-      vim.fn['dein#install']()
+    if dein.check_install() then
+      dein.install()
     end
 
-    vim.fn['dein#end']()
-    vim.fn['dein#save_state']()
+    dein.end_()
+    dein.save_state()
   end
 
   vim.cmd.runtime({ 'lua/userautoload/*.lua', bang = true })

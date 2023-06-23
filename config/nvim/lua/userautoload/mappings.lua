@@ -27,7 +27,7 @@ for i = 1, 24 do
 end
 
 for _, key in ipairs({ '<Left>', '<Down>', '<Up>', '<Right>' }) do
-  vim.keymap.set({ 'n', 'v', 'c' }, key, '<Nop>')
+  vim.keymap.set({ 'n', 'v', 'c', 'i' }, key, '<Nop>')
 end
 
 local term_id = vim.api.nvim_create_augroup('term', {})

@@ -1,18 +1,11 @@
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
-hook_add = '''
-  let g:dirvish_mode = ':sort ,^.*[\/],'
-'''
-hook_post_source = '''
-  nnoremap <silent> <Space>e :Dirvish<CR>
-  nnoremap <silent> <Space>r :Dirvish %:h<CR>
+lua_add = '''
+  vim.g.dirvish_mode = [[:sort ,^.*[\/],]]
 '''
 
 [[plugins]]
 repo = 'base16-community/base16-vim'
-hook_add = '''
-  let g:base16colorspace = 256
-'''
 
 [[plugins]]
 repo = 'felixjung/vim-base16-lightline'
@@ -73,37 +66,34 @@ hook_add = '''
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
-hook_add = '''
-  let g:better_whitespace_guicolor = '#bf616a'
+lua_add = '''
+  vim.g.better_whitespace_guicolor = '#bf616a'
 '''
-hook_post_source = '''
-  let g:better_whitespace_filetypes_blacklist += [
-        \   'liquid',
-        \ ]
+lua_post_source = '''
+  local filetypes_blacklist = vim.g.better_whitespace_filetypes_blacklist
+  table.insert(filetypes_blacklist, 'liquid')
+  vim.g.better_whitespace_filetypes_blacklist = filetypes_blacklist
 '''
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
-hook_post_source = '''
-  xmap <C-h> <Plug>(textmanip-move-left)
-  xmap <C-j> <Plug>(textmanip-move-down)
-  xmap <C-k> <Plug>(textmanip-move-up)
-  xmap <C-l> <Plug>(textmanip-move-right)
+lua_post_source = '''
+  vim.keymap.set('x', '<C-h>', '<Plug>(textmanip-move-left)')
+  vim.keymap.set('x', '<C-j>', '<Plug>(textmanip-move-down)')
+  vim.keymap.set('x', '<C-k>', '<Plug>(textmanip-move-up)')
+  vim.keymap.set('x', '<C-l>', '<Plug>(textmanip-move-right)')
 '''
 
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-
-[[plugins]]
 repo = 'lambdalisue/suda.vim'
 
 [[plugins]]
 repo = 'tpope/vim-capslock'
-hook_post_source = '''
-  imap <C-a> <C-o><Plug>CapsLockToggle
+lua_post_source = '''
+  vim.keymap.set('i', '<C-a>', '<C-o><Plug>CapsLockToggle')
 '''
 
 [[plugins]]
@@ -111,10 +101,10 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
-hook_add = '''
-  let g:conflict_marker_highlight_group = ''
-  let g:conflict_marker_begin = '^<<<<<<< .*$'
-  let g:conflict_marker_end = '^>>>>>>> .*$'
+lua_add = '''
+  vim.g.conflict_marker_highlight_group = ''
+  vim.g.conflict_marker_begin = '^<<<<<<< .*$'
+  vim.g.conflict_marker_end = '^>>>>>>> .*$'
 '''
 
 [[plugins]]
@@ -127,131 +117,151 @@ build = './install --xdg --completion --key-bindings --no-update-rc'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
-hook_add = '''
-  let g:fzf_statusline = 0
-  let g:fzf_nvim_statusline = 0
+lua_add = '''
+  vim.g.fzf_statusline = 0
+  vim.g.fzf_nvim_statusline = 0
 '''
-hook_post_source = '''
-  nnoremap <silent> <Space>g :call
-          \ fzf#vim#files(
-          \   '.',
-          \   fzf#vim#with_preview({
-          \     'options': [
-          \       '--tiebreak=index',
-          \       '--reverse',
-          \     ],
-          \   })
-          \ )<CR>
-  nnoremap <silent> <Space>f :call
-          \ fzf#vim#buffers({
-          \   'options': [
-          \     '--reverse',
-          \   ],
-          \ })<CR>
-  nnoremap <silent> <Space>m :call
-          \ fzf#vim#marks({
-          \   'options': [
-          \     '--reverse',
-          \   ],
-          \ })<CR>
+lua_post_source = '''
+  vim.keymap.set('n', '<Space>g', function()
+    vim.fn['fzf#vim#files'](
+      '.',
+      vim.fn['fzf#vim#with_preview']({
+        options = {
+          '--tiebreak=index',
+          '--reverse',
+        },
+      })
+    )
+  end)
+  vim.keymap.set('n', '<Space>f', function()
+    vim.fn['fzf#vim#buffers']({
+      options = {
+        '--reverse',
+      },
+    })
+  end)
+  vim.keymap.set('n', '<Space>m', function()
+    vim.fn['fzf#vim#marks']({
+      options = {
+        '--reverse',
+      },
+    })
+  end)
 '''
 
 [[plugins]]
 repo = 'qpkorr/vim-bufkill'
-hook_post_source = '''
-  function! s:HookBD(cmd) abort
-    let dir = expand('%:p:h')
-    execute a:cmd
-    execute "edit " . dir
-  endfunction
-
-  command! BDU call <SID>HookBD("BD")
-  command! WBD write | BD
-  command! WBDU call <SID>HookBD("WBD")
+lua_post_source = '''
+  vim.api.nvim_create_user_command(
+    'BDU',
+    function()
+      local dir = vim.fn.expand('%:p:h')
+      vim.cmd.BD()
+      vim.cmd.edit(dir)
+    end,
+    {}
+  )
+  vim.api.nvim_create_user_command(
+    'WBD',
+    function()
+      vim.cmd.write()
+      vim.cmd.BD()
+    end,
+    {}
+  )
+  vim.api.nvim_create_user_command(
+    'WBDU',
+    function()
+      local dir = vim.fn.expand('%:p:h')
+      vim.cmd.WBD()
+      vim.cmd.edit(dir)
+    end,
+    {}
+  )
 '''
 
 [[plugins]]
 repo = 'joker1007/vim-markdown-quote-syntax'
-hook_add = '''
-  let g:is_bash = 1
-  let g:markdown_quote_syntax_on_filetypes = ['liquid']
-  let g:markdown_quote_syntax_filetypes = {
-        \   'apache': {
-        \     'start': 'apacheconf.*',
-        \   },
-        \   'c': {
-        \     'start': 'c.*',
-        \   },
-        \   'css': {
-        \     'start': 'css.*',
-        \   },
-        \   'diff': {
-        \     'start': 'diff.*',
-        \   },
-        \   'dosini': {
-        \     'start': 'ini.*',
-        \   },
-        \   'go': {
-        \     'start': 'go.*',
-        \   },
-        \   'graphql': {
-        \     'start': 'graphql.*',
-        \   },
-        \   'html': {
-        \     'start': 'html.*',
-        \   },
-        \   'make': {
-        \     'start': 'makefile.*',
-        \   },
-        \   'nginx': {
-        \     'start': 'nginx.*',
-        \   },
-        \   'javascript': {
-        \     'start': 'javascript.*',
-        \   },
-        \   'json': {
-        \     'start': 'json.*',
-        \   },
-        \   'rust': {
-        \     'start': 'rust.*',
-        \   },
-        \   'scss': {
-        \     'start': 'scss.*',
-        \   },
-        \   'sh': {
-        \     'start': '\%(bash\|console\|sh\|shell\).*',
-        \   },
-        \   'toml': {
-        \     'start': 'toml.*',
-        \   },
-        \   'typescript': {
-        \     'start': 'typescript.*',
-        \   },
-        \   'xml': {
-        \     'start': 'xaml.*',
-        \   },
-        \   'yaml': {
-        \     'start': 'yaml.*',
-        \   },
-        \ }
+lua_add = '''
+  vim.g.is_bash = 1
+  vim.g.markdown_quote_syntax_on_filetypes = { 'liquid' }
+  vim.g.markdown_quote_syntax_filetypes = {
+    apache = {
+      start = [[apacheconf.*]],
+    },
+    c = {
+      start = [[c.*]],
+    },
+    css = {
+      start = [[css.*]],
+    },
+    diff = {
+      start = [[diff.*]],
+    },
+    dosini = {
+      start = [[ini.*]],
+    },
+    go = {
+      start = [[go.*]],
+    },
+    graphql = {
+      start = [[graphql.*]],
+    },
+    html = {
+      start = [[html.*]],
+    },
+    make = {
+      start = [[makefile.*]],
+    },
+    nginx = {
+      start = [[nginx.*]],
+    },
+    javascript = {
+      start = [[javascript.*]],
+    },
+    json = {
+      start = [[json.*]],
+    },
+    rust = {
+      start = [[rust.*]],
+    },
+    scss = {
+      start = [[scss.*]],
+    },
+    sh = {
+      start = [[\%(bash\|console\|sh\|shell\).*]],
+    },
+    toml = {
+      start = [[toml.*]],
+    },
+    typescript = {
+      start = [[typescript.*]],
+    },
+    xml = {
+      start = [[xaml.*]],
+    },
+    yaml = {
+      start = [[yaml.*]],
+    },
+  }
 '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'php', 'javascript', 'typescript', 'css', 'scss']
-hook_add = '''
-  let g:user_emmet_leader_key = '<C-E>'
-  let g:user_emmet_settings = {
-        \   'javascript': {
-        \     'extends': 'jsx',
-        \   },
-        \   'typescript': {
-        \     'extends': 'jsx',
-        \   },
-        \   'variables': {
-        \     'lang': 'ja',
-        \   },
-        \ }
+lua_add = '''
+  vim.g.user_emmet_leader_key = '<C-E>'
+  vim.g.user_emmet_settings = {
+    javascript = {
+      extends = 'jsx',
+    },
+    typescript = {
+      extends = 'jsx',
+    },
+    variables = {
+      lang = 'ja',
+    },
+  }
 '''
 
 [[plugins]]
@@ -260,90 +270,117 @@ if = 'executable("go")'
 build = '''
   make hexokinase
 '''
-hook_add = '''
-  let g:Hexokinase_virtualText = '⬛︎'
-  let g:Hexokinase_optOutPatterns = ['colour_names', 'triple_hex']
-  let g:Hexokinase_refreshEvents = ['BufEnter', 'TextChanged', 'TextChangedI']
-
-  if !has('nvim-0.3.2')
-    let g:Hexokinase_highlighters = ['sign_column']
-  endif
+lua_add = '''
+  vim.g.Hexokinase_virtualText = '⬛︎'
+  vim.g.Hexokinase_optOutPatterns = { 'colour_names', 'triple_hex' }
+  vim.g.Hexokinase_refreshEvents = { 'BufEnter', 'TextChanged', 'TextChangedI' }
 '''
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
-hook_add = '''
-  let g:dein#install_github_api_token = expand('$DEIN_INSTALL_GITHUB_API_TOKEN')
-  autocmd VimEnter * call dein#call_hook('post_source')
+lua_add = '''
+  vim.g['dein#install_github_api_token'] = vim.env.DEIN_INSTALL_GITHUB_API_TOKEN
+  vim.api.nvim_create_autocmd('VimEnter', {
+    callback = function()
+      require('dein').call_hook('post_source')
+    end,
+  })
 '''
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
-hook_add = '''
-  let g:echodoc_enable_at_startup = 1
+lua_add = '''
+  vim.g.echodoc_enable_at_startup = 1
 '''
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 if = 'executable("node")'
-hook_add = '''
-  let g:coc_default_semantic_highlight_groups = 1
-  let g:coc_global_extensions = [
-        \   'coc-css',
-        \   'coc-java',
-        \   'coc-json',
-        \   'coc-go',
-        \   'coc-phpls',
-        \   'coc-powershell',
-        \   'coc-rust-analyzer',
-        \   'coc-sh',
-        \   'coc-snippets',
-        \   'coc-styled-components',
-        \   'coc-tsserver',
-        \   'coc-vetur',
-        \   'coc-yaml',
-        \ ]
+lua_add = '''
+  vim.g.coc_default_semantic_highlight_groups = 1
+  vim.g.coc_global_extensions = {
+    'coc-css',
+    'coc-java',
+    'coc-json',
+    'coc-go',
+    'coc-phpls',
+    'coc-powershell',
+    'coc-rust-analyzer',
+    'coc-sh',
+    'coc-snippets',
+    'coc-styled-components',
+    'coc-tsserver',
+    'coc-vetur',
+    'coc-yaml',
+  }
 '''
-hook_post_source = '''
-  inoremap <silent><expr> <C-x><C-n> coc#refresh()
-  nnoremap <silent> <F1> :call CocAction('doHover')<CR>
-  nmap <silent> <F2> <Plug>(coc-rename)
-  nmap <silent> <F3> <Plug>(coc-implementation)
-  nmap <silent> <F4> <Plug>(coc-definition)
-  nmap <silent> <F5> <Plug>(coc-codeaction-cursor)
-  nnoremap <silent> <F6> :CocDiagnostics<CR>
-  nnoremap <silent> <F7> :call CocAction('inspectSemanticToken')<CR>
+lua_post_source = '''
+  vim.keymap.set('i', '<C-x><C-n>', function()
+    vim.fn['coc#refresh']()
+  end)
+  vim.keymap.set('n', '<F1>', function()
+    vim.fn.CocAction('doHover')
+  end)
+  vim.keymap.set('n', '<F2>', '<Plug>(coc-rename)')
+  vim.keymap.set('n', '<F3>', '<Plug>(coc-implementation)')
+  vim.keymap.set('n', '<F4>', '<Plug>(coc-definition)')
+  vim.keymap.set('n', '<F5>', '<Plug>(coc-codeaction-cursor)')
+  vim.keymap.set('n', '<F6>', function()
+    vim.cmd.CocDiagnostics()
+  end)
+  vim.keymap.set('n', '<F7>', function()
+    vim.fn.CocAction('inspectSemanticToken')
+  end)
 
-  augroup coc
-    autocmd!
-    autocmd User CocDiagnosticChange call lightline#update()
-    autocmd User CocOpenFloatPrompt
-          \ execute 'autocmd InsertLeave <buffer=' . winbufnr(g:coc_last_float_win) . '> set backspace=' |
-          \ set backspace=indent,eol,start
-    autocmd CursorHoldI * silent call CocActionAsync('highlight')
-  augroup END
+  local coc_id = vim.api.nvim_create_augroup('coc', {})
+  vim.api.nvim_create_autocmd('User', {
+    group = coc_id,
+    pattern = { 'CocDiagnosticChange' },
+    callback = function()
+      vim.fn['lightline#update']()
+    end,
+  })
+  vim.api.nvim_create_autocmd('User', {
+    group = coc_id,
+    pattern = { 'CocOpenFloatPrompt' },
+    callback = function()
+      vim.api.nvim_create_autocmd('InsertLeave', {
+        buffer = vim.fn.winbufnr(vim.g.coc_last_float_win),
+        callback = function()
+          vim.opt.backspace = ''
+        end,
+      })
+      vim.opt.backspace = 'indent,eol,start'
+    end,
+  })
+  vim.api.nvim_create_autocmd('CursorHoldI', {
+    group = coc_id,
+    callback = function()
+      vim.fn.CocActionAsync('highlight')
+    end,
+  })
 '''
 
 [[plugins]]
 repo = 'yssl/QFEnter'
-hook_add = '''
-  let g:qfenter_keymap = {
-        \   'open': ['<CR>'],
-        \   'vopen': ['s'],
-        \   'hopen': ['i'],
-        \   'topen': ['t'],
-        \ }
+lua_add = '''
+  vim.g.qfenter_keymap = {
+    open = { '<CR>' },
+    vopen = { 's' },
+    hopen = { 'i' },
+    topen = { 't' },
+  }
 '''
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
-hook_post_source = '''
-  SpeedDatingFormat %Y/%m/%d
-  SpeedDatingFormat %Y年%m月%d日
+lua_post_source = '''
+  vim.cmd.SpeedDatingFormat('%Y/%m/%d')
+  vim.cmd.SpeedDatingFormat('%Y年%m月%d日')
 
-  nmap <Plug>SpeedDatingFallbackUp <Plug>(increment-activator-increment)
-  nmap <Plug>SpeedDatingFallbackDown <Plug>(increment-activator-decrement)
+  vim.keymap.set('n', '<Plug>SpeedDatingFallbackUp', '<Plug>(increment-activator-increment)')
+  vim.keymap.set('n', '<Plug>SpeedDatingFallbackDown', '<Plug>(increment-activator-decrement)')
 '''
 
 [[plugins]]
@@ -351,18 +388,21 @@ repo = 'nishigori/increment-activator'
 
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
-hook_add = '''
-  let g:anzu_status_format = "%/ (%i/%l)"
+lua_add = '''
+  vim.g.anzu_status_format = '%/ (%i/%l)'
 '''
-hook_post_source = '''
-  nmap <silent> <Esc><Esc> <Plug>(anzu-clear-search-status):nohlsearch<CR>
-  nmap * <Plug>(asterisk-*)<Plug>(anzu-update-search-status-with-echo)
-  nmap # <Plug>(asterisk-#)<Plug>(anzu-update-search-status-with-echo)
+lua_post_source = '''
+  vim.keymap.set('n', '<Esc><Esc>', '<Plug>(anzu-clear-search-status):nohlsearch<CR>')
+  vim.keymap.set('n', '*', '<Plug>(asterisk-*)<Plug>(anzu-update-search-status-with-echo)')
+  vim.keymap.set('n', '#', '<Plug>(asterisk-#)<Plug>(anzu-update-search-status-with-echo)')
 
-  augroup anzu
-    autocmd!
-    autocmd WinLeave,TabLeave * call anzu#clear_search_status()
-  augroup END
+  local anzu_id = vim.api.nvim_create_augroup('anzu', {})
+  vim.api.nvim_create_autocmd({ 'WinLeave', 'TabLeave' }, {
+    group = anzu_id,
+    callback = function()
+      vim.fn['anzu#clear_search_status']()
+    end,
+  })
 '''
 
 [[plugins]]
@@ -376,16 +416,16 @@ repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
-hook_post_source = '''
-  nmap R <Plug>(operator-replace)
+lua_post_source = '''
+  vim.keymap.set('n', 'R', '<Plug>(operator-replace)')
 '''
 
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
-hook_post_source = '''
-  nmap <silent>ys <Plug>(operator-surround-append)
-  nmap <silent>ds <Plug>(operator-surround-delete)
-  nmap <silent>cs <Plug>(operator-surround-replace)
+lua_post_source = '''
+  vim.keymap.set('n', 'ys', '<Plug>(operator-surround-append)')
+  vim.keymap.set('n', 'ds', '<Plug>(operator-surround-delete)')
+  vim.keymap.set('n', 'cs', '<Plug>(operator-surround-replace)')
 '''
 
 [[plugins]]
@@ -393,15 +433,15 @@ repo = 'kshenoy/vim-signature'
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
-hook_post_source = '''
-  nmap <silent>cl <Plug>(operator-camelize-toggle)
+lua_post_source = '''
+  vim.keymap.set('n', 'cl', '<Plug>(operator-camelize-toggle)')
 '''
 
 [[plugins]]
 repo = 'tyru/caw.vim'
-hook_add = '''
-  let g:caw_operator_keymappings = 1
-  let g:caw_hatpos_sp = ''
+lua_add = '''
+  vim.g.caw_operator_keymappings = 1
+  vim.g.caw_hatpos_sp = ''
 '''
 
 [[plugins]]
@@ -421,11 +461,9 @@ repo = 'sgur/vim-textobj-parameter'
 
 [[plugins]]
 repo = 'thinca/vim-textobj-between'
-hook_post_source = '''
-  omap a<Bar> <Plug>(textobj-between-a)<Bar>
-  xmap a<Bar> <Plug>(textobj-between-a)<Bar>
-  omap i<Bar> <Plug>(textobj-between-i)<Bar>
-  xmap i<Bar> <Plug>(textobj-between-i)<Bar>
+lua_post_source = '''
+  vim.keymap.set({ 'o', 'x' }, 'a<Bar>', '<Plug>(textobj-between-a)<Bar>')
+  vim.keymap.set({ 'o', 'x' }, 'i<Bar>', '<Plug>(textobj-between-i)<Bar>')
 '''
 
 [[plugins]]
