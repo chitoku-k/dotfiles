@@ -73,14 +73,14 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
 })
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = init_id,
-  pattern = {'quickfix'},
+  pattern = { 'quickfix' },
   callback = function()
     vim.keymap.set('n', '<CR>', '<CR>')
   end,
 })
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
   group = init_id,
-  pattern = {'*grep*'},
+  pattern = { '*grep*' },
   callback = function()
     vim.cmd.cwindow()
   end,
