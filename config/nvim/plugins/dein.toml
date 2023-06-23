@@ -112,7 +112,7 @@ repo = 'himanoa/goshiteki'
 
 [[plugins]]
 repo = 'ibhagwan/fzf-lua'
-if = 'executable("fzf")'
+if = 'has("unix") && executable("fzf")'
 lua_add = '''
   require('fzf-lua').setup({
     fzf_opts = {
