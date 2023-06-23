@@ -3,26 +3,26 @@ local root_dir = vim.fn.expand('<sfile>:p:h')
 
 function M.plugin_dir(...)
   if vim.fn.has('win32') == 1 then
-    return vim.env.APPDATA .. '\\dein' .. table.concat({ ... })
+    return vim.fs.joinpath(vim.env.APPDATA, 'dein', ...)
   else
-    return vim.env.XDG_DATA_HOME .. '/dein' .. table.concat({ ... })
+    return vim.fs.joinpath(vim.env.XDG_DATA_HOME, 'dein', ...)
   end
 end
 
 function M.data_dir(...)
   if vim.fn.has('win32') == 1 then
-    return vim.env.APPDATA .. '\\vim' .. table.concat({ ... })
+    return vim.fs.joinpath(vim.env.APPDATA, 'vim', ...)
   else
-    return vim.env.XDG_DATA_HOME .. '/vim' .. table.concat({ ... })
+    return vim.fs.joinpath(vim.env.XDG_DATA_HOME, 'vim', ...)
   end
 end
 
 function M.config_dir(...)
-  return root_dir .. table.concat({ ... })
+  return vim.fs.joinpath(root_dir, ...)
 end
 
 function M.repo_dir(...)
-  return M.plugin_dir('/repos/github.com') .. table.concat({ ... })
+  return vim.fs.joinpath(M.plugin_dir('/repos/github.com'), ...)
 end
 
 function M.supports_cursor()

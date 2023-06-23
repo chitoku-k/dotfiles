@@ -1,4 +1,4 @@
-pcall(function() vim.cmd.language('en_US.UTF-8') end)
+pcall(vim.cmd.language, 'en_US.UTF-8')
 
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencodings = { 'ucs-bom', 'utf-8', 'euc-jp', 'cp932', 'sjis' }
@@ -58,35 +58,35 @@ if vim.fn.executable('rg') == 1 then
   vim.opt.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 end
 
-vim.api.nvim_create_augroup('init', {})
+local init_id = vim.api.nvim_create_augroup('init', {})
 vim.api.nvim_create_autocmd('BufEnter', {
-  group = 'init',
+  group = init_id,
   callback = function()
     vim.opt_local.formatoptions:remove({ 'c', 'r', 'o' })
   end,
 })
 vim.api.nvim_create_autocmd('CmdwinEnter', {
-  group = 'init',
+  group = init_id,
   callback = function()
-    vim.api.nvim_set_keymap('n', '<CR>', '<CR>', { noremap = true })
+    vim.keymap.set('n', '<CR>', '<CR>')
   end,
 })
 vim.api.nvim_create_autocmd('BufReadPost', {
-  group = 'init',
+  group = init_id,
   pattern = {'quickfix'},
   callback = function()
-    vim.api.nvim_set_keymap('n', '<CR>', '<CR>', { noremap = true })
+    vim.keymap.set('n', '<CR>', '<CR>')
   end,
 })
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
-  group = 'init',
+  group = init_id,
   pattern = {'*grep*'},
   callback = function()
     vim.cmd.cwindow()
   end,
 })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  group = 'init',
+  group = init_id,
   callback = function()
     vim.highlight.on_yank({
       higroup = 'Flashy',
