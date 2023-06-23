@@ -26,8 +26,8 @@ function M.repo_dir(...)
 end
 
 function M.supports_cursor()
-  return vim.env.TERM_PROGRAM:match('iTerm\\.app|Apple_Terminal')
-    or tonumber(vim.env.VTE_VERSION) >= 3900
+  return vim.env.TERM_PROGRAM and vim.env.TERM_PROGRAM:match('iTerm\\.app|Apple_Terminal')
+    or vim.env.VTE_VERSION and tonumber(vim.env.VTE_VERSION) >= 3900
     or vim.env.WT_SESSION ~= ''
 end
 
