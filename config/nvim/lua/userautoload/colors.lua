@@ -8,7 +8,7 @@ if not pcall(vim.cmd.colorscheme, 'base16-ocean') then
   vim.cmd.colorscheme('desert')
 end
 
-if vim.fn.has('ttyin') == 1 or not vim.g.nyaovim_version then
+if vim.fn.has('ttyin') == 1 then
   vim.api.nvim_set_hl(0, 'Normal', {})
 end
 
