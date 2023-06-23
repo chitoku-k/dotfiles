@@ -2,7 +2,7 @@
 repo = 'fatih/vim-go'
 lazy = 1
 on_ft = ['go']
-if = 'has("nvim-0.3.2") && executable("go")'
+if = 'executable("go")'
 hook_add = '''
   let g:go_echo_go_info = 0
   let g:go_highlight_fields = 1

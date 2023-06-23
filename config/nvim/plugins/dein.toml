@@ -256,7 +256,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'RRethy/vim-hexokinase'
-if = 'has("nvim-0.3.0") && executable("go")'
+if = 'executable("go")'
 build = '''
   make hexokinase
 '''
@@ -286,7 +286,7 @@ hook_add = '''
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
-if = '(has("nvim-0.3.1") || v:version >= 800) && executable("node")'
+if = 'executable("node")'
 hook_add = '''
   let g:coc_default_semantic_highlight_groups = 1
   let g:coc_global_extensions = [
@@ -370,7 +370,6 @@ repo = 'haya14busa/vim-asterisk'
 
 [[plugins]]
 repo = 'raghur/vim-ghost'
-if = 'has("nvim")'
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
