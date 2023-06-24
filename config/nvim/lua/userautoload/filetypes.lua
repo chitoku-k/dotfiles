@@ -10,7 +10,7 @@ vim.filetype.add({
     spec = 'yaml',
   },
   pattern = {
-    ['.*%.js.snap'] = 'javascript',
+    ['.*%.js%.snap'] = 'javascript',
     ['.*/.bp/config.*'] = 'yaml',
     ['.*/.kube/config'] = 'yaml',
     ['.*/jobs/.*/bin/.*'] = 'eruby.sh',
