@@ -113,14 +113,12 @@ repo = 'himanoa/goshiteki'
 [[plugins]]
 repo = 'ibhagwan/fzf-lua'
 if = 'has("unix") && executable("fzf")'
-lua_add = '''
+lua_post_source = '''
   require('fzf-lua').setup({
     fzf_opts = {
       ['--layout'] = 'reverse',
     },
   })
-'''
-lua_post_source = '''
   vim.keymap.set('n', '<Space>g', function()
     require('fzf-lua').files({
       fzf_opts = {
