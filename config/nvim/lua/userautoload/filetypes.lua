@@ -11,8 +11,8 @@ vim.filetype.add({
   },
   pattern = {
     ['.*%.js%.snap'] = 'javascript',
-    ['.*/.bp/config.*'] = 'yaml',
-    ['.*/.kube/config'] = 'yaml',
+    ['.*/%.bp/config.*'] = 'yaml',
+    ['.*/%.kube/config'] = 'yaml',
     ['.*/jobs/.*/bin/.*'] = 'eruby.sh',
     ['.*/jobs/.*/templates/.*%.yml'] = 'eruby.yaml',
   },
