@@ -8,6 +8,9 @@ lua_add = '''
 repo = 'base16-community/base16-vim'
 
 [[plugins]]
+repo = 'RRethy/nvim-base16'
+
+[[plugins]]
 repo = 'felixjung/vim-base16-lightline'
 hook_post_source = '''
   let s:palette = g:lightline#palette()
