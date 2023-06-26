@@ -3,11 +3,4 @@ repo = 'fatih/vim-go'
 lazy = 1
 on_ft = ['go']
 if = 'executable("go")'
-lua_add = '''
-  vim.g.go_echo_go_info = 0
-  vim.g.go_highlight_fields = 1
-  vim.g.go_highlight_functions = 1
-  vim.g.go_highlight_function_parameters = 1
-  vim.g.go_highlight_generate_tags = 1
-  vim.g.go_highlight_types = 1
-'''
+hooks_file = '$HOOKS_DIR/vim-go.lua'

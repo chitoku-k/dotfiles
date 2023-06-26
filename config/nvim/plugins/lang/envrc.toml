@@ -1,6 +1,4 @@
 [[plugins]]
 repo = 'direnv/direnv.vim'
 if = 'executable("direnv")'
-lua_add = '''
-  vim.g.direnv_silent_load = 1
-'''
+hooks_file = '$HOOKS_DIR/direnv.vim.lua'
