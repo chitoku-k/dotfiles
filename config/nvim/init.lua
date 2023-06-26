@@ -1,9 +1,5 @@
 local function plugin_dir(...)
-  if vim.fn.has('win32') == 1 then
-    return vim.env.APPDATA .. '\\dein' .. table.concat({ ... })
-  else
-    return vim.env.XDG_DATA_HOME .. '/dein' .. table.concat({ ... })
-  end
+  return vim.fn.fnamemodify(vim.fn.stdpath('data'), ':h') .. '/dein' .. table.concat({ ... })
 end
 
 local function config_dir(...)
