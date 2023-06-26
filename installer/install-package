@@ -56,9 +56,6 @@ install-package() {
             'xdg/fontconfig/fonts.conf')
                 create-symlink ./config/fontconfig/fonts.conf "$xdgconfig/fontconfig/fonts.conf"
                 ;;
-            'xdg/nyaovim')
-                create-symlink ./config/nvim/nyaovim "$xdgconfig/nyaovim"
-                ;;
             'dotfiles/.vsvimrc')
                 create-symlink ./config/.vsvimrc "$home/.vsvimrc"
                 ;;
