@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'martinda/Jenkinsfile-vim-syntax'
+on_ft = ['groovy']

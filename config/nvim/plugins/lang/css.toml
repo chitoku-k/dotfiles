@@ -1,5 +1,7 @@
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
+on_ft = ['css', 'html', 'javascript', 'php', 'scss', 'typescript']
 
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
+on_ft = ['css', 'html', 'javascript', 'php', 'scss', 'typescript']

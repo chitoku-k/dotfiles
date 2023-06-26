@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'Joorem/vim-haproxy'
+on_ft = ['cfg']

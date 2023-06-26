@@ -15,20 +15,46 @@ hooks_file = '$HOOKS_DIR/vim-better-whitespace.lua'
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
+on_map = ['<C-h>', '<C-j>', '<C-k>', '<C-l>']
 hooks_file = '$HOOKS_DIR/vim-textmanip.lua'
 
 [[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-
-[[plugins]]
 repo = 'lambdalisue/suda.vim'
+on_path = ['suda://*']
 
 [[plugins]]
 repo = 'tpope/vim-capslock'
-hooks_file = '$HOOKS_DIR/vim-capslock.lua'
+on_map = ['<C-l>']
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+on_cmd = [
+  '0Git',
+  'G',
+  'GBrowse',
+  'GDelete',
+  'GMove',
+  'GRemove',
+  'GRename',
+  'GUnlink',
+  'Gcd',
+  'Gclog',
+  'Gdiffsplit',
+  'Gdrop',
+  'Gedit',
+  'Gedit',
+  'Ggrep',
+  'Ghdiffsplit',
+  'Git',
+  'Glcd',
+  'Gllog',
+  'Gpedit',
+  'Gread',
+  'Gsplit',
+  'Gtabedit',
+  'Gwq',
+  'Gwrite',
+]
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
@@ -36,10 +62,12 @@ hooks_file = '$HOOKS_DIR/conflict-marker.vim.lua'
 
 [[plugins]]
 repo = 'himanoa/goshiteki'
+on_cmd = ['GoshitekiStart']
 
 [[plugins]]
 repo = 'ibhagwan/fzf-lua'
 if = 'has("unix") && executable("fzf")'
+on_map = ['<Space>f', '<Space>g', '<Space>m']
 hooks_file = '$HOOKS_DIR/fzf-lua.lua'
 
 [[plugins]]
@@ -48,7 +76,7 @@ hooks_file = '$HOOKS_DIR/vim-bufkill.lua'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'php', 'javascript', 'typescript', 'css', 'scss']
+on_ft = ['css', 'html', 'javascript', 'php', 'scss', 'typescript']
 hooks_file = '$HOOKS_DIR/emmet-vim.lua'
 
 [[plugins]]
@@ -70,28 +98,29 @@ if = 'executable("node")'
 hooks_file = '$HOOKS_DIR/coc.nvim.lua'
 
 [[plugins]]
-repo = 'yssl/QFEnter'
-hooks_file = '$HOOKS_DIR/QFEnter.lua'
-
-[[plugins]]
 repo = 'tpope/vim-speeddating'
+on_map = ['<C-a>', '<C-x>']
 hooks_file = '$HOOKS_DIR/vim-speeddating.lua'
 
 [[plugins]]
 repo = 'nishigori/increment-activator'
+on_map = ['<C-a>', '<C-x>']
 
 [[plugins]]
 repo = 'raghur/vim-ghost'
+on_cmd = ['GhostInstall', 'GhostStart']
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
+on_map = ['R']
 hooks_file = '$HOOKS_DIR/vim-operator-replace.lua'
 
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
+on_map = ['cs', 'ds', 'ys']
 hooks_file = '$HOOKS_DIR/vim-operator-surround.lua'
 
 [[plugins]]
@@ -99,10 +128,12 @@ repo = 'kshenoy/vim-signature'
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
+on_map = ['cl']
 hooks_file = '$HOOKS_DIR/operator-camelize.vim.lua'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
+on_map = ['gc']
 hooks_file = '$HOOKS_DIR/caw.vim.lua'
 
 [[plugins]]

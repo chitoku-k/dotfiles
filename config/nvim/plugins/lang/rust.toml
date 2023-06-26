@@ -1,4 +1,3 @@
 [[plugins]]
 repo = 'rust-lang/rust.vim'
-lazy = 1
 on_ft = ['rust']

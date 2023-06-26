@@ -1,0 +1,4 @@
+[[plugins]]
+repo = 'yssl/QFEnter'
+on_ft = ['qf']
+hooks_file = '$HOOKS_DIR/QFEnter.lua'

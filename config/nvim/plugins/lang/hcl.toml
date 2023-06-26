@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'jvirtanen/vim-hcl'
+on_ft = ['hcl']

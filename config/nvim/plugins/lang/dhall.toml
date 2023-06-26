@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'vmchale/dhall-vim'
+on_ft = ['dhall']

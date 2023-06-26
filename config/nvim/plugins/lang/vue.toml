@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'posva/vim-vue'
+on_ft = ['vue']

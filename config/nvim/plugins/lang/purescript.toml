@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'purescript-contrib/purescript-vim'
+on_ft = ['purescript']

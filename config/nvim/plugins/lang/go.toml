@@ -1,6 +1,5 @@
 [[plugins]]
 repo = 'fatih/vim-go'
-lazy = 1
 on_ft = ['go']
 if = 'executable("go")'
 hooks_file = '$HOOKS_DIR/vim-go.lua'

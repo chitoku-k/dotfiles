@@ -1,7 +1,14 @@
 vim.filetype.add({
   extension = {
+    iuml = 'plantuml',
+    j2 = 'jinja',
+    plantuml = 'plantuml',
+    pu = 'plantuml',
+    puml = 'plantuml',
+    purs = 'purescript',
     tag = 'html',
     tsx = 'typescript.tsx',
+    uml = 'plantuml',
     xxhc = 'yaml',
     zunit = 'zsh',
   },

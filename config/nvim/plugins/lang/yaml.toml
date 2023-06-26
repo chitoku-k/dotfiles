@@ -2,3 +2,4 @@
 repo = 'psycofdj/yaml-path'
 if = 'executable("yaml-path")'
 hooks_file = '$HOOKS_DIR/yaml-path.lua'
+on_ft = ['yaml']

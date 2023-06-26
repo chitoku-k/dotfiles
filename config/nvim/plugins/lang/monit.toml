@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'tmatilai/vim-monit'
+on_ft = ['monitrc']

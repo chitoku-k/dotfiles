@@ -1,2 +1,3 @@
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']

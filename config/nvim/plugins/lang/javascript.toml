@@ -1,12 +1,11 @@
 [[plugins]]
 repo = 'nicklasos/vim-jsx-riot'
+on_ft = ['javascript', 'typescript']
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'typescript']
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'jparise/vim-graphql'
