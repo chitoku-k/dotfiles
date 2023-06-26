@@ -8,6 +8,7 @@ if vim.fn.isdirectory(dein_dir) == 1 then
   if dein.load_state(utils.plugin_dir()) == 1 then
     dein.begin(utils.plugin_dir())
 
+    vim.env.HOOKS_DIR = utils.config_dir('/plugins/hooks')
     for _, file in ipairs(vim.fn.glob(utils.config_dir('/plugins/**/*.toml'), 1, 1)) do
       dein.load_toml(file)
     end
