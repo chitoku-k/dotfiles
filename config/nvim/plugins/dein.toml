@@ -3,66 +3,11 @@ repo = 'justinmk/vim-dirvish'
 hooks_file = '$HOOKS_DIR/vim-dirvish.lua'
 
 [[plugins]]
-repo = 'base16-community/base16-vim'
-
-[[plugins]]
 repo = 'RRethy/nvim-base16'
 
 [[plugins]]
-repo = 'felixjung/vim-base16-lightline'
-hook_post_source = '''
-  let s:palette = g:lightline#palette()
-  let s:palette.inactive.error = s:palette.inactive.left
-  let s:palette.inactive.warning = s:palette.inactive.left
-  let s:palette.inactive.info = s:palette.inactive.left
-  let s:palette.normal.error = [['#c0c5ce', '#bf616a', '07', '01']]
-  let s:palette.normal.info = [['#343d46', '#8fa1b3', '18', '04']]
-  call lightline#colorscheme()
-'''
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-  let g:lightline = {
-        \   'colorscheme': 'base16_ocean',
-        \   'active': {
-        \     'left': [ [ 'mode', 'capslock', 'paste' ], [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path' ] ],
-        \     'right': [ [ 'filetype' ], [ 'fileformat', 'fileencoding' ], [ 'charcode' ] ],
-        \   },
-        \   'inactive': {
-        \     'left': [ [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path' ] ],
-        \     'right': [],
-        \   },
-        \   'tabline': {
-        \     'left': [ [ 'tabs' ] ],
-        \     'right': [],
-        \   },
-        \   'component': {
-        \     'path': '%<%{vimrc#lightline#path()}',
-        \   },
-        \   'component_function': {
-        \     'mode': 'vimrc#lightline#mode',
-        \     'capslock': 'vimrc#lightline#capslock',
-        \     'filename': 'vimrc#lightline#filename',
-        \     'modified': 'vimrc#lightline#modified',
-        \     'lineinfo': 'vimrc#lightline#lineinfo',
-        \     'fileformat': 'vimrc#lightline#fileformat',
-        \     'fileencoding': 'vimrc#lightline#fileencoding',
-        \     'filetype': 'vimrc#lightline#filetype',
-        \     'charcode': 'vimrc#lightline#charcode',
-        \   },
-        \   'component_expand': {
-        \     'coc_error': 'vimrc#lightline#coc_error',
-        \     'coc_warning': 'vimrc#lightline#coc_warning',
-        \     'coc_info': 'vimrc#lightline#coc_info',
-        \   },
-        \   'component_type': {
-        \     'coc_error': 'error',
-        \     'coc_warning': 'warning',
-        \     'coc_info': 'info',
-        \   },
-        \ }
-'''
+repo = 'nvim-lualine/lualine.nvim'
+hooks_file = '$HOOKS_DIR/lualine.nvim.lua'
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'

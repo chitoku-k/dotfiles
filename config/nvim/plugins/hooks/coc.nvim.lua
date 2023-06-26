@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('User', {
   group = coc_id,
   pattern = { 'CocDiagnosticChange' },
   callback = function()
-    vim.fn['lightline#update']()
+    require('lualine').refresh()
   end,
 })
 vim.api.nvim_create_autocmd('User', {
