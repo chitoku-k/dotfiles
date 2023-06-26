@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 vim.keymap.set('c', '<C-j>', '<Down>')
 vim.keymap.set('c', '<C-k>', '<Up>')
 
@@ -50,7 +48,3 @@ vim.api.nvim_create_autocmd('TermOpen', {
     end
   end,
 })
-
-if not utils.supports_cursor() then
-  vim.opt.guicursor = ''
-end
