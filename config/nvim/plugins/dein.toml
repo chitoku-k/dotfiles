@@ -26,7 +26,7 @@ hook_add = '''
   let g:lightline = {
         \   'colorscheme': 'base16_ocean',
         \   'active': {
-        \     'left': [ [ 'mode', 'capslock', 'paste' ], [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path', 'anzu' ] ],
+        \     'left': [ [ 'mode', 'capslock', 'paste' ], [ 'filename', 'modified' ], [ 'coc_error', 'coc_warning', 'coc_info' ], [ 'path' ] ],
         \     'right': [ [ 'filetype' ], [ 'fileformat', 'fileencoding' ], [ 'charcode' ] ],
         \   },
         \   'inactive': {
@@ -45,7 +45,6 @@ hook_add = '''
         \     'capslock': 'vimrc#lightline#capslock',
         \     'filename': 'vimrc#lightline#filename',
         \     'modified': 'vimrc#lightline#modified',
-        \     'anzu': 'anzu#search_status',
         \     'lineinfo': 'vimrc#lightline#lineinfo',
         \     'fileformat': 'vimrc#lightline#fileformat',
         \     'fileencoding': 'vimrc#lightline#fileencoding',
@@ -143,10 +142,6 @@ hooks_file = '$HOOKS_DIR/vim-speeddating.lua'
 
 [[plugins]]
 repo = 'nishigori/increment-activator'
-
-[[plugins]]
-repo = 'osyo-manga/vim-anzu'
-hooks_file = '$HOOKS_DIR/vim-anzu.lua'
 
 [[plugins]]
 repo = 'haya14busa/vim-asterisk'
