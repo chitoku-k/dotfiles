@@ -164,12 +164,16 @@ require('lualine').setup({
     lualine_c = {
       path,
     },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
   },
   tabline = {
     lualine_a = {
       {
         'tabs',
         mode = 2,
+        max_length = vim.o.columns,
         fmt = function(name, context)
           local bufnr = bufnr(context.tabnr)
 
@@ -182,6 +186,11 @@ require('lualine').setup({
         end,
       },
     },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
   },
 })
 -- }}}
