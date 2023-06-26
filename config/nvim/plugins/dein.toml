@@ -56,12 +56,8 @@ on_ft = ['html', 'php', 'javascript', 'typescript', 'css', 'scss']
 hooks_file = '$HOOKS_DIR/emmet-vim.lua'
 
 [[plugins]]
-repo = 'RRethy/vim-hexokinase'
-if = 'executable("go")'
-build = '''
-  make hexokinase
-'''
-hooks_file = '$HOOKS_DIR/vim-hexokinase.lua'
+repo = 'NvChad/nvim-colorizer.lua'
+hooks_file = '$HOOKS_DIR/nvim-colorizer.lua'
 
 [[plugins]]
 repo = 'Shougo/dein.vim'

@@ -42,9 +42,5 @@ vim.api.nvim_create_autocmd('TermOpen', {
     if vim.g.loaded_better_whitespace_plugin == 1 then
       vim.cmd.DisableWhitespace()
     end
-
-    if vim.g.loaded_hexokinase == 1 then
-      vim.fn['hexokinase#v2#scraper#off']()
-    end
   end,
 })
