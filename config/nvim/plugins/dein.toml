@@ -47,10 +47,6 @@ repo = 'qpkorr/vim-bufkill'
 hooks_file = '$HOOKS_DIR/vim-bufkill.lua'
 
 [[plugins]]
-repo = 'joker1007/vim-markdown-quote-syntax'
-hooks_file = '$HOOKS_DIR/vim-markdown-quote-syntax.lua'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'php', 'javascript', 'typescript', 'css', 'scss']
 hooks_file = '$HOOKS_DIR/emmet-vim.lua'
