@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.cmd.startinsert()
 
     if vim.g.loaded_better_whitespace_plugin == 1 then
-      vim.api.nvim_command('DisableWhitespace')
+      vim.cmd.DisableWhitespace()
     end
 
     if vim.g.loaded_hexokinase == 1 then
