@@ -55,7 +55,7 @@ local function fileformat()
 end
 
 local function filetype()
-  return vim.bo.filetype or 'no ft'
+  return vim.bo.filetype ~= '' and vim.bo.filetype or 'no ft'
 end
 
 local function charcode()
