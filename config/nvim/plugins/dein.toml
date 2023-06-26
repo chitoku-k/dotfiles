@@ -81,9 +81,6 @@ hooks_file = '$HOOKS_DIR/vim-speeddating.lua'
 repo = 'nishigori/increment-activator'
 
 [[plugins]]
-repo = 'haya14busa/vim-asterisk'
-
-[[plugins]]
 repo = 'raghur/vim-ghost'
 
 [[plugins]]
