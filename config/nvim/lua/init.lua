@@ -20,9 +20,9 @@ if vim.fn.isdirectory(dein_dir) == 1 then
     dein.save_state()
   end
 
-  vim.cmd.runtime({ 'lua/userautoload/*.lua', bang = true })
+  vim.cmd.runtime({ 'userautoload/*.lua', bang = true })
 
-  for _, file in ipairs(vim.fn.glob(utils.config_dir('/lua/has/*.lua'), 1, 1)) do
+  for _, file in ipairs(vim.fn.glob(utils.config_dir('/has/*.lua'), 1, 1)) do
     local feature = vim.fn.fnamemodify(file, ':t:r')
     if vim.fn.has(feature) == 1 then
       vim.cmd.source(file)
