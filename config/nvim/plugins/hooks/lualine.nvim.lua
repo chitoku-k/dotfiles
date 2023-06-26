@@ -13,11 +13,11 @@ local function bufnr(tabnr)
 end
 
 local function fugitive()
-  if not vim.fn.expand('%'):match('^fugitive://') then
+  if not vim.api.nvim_buf_get_name(0):match('^fugitive://') then
     return nil, nil
   end
 
-  local result = vim.fn.FugitiveParse(vim.fn.expand('%'))
+  local result = vim.fn.FugitiveParse(vim.api.nvim_buf_get_name(0))
   local object, git_dir = result[1], result[2]
   if object == ':' then
     return nil, nil
@@ -28,7 +28,7 @@ end
 
 local function filename()
   if vim.bo.filetype == 'dirvish' then
-    return vim.fn.expand('%:~:h:t') .. '/'
+    return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':~:h:t') .. '/'
   end
 
   local commit, filename = fugitive()
@@ -37,7 +37,7 @@ local function filename()
   end
 
   local readonly = vim.bo.readonly and vim.bo.filetype ~= 'help' and 'RO ' or ''
-  local filename = vim.fn.expand('%:t')
+  local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
   if filename == '' then
     filename = '[No Name]'
   end
@@ -75,7 +75,7 @@ end
 
 local function path()
   if vim.bo.filetype == 'dirvish' then
-    return vim.fn.expand('%:~:h')
+    return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':~:h')
   end
 
   local commit, filename = fugitive()
@@ -83,7 +83,7 @@ local function path()
     return vim.fn.fnamemodify(filename, ':~:h')
   end
 
-  return vim.fn.expand('%:~:h')
+  return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':~:h')
 end
 
 local function modified()
