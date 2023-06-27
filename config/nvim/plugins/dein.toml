@@ -138,7 +138,6 @@ hooks_file = '$HOOKS_DIR/vim-operator-replace.lua'
 
 [[plugins]]
 repo = 'rhysd/vim-operator-surround'
-on_map = ['cs', 'ds', 'ys']
 hooks_file = '$HOOKS_DIR/vim-operator-surround.lua'
 
 [[plugins]]
