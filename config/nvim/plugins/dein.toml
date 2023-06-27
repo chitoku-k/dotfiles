@@ -95,6 +95,20 @@ hooks_file = '$HOOKS_DIR/echodoc.vim.lua'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 if = 'executable("node")'
+on_ft = [
+  'css',
+  'java',
+  'javascript',
+  'json',
+  'go',
+  'php',
+  'ps1',
+  'rust',
+  'sh',
+  'typescript',
+  'vue',
+  'yaml',
+]
 hooks_file = '$HOOKS_DIR/coc.nvim.lua'
 
 [[plugins]]
