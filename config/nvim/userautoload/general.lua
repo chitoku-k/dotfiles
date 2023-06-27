@@ -17,7 +17,6 @@ vim.opt.virtualedit = 'block'
 vim.opt.cindent = true
 vim.opt.title = true
 vim.opt.titleold = ''
-vim.opt.clipboard = { 'unnamedplus', 'unnamed' }
 vim.opt.mouse = ''
 vim.opt.whichwrap = ''
 vim.opt.backspace = ''
