@@ -24,7 +24,6 @@ on_path = ['suda://*']
 
 [[plugins]]
 repo = 'tpope/vim-capslock'
-on_map = ['<C-l>']
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -117,6 +116,7 @@ hooks_file = '$HOOKS_DIR/coc.nvim.lua'
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
+depends = 'increment-activator'
 on_map = ['<C-a>', '<C-x>']
 hooks_file = '$HOOKS_DIR/vim-speeddating.lua'
 
