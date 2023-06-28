@@ -100,6 +100,10 @@ local function coc_diagnostic(type, mark)
   end
 end
 
+local function noterminal()
+  return vim.bo.buftype ~= 'terminal'
+end
+
 require('lualine').setup({
   options = {
     theme = theme,
@@ -110,9 +114,7 @@ require('lualine').setup({
     lualine_a = {
       {
         'mode',
-        cond = function()
-          return vim.bo.buftype ~= 'terminal'
-        end,
+        cond = noterminal,
       },
       {
         'CapsLockStatusline',
@@ -122,7 +124,10 @@ require('lualine').setup({
       },
     },
     lualine_b = {
-      filename,
+      {
+        filename,
+        cond = noterminal,
+      },
       modified,
     },
     lualine_c = {
@@ -141,19 +146,28 @@ require('lualine').setup({
       path,
     },
     lualine_x = {
-      charcode,
+      {
+        charcode,
+        cond = noterminal,
+      },
     },
     lualine_y = {
       fileencoding,
       fileformat,
     },
     lualine_z = {
-      filetype,
+      {
+        filetype,
+        cond = noterminal,
+      },
     },
   },
   inactive_sections = {
     lualine_a = {
-      filename,
+      {
+        filename,
+        cond = noterminal,
+      },
       modified,
     },
     lualine_b = {
