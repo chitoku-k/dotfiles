@@ -150,7 +150,6 @@ hooks_file = '$HOOKS_DIR/operator-camelize.vim.lua'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
-on_map = ['gc']
 hooks_file = '$HOOKS_DIR/caw.vim.lua'
 
 [[plugins]]
