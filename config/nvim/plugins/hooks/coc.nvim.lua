@@ -18,9 +18,7 @@ vim.g.coc_global_extensions = {
 -- }}}
 
 -- lua_post_source {{{
-vim.keymap.set('i', '<C-x><C-n>', function()
-  vim.fn['coc#refresh']()
-end)
+vim.keymap.set('i', '<C-x><C-n>', 'coc#refresh()', { expr = true })
 vim.keymap.set('n', '<F1>', function()
   vim.fn.CocAction('doHover')
 end)
