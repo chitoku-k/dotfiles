@@ -62,24 +62,18 @@ vim.api.nvim_create_autocmd('BufEnter', {
     vim.opt_local.formatoptions:remove({ 'c', 'r', 'o' })
   end,
 })
-vim.api.nvim_create_autocmd('CmdwinEnter', {
+vim.api.nvim_create_autocmd('QuickFixCmdPost', {
   group = init_id,
+  pattern = { '[^l]*' },
   callback = function()
-    vim.keymap.set('n', '<CR>', '<CR>')
-  end,
-})
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = init_id,
-  pattern = { 'quickfix' },
-  callback = function()
-    vim.keymap.set('n', '<CR>', '<CR>')
+    vim.cmd.cwindow()
   end,
 })
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
   group = init_id,
-  pattern = { '*grep*' },
+  pattern = { 'l*' },
   callback = function()
-    vim.cmd.cwindow()
+    vim.cmd.lwindow()
   end,
 })
 vim.api.nvim_create_autocmd('TextYankPost', {
