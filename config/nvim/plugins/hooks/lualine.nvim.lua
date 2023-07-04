@@ -109,16 +109,6 @@ local function modified()
   return vim.bo.modified and '+' or ''
 end
 
-local function coc_diagnostic(type, mark)
-  return function()
-    local info = vim.b.coc_diagnostic_info
-    if info and info[type] and info[type] > 0 then
-      return mark .. '  ' .. info[type]
-    end
-    return ''
-  end
-end
-
 local function noterminal()
   return vim.bo.buftype ~= 'terminal'
 end
@@ -151,16 +141,24 @@ require('lualine').setup({
     },
     lualine_c = {
       {
-        coc_diagnostic('error', '✖'),
-        color = { fg = vim.g.base16_gui05, bg = vim.g.base16_gui08 },
-      },
-      {
-        coc_diagnostic('warning', '⚠'),
-        color = { fg = vim.g.base16_gui08, bg = vim.g.base16_gui0A },
-      },
-      {
-        coc_diagnostic('information', '⚑'),
-        color = { fg = vim.g.base16_gui01, bg = vim.g.base16_gui0D },
+        'diagnostics',
+        sections = {
+          'error',
+          'warn',
+          'info',
+        },
+        diagnostics_color = {
+          error = 'DiagnosticSignError',
+          warn = 'DiagnosticSignWarn',
+          info = 'DiagnosticSignInfo',
+        },
+        symbols = {
+          error = '✖  ',
+          warn = '⚠  ',
+          info = '⚑  ',
+        },
+        color = { bg = vim.g.base16_gui00 },
+        update_in_insert = true,
       },
       path,
     },
@@ -188,15 +186,25 @@ require('lualine').setup({
         cond = noterminal,
       },
       modified,
+      {
+        'diagnostics',
+        sections = {
+          'error',
+          'warn',
+          'info',
+        },
+        symbols = {
+          error = '✖  ',
+          warn = '⚠  ',
+          info = '⚑  ',
+        },
+        colored = false,
+      },
     },
     lualine_b = {
-      coc_diagnostic('error', '✖'),
-      coc_diagnostic('warning', '⚠'),
-      coc_diagnostic('information', '⚑'),
-    },
-    lualine_c = {
       path,
     },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},

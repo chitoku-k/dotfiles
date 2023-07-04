@@ -95,9 +95,8 @@ on_event = ['BufRead']
 hooks_file = '$HOOKS_DIR/echodoc.vim.lua'
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-if = 'executable("node")'
+repo = 'neovim/nvim-lspconfig'
+depends = ['mason.nvim']
 on_ft = [
   'css',
   'java',
@@ -112,7 +111,28 @@ on_ft = [
   'vue',
   'yaml',
 ]
-hooks_file = '$HOOKS_DIR/coc.nvim.lua'
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+depends = ['mason.nvim', 'nvim-lspconfig']
+on_source = ['nvim-lspconfig']
+hooks_file = '$HOOKS_DIR/mason-lspconfig.nvim.lua'
+
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+on_source = ['nvim-lspconfig']
+hooks_file = '$HOOKS_DIR/nvim-cmp.lua'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-nvim-lsp'
+on_source = ['nvim-lspconfig']
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_source = ['nvim-lspconfig']
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'

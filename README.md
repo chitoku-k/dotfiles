@@ -7,7 +7,7 @@ This repository contains my dotfiles and its installation script.
 Setting files expect each version or later:
 
 - Git 1.7.12
-- Neovim 0.5.0
+- Neovim 0.8.0
 - Zsh 5.0.2
 - Bash 3.5.27
 - PowerShell 7.x
