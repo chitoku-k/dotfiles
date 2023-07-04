@@ -12,6 +12,11 @@ local function bufnr(tabnr)
   return buflist[winnr]
 end
 
+local function quickfix_title()
+  local wininfo = vim.fn.getwininfo(vim.fn.win_getid())
+  return wininfo[1].variables.quickfix_title
+end
+
 local function fugitive()
   if not vim.fn.expand('%'):match('^fugitive://') then
     return nil, nil
@@ -29,6 +34,13 @@ end
 local function filename()
   if vim.bo.filetype == 'dirvish' then
     return vim.fn.expand('%:~:h:t') .. '/'
+  end
+
+  if vim.bo.filetype == 'qf' then
+    local title = quickfix_title()
+    if title:sub(1, 1) ~= ':' then
+      return title
+    end
   end
 
   local commit, filename = fugitive()
@@ -76,6 +88,13 @@ end
 local function path()
   if vim.bo.filetype == 'dirvish' then
     return vim.fn.expand('%:~:h')
+  end
+
+  if vim.bo.filetype == 'qf' then
+    local title = quickfix_title()
+    if title:sub(1, 1) == ':' then
+      return title:sub(2)
+    end
   end
 
   local commit, filename = fugitive()
