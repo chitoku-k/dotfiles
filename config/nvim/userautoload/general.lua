@@ -48,9 +48,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wrapscan = true
 vim.opt.hlsearch = true
-if vim.fn.exists('&inccommand') == 1 then
-  vim.opt.inccommand = 'split'
-end
+vim.opt.inccommand = 'split'
 
 if vim.fn.executable('rg') == 1 then
   vim.opt.grepprg = 'rg --vimgrep --no-heading'
