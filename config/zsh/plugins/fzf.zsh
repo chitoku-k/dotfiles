@@ -90,4 +90,4 @@ else
     esac
 fi
 
-export FZF_DEFAULT_OPTS=$fzf_default_opts
+export FZF_DEFAULT_OPTS="$fzf_default_opts"
