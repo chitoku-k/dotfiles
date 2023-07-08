@@ -11,7 +11,7 @@ function New-Dotfiles-Symlink {
     }
     if (Test-Path -Path $target) {
         Write-Error "File exists: $($target)"
-        return 1
+        return
     }
 
     if (!(Test-Path -PathType Container -Path (Split-Path -Parent -Path $target))) {
@@ -59,9 +59,6 @@ function Install-Dotfiles-Packages {
             vim/dein.vim {
                 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue -Path $localappdata\dein
                 git clone --depth 1 https://github.com/Shougo/dein.vim $localappdata\dein\repos\github.com\Shougo\dein.vim
-            }
-            default {
-                return 1
             }
         }
     }
