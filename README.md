@@ -53,12 +53,16 @@ Most dotfiles will follow [XDG Base Directory Specification](https://standards.f
 
 ### PowerShell
 
+```
+> Invoke-Expression (Invoke-WebRequest dot.chitoku.jp/install.ps1)
+```
+
 To manually install:
 
 ```
 > git clone https://github.com/chitoku-k/dotfiles.git
 > Set-Location dotfiles
-> Copy-Item .\config\powershell\Microsoft.PowerShell_profile.ps1 $PROFILE
+> .\install.ps1
 ```
 
 ## Local Configuration
@@ -77,7 +81,7 @@ Use `$XDG_CONFIG_HOME/tmux/local/*.conf`.
 
 ### PowerShell
 
-Use `$XDG_CONFIG_HOME/powershell/local/*.ps1`.
+Use `$HOME\Documents\PowerShell\local\*.ps1`.
 
 ### Git
 
