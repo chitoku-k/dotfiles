@@ -1,0 +1,15 @@
+xdg/zsh	Configuration for Zsh
+xdg/bash	Configuration for Bash
+xdg/xxh	Configuration for xxh
+xdg/tmux	Configuration for tmux
+xdg/git/config	Configuration for Git
+xdg/nvim	Configuration for Neovim
+xdg/fontconfig/fonts.conf	Configuration for fontconfig
+dotfiles/.vsvimrc	Configuration for VsVim
+dotfiles/.ignore	Configuration for ripgrep and fd
+xdg/phpcs/rules.php	Rules for PHP-CS-Fixer
+zsh/antigen	The plugin manager for zsh
+vim/dein.vim	Dark powered Vim/Neovim plugin manager
+tmux/tpm	Tmux Plugin Manager
+junegunn/fzf	A command-line fuzzy finder
+chriskempson/base16-iterm2	Base16 for iTerm2

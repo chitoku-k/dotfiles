@@ -6,40 +6,53 @@ dotfiles-packages() {
     fi
 
     local packages=$1
-    local descriptions=$2
+    shift
 
     paste -d '\n' \
         <(awk \
+            -v FS='\t' \
             -v bold="$(tput bold)" \
             -v green="$(tput setaf 2)" \
             -v purple="$(tput setaf 5)" \
             -v sgr0="$(tput sgr0)" '
             {
                 gsub(/\//, sgr0 "/")
-                print purple NR " " green bold $0
+                print purple NR " " green bold $1
             }
         ' < "$packages") \
-        <(awk '
+        <(awk \
+            -v FS='\t' '
             {
-                print "    " $0
+                print "    " $2
             }
-        ' < "$descriptions")
+        ' < "$packages")
 }
 
 dotfiles-read-install() {
     local input
-    local packages="$(cat -- "$1")"
+    local packages="$(awk '{ print $1 }' "$1")"
     shift
 
     if [[ -t 0 ]]; then
         tput setaf 2
         tput bold
-        echo '==> Packages to install (eg: 1 2 3 or 1-3)'
+        echo -n '==> '
+        tput sgr0
+
+        echo 'Packages to install (eg: 1 2 3 or 1-3)'
+
+        tput setaf 2
+        tput bold
         echo -n '==> '
         tput sgr0
     fi >&2
 
     read -r input
+
+    if [[ -z $input ]]; then
+        echo ' there is nothing to do' >&2
+        return
+    fi
 
     if [[ -t 0 ]]; then
         echo >&2
@@ -130,11 +143,11 @@ dotfiles-download() {
 
 dotfiles-install() {
     # List packages
-    dotfiles-packages ./packages/list ./packages/descriptions
+    dotfiles-packages ./packages/unix.tsv
 
     # Read packages to install
-    local installing="$(dotfiles-read-install ./packages/list)"
-    [[ -z "$installing" ]] && return 1
+    local installing="$(dotfiles-read-install ./packages/unix.tsv)"
+    [[ -z "$installing" ]] && return
 
     dotfiles-list-install <<< "$installing"
 
@@ -155,7 +168,7 @@ dotfiles-reload() {
     done
 }
 
-if [[ ! -d 'config' ]] || [[ ! -a 'packages/list' ]] || [[ ! -a 'packages/descriptions' ]]; then
+if [[ ! -d 'config' ]] || [[ ! -a 'packages/unix.tsv' ]]; then
     (dotfiles-download && cd 'dotfiles' && dotfiles-install "$@") && dotfiles-reload
 else
     dotfiles-install "$@" && dotfiles-reload
