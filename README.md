@@ -9,7 +9,7 @@ Setting files expect each version or later:
 - Git 1.7.12
 - Neovim 0.8.0
 - Zsh 5.0.2
-- Bash 3.5.27
+- Bash 3.2.57
 - PowerShell 7.x
 - tmux 3.1
 
