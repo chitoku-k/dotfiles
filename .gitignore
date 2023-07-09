@@ -15,10 +15,3 @@ config/tmux/local/*
 # PowerShell
 config/powershell/local/*
 !config/powershell/local/.gitkeep.ps1
-
-# Vim
-config/vim/.netrwhist
-
-# NyaoVim
-config/vim/nyaovim/*
-!config/vim/nyaovim/nyaovimrc.html
