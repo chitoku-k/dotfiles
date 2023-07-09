@@ -3,6 +3,10 @@ require('fzf-lua').setup({
   fzf_opts = {
     ['--layout'] = 'reverse',
   },
+  files = {
+    find_opts = [[-name .git -prune -o -name .hg -prune -o -name .svn -prune -o '(' -type d -o -type f -o -type l ')' -printf '%P\n']],
+    fd_opts = '--color=never --hidden --follow',
+  },
 })
 
 vim.keymap.set('n', '<Space>g', function()
