@@ -33,6 +33,10 @@ fi
 
 if (( $+commands[kubectl] )); then
     alias -g k8s-secret='-o json | jq ".items[]? // . | { metadata: .metadata | { name, namespace }, type, data: (if .type == \"kubernetes.io/dockerconfigjson\" then .data | map_values(@base64d | fromjson) else .data | map_values(@base64d) end) }"'
+
+    if (( $+commands[bat] )); then
+        alias -g k8s-yaml='-o yaml | bat -l yaml'
+    fi
 fi
 
 if (( $+commands[cf] )); then
