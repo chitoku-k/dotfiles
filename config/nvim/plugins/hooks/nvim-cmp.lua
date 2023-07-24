@@ -31,9 +31,12 @@ cmp.setup({
       compare.order,
     },
   },
-  sources = {
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-  },
+    { name = 'vsnip' },
+  }, {
+    { name = 'buffer' },
+  }),
   mapping = cmp.mapping.preset.insert({
     ['<C-u>'] = cmp.mapping.abort(),
     ['<C-x><C-n>'] = cmp.mapping.complete(),

@@ -97,20 +97,7 @@ hooks_file = '$HOOKS_DIR/echodoc.vim.lua'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 depends = ['mason.nvim']
-on_ft = [
-  'css',
-  'java',
-  'javascript',
-  'json',
-  'go',
-  'php',
-  'ps1',
-  'rust',
-  'sh',
-  'typescript',
-  'vue',
-  'yaml',
-]
+on_event = ['BufRead']
 
 [[plugins]]
 repo = 'williamboman/mason.nvim'
@@ -128,6 +115,10 @@ hooks_file = '$HOOKS_DIR/nvim-cmp.lua'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
+on_source = ['nvim-lspconfig']
+
+[[plugins]]
+repo = 'hrsh7th/cmp-buffer'
 on_source = ['nvim-lspconfig']
 
 [[plugins]]
