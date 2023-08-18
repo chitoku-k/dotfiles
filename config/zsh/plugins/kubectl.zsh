@@ -1,3 +1,7 @@
+if diff --color <() <() &> /dev/null; then
+    export KUBECTL_EXTERNAL_DIFF='diff --color -u -N'
+fi
+
 if (( $+commands[kubectl-evict] )); then
     _fzf_complete_kubectl_evict() {
         kubectl_options_argument_required+=(
