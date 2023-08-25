@@ -17,6 +17,9 @@ local lspconfigs = {
       },
     },
   },
+  graphql = {
+    install_if = 'node',
+  },
   intelephense = {
     install_if = 'php',
   },
