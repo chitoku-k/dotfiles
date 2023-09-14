@@ -79,9 +79,11 @@ vim.api.nvim_create_autocmd('QuickFixCmdPost', {
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = init_id,
   callback = function()
-    vim.highlight.on_yank({
-      higroup = 'Flashy',
-      timeout = 100,
-    })
+    pcall(function()
+      vim.highlight.on_yank({
+        higroup = 'Flashy',
+        timeout = 100,
+      })
+    end)
   end,
 })
