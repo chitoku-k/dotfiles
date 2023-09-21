@@ -95,6 +95,10 @@ on_event = ['BufRead']
 hooks_file = '$HOOKS_DIR/echodoc.vim.lua'
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hooks_file = '$HOOKS_DIR/nvim-treesitter.lua'
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 depends = ['mason.nvim']
 on_event = ['BufRead']
