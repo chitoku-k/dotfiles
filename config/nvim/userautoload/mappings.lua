@@ -24,7 +24,7 @@ vim.keymap.set('t', '<C-q>', '<C-\\><C-n>')
 vim.keymap.set('i', '<C-Space>', '<Nop>')
 
 for i = 1, 24 do
-  vim.keymap.set('i', '<F' .. i .. '>', '<Nop>')
+  vim.keymap.set({ 'n', 'i' }, '<F' .. i .. '>', '<Nop>')
 end
 
 for _, key in ipairs({ '<Left>', '<Down>', '<Up>', '<Right>' }) do
