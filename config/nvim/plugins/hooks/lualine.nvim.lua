@@ -71,18 +71,22 @@ local function filetype()
 end
 
 local function charcode()
-  local hex = vim.fn.strgetchar(vim.fn.getline('.'):sub(vim.fn.col('.')), 0)
-  if hex < 0 then
-    return ''
+  local charcodes = {}
+  local str = vim.fn.strpart(vim.fn.getline('.'), vim.fn.col('.') - 1, 1, true)
+
+  for i = 0, vim.fn.strchars(str) do
+    local hex = vim.fn.strgetchar(str, i)
+
+    if hex > 0 and hex < 0x10000 then
+      table.insert(charcodes, string.format('U+%04X', hex))
+    elseif hex >= 0x10000 then
+      local hi = (hex - 0x10000) / 0x400 + 0xd800
+      local lo = (hex - 0x10000) % 0x400 + 0xdc00
+      table.insert(charcodes, string.format('U+%04X (U+%04X U+%04X)', hex, hi, lo))
+    end
   end
 
-  if hex < 0x10000 then
-    return string.format('U+%04X', hex)
-  else
-    local hi = (hex - 0x10000) / 0x400 + 0xd800
-    local lo = (hex - 0x10000) % 0x400 + 0xdc00
-    return string.format('U+%04X (U+%04X U+%04X)', hex, hi, lo)
-  end
+  return table.concat(charcodes, ' ')
 end
 
 local function path()
