@@ -14,6 +14,7 @@ ZSH_HIGHLIGHT_REGEXP=('^\s*\*\*$' 'fg=blue')
 setopt auto_cd
 setopt auto_pushd
 setopt auto_resume
+setopt combining_chars
 setopt correct
 setopt extended_glob
 setopt hist_ignore_dups
