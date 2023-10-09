@@ -77,11 +77,11 @@ local function charcode()
   end
 
   if hex < 0x10000 then
-    return string.format('U+%X', hex)
+    return string.format('U+%04X', hex)
   else
     local hi = (hex - 0x10000) / 0x400 + 0xd800
     local lo = (hex - 0x10000) % 0x400 + 0xdc00
-    return string.format('U+%X (U+%X U+%X)', hex, hi, lo)
+    return string.format('U+%04X (U+%04X U+%04X)', hex, hi, lo)
   end
 end
 
