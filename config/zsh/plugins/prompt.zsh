@@ -101,6 +101,11 @@ _zsh_prompt_redraw() {
         return
     fi
 
+    if [[ $REGION_ACTIVE -ne 0 ]]; then
+        _zsh_prompt 'visual'
+        return
+    fi
+
     case $KEYMAP in
         main)
             _zsh_prompt 'insert'
@@ -130,5 +135,6 @@ _zsh_prompt() {
 
 zle -N zle-line-init _zsh_prompt_redraw
 zle -N zle-line-finish _zsh_prompt_redraw
+zle -N zle-line-pre-redraw _zsh_prompt_redraw
 zle -N zle-keymap-select _zsh_prompt_redraw
-export PROMPT=''
+PROMPT=
