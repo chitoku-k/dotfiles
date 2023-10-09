@@ -94,8 +94,11 @@ repo = 'Shougo/echodoc.vim'
 on_event = ['BufRead']
 hooks_file = '$HOOKS_DIR/echodoc.vim.lua'
 
+# Start “Developer Command Prompt for Visual Studio” and run Neovim on Windows.
+# See: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+if = 'executable("cc") || executable("cl")'
 hooks_file = '$HOOKS_DIR/nvim-treesitter.lua'
 
 [[plugins]]
