@@ -130,7 +130,8 @@ _zsh_prompt() {
     [[ -n $vcs_info ]] && vcs_info+='%k%f'
 
     PROMPT=$prefix$hostname$directory$vcs_info$user
-    zle reset-prompt
+    [[ $OLDPROMPT = $PROMPT ]] || zle reset-prompt
+    OLDPROMPT=$PROMPT
 }
 
 zle -N zle-line-init _zsh_prompt_redraw
