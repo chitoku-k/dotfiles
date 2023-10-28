@@ -1,4 +1,7 @@
 # vim: set ft=gitconfig noexpandtab :
+[advice]
+	detachedHead = false
+	statusHints = false
 [alias]
 	branches = branch -a
 	tags = tag
@@ -18,25 +21,22 @@
 	preserve = update-index --assume-unchanged --
 	unpreserve = update-index --no-assume-unchanged --
 	exclude = "!f() { xargs -n 1 <<< \"$@\" >> \"${PWD/GIT_PREFIX/}/.git/info/exclude\"; }; f"
+[color]
+	ui = auto
 [commit]
 	verbose = true
+[core]
+	quotepath = false
 [diff]
 	indentHeuristic = true
 [fetch]
 	prune = true
 [init]
 	defaultBranch = master
-[advice]
-	detachedHead = false
-	statusHints = false
-[core]
-	quotepath = false
-[color]
-	ui = auto
+[pull]
+	ff = only
 [push]
 	autoSetupRemote = true
 	default = simple
-[pull]
-	ff = only
 [rebase]
 	autosquash = true
