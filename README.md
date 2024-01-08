@@ -53,7 +53,7 @@ Most dotfiles will follow [XDG Base Directory Specification](https://standards.f
 
 ### PowerShell
 
-> **Note**  
+> [!NOTE]  
 > In order to create a symbolic link on Windows, PowerShell needs to run either
 > as administrator or with Developer Mode activated.  
 > [Symlinks in Windows 10! - Windows Developer Blog](https://blogs.windows.com/windowsdeveloper/2016/12/02/symlinks-windows-10/)
