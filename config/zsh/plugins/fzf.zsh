@@ -37,7 +37,7 @@ if [[ -a $XDG_CONFIG_HOME/fzf/fzf.zsh ]]; then
     }
 
     zle -N fzf-complete-directory
-    fzf_default_opts+=(--reverse --height=40% --no-mouse --cycle --bind=change:top)
+    fzf_default_opts+=(--reverse --height=50% --min-height=25 --preview-window=down --no-mouse --cycle --bind=change:top)
 fi
 
 if (( $+commands[xxh] )); then

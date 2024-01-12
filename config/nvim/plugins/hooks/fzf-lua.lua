@@ -7,6 +7,11 @@ require('fzf-lua').setup({
     find_opts = [[-name .git -prune -o -name .hg -prune -o -name .svn -prune -o '(' -type d -o -type f -o -type l ')' -printf '%P\n']],
     fd_opts = '--color=never --hidden --follow',
   },
+  winopts = {
+    preview = {
+      layout = 'vertical',
+    },
+  },
 })
 
 vim.keymap.set('n', '<Space>g', function()
