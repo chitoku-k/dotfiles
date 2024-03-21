@@ -21,6 +21,7 @@ function Invoke-Illustration {
             $filename = $_.Name
             $services.Keys |
                 Where-Object { $filename -Match $_ } |
+                Select-Object -First 1 |
                 ForEach-Object { Start-Process $services[$_].InvokeReturnAsIs($Matches["name"], $Matches["id"], $Matches["hostname"]) }
         }
 }
