@@ -26,7 +26,7 @@ do
         echo "https://fantia.jp/posts/${match[1]}"
         continue
     fi
-    if [[ "$f" =~ /skeb_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
+    if [[ "$f" =~ /skeb_([^.]+)_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://skeb.jp/@${match[1]}/works/${match[2]}"
         continue
     fi
