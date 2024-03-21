@@ -1,6 +1,6 @@
 function Invoke-Illustration {
     $services = @{
-        "^(?<id>[0-9]+)( \([0-9]+\))?\.(?:jpg|png)$" = {"https://twitter.com/user/status/$($args[1])"}
+        "^(?<id>[0-9]+)( \([0-9]+\))?\.(?:jpg|png)$" = {"https://twitter.com/i/status/$($args[1])"}
         "^(?<id>[0-9]+)(?<name>@[^@]+)@(?<hostname>[^ ]+)( \([0-9]+\))?\.(?:jpg|png)$" = {"https://$($args[2])/$($args[0])/$($args[1])"}
         "^misskey_(?<id>[0-9a-z]+)@(?<hostname>[^ ]+)( \([0-9]+\))?\." = {"https://$($args[2])/notes/$($args[1])"}
         "^pixiv_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/artworks/$($args[1])"}
