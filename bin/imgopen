@@ -46,6 +46,10 @@ do
         echo "http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=${match[1]}"
         continue
     fi
+    if [[ "$f" =~ /itolife_([^.]+\\..*) ]]; then
+        echo "http://taiki.sakura.ne.jp/img/${match[1]}"
+        continue
+    fi
     if [[ "$f" =~ /youkan-hh_([0-9]+\\..*) ]]; then
         echo "http://youkan-hh.sakura.ne.jp/${match[1]}"
         continue
