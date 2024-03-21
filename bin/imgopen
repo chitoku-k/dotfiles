@@ -38,6 +38,10 @@ do
         echo "https://nijie.info/view.php?id=${match[1]}"
         continue
     fi
+    if [[ "$f" =~ /hoyolab_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
+        echo "https://www.hoyolab.com/article/${match[1]}"
+        continue
+    fi
     if [[ "$f" =~ /itolife_([0-9]+\-[0-9]+\\..*) ]]; then
         echo "http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=${match[1]}"
         continue

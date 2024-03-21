@@ -9,6 +9,7 @@ function Invoke-Illustration {
         "^skeb_(?<name>[^.]+)_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://skeb.jp/@$($args[0])/works/$($args[1])"}
         "^seiga_(?<id>[0-9]+)( \([0-9]+\))?\." = {"http://seiga.nicovideo.jp/seiga/im$($args[1])"}
         "^nijie_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://nijie.info/view.php?id=$($args[1])"}
+        "^hoyolab_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.hoyolab.com/article/$($args[1])"}
         "^itolife_(?<id>[0-9]+\-[0-9]+\..*)" = {"http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=$($args[1])"}
         "^youkan-hh_(?<id>[0-9]+\..*)" = {"http://youkan-hh.sakura.ne.jp/$($args[1])"}
         "^yuunonn_new_illust[0-9]{2}_up" = {"https://www.melonbooks.co.jp/corner/detail.php?corner_id=885"}
