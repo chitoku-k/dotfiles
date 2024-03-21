@@ -6,7 +6,7 @@ do
         echo "https://twitter.com/i/status/${match[1]}"
         continue
     fi
-    if [[ "$f" =~ /([0-9]+)(@[^@]+)@([^\ ]+)( ?\\([0-9]+\\))?\\.(jpg|png) ]]; then
+    if [[ "$f" =~ /mastodon_([0-9]+)(@[^@]+)@([^\ ]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://${match[3]}/${match[2]}/${match[1]}"
         continue
     fi
