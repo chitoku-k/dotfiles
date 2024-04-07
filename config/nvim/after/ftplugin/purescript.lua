@@ -1,4 +1,4 @@
-vim.opt_local.commentstring = '-- %s'
+vim.opt_local.commentstring = '--%s'
 
 local purescript_id = vim.api.nvim_create_augroup('purescript', {})
 vim.api.nvim_create_autocmd('OptionSet', {
