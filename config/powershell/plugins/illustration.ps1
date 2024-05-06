@@ -9,6 +9,7 @@ function Invoke-Illustration {
         "^skeb_(?<name>[^.]+)_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://skeb.jp/@$($args[0])/works/$($args[1])"}
         "^seiga_(?<id>[0-9]+)( \([0-9]+\))?\." = {"http://seiga.nicovideo.jp/seiga/im$($args[1])"}
         "^nijie_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://nijie.info/view.php?id=$($args[1])"}
+        "^xfolio_(?<name>[^.]+)_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://xfolio.jp/portfolio/$($args[0])/works/$($args[1])"}
         "^hoyolab_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.hoyolab.com/article/$($args[1])"}
         "^itolife_(?<id>[0-9]+\-[0-9]+\..*)" = {"http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=$($args[1])"}
         "^itolife_(?<id>[^.]+\..*)" = {"http://taiki.sakura.ne.jp/img/$($args[1])"}

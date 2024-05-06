@@ -38,6 +38,10 @@ do
         echo "https://nijie.info/view.php?id=${match[1]}"
         continue
     fi
+    if [[ "$f" =~ /xfolio_([^.]+)_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
+        echo "https://xfolio.jp/portfolio/${match[1]}/works/${match[2]}"
+        continue
+    fi
     if [[ "$f" =~ /hoyolab_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://www.hoyolab.com/article/${match[1]}"
         continue
