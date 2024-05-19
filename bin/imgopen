@@ -3,7 +3,7 @@
 for f in "$@"
 do
     if [[ "$f" =~ /([0-9]+)( ?\\([0-9]+\\))?\\.(jpg|png) ]]; then
-        echo "https://twitter.com/i/status/${match[1]}"
+        echo "https://x.com/i/status/${match[1]}"
         continue
     fi
     if [[ "$f" =~ /mastodon_([0-9]+)(@[^@]+)@([^\ ]+)( ?\\([0-9]+\\))?\\. ]]; then
