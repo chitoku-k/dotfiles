@@ -66,7 +66,7 @@ on_cmd = ['GoshitekiStart']
 
 [[plugins]]
 repo = 'ibhagwan/fzf-lua'
-if = 'has("unix") && executable("fzf")'
+if = 'executable("fzf")'
 on_map = ['<Space>f', '<Space>g', '<Space>m']
 hooks_file = '$HOOKS_DIR/fzf-lua.lua'
 
