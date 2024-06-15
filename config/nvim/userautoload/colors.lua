@@ -104,6 +104,13 @@ vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { sp = vim.g.base16_gui0C, und
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { sp = vim.g.base16_gui0D, undercurl = true })
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { sp = vim.g.base16_gui0A, undercurl = true })
 
+vim.api.nvim_set_hl(0, 'FzfLuaBufFlagAlt', { link = 'Tag' })
+vim.api.nvim_set_hl(0, 'FzfLuaBufFlagCur', { link = 'Tag' })
+vim.api.nvim_set_hl(0, 'FzfLuaBufNr', { link = 'MoreMsg' })
+vim.api.nvim_set_hl(0, 'FzfLuaHeaderBind', { link = 'Tag' })
+vim.api.nvim_set_hl(0, 'FzfLuaHeaderText', { link = 'Special' })
+vim.api.nvim_set_hl(0, 'FzfLuaPathLineNr', { link = 'Keyword' })
+
 vim.api.nvim_set_hl(0, 'LspReferenceRead', { bg = vim.g.base16_gui02 })
 vim.api.nvim_set_hl(0, 'LspReferenceText', { bg = vim.g.base16_gui02 })
 vim.api.nvim_set_hl(0, 'LspReferenceWrite', { bg = vim.g.base16_gui02 })
