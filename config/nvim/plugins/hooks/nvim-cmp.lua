@@ -9,6 +9,25 @@ cmp.setup({
       vim.fn['vsnip#anonymous'](args.body)
     end,
   },
+  formatting = {
+    format = function(entry, vim_item)
+      local detail = entry.completion_item.labelDetails and entry.completion_item.labelDetails.detail
+      local description = entry.completion_item.labelDetails and entry.completion_item.labelDetails.description
+
+      local menu = ''
+      if detail then
+        menu = menu .. detail
+        if description then
+          menu = menu .. ' ' .. description
+        end
+      elseif description then
+        menu = menu .. description
+      end
+
+      vim_item.menu = menu:sub(1, vim.api.nvim_win_get_width(0) / 4)
+      return vim_item
+    end,
+  },
   sorting = {
     comparators = {
       function(a, b)
