@@ -38,7 +38,7 @@ local lspconfigs = {
   rust_analyzer = {
     install_if = 'rustc',
   },
-  tsserver = {
+  ts_ls = {
     install_if = 'node',
   },
   vuels = {
