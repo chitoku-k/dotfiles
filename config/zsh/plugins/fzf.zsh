@@ -2,7 +2,7 @@ export FZF_DEFAULT_OPTS=
 
 if [[ -a $ADOTDIR/bundles/tinted-theming/base16-fzf-main/bash/base16-ocean.config ]]; then
     source $ADOTDIR/bundles/tinted-theming/base16-fzf-main/bash/base16-ocean.config
-    fzf_default_opts+=($FZF_DEFAULT_OPTS --color='bg:-1')
+    fzf_default_opts+=(${(z)FZF_DEFAULT_OPTS} --color='bg:-1')
 fi
 
 if [[ $TERM = 'linux' ]]; then
@@ -89,5 +89,8 @@ else
             ;;
     esac
 fi
+
+zstyle ':fzf-tab:*' fzf-bindings 'tab:toggle'
+zstyle ':fzf-tab:*' fzf-flags $fzf_default_opts
 
 export FZF_DEFAULT_OPTS="$fzf_default_opts"
