@@ -51,7 +51,7 @@ vim.opt.hlsearch = true
 vim.opt.inccommand = 'split'
 
 if vim.fn.executable('rg') == 1 then
-  vim.opt.grepprg = 'rg --vimgrep --no-heading'
+  vim.opt.grepprg = 'rg --vimgrep --no-heading --sort=path'
   vim.opt.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 end
 
