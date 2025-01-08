@@ -14,7 +14,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.smarttab = true
 vim.opt.virtualedit = 'block'
-vim.opt.nrformats:append({ 'blank' })
+vim.opt.nrformats:append({ 'unsigned' })
 vim.opt.cindent = true
 vim.opt.title = true
 vim.opt.titleold = ''
