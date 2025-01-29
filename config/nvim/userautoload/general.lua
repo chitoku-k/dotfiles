@@ -32,7 +32,6 @@ vim.opt.showtabline = 2
 vim.opt.laststatus = 2
 vim.opt.ambiwidth = 'single'
 vim.opt.wrap = false
-vim.opt.splitkeep = 'topline'
 vim.opt.lazyredraw = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
