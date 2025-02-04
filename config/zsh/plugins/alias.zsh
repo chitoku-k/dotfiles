@@ -67,6 +67,7 @@ fi
 
 if (( $+commands[defaults] )); then
     alias defaults-write-com.apple.systempreferences-AttentionPrefBundleIDs-0='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0'
+    alias defaults-write-com.apple.dock-ResetLaunchPad-true='defaults write com.apple.dock ResetLaunchPad -bool true'
 fi
 
 if (( $+commands[arch] )); then
