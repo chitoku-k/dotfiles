@@ -14,7 +14,8 @@ function Invoke-Illustration {
         "^itolife_(?<id>[0-9]+\-[0-9]+\..*)" = {"http://taiki.sakura.ne.jp/diarypro/diary.cgi?mode=image&upfile=$($args[1])"}
         "^itolife_(?<id>[^.]+\..*)" = {"http://taiki.sakura.ne.jp/img/$($args[1])"}
         "^youkan-hh_(?<id>[0-9]+\..*)" = {"http://youkan-hh.sakura.ne.jp/$($args[1])"}
-        "^yuunonn_new_illust[0-9]{2}_up" = {"https://www.melonbooks.co.jp/corner/detail.php?corner_id=885"}
+        "^yuunonn_new_illust[0-9]{2}_up" = {"https://www.melonbooks.co.jp/tags/index.php?tag=永山ゆうのんWEB連載"}
+        "^uribou-plus-artist-nagayamayuunon_[0-9]+( \([0-9]+\))?\." = {"https://www.melonbooks.co.jp/tags/index.php?tag=uribou-plus-artist-nagayamayuunon"}
     }
 
     Get-Item $args |

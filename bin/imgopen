@@ -59,7 +59,11 @@ do
         continue
     fi
     if [[ "$f" =~ /yuunonn_new_illust[0-9]{2}_up ]]; then
-        echo 'https://www.melonbooks.co.jp/corner/detail.php?corner_id=885'
+        echo 'https://www.melonbooks.co.jp/tags/index.php?tag=永山ゆうのんWEB連載'
+        continue
+    fi
+    if [[ "$f" =~ /uribou-plus-artist-nagayamayuunon_[0-9]+( ?\\([0-9]+\\))?\\. ]]; then
+        echo 'https://www.melonbooks.co.jp/tags/index.php?tag=uribou-plus-artist-nagayamayuunon'
         continue
     fi
 done
