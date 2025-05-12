@@ -107,10 +107,12 @@ depends = ['mason.nvim']
 on_event = ['BufRead']
 
 [[plugins]]
-repo = 'williamboman/mason.nvim'
+repo = 'mason-org/mason.nvim'
+rev = 'v1.x'
 
 [[plugins]]
-repo = 'williamboman/mason-lspconfig.nvim'
+repo = 'mason-org/mason-lspconfig.nvim'
+rev = 'v1.x'
 depends = ['mason.nvim', 'nvim-lspconfig']
 on_source = ['nvim-lspconfig']
 hooks_file = '$HOOKS_DIR/mason-lspconfig.nvim.lua'
