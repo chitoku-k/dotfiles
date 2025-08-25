@@ -81,11 +81,6 @@ on_ft = ['css', 'html', 'javascript', 'php', 'scss', 'typescript']
 hooks_file = '$HOOKS_DIR/emmet-vim.lua'
 
 [[plugins]]
-repo = 'NvChad/nvim-colorizer.lua'
-on_event = ['BufRead']
-hooks_file = '$HOOKS_DIR/nvim-colorizer.lua'
-
-[[plugins]]
 repo = 'Shougo/dein.vim'
 hooks_file = '$HOOKS_DIR/dein.vim.lua'
 

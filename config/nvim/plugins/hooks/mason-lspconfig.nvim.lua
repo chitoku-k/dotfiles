@@ -117,6 +117,8 @@ local function on_attach(client, bufnr)
       vim.diagnostic.setloclist({ open = false })
     end,
   })
+
+  vim.lsp.document_color.enable(true, bufnr, { style = '●' })
 end
 
 require('mason').setup()
