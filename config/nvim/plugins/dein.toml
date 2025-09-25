@@ -103,14 +103,7 @@ on_event = ['BufRead']
 
 [[plugins]]
 repo = 'mason-org/mason.nvim'
-rev = 'v1.x'
-
-[[plugins]]
-repo = 'mason-org/mason-lspconfig.nvim'
-rev = 'v1.x'
-depends = ['mason.nvim', 'nvim-lspconfig']
-on_source = ['nvim-lspconfig']
-hooks_file = '$HOOKS_DIR/mason-lspconfig.nvim.lua'
+hooks_file = '$HOOKS_DIR/mason.lua'
 
 [[plugins]]
 repo = 'hrsh7th/nvim-cmp'
@@ -120,6 +113,7 @@ hooks_file = '$HOOKS_DIR/nvim-cmp.lua'
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
 on_source = ['nvim-lspconfig']
+hooks_file = '$HOOKS_DIR/cmp-nvim-lsp.lua'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-buffer'

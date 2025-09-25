@@ -240,4 +240,19 @@ require('lualine').setup({
     lualine_z = {},
   },
 })
+
+local lualine_id = vim.api.nvim_create_augroup('lualine', {})
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = lualine_id,
+  callback = function(args)
+    local lsp_id = vim.api.nvim_create_augroup('lsp-buf', { clear = false })
+    vim.api.nvim_create_autocmd('DiagnosticChanged', {
+      group = lsp_id,
+      buffer = args.buf,
+      callback = function()
+        require('lualine').refresh()
+      end,
+    })
+  end,
+})
 -- }}}
