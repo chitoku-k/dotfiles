@@ -88,6 +88,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end,
     })
 
-    vim.lsp.document_color.enable(true, args.buf, { style = '●' })
+    if vim.lsp.document_color ~= nil then
+      vim.lsp.document_color.enable(true, args.buf, { style = '●' })
+    end
   end,
 })
