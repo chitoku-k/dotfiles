@@ -19,6 +19,8 @@ vim.keymap.set('n', '<Esc><Esc>', function()
   vim.cmd.nohlsearch()
 end)
 vim.keymap.set('n', '<C-q>', '<Nop>')
+vim.keymap.set('n', 'K', '<Nop>')
+
 vim.keymap.set('t', '<C-q>', '<C-\\><C-n>')
 
 vim.keymap.set('i', '<C-Space>', '<Nop>')
