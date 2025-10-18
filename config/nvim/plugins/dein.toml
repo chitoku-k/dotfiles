@@ -61,6 +61,9 @@ on_event = ['BufRead']
 hooks_file = '$HOOKS_DIR/conflict-marker.vim.lua'
 
 [[plugins]]
+repo = 'brianhuster/unnest.nvim'
+
+[[plugins]]
 repo = 'himanoa/goshiteki'
 on_cmd = ['GoshitekiStart']
 
