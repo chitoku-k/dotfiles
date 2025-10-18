@@ -64,10 +64,6 @@ hooks_file = '$HOOKS_DIR/conflict-marker.vim.lua'
 repo = 'brianhuster/unnest.nvim'
 
 [[plugins]]
-repo = 'himanoa/goshiteki'
-on_cmd = ['GoshitekiStart']
-
-[[plugins]]
 repo = 'ibhagwan/fzf-lua'
 if = 'executable("fzf")'
 on_map = ['<Space>f', '<Space>g', '<Space>m']
@@ -135,10 +131,6 @@ hooks_file = '$HOOKS_DIR/vim-speeddating.lua'
 [[plugins]]
 repo = 'nishigori/increment-activator'
 on_map = ['<C-a>', '<C-x>']
-
-[[plugins]]
-repo = 'raghur/vim-ghost'
-on_cmd = ['GhostInstall', 'GhostStart']
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
