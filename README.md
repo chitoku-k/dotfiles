@@ -58,6 +58,8 @@ Most dotfiles will follow [XDG Base Directory Specification](https://standards.f
 > as administrator or with Developer Mode activated.  
 > [Symlinks in Windows 10! - Windows Developer Blog](https://blogs.windows.com/windowsdeveloper/2016/12/02/symlinks-windows-10/)
 
+Open `conhost.exe` and run:
+
 ```
 > Invoke-Expression (Invoke-WebRequest dot.chitoku.jp/install.ps1)
 ```
