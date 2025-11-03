@@ -91,7 +91,7 @@ end
 
 local function path()
   if vim.bo.filetype == 'dirvish' then
-    return vim.fn.expand('%:~:h')
+    return vim.fn.expand('%:p:~:h')
   end
 
   if vim.bo.filetype == 'qf' then
@@ -103,10 +103,10 @@ local function path()
 
   local commit, filename = fugitive()
   if commit and filename then
-    return vim.fn.fnamemodify(filename, ':~:h')
+    return vim.fn.fnamemodify(filename, ':p:~:h')
   end
 
-  return vim.fn.expand('%:~:h')
+  return vim.fn.expand('%:p:~:h')
 end
 
 local function modified()
