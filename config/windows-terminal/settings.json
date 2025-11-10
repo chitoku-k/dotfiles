@@ -25,14 +25,6 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 5
-            },
-            "id": "User.switchToTab.5"
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -41,13 +33,10 @@
         {
             "command": 
             {
-                "action": "newTab"
+                "action": "switchToTab",
+                "index": 5
             },
-            "id": "User.newTab"
-        },
-        {
-            "command": "paste",
-            "id": "User.paste"
+            "id": "User.switchToTab.5"
         },
         {
             "command": 
@@ -56,6 +45,17 @@
                 "index": 3
             },
             "id": "User.switchToTab.3"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "id": "User.newTab"
         },
         {
             "command": 
@@ -68,19 +68,19 @@
         {
             "command": 
             {
+                "action": "switchToTab",
+                "index": 8
+            },
+            "id": "User.switchToTab.8"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 8
-            },
-            "id": "User.switchToTab.8"
         },
         {
             "command": 
@@ -235,6 +235,18 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{b074b61c-01e1-5df7-b321-bf97a872ae44}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{76bfa292-1192-5e9e-b9bd-8dd793b8d190}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
