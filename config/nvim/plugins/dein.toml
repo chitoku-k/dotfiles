@@ -61,7 +61,8 @@ on_event = ['BufRead']
 hooks_file = '$HOOKS_DIR/conflict-marker.vim.lua'
 
 [[plugins]]
-repo = 'brianhuster/unnest.nvim'
+repo = 'notomo/waitevent.nvim'
+hooks_file = '$HOOKS_DIR/waitevent.nvim.lua'
 
 [[plugins]]
 repo = 'ibhagwan/fzf-lua'
