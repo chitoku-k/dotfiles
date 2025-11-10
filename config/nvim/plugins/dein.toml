@@ -97,12 +97,16 @@ hooks_file = '$HOOKS_DIR/nvim-treesitter.lua'
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-depends = ['mason.nvim']
 on_event = ['BufRead']
 
 [[plugins]]
 repo = 'mason-org/mason.nvim'
 hooks_file = '$HOOKS_DIR/mason.lua'
+
+[[plugins]]
+repo = 'mason-org/mason-lspconfig.nvim'
+depends = 'mason.nvim'
+hooks_file = '$HOOKS_DIR/mason-lspconfig.nvim.lua'
 
 [[plugins]]
 repo = 'hrsh7th/nvim-cmp'
