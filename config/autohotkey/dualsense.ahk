@@ -1,3 +1,6 @@
+; クリエイトボタン -> Windows+Alt+PrintScreen
+Joy9::#!PrintScreen
+
 ; PS ボタン -> 原神とタスクバーを交互にフォーカス
 Joy13::{
     if WinActive("ahk_exe GenshinImpact.exe") {
