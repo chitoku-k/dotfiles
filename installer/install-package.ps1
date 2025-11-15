@@ -46,6 +46,9 @@ function Install-Dotfiles-Packages {
             userprofile/git/config {
                 New-Dotfiles-Symlink .\config\git $userprofile\.config\git
             }
+            userprofile/wezterm {
+                New-Dotfiles-Symlink .\config\wezterm $userprofile\.config\wezterm
+            }
             localappdata/nvim {
                 New-Dotfiles-Symlink .\config\nvim $localappdata\nvim
             }

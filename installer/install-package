@@ -56,6 +56,9 @@ install-package() {
             'xdg/fontconfig/fonts.conf')
                 create-symlink ./config/fontconfig/fonts.conf "$xdgconfig/fontconfig/fonts.conf"
                 ;;
+            'xdg/wezterm')
+                create-symlink ./config/wezterm "$xdgconfig/wezterm"
+                ;;
             'dotfiles/.vsvimrc')
                 create-symlink ./config/.vsvimrc "$home/.vsvimrc"
                 ;;

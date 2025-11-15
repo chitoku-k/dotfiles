@@ -5,6 +5,7 @@ xdg/tmux	Configuration for tmux
 xdg/git/config	Configuration for Git
 xdg/nvim	Configuration for Neovim
 xdg/fontconfig/fonts.conf	Configuration for fontconfig
+xdg/wezterm	Configuration for WezTerm
 dotfiles/.vsvimrc	Configuration for VsVim
 dotfiles/.ignore	Configuration for ripgrep and fd
 xdg/phpcs/rules.php	Rules for PHP-CS-Fixer

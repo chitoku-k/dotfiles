@@ -1,5 +1,6 @@
 userprofile/powershell	Configuration for PowerShell
 userprofile/git/config	Configuration for Git
+userprofile/wezterm	Configuration for WezTerm
 localappdata/nvim	Configuration for Neovim
 localappdata/windowsterminal	Configuration for Windows Terminal
 vim/dein.vim	Dark powered Vim/Neovim plugin manager
