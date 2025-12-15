@@ -1,13 +1,15 @@
+CoordMode("Mouse", "Screen")
+
 ; クリエイトボタン -> Windows+Alt+PrintScreen
 Joy9::#!PrintScreen
 
 ; PS ボタン -> 原神とアクティブウィンドウを交互にフォーカス
 Joy13::{
     static last_active, last_mouse_x, last_mouse_y
-    CoordMode("Mouse", "Screen")
 
     if WinActive("ahk_exe GenshinImpact.exe") {
         if !IsSet(last_active) || !IsSet(last_mouse_x) || !IsSet(last_mouse_y) {
+            WinActivate("ahk_class Shell_TrayWnd")
             return
         }
         try {
