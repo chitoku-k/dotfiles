@@ -3,6 +3,7 @@ function Invoke-Illustration {
         "^(?<id>[0-9]+)( \([0-9]+\))?\.(?:jpg|png)$" = {"https://x.com/i/status/$($args[1])"}
         "^mastodon_(?<id>[0-9]+)(?<name>@[^@]+)@(?<hostname>[^ ]+)( \([0-9]+\))?\." = {"https://$($args[2])/$($args[0])/$($args[1])"}
         "^misskey_(?<id>[0-9a-z]+)@(?<hostname>[^ ]+)( \([0-9]+\))?\." = {"https://$($args[2])/notes/$($args[1])"}
+        "^bluesky_(?<id>[0-9a-z]+)@(?<hostname>[^ ]+)( \([0-9]+\))?\." = {"https://bsky.app/profile/$($args[2])/post/$($args[1])"}
         "^pixiv_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://www.pixiv.net/artworks/$($args[1])"}
         "^fanbox_(?<name>[^.]+)_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://$($args[0]).fanbox.cc/posts/$($args[1])"}
         "^fantia_(?<id>[0-9]+)( \([0-9]+\))?\." = {"https://fantia.jp/posts/$($args[1])"}

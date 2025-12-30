@@ -14,6 +14,10 @@ do
         echo "https://${match[2]}/notes/${match[1]}"
         continue
     fi
+    if [[ "$f" =~ /bluesky_([0-9a-z]+)@([^\ ]+)( ?\\([0-9]+\\))?\\. ]]; then
+        echo "https://bsky.app/profile/${match[2]}/post/${match[1]}"
+        continue
+    fi
     if [[ "$f" =~ /pixiv_([0-9]+)( ?\\([0-9]+\\))?\\. ]]; then
         echo "https://www.pixiv.net/artworks/${match[1]}"
         continue
