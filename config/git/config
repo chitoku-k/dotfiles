@@ -26,8 +26,18 @@
 				echo 'fatal: no remote-tracking branch found' >&2;\
 				exit 128;\
 			fi;\
-			base=$(gh pr view \"${upstream#*/}\" --json=baseRefName --jq=.baseRefName) &&\
-				git fetch \"${upstream%%/*}\" &&\
+			if [[ $(git rev-list --count @{u}..HEAD) -gt 0 ]]; then\
+				echo 'fatal: HEAD contains unpushed commits' >&2;\
+				exit 1;\
+			fi;\
+			pr=$(gh pr view \"${upstream#*/}\" --json=state,baseRefName --template={{.state}}:{{.baseRefName}}) || exit 1;\
+			state=${pr%:*};\
+			base=${pr#*:};\
+			if [[ $state != MERGED ]]; then\
+				echo 'fatal: pull request is not yet merged' >&2;\
+				exit 1;\
+			fi;\
+			git fetch \"${upstream%%/*}\" &&\
 				git checkout -B \"$base\" \"${upstream%%/*}/$base\" &&\
 				git branch -D \"${upstream#*/}\";\
 		};\
