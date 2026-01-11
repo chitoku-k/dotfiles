@@ -20,7 +20,11 @@
 
 	preserve = update-index --assume-unchanged --
 	unpreserve = update-index --no-assume-unchanged --
-	exclude = "!f() { xargs -n 1 <<< \"$@\" >> \"${PWD/GIT_PREFIX/}/.git/info/exclude\"; }; f"
+	exclude = "!\
+		f() {\
+			xargs -n 1 <<< \"$@\" >> \"${PWD/GIT_PREFIX/}/.git/info/exclude\";\
+		};\
+		f"
 [color]
 	ui = auto
 [commit]
