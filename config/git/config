@@ -20,6 +20,18 @@
 
 	preserve = update-index --assume-unchanged --
 	unpreserve = update-index --no-assume-unchanged --
+	merged = "!\
+		f() {\
+			if ! upstream=$(git rev-parse --abbrev-ref @{u} 2> /dev/null); then\
+				echo 'fatal: no remote-tracking branch found' >&2;\
+				exit 128;\
+			fi;\
+			base=$(gh pr view \"${upstream#*/}\" --json=baseRefName --jq=.baseRefName) &&\
+				git fetch \"${upstream%%/*}\" &&\
+				git checkout -B \"$base\" \"${upstream%%/*}/$base\" &&\
+				git branch -D \"${upstream#*/}\";\
+		};\
+		f"
 	exclude = "!\
 		f() {\
 			xargs -n 1 <<< \"$@\" >> \"${PWD/GIT_PREFIX/}/.git/info/exclude\";\
