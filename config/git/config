@@ -22,13 +22,26 @@
 	unpreserve = update-index --no-assume-unchanged --
 	merged = "!\
 		f() {\
-			if ! upstream=$(git rev-parse --abbrev-ref @{u} 2> /dev/null); then\
-				echo 'fatal: no remote-tracking branch found' >&2;\
+			head=$(git rev-parse --abbrev-ref HEAD 2> /dev/null);\
+			if ! remote=$(git config --get branch.\"$head\".remote 2> /dev/null); then\
+				echo 'fatal: no remote found' >&2;\
 				exit 128;\
 			fi;\
-			if [[ $(git rev-list --count @{u}..HEAD) -gt 0 ]]; then\
-				echo 'fatal: HEAD contains unpushed commits' >&2;\
-				exit 1;\
+			if ! merge=$(git config --get branch.\"$head\".merge 2> /dev/null); then\
+				echo 'fatal: no upstream branch found' >&2;\
+				exit 128;\
+			fi;\
+			if [[ $(git for-each-ref --format='%(upstream:track)' \"$(git symbolic-ref -q HEAD)\") = '[gone]' ]]; then\
+				upstream=$remote/$(git rev-parse --abbrev-ref \"$merge\");\
+			else\
+				if ! upstream=$(git rev-parse --abbrev-ref @{u} 2> /dev/null); then\
+					echo 'fatal: no remote-tracking branch found' >&2;\
+					exit 128;\
+				fi;\
+				if [[ $(git rev-list --count @{u}..HEAD) -gt 0 ]]; then\
+					echo 'fatal: HEAD contains unpushed commits' >&2;\
+					exit 1;\
+				fi;\
 			fi;\
 			pr=$(gh pr view \"${upstream#*/}\" --json=state,baseRefName --template={{.state}}:{{.baseRefName}}) || exit 1;\
 			state=${pr%:*};\
@@ -37,9 +50,9 @@
 				echo 'fatal: pull request is not yet merged' >&2;\
 				exit 1;\
 			fi;\
-			git fetch \"${upstream%%/*}\" &&\
-				git checkout -B \"$base\" \"${upstream%%/*}/$base\" &&\
-				git branch -D \"${upstream#*/}\";\
+			git fetch --prune \"$remote\" &&\
+				git checkout -B \"$base\" \"$remote/$base\" &&\
+				git branch -D \"$head\";\
 		};\
 		f"
 	exclude = "!\
