@@ -1,9 +1,5 @@
 -- lua_post_source {{{
-local filetypes_blacklist = {'liquid'}
-for _, filetype in ipairs(vim.g.better_whitespace_filetypes_blacklist) do
-  if filetype ~= 'markdown' then
-    table.insert(filetypes_blacklist, filetype)
-  end
-end
+local filetypes_blacklist = vim.g.better_whitespace_filetypes_blacklist
+table.insert(filetypes_blacklist, 'liquid')
 vim.g.better_whitespace_filetypes_blacklist = filetypes_blacklist
 -- }}}
