@@ -7,7 +7,7 @@ vim.filetype.add({
     puml = 'plantuml',
     purs = 'purescript',
     tag = 'html',
-    tsx = 'typescript.tsx',
+    tsx = 'typescriptreact',
     uml = 'plantuml',
     xxhc = 'yaml',
     zunit = 'zsh',
