@@ -60,7 +60,9 @@ local init_id = vim.api.nvim_create_augroup('init', {})
 vim.api.nvim_create_autocmd('BufEnter', {
   group = init_id,
   callback = function()
-    vim.opt_local.formatoptions:remove({ 'c', 'r', 'o' })
+    vim.opt_local.formatoptions:remove('c')
+    vim.opt_local.formatoptions:remove('r')
+    vim.opt_local.formatoptions:remove('o')
   end,
 })
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
