@@ -43,16 +43,24 @@
 					exit 1;\
 				fi;\
 			fi;\
-			pr=$(gh pr view \"${upstream#*/}\" --json=state,baseRefName --template={{.state}}:{{.baseRefName}}) || exit 1;\
-			state=${pr%:*};\
-			base=${pr#*:};\
-			if [[ $state != MERGED ]]; then\
+			pr_path=$(gh pr view \"${upstream#*/}\" --json=headRepository,number --template=/repos/{{.headRepository.nameWithOwner}}/pulls/{{.number}}) || exit 1;\
+			pr=$(gh api \"$pr_path\") || exit 1;\
+			merged=$(jq -r '.merged' <<< \"$pr\");\
+			if [[ $merged != true ]]; then\
 				echo 'fatal: pull request is not yet merged' >&2;\
 				exit 1;\
 			fi;\
+			stack_number=$(jq -r '.stack.number' <<< \"$pr\");\
+			if [[ $stack_number != null ]]; then\
+				stack=$(gh api \"${pr_path%/pulls/*}/stacks/$stack_number\") || exit 1;\
+				head=$(jq -r '.pull_requests[].head.ref' <<< \"$stack\");\
+				base=$(jq -r '.base.ref' <<< \"$stack\");\
+			else\
+				base=$(jq -r '.base.ref' <<< \"$pr\");\
+			fi;\
 			git fetch --prune \"$remote\" &&\
 				git checkout -B \"$base\" \"$remote/$base\" &&\
-				git branch -D \"$head\";\
+				git branch -D $head;\
 		};\
 		f"
 	exclude = "!\
