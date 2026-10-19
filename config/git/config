@@ -43,8 +43,10 @@
 					exit 1;\
 				fi;\
 			fi;\
-			pr_path=$(gh pr view \"${upstream#*/}\" --json=headRepository,number --template=/repos/{{.headRepository.nameWithOwner}}/pulls/{{.number}}) || exit 1;\
-			pr=$(gh api \"$pr_path\") || exit 1;\
+			pr_result=$(gh pr view \"${upstream#*/}\" --json=url,headRepository,number --template='{{.url}}|/repos/{{.headRepository.nameWithOwner}}/pulls/{{.number}}') || exit 1;\
+			pr_host_url=${pr_result%/*/*/pull/*}\
+			pr_api_path=${pr_result#*|}\
+			pr=$(gh api --hostname=\"${pr_host_url#*://}\" \"$pr_api_path\") || exit 1;\
 			merged=$(jq -r '.merged' <<< \"$pr\");\
 			if [[ $merged != true ]]; then\
 				echo 'fatal: pull request is not yet merged' >&2;\
