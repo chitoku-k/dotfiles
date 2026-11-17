@@ -54,7 +54,7 @@
 			fi;\
 			stack_number=$(jq -r '.stack.number' <<< \"$pr\");\
 			if [[ $stack_number != null ]]; then\
-				stack=$(gh api \"${pr_path%/pulls/*}/stacks/$stack_number\") || exit 1;\
+				stack=$(gh api \"${pr_api_path%/pulls/*}/stacks/$stack_number\") || exit 1;\
 				head=$(jq -r '.pull_requests[].head.ref' <<< \"$stack\");\
 				base=$(jq -r '.base.ref' <<< \"$stack\");\
 			else\
